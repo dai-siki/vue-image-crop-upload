@@ -1,0 +1,71 @@
+{
+  "name": "vue-image-crop-upload",
+  "version": "1.0.0",
+  "description": "a vue plgin for image upload and crop（vue图片剪裁上传插件）",
+  "main": "upload.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dai-siki/vue-image-crop-upload.git"
+  },
+  "keywords": [
+    "vue",
+    "image",
+    "picture",
+    "photo",
+    "uploader",
+    "crop",
+    "file",
+    "avatar",
+    "文件上传",
+    "头像",
+    "图片剪裁上传"
+  ],
+  "author": "dai-siki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dai-siki/vue-image-crop-upload/issues"
+  },
+  "homepage": "https://github.com/dai-siki/vue-image-crop-upload#readme",
+  "dependencies": {
+    "babel-runtime": "^6.11.6"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-stage-2": "^6.17.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "browser-sync": "^2.13.0",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.23.1",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-changed": "^1.3.0",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.6",
+    "gulp.spritesmith": "^6.2.1",
+    "html-webpack-plugin": "^2.22.0",
+    "node-sass": "^3.8.0",
+    "sass-loader": "^4.0.0",
+    "scss": "^0.2.4",
+    "scss-loader": "^0.0.1",
+    "style-loader": "^0.13.1",
+    "vinyl-named": "^1.1.0",
+    "vue": "^1.0.28",
+    "vue-html-loader": "^1.2.3",
+    "vue-loader": "^8.5.4",
+    "vue-style-loader": "^1.0.0",
+    "webpack": "^1.13.1",
+    "webpack-stream": "^3.2.0"
+  }
+}

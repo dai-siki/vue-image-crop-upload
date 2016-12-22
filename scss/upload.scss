@@ -1,0 +1,353 @@
+$i_c: #999;
+$i_w: 32px;
+$i_h: 32px;
+$c_succ: #4a7;
+$c_warn: #cc0;
+$c_error: #d10;
+@keyframes vicp_progress {
+	0% {
+		background-position: 0 0;
+	}
+
+	100% {
+		background-position: 60px 0;
+	}
+}
+@keyframes vicp {
+	0% {
+		opacity: 0;
+		transform: scale(0) translatey(-60px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1) translatey(0);
+	}
+}
+
+.vue-image-crop-upload {
+	position: fixed;
+	display: block;
+	box-sizing: border-box;
+	z-index: 10000;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(#000, 0.3);
+
+	.vicp-wrap {
+		position: fixed;
+		display: block;
+		box-sizing: border-box;
+		z-index: 10000;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 600px;
+		height: 300px;
+		padding: 20px;
+		background-color: #fff;
+		box-shadow: 0 4px 10px 0 rgba(#000, 0.2);
+		animation: vicp 0.12s ease-in;
+
+		.vicp-drop-area {
+			position: relative;
+			padding: 10px;
+			height: 60px;
+			background-color: rgba(0, 0, 0, 0.03);
+			text-align: center;
+			border: 1px dashed #ddd;
+
+			// 上传图标
+			.vicp-icon1 {
+				display: block;
+				margin: 0 auto 6px;
+				width: $i_w;
+				height: $i_h;
+				overflow: hidden;
+
+				.vicp-icon1-arrow {
+					display: block;
+					margin: 0 auto;
+					width: 0;
+					height: 0;
+					border-bottom: $i_h * 0.35 solid $i_c;
+					border-left: $i_h * 0.35 solid transparent;
+					border-right: $i_h * 0.35 solid transparent;
+				}
+
+				.vicp-icon1-body {
+					display: block;
+					width: $i_w * 0.3;
+					height: $i_h * 0.35;
+					margin: 0 auto;
+					background-color: $i_c;
+				}
+
+				.vicp-icon1-bottom {
+					box-sizing: border-box;
+					display: block;
+					height: $i_h * 0.3;
+					border: 5px solid $i_c;
+					border-top: none;
+				}
+			}
+
+			.vicp-hint {
+				font-size: 14px;
+				color: #999;
+				line-height: 30px;
+			}
+
+			.vicp-loading {
+				font-size: 16px;
+				color: #999;
+				line-height: 30px;
+			}
+
+			.vicp-progress {
+				position: relative;
+				margin-top: 12px;
+				display: block;
+				height: 2px;
+				background-color: $c_succ;
+				box-shadow: 0 1px 3px 0 rgba($c_succ, 0.3);
+				transition: width 0.5s ease;
+				background-image: linear-gradient(-45deg, rgba(#fff, 0.2) 25%, transparent 25%, transparent 50%, rgba(#fff, 0.2) 50%, rgba(#fff, 0.2) 75%, transparent 75%, transparent);
+				animation: vicp_progress 0.5s ease infinite;
+
+				&::after {
+					content: '';
+					position: absolute;
+					display: block;
+					top: -2px;
+					right: -2px;
+					width: 4px;
+					height: 4px;
+					border: 1px solid rgba(#fff, 0.6);
+					box-shadow: 0 1px 4px 0 rgba($c_succ, 0.7);
+					border-radius: 100%;
+					background-color: $c_succ;
+				}
+			}
+
+			.vicp-no-supported-hint {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding: 10px 0;
+				width: 100%;
+				height: 60px;
+				line-height: 30px;
+				background-color: #eee;
+				text-align: center;
+				color: #888;
+				font-size: 14px;
+			}
+
+			&:hover {
+				cursor: pointer;
+				border-color: #ccc;
+				background-color: rgba(0, 0, 0, 0.06);
+
+				.vicp-hint {
+					color: #777;
+				}
+			}
+		}
+
+		.vicp-crop {
+			overflow: hidden;
+
+			.vicp-img-container {
+				position: relative;
+				display: block;
+				float: left;
+				width: 240px;
+				height: 180px;
+				background-color: #e5e5e0;
+				overflow: hidden;
+
+				.vicp-img {
+					position: absolute;
+					display: block;
+					cursor: move;
+				}
+
+				.vicp-img-shade {
+					position: absolute;
+					background-color: rgba(#fff, 0.7);
+
+					&.vicp-img-shade-1 {
+						top: 0;
+						left: 0;
+					}
+
+					&.vicp-img-shade-2 {
+						bottom: 0;
+						right: 0;
+					}
+				}
+			}
+
+			.vicp-preview {
+				float: right;
+				overflow: hidden;
+
+				h6 {
+					margin-bottom: 10px;
+					line-height: 36px;
+					text-align: left;
+					font-size: 16px;
+					color: #666;
+					font-weight: normal;
+				}
+
+				.vicp-preview-item {
+					position: relative;
+					padding: 5px;
+					width: 100px;
+					height: 100px;
+					float: left;
+					margin-right: 16px;
+
+					img {
+						position: absolute;
+						display: block;
+						top: 0;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						margin: auto;
+						padding: 3px;
+						background-color: #fff;
+						border: 1px solid rgba(#000, 0.15);
+						overflow: hidden;
+					}
+
+					&:last-child {
+						margin-right: 0;
+
+						img {
+							border-radius: 100%;
+						}
+					}
+				}
+			}
+		}
+
+		.vicp-operate {
+			clear: both;
+			float: right;
+			margin-top: 30px;
+
+			a {
+				position: relative;
+				float: left;
+				display: block;
+				width: 100px;
+				height: 36px;
+				line-height: 36px;
+				text-align: center;
+				cursor: pointer;
+				margin-left: 5px;
+				font-size: 14px;
+				overflow: hidden;
+
+				&:hover {
+					background-color: rgba(#000, 0.05);
+				}
+
+				&:active {
+					border-style: 0 2px 6px 0 rgba(#000, 0.18);
+				}
+			}
+		}
+
+		.vicp-error,
+		.vicp-success {
+			display: block;
+			font-size: 14px;
+			line-height: 24px;
+			height: 24px;
+			color: $c_error;
+			text-align: center;
+			vertical-align: top;
+		}
+
+		.vicp-success {
+			color: $c_succ;
+		}
+
+		// 成功图标
+		.vicp-icon3 {
+			position: relative;
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			top: 4px;
+
+			&::after {
+				position: absolute;
+				top: 3px;
+				left: 6px;
+				width: 6px;
+				height: 10px;
+				border-width: 0 2px 2px 0;
+				border-color: $c_succ;
+				border-style: solid;
+				transform: rotate(45deg);
+				content: '';
+			}
+		}
+
+		// 错误图标
+		.vicp-icon2 {
+			position: relative;
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			top: 4px;
+
+			&::after,
+			&::before {
+				content: '';
+				position: absolute;
+				top: 9px;
+				left: 4px;
+				width: 13px;
+				height: 2px;
+				background-color: $c_error;
+				transform: rotate(45deg);
+			}
+
+			&::after {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}
+
+// 波纹效果
+.e-ripple {
+	position: absolute;
+	border-radius: 100%;
+	background-color: rgba(0, 0, 0, 0.15);
+	background-clip: padding-box;
+	pointer-events: none;
+	user-select: none;
+	transform: scale(0);
+	opacity: 1;
+
+	&.z-active {
+		opacity: 0;
+		transform: scale(2);
+		transition: opacity 1.2s ease-out, transform 0.6s ease-out;
+	}
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+	<style media="screen">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			padding: 50px 20%;
+			font-family: '微软雅黑';
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		#app {
+			position: relative;
+			text-align: center;
+		}
+
+		.wrap{
+			margin-bottom: 5px;
+		}
+	</style>
+</head>
+
+<body>
+<div id="app">
+	<a class="btn" @click="toggleShow">上传图片</a>
+	<my-upload url="https://httpbin.org/post" :only-single="true"
+		:value="show" field="img" key="0" max-size="500" :only-img="true" :other-params="otherParams"></my-upload>
+</div>
+
+<script src="demo-src.js"></script>
+</body>
+
+</html>
