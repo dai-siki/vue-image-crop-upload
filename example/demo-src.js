@@ -19155,7 +19155,7 @@
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] upload.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(400)
+	__vue_template__ = __webpack_require__(404)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -19533,7 +19533,11 @@
 
 	var _typeof3 = _interopRequireDefault(_typeof2);
 
-	var _assign = __webpack_require__(396);
+	var _indexOf = __webpack_require__(396);
+
+	var _indexOf2 = _interopRequireDefault(_indexOf);
+
+	var _assign = __webpack_require__(400);
 
 	var _assign2 = _interopRequireDefault(_assign);
 
@@ -19574,6 +19578,16 @@
 	        ripple.className = 'e-ripple z-active';
 	        return false;
 	    }
+	},
+	    data2blob = function data2blob(data, mime) {
+	    data = data.split(',')[1];
+	    data = window.atob(data);
+	    var ia = new Uint8Array(data.length);
+	    for (var i = 0; i < data.length; i++) {
+	        ia[i] = data.charCodeAt(i);
+	    };
+
+	    return new Blob([ia], { type: mime });
 	};
 
 	exports.default = {
@@ -19645,12 +19659,14 @@
 	            width = that.width,
 	            height = that.height,
 	            isSupported = true,
+	            allowImgFormat = ['jpg', 'png'],
 	            langBag = {
 	            zh: {
 	                hint: '点击，或拖动图片至此处',
 	                loading: '正在上传……',
 	                noSupported: '浏览器不支持该功能，请使用IE10以上或其他现在浏览器！',
 	                success: '上传成功',
+	                fail: '图片上传失败',
 	                preview: '头像预览',
 	                btn: {
 	                    off: '取消',
@@ -19669,6 +19685,7 @@
 	                loading: 'Uploading……',
 	                noSupported: 'Browser not supported, please use IE10+ or else browser',
 	                success: 'Upload success',
+	                fail: 'Upload fail',
 	                preview: 'Preview',
 	                btn: {
 	                    off: 'Off',
@@ -19683,9 +19700,11 @@
 	                }
 	            }
 	        },
+	            tempImgFormat = (0, _indexOf2.default)(imgFormat) === -1 ? 'jpg' : imgFormat,
 	            lang = langBag[langType] ? langBag[langType] : lang['zh'],
-	            mime = mimes[imgFormat] ? mimes[imgFormat] : mimes['jpg'];
+	            mime = mimes[tempImgFormat];
 
+	        that.imgFormat = tempImgFormat;
 
 	        if (langConf) {
 	            (0, _assign2.default)(lang, langConf);
@@ -20122,6 +20141,8 @@
 	        },
 	        upload: function upload() {
 	            var that = this,
+	                lang = this.lang,
+	                imgFormat = this.imgFormat,
 	                mime = this.mime,
 	                url = this.url,
 	                otherParams = this.otherParams,
@@ -20130,7 +20151,7 @@
 	                createImgUrl = this.createImgUrl,
 	                fmData = new FormData();
 
-	            fmData.append(field, data2blob(createImgUrl, mime));
+	            fmData.append(field, data2blob(createImgUrl, mime), field + '.' + imgFormat);
 
 	            if ((typeof otherParams === 'undefined' ? 'undefined' : (0, _typeof3.default)(otherParams)) == 'object' && otherParams) {
 	                (0, _keys2.default)(otherParams).forEach(function (k) {
@@ -20172,24 +20193,13 @@
 	                if (that.value) {
 	                    that.loading = 3;
 	                    that.hasError = true;
-	                    that.errorMsg = '上传图片失败';
+	                    that.errorMsg = lang.fail;
 	                    that.$dispatch('cropUploadFail', sts, field, key);
 	                }
 	            });
 	        }
 	    }
 	};
-
-	function data2blob(data, mime) {
-	    data = data.split(',')[1];
-	    data = window.atob(data);
-	    var ia = new Uint8Array(data.length);
-	    for (var i = 0; i < data.length; i++) {
-	        ia[i] = data.charCodeAt(i);
-	    };
-
-	    return new Blob([ia], { type: mime });
-	}
 
 /***/ },
 /* 308 */
@@ -22452,7 +22462,7 @@
 	'use strict';
 
 	__webpack_require__(398);
-	module.exports = __webpack_require__(319).Object.assign;
+	module.exports = __webpack_require__(319).Array.indexOf;
 
 /***/ },
 /* 398 */
@@ -22460,13 +22470,64 @@
 
 	'use strict';
 
-	// 19.1.3.1 Object.assign(target, source)
-	var $export = __webpack_require__(317);
+	var $export = __webpack_require__(317),
+	    $indexOf = __webpack_require__(343)(false),
+	    $native = [].indexOf,
+	    NEGATIVE_ZERO = !!$native && 1 / [1].indexOf(1, -0) < 0;
 
-	$export($export.S + $export.F, 'Object', { assign: __webpack_require__(399) });
+	$export($export.P + $export.F * (NEGATIVE_ZERO || !__webpack_require__(399)($native)), 'Array', {
+	  // 22.1.3.11 / 15.4.4.14 Array.prototype.indexOf(searchElement [, fromIndex])
+	  indexOf: function indexOf(searchElement /*, fromIndex = 0 */) {
+	    return NEGATIVE_ZERO
+	    // convert -0 to +0
+	    ? $native.apply(this, arguments) || 0 : $indexOf(this, searchElement, arguments[1]);
+	  }
+	});
 
 /***/ },
 /* 399 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var fails = __webpack_require__(328);
+
+	module.exports = function (method, arg) {
+	  return !!method && fails(function () {
+	    arg ? method.call(null, function () {}, 1) : method.call(null);
+	  });
+	};
+
+/***/ },
+/* 400 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = { "default": __webpack_require__(401), __esModule: true };
+
+/***/ },
+/* 401 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	__webpack_require__(402);
+	module.exports = __webpack_require__(319).Object.assign;
+
+/***/ },
+/* 402 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	// 19.1.3.1 Object.assign(target, source)
+	var $export = __webpack_require__(317);
+
+	$export($export.S + $export.F, 'Object', { assign: __webpack_require__(403) });
+
+/***/ },
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22510,7 +22571,7 @@
 	} : $assign;
 
 /***/ },
-/* 400 */
+/* 404 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"vue-image-crop-upload\" v-show=\"value\" _v-3a1deb25=\"\">\n    <div class=\"vicp-wrap\" _v-3a1deb25=\"\">\n        <div class=\"vicp-close\" @click=\"off\" _v-3a1deb25=\"\">\n            <i class=\"vicp-icon4\" _v-3a1deb25=\"\"></i>\n        </div>\n\n        <div class=\"vicp-step1\" v-show=\"step == 1\" _v-3a1deb25=\"\">\n            <div class=\"vicp-drop-area\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @click=\"handleClick\" @drop=\"handleChange\" _v-3a1deb25=\"\">\n                <i class=\"vicp-icon1\" v-show=\"loading != 1\" _v-3a1deb25=\"\">\n\t\t\t\t\t<i class=\"vicp-icon1-arrow\" _v-3a1deb25=\"\"></i>\n                <i class=\"vicp-icon1-body\" _v-3a1deb25=\"\"></i>\n                <i class=\"vicp-icon1-bottom\" _v-3a1deb25=\"\"></i>\n                </i>\n                <span class=\"vicp-hint\" v-show=\"loading !== 1\" _v-3a1deb25=\"\">{{ lang.hint }}</span>\n                <span class=\"vicp-no-supported-hint\" v-show=\"!isSupported\" _v-3a1deb25=\"\">{{ lang.noSupported }}</span>\n                <input type=\"file\" v-show=\"false\" @change=\"handleChange\" v-el:fileinput=\"\" _v-3a1deb25=\"\">\n            </div>\n            <div class=\"vicp-error\" v-show=\"hasError\" _v-3a1deb25=\"\">\n                <i class=\"vicp-icon2\" _v-3a1deb25=\"\"></i> {{ errorMsg }}\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"off\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.off }}</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step2\" v-if=\"step == 2\" _v-3a1deb25=\"\">\n            <div class=\"vicp-crop\" _v-3a1deb25=\"\">\n                <div class=\"vicp-crop-left\" _v-3a1deb25=\"\">\n                    <div class=\"vicp-img-container\" _v-3a1deb25=\"\">\n                        <img :src=\"sourceImgUrl\" :style=\"sourceImgStyle\" class=\"vicp-img\" draggable=\"false\" @drag=\"preventDefault\" @dragstart=\"preventDefault\" @dragend=\"preventDefault\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @drop=\"preventDefault\" @mousedown=\"imgStartMove\" @mousemove=\"imgMove\" @mouseup=\"createImg\" @mouseout=\"createImg\" v-el:img=\"\" _v-3a1deb25=\"\">\n                        <div class=\"vicp-img-shade vicp-img-shade-1\" :style=\"sourceImgShadeStyle\" _v-3a1deb25=\"\"></div>\n                        <div class=\"vicp-img-shade vicp-img-shade-2\" :style=\"sourceImgShadeStyle\" _v-3a1deb25=\"\"></div>\n                    </div>\n                    <div class=\"vicp-range\" _v-3a1deb25=\"\">\n                        <input type=\"range\" :value=\"scale.range\" step=\"1\" min=\"0\" max=\"100\" @change=\"zoomChange\" _v-3a1deb25=\"\">\n                        <i @mousedown=\"startZoomSub\" @mouseout=\"endZoomSub\" @mouseup=\"endZoomSub\" class=\"vicp-icon5\" _v-3a1deb25=\"\"></i>\n                        <i @mousedown=\"startZoomAdd\" @mouseout=\"endZoomAdd\" @mouseup=\"endZoomAdd\" class=\"vicp-icon6\" _v-3a1deb25=\"\"></i>\n                    </div>\n                </div>\n                <div class=\"vicp-crop-right\" _v-3a1deb25=\"\">\n                    <div class=\"vicp-preview\" _v-3a1deb25=\"\">\n                        <div class=\"vicp-preview-item\" _v-3a1deb25=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" _v-3a1deb25=\"\">\n                            <span _v-3a1deb25=\"\">{{ lang.preview }}</span>\n                        </div>\n                        <div class=\"vicp-preview-item\" _v-3a1deb25=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" v-if=\"!noCircle\" _v-3a1deb25=\"\">\n                            <span _v-3a1deb25=\"\">{{ lang.preview }}</span>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"setStep(1)\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.back }}</a>\n                <a class=\"vicp-operate-btn\" @click=\"upload\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.save }}</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step3\" v-if=\"step == 3\" _v-3a1deb25=\"\">\n            <div class=\"vicp-upload\" _v-3a1deb25=\"\">\n                <span class=\"vicp-loading\" v-show=\"loading === 1\" _v-3a1deb25=\"\">{{ lang.loading }}</span>\n                <div class=\"vicp-progress-wrap\" _v-3a1deb25=\"\">\n                    <span class=\"vicp-progress\" v-show=\"loading === 1\" :style=\"progressStyle\" _v-3a1deb25=\"\"></span>\n                </div>\n                <div class=\"vicp-error\" v-show=\"hasError\" _v-3a1deb25=\"\">\n                    <i class=\"vicp-icon2\" _v-3a1deb25=\"\"></i> {{ errorMsg }}\n                </div>\n                <div class=\"vicp-success\" v-show=\"loading === 2\" _v-3a1deb25=\"\">\n                    <i class=\"vicp-icon3\" _v-3a1deb25=\"\"></i> {{ lang.success }}\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"setStep(2)\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.back }}</a>\n                <a @click=\"off\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.close }}</a>\n            </div>\n        </div>\n        <canvas v-show=\"false\" :width=\"width\" :height=\"height\" v-el:canvas=\"\" _v-3a1deb25=\"\"></canvas>\n    </div>\n</div>\n";

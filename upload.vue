@@ -123,6 +123,18 @@ const mimes = {
             ripple.className = 'e-ripple z-active';
             return false;
         }
+    },
+    // database64文件格式转换为2进制
+    data2blob = function (data, mime){
+        // dataURL 的格式为 “data:image/png;base64,****”,逗号之前都是一些说明性的文字，我们只需要逗号之后的就行了
+        data = data.split(',')[1];
+        data = window.atob(data);
+        var ia = new Uint8Array(data.length);
+        for (var i = 0; i < data.length; i++) {
+            ia[i] = data.charCodeAt(i);
+        };
+        // canvas.toDataURL 返回的默认格式就是 image/png
+        return new Blob([ia], {type:mime});
     };
 
 export default {
@@ -197,12 +209,17 @@ export default {
                 height
             } = that,
             isSupported = true,
+            allowImgFormat = [
+                'jpg',
+                'png'
+            ],
             langBag = {
                 zh: {
                     hint: '点击，或拖动图片至此处',
                     loading: '正在上传……',
                     noSupported: '浏览器不支持该功能，请使用IE10以上或其他现在浏览器！',
                     success: '上传成功',
+                    fail: '图片上传失败',
                     preview: '头像预览',
                     btn: {
                         off: '取消',
@@ -221,6 +238,7 @@ export default {
                     loading: 'Uploading……',
                     noSupported: 'Browser not supported, please use IE10+ or else browser',
                     success: 'Upload success',
+                    fail: 'Upload fail',
                     preview: 'Preview',
                     btn: {
                         off: 'Off',
@@ -235,8 +253,11 @@ export default {
                     }
                 }
             },
+            tempImgFormat = Array.indexOf(imgFormat) === -1 ? 'jpg' : imgFormat,
             lang = langBag[langType] ? langBag[langType] : lang['zh'],
-            mime = mimes[imgFormat] ? mimes[imgFormat] : mimes['jpg'];
+            mime = mimes[tempImgFormat];
+        // 规范图片格式
+        that.imgFormat = tempImgFormat;
 
         if (langConf) {
             Object.assign(lang, langConf);
@@ -740,6 +761,8 @@ export default {
         upload() {
             let that = this,
                 {
+                    lang,
+                    imgFormat,
                     mime,
                     url,
                     otherParams,
@@ -748,7 +771,7 @@ export default {
                     createImgUrl
                 } = this,
                 fmData = new FormData();
-            fmData.append(field, data2blob(createImgUrl, mime));
+            fmData.append(field, data2blob(createImgUrl, mime), field + '.' + imgFormat);
 
             // 添加其他参数
             if (typeof otherParams == 'object' && otherParams) {
@@ -798,7 +821,7 @@ export default {
                     if (that.value) {
                         that.loading = 3;
                         that.hasError = true;
-                        that.errorMsg = '上传图片失败';
+                        that.errorMsg = lang.fail;
                         that.$dispatch('cropUploadFail', sts, field, key);
                     }
                 }
@@ -807,18 +830,6 @@ export default {
     }
 }
 
-// database64文件格式转换为2进制
-function data2blob(data, mime){
-    // dataURL 的格式为 “data:image/png;base64,****”,逗号之前都是一些说明性的文字，我们只需要逗号之后的就行了
-    data = data.split(',')[1];
-    data = window.atob(data);
-    var ia = new Uint8Array(data.length);
-    for (var i = 0; i < data.length; i++) {
-        ia[i] = data.charCodeAt(i);
-    };
-    // canvas.toDataURL 返回的默认格式就是 image/png
-    return new Blob([ia], {type:mime});
-}
 </script>
 
 <style scoped>
