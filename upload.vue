@@ -6,16 +6,11 @@
         </div>
 
         <div class="vicp-step1" v-show="step == 1">
-            <div class="vicp-drop-area"
-                @dragleave="preventDefault"
-                @dragover="preventDefault"
-                @dragenter="preventDefault"
-                @click="handleClick"
-                @drop="handleChange">
+            <div class="vicp-drop-area" @dragleave="preventDefault" @dragover="preventDefault" @dragenter="preventDefault" @click="handleClick" @drop="handleChange">
                 <i class="vicp-icon1" v-show="loading != 1">
 					<i class="vicp-icon1-arrow"></i>
-                    <i class="vicp-icon1-body"></i>
-                    <i class="vicp-icon1-bottom"></i>
+                <i class="vicp-icon1-body"></i>
+                <i class="vicp-icon1-bottom"></i>
                 </i>
                 <span class="vicp-hint" v-show="loading !== 1">{{ lang.hint }}</span>
                 <span class="vicp-no-supported-hint" v-show="!isSupported">{{ lang.noSupported }}</span>
@@ -25,7 +20,7 @@
                 <i class="vicp-icon2"></i> {{ errorMsg }}
             </div>
             <div class="vicp-operate">
-                <a @click="off" @mousedown="ripple">取消</a>
+                <a @click="off" @mousedown="ripple">{{ lang.btn.off }}</a>
             </div>
         </div>
 
@@ -33,28 +28,15 @@
             <div class="vicp-crop">
                 <div class="vicp-crop-left">
                     <div class="vicp-img-container">
-                        <img :src="sourceImgUrl"
-                        :style="sourceImgStyle" class="vicp-img"
-                        draggable="false"
-                        @drag="preventDefault"
-                        @dragstart="preventDefault"
-                        @dragend="preventDefault"
-                        @dragleave="preventDefault"
-                        @dragover="preventDefault"
-                        @dragenter="preventDefault"
-                        @drop="preventDefault"
-                        @mousedown="imgStartMove"
-                        @mousemove="imgMove"
-                        @mouseup="createImg"
-                        @mouseout="createImg"
-                        v-el:img>
+                        <img :src="sourceImgUrl" :style="sourceImgStyle" class="vicp-img" draggable="false" @drag="preventDefault" @dragstart="preventDefault" @dragend="preventDefault" @dragleave="preventDefault" @dragover="preventDefault" @dragenter="preventDefault" @drop="preventDefault"
+                            @mousedown="imgStartMove" @mousemove="imgMove" @mouseup="createImg" @mouseout="createImg" v-el:img>
                         <div class="vicp-img-shade vicp-img-shade-1" :style="sourceImgShadeStyle"></div>
                         <div class="vicp-img-shade vicp-img-shade-2" :style="sourceImgShadeStyle"></div>
                     </div>
                     <div class="vicp-range">
                         <input type="range" :value="scale.range" step="1" min="0" max="100" @change="zoomChange">
-                        <i @mousedown="startZoomSub"  @mouseout="endZoomSub"  @mouseup="endZoomSub" class="vicp-icon5"></i>
-                        <i @mousedown="startZoomAdd"  @mouseout="endZoomAdd"  @mouseup="endZoomAdd" class="vicp-icon6"></i>
+                        <i @mousedown="startZoomSub" @mouseout="endZoomSub" @mouseup="endZoomSub" class="vicp-icon5"></i>
+                        <i @mousedown="startZoomAdd" @mouseout="endZoomAdd" @mouseup="endZoomAdd" class="vicp-icon6"></i>
                     </div>
                 </div>
                 <div class="vicp-crop-right">
@@ -71,8 +53,8 @@
                 </div>
             </div>
             <div class="vicp-operate">
-                <a @click="setStep(1)" @mousedown="ripple">上一步</a>
-                <a class="vicp-operate-btn" @click="upload" @mousedown="ripple">保存</a>
+                <a @click="setStep(1)" @mousedown="ripple">{{ lang.btn.back }}</a>
+                <a class="vicp-operate-btn" @click="upload" @mousedown="ripple">{{ lang.btn.save }}</a>
             </div>
         </div>
 
@@ -90,8 +72,8 @@
                 </div>
             </div>
             <div class="vicp-operate">
-                <a @click="setStep(2)" @mousedown="ripple">上一步</a>
-                <a @click="off" @mousedown="ripple">关闭</a>
+                <a @click="setStep(2)" @mousedown="ripple">{{ lang.btn.back }}</a>
+                <a @click="off" @mousedown="ripple">{{ lang.btn.close }}</a>
             </div>
         </div>
         <canvas v-show="false" :width="width" :height="height" v-el:canvas></canvas>
@@ -107,24 +89,10 @@ const mimes = {
         'jpg': 'image/jpeg',
         'png': 'image/png',
         'gif': 'image/gif',
-        'mp4': 'video/mp4',
-        'mov': 'video/quicktime',
-        'wmv': 'video/x-ms-wmv',
-        'flv': 'video/x-flv',
-        'svg': 'image/svg+xml',
-        'psd': 'image/photoshop',
-        'mp3': 'audio/mpeg',
-        'rar': 'application/x-rar-compressed',
-        'zip': 'application/zip',
-        'json': 'application/json',
-        'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-        'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-        'pptx': 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-        'doc': 'application/msword',
-        'pdf': 'application/pdf',
-        'xls': 'application/vnd.ms-excel',
-        'ppt': 'application/vnd.ms-powerpoint'
+        // 'svg': 'image/svg+xml',
+        // 'psd': 'image/photoshop'
     },
+    // 点击波纹效果
     effectRipple = function(e, arg_opts) {
         let opts = Object.assign({
                 ele: e.target, // 波纹作用元素
@@ -156,13 +124,6 @@ const mimes = {
             ripple.className = 'e-ripple z-active';
             return false;
         }
-    },
-    // 图片滤镜 ---------先不弄了
-    imgFilter = function(img){
-        let canvas = document.createElement('canvas'),
-            ctx = canvas.getContext('2d');
-        ctx.drawImage(img);
-        createImgUrl = canvas.toDataURL(mimes[pictureFormat]);
     };
 
 export default {
@@ -170,7 +131,7 @@ export default {
         // 域，上传文件name，触发事件会带上（如果一个页面多个图片上传控件，可以做区分
         field: {
             type: String,
-            'default': 'upload'
+            'default': 'avatar'
         },
         // 类似于id，触发事件会带上（如果一个页面多个图片上传控件，可以做区分
         key: {
@@ -178,17 +139,18 @@ export default {
         },
         // 显示该控件与否
         value: {
+            twoWay: true,
             'default': true
         },
         // 剪裁图片的宽
         width: {
             type: Number,
-            default: 300
+            default: 200
         },
         // 剪裁图片的高
         height: {
             type: Number,
-            default: 300
+            default: 200
         },
         // 不预览圆形图片
         noCircle: {
@@ -197,6 +159,7 @@ export default {
         },
         // 单文件大小限制
         maxSize: {
+            type: Number,
             'default': 10240
         },
         // 上传地址
@@ -206,7 +169,13 @@ export default {
         },
         // 其他要上传文件附带的数据，对象格式
         otherParams: {
+            type: Object,
             'default': null
+        },
+        // 语言类型
+        langType: {
+            type: String,
+            'default': 'zh'
         },
         // 语言包
         langConf: {
@@ -214,7 +183,7 @@ export default {
             'default': null
         },
         // 图片上传格式
-        pictureFormat: {
+        imgFormat: {
             type: String,
             'default': 'png'
         }
@@ -222,24 +191,51 @@ export default {
     data() {
         let that = this,
             {
+                langType,
                 langConf,
                 width,
                 height
             } = that,
             isSupported = true,
-            lang = {
-                hint: '点击，或拖动图片至此处',
-                loading: '正在上传……',
-                noSupported: '浏览器不支持该功能，请使用IE10以上或其他现在浏览器！',
-                success: '上传成功',
-                preview: '头像预览',
-                error: {
-                    onlyImg: '仅限图片格式',
-                    onlySingle: '仅限单文件上传',
-                    outOfSize: '单文件大小不能超过 ',
-                    imgPx: '图片最低像素为（宽*高）：'
+            langBag = {
+                zh: {
+                    hint: '点击，或拖动图片至此处',
+                    loading: '正在上传……',
+                    noSupported: '浏览器不支持该功能，请使用IE10以上或其他现在浏览器！',
+                    success: '上传成功',
+                    preview: '头像预览',
+                    btn: {
+                        off: '取消',
+                        close: '关闭',
+                        back: '上一步',
+                        save: '保存'
+                    },
+                    error: {
+                        onlyImg: '仅限图片格式',
+                        outOfSize: '单文件大小不能超过 ',
+                        lowestPx: '图片最低像素为（宽*高）：'
+                    }
+                },
+                en: {
+                    hint: 'click, or drag picture to there',
+                    loading: 'uploading……',
+                    noSupported: 'Browser not supported, please use IE10+ or else browser',
+                    success: 'upload success',
+                    preview: 'preview',
+                    btn: {
+                        off: 'off',
+                        close: 'close',
+                        back: 'back',
+                        save: 'save'
+                    },
+                    error: {
+                        onlyImg: 'only image',
+                        outOfSize: 'image out of size: ',
+                        lowestPx: 'image lowest pixel（width*height）：'
+                    }
                 }
-            };
+            },
+            lang = langBag[langType] ? langBag[langType] : lang['zh'];
         if (langConf) {
             Object.assign(lang, langConf);
         }
@@ -441,7 +437,7 @@ export default {
             if (this.loading !== 1) {
                 if (e.target !== this.$els.fileinput) {
                     e.preventDefault();
-                    if(document.activeElement !== this.$els){
+                    if (document.activeElement !== this.$els) {
                         this.$els.fileinput.click();
                     }
                 }
@@ -526,7 +522,7 @@ export default {
                 // 图片像素不达标
                 if (nWidth < width || nHeight < height) {
                     that.hasError = true;
-                    that.errorMsg = lang.error.imgPx + width + '*' + height;
+                    that.errorMsg = lang.error.lowestPx + width + '*' + height;
                     return false;
                 }
                 if (ratio > nRatio) {
@@ -603,15 +599,18 @@ export default {
             scale.y = rY;
         },
         // 按钮按下开始放大
-        startZoomAdd(e){
+        startZoomAdd(e) {
             let that = this,
-                {scale} = that;
+                {
+                    scale
+                } = that;
             scale.zoomAddOn = true;
+
             function zoom() {
-                if(scale.zoomAddOn){
-                    let range = scale.range>=100 ? 100 : ++scale.range;
+                if (scale.zoomAddOn) {
+                    let range = scale.range >= 100 ? 100 : ++scale.range;
                     that.zoomImg(range);
-                    setTimeout(function () {
+                    setTimeout(function() {
                         zoom();
                     }, 60);
                 }
@@ -619,19 +618,22 @@ export default {
             zoom();
         },
         // 按钮松开或移开取消放大
-        endZoomAdd(e){
+        endZoomAdd(e) {
             this.scale.zoomAddOn = false;
         },
         // 按钮按下开始缩小
-        startZoomSub(e){
+        startZoomSub(e) {
             let that = this,
-                {scale} = that;
+                {
+                    scale
+                } = that;
             scale.zoomSubOn = true;
+
             function zoom() {
-                if(scale.zoomSubOn){
-                    let range = scale.range<=0 ? 0 : --scale.range;
+                if (scale.zoomSubOn) {
+                    let range = scale.range <= 0 ? 0 : --scale.range;
                     that.zoomImg(range);
-                    setTimeout(function () {
+                    setTimeout(function() {
                         zoom();
                     }, 60);
                 }
@@ -639,11 +641,13 @@ export default {
             zoom();
         },
         // 按钮松开或移开取消缩小
-        endZoomSub(e){
-            let {scale} = this;
+        endZoomSub(e) {
+            let {
+                scale
+            } = this;
             scale.zoomSubOn = false;
         },
-        zoomChange(e){
+        zoomChange(e) {
             this.zoomImg(e.target.value);
         },
         // 缩放原图
@@ -674,7 +678,7 @@ export default {
                 nHeight = minHeight + (maxHeight - minHeight) * newRange / 100,
                 // 新坐标（根据蒙版中心点缩放）
                 nX = sWidth / 2 - (nWidth / width) * (sWidth / 2 - x),
-                nY = sHeight  / 2 - (nHeight  / height) * (sHeight  / 2 - y);
+                nY = sHeight / 2 - (nHeight / height) * (sHeight / 2 - y);
 
             // 判断新坐标是否超过蒙版限制
             if (nX > 0) {
@@ -696,8 +700,8 @@ export default {
             scale.width = nWidth;
             scale.height = nHeight;
             scale.range = newRange;
-            setTimeout(function () {
-                if(scale.range == newRange){
+            setTimeout(function() {
+                if (scale.range == newRange) {
                     that.createImg();
                 }
             }, 300);
@@ -706,7 +710,7 @@ export default {
         createImg(e) {
             let that = this,
                 {
-                    pictureFormat,
+                    imgFormat,
                     sourceImg,
                     scale: {
                         x,
@@ -719,13 +723,14 @@ export default {
                     }
                 } = that,
                 canvas = that.$els.canvas,
-                ctx = canvas.getContext('2d');
+                ctx = canvas.getContext('2d'),
+                mime = mimes[imgFormat] ? mimes[imgFormat] : mimes['jpg'];
             if (e) {
                 // 取消鼠标按下移动状态
                 that.sourceImgMouseDown.on = false;
             }
             ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
-            that.createImgUrl = canvas.toDataURL(mimes[pictureFormat]);
+            that.createImgUrl = canvas.toDataURL(mime);
         },
         // 上传图片
         upload() {
@@ -760,7 +765,7 @@ export default {
             that.loading = 1;
             that.progress = 0;
             that.setStep(3);
-            that.$dispatch('cropImgSuccess', createImgUrl, field, key);
+            that.$dispatch('cropSuccess', createImgUrl, field, key);
             new Promise(function(resolve, reject) {
                 let client = new XMLHttpRequest();
                 client.open('POST', url, true);

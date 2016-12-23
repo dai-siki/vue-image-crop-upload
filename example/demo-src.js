@@ -68,7 +68,10 @@
 	new _vue2.default({
 		el: '#app',
 		data: {
-			show: true,
+			show1: false,
+			show2: false,
+			avatarUrl1: null,
+			avatarUrl2: null,
 			otherParams: {
 				token: '123456798',
 				name: 'img'
@@ -78,20 +81,32 @@
 			'my-upload': _upload2.default
 		},
 		methods: {
-			toggleShow: function toggleShow() {
-				var show = this.show;
+			toggleShow1: function toggleShow1() {
+				var show1 = this.show1;
 
-				this.show = !show;
+				this.show1 = !show1;
+			},
+			toggleShow2: function toggleShow2() {
+				var show2 = this.show2;
+
+				this.show2 = !show2;
 			}
 		},
 		events: {
-			uploadSuccess: function uploadSuccess(data, field, key) {
+			cropSuccess: function cropSuccess(data, field, key) {
+				if (field == 'avatar1') {
+					this.avatarUrl1 = data;
+				} else {
+					this.avatarUrl2 = data;
+				}
+			},
+			cropUploadSuccess: function cropUploadSuccess(data, field, key) {
 				console.log('-------- 上传成功 --------');
 				console.log(data);
 				console.log('field: ' + field);
 				console.log('key: ' + key);
 			},
-			uploadFail: function uploadFail(status, field, key) {
+			cropUploadFail: function cropUploadFail(status, field, key) {
 				console.log('-------- 上传失败 --------');
 				console.log(status);
 				console.log('field: ' + field);
@@ -19527,24 +19542,7 @@
 	var mimes = {
 	    'jpg': 'image/jpeg',
 	    'png': 'image/png',
-	    'gif': 'image/gif',
-	    'mp4': 'video/mp4',
-	    'mov': 'video/quicktime',
-	    'wmv': 'video/x-ms-wmv',
-	    'flv': 'video/x-flv',
-	    'svg': 'image/svg+xml',
-	    'psd': 'image/photoshop',
-	    'mp3': 'audio/mpeg',
-	    'rar': 'application/x-rar-compressed',
-	    'zip': 'application/zip',
-	    'json': 'application/json',
-	    'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-	    'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-	    'pptx': 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-	    'doc': 'application/msword',
-	    'pdf': 'application/pdf',
-	    'xls': 'application/vnd.ms-excel',
-	    'ppt': 'application/vnd.ms-powerpoint'
+	    'gif': 'image/gif'
 	},
 	    effectRipple = function effectRipple(e, arg_opts) {
 	    var opts = (0, _assign2.default)({
@@ -19576,19 +19574,13 @@
 	        ripple.className = 'e-ripple z-active';
 	        return false;
 	    }
-	},
-	    imgFilter = function imgFilter(img) {
-	    var canvas = document.createElement('canvas'),
-	        ctx = canvas.getContext('2d');
-	    ctx.drawImage(img);
-	    createImgUrl = canvas.toDataURL(mimes[pictureFormat]);
 	};
 
 	exports.default = {
 	    props: {
 	        field: {
 	            type: String,
-	            'default': 'upload'
+	            'default': 'avatar'
 	        },
 
 	        key: {
@@ -19596,17 +19588,18 @@
 	        },
 
 	        value: {
+	            twoWay: true,
 	            'default': true
 	        },
 
 	        width: {
 	            type: Number,
-	            default: 300
+	            default: 200
 	        },
 
 	        height: {
 	            type: Number,
-	            default: 300
+	            default: 200
 	        },
 
 	        noCircle: {
@@ -19615,6 +19608,7 @@
 	        },
 
 	        maxSize: {
+	            type: Number,
 	            'default': 10240
 	        },
 
@@ -19624,7 +19618,13 @@
 	        },
 
 	        otherParams: {
+	            type: Object,
 	            'default': null
+	        },
+
+	        langType: {
+	            type: String,
+	            'default': 'zh'
 	        },
 
 	        langConf: {
@@ -19632,30 +19632,57 @@
 	            'default': null
 	        },
 
-	        pictureFormat: {
+	        imgFormat: {
 	            type: String,
 	            'default': 'png'
 	        }
 	    },
 	    data: function data() {
 	        var that = this,
+	            langType = that.langType,
 	            langConf = that.langConf,
 	            width = that.width,
 	            height = that.height,
 	            isSupported = true,
-	            lang = {
-	            hint: '点击，或拖动图片至此处',
-	            loading: '正在上传……',
-	            noSupported: '浏览器不支持该功能，请使用IE10以上或其他现在浏览器！',
-	            success: '上传成功',
-	            preview: '头像预览',
-	            error: {
-	                onlyImg: '仅限图片格式',
-	                onlySingle: '仅限单文件上传',
-	                outOfSize: '单文件大小不能超过 ',
-	                imgPx: '图片最低像素为（宽*高）：'
+	            langBag = {
+	            zh: {
+	                hint: '点击，或拖动图片至此处',
+	                loading: '正在上传……',
+	                noSupported: '浏览器不支持该功能，请使用IE10以上或其他现在浏览器！',
+	                success: '上传成功',
+	                preview: '头像预览',
+	                btn: {
+	                    off: '取消',
+	                    close: '关闭',
+	                    back: '上一步',
+	                    save: '保存'
+	                },
+	                error: {
+	                    onlyImg: '仅限图片格式',
+	                    outOfSize: '单文件大小不能超过 ',
+	                    lowestPx: '图片最低像素为（宽*高）：'
+	                }
+	            },
+	            en: {
+	                hint: 'click, or drag picture to there',
+	                loading: 'uploading……',
+	                noSupported: 'Browser not supported, please use IE10+ or else browser',
+	                success: 'upload success',
+	                preview: 'preview',
+	                btn: {
+	                    off: 'off',
+	                    close: 'close',
+	                    back: 'back',
+	                    save: 'save'
+	                },
+	                error: {
+	                    onlyImg: 'only image',
+	                    outOfSize: 'image out of size: ',
+	                    lowestPx: 'image lowest pixel（width*height）：'
+	                }
 	            }
-	        };
+	        },
+	            lang = langBag[langType] ? langBag[langType] : lang['zh'];
 
 	        if (langConf) {
 	            (0, _assign2.default)(lang, langConf);
@@ -19907,7 +19934,7 @@
 
 	                if (nWidth < width || nHeight < height) {
 	                    that.hasError = true;
-	                    that.errorMsg = lang.error.imgPx + width + '*' + height;
+	                    that.errorMsg = lang.error.lowestPx + width + '*' + height;
 	                    return false;
 	                }
 	                if (ratio > nRatio) {
@@ -19983,6 +20010,7 @@
 	                scale = that.scale;
 
 	            scale.zoomAddOn = true;
+
 	            function zoom() {
 	                if (scale.zoomAddOn) {
 	                    var range = scale.range >= 100 ? 100 : ++scale.range;
@@ -20002,6 +20030,7 @@
 	                scale = that.scale;
 
 	            scale.zoomSubOn = true;
+
 	            function zoom() {
 	                if (scale.zoomSubOn) {
 	                    var range = scale.range <= 0 ? 0 : --scale.range;
@@ -20069,7 +20098,7 @@
 	        },
 	        createImg: function createImg(e) {
 	            var that = this,
-	                pictureFormat = that.pictureFormat,
+	                imgFormat = that.imgFormat,
 	                sourceImg = that.sourceImg,
 	                _that$scale = that.scale,
 	                x = _that$scale.x,
@@ -20078,13 +20107,14 @@
 	                height = _that$scale.height,
 	                scale = that.sourceImgMasking.scale,
 	                canvas = that.$els.canvas,
-	                ctx = canvas.getContext('2d');
+	                ctx = canvas.getContext('2d'),
+	                mime = mimes[imgFormat] ? mimes[imgFormat] : mimes['jpg'];
 
 	            if (e) {
 	                that.sourceImgMouseDown.on = false;
 	            }
 	            ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
-	            that.createImgUrl = canvas.toDataURL(mimes[pictureFormat]);
+	            that.createImgUrl = canvas.toDataURL(mime);
 	        },
 	        upload: function upload() {
 	            var that = this,
@@ -20114,7 +20144,7 @@
 	            that.loading = 1;
 	            that.progress = 0;
 	            that.setStep(3);
-	            that.$dispatch('cropImgSuccess', createImgUrl, field, key);
+	            that.$dispatch('cropSuccess', createImgUrl, field, key);
 	            new _promise2.default(function (resolve, reject) {
 	                var client = new XMLHttpRequest();
 	                client.open('POST', url, true);
@@ -22469,7 +22499,7 @@
 /* 400 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"vue-image-crop-upload\" v-show=\"value\" _v-3a1deb25=\"\">\n    <div class=\"vicp-wrap\" _v-3a1deb25=\"\">\n        <div class=\"vicp-close\" @click=\"off\" _v-3a1deb25=\"\">\n            <i class=\"vicp-icon4\" _v-3a1deb25=\"\"></i>\n        </div>\n\n        <div class=\"vicp-step1\" v-show=\"step == 1\" _v-3a1deb25=\"\">\n            <div class=\"vicp-drop-area\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @click=\"handleClick\" @drop=\"handleChange\" _v-3a1deb25=\"\">\n                <i class=\"vicp-icon1\" v-show=\"loading != 1\" _v-3a1deb25=\"\">\n\t\t\t\t\t<i class=\"vicp-icon1-arrow\" _v-3a1deb25=\"\"></i>\n                    <i class=\"vicp-icon1-body\" _v-3a1deb25=\"\"></i>\n                    <i class=\"vicp-icon1-bottom\" _v-3a1deb25=\"\"></i>\n                </i>\n                <span class=\"vicp-hint\" v-show=\"loading !== 1\" _v-3a1deb25=\"\">{{ lang.hint }}</span>\n                <span class=\"vicp-no-supported-hint\" v-show=\"!isSupported\" _v-3a1deb25=\"\">{{ lang.noSupported }}</span>\n                <input type=\"file\" v-show=\"false\" @change=\"handleChange\" v-el:fileinput=\"\" _v-3a1deb25=\"\">\n            </div>\n            <div class=\"vicp-error\" v-show=\"hasError\" _v-3a1deb25=\"\">\n                <i class=\"vicp-icon2\" _v-3a1deb25=\"\"></i> {{ errorMsg }}\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"off\" @mousedown=\"ripple\" _v-3a1deb25=\"\">取消</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step2\" v-if=\"step == 2\" _v-3a1deb25=\"\">\n            <div class=\"vicp-crop\" _v-3a1deb25=\"\">\n                <div class=\"vicp-crop-left\" _v-3a1deb25=\"\">\n                    <div class=\"vicp-img-container\" _v-3a1deb25=\"\">\n                        <img :src=\"sourceImgUrl\" :style=\"sourceImgStyle\" class=\"vicp-img\" draggable=\"false\" @drag=\"preventDefault\" @dragstart=\"preventDefault\" @dragend=\"preventDefault\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @drop=\"preventDefault\" @mousedown=\"imgStartMove\" @mousemove=\"imgMove\" @mouseup=\"createImg\" @mouseout=\"createImg\" v-el:img=\"\" _v-3a1deb25=\"\">\n                        <div class=\"vicp-img-shade vicp-img-shade-1\" :style=\"sourceImgShadeStyle\" _v-3a1deb25=\"\"></div>\n                        <div class=\"vicp-img-shade vicp-img-shade-2\" :style=\"sourceImgShadeStyle\" _v-3a1deb25=\"\"></div>\n                    </div>\n                    <div class=\"vicp-range\" _v-3a1deb25=\"\">\n                        <input type=\"range\" :value=\"scale.range\" step=\"1\" min=\"0\" max=\"100\" @change=\"zoomChange\" _v-3a1deb25=\"\">\n                        <i @mousedown=\"startZoomSub\" @mouseout=\"endZoomSub\" @mouseup=\"endZoomSub\" class=\"vicp-icon5\" _v-3a1deb25=\"\"></i>\n                        <i @mousedown=\"startZoomAdd\" @mouseout=\"endZoomAdd\" @mouseup=\"endZoomAdd\" class=\"vicp-icon6\" _v-3a1deb25=\"\"></i>\n                    </div>\n                </div>\n                <div class=\"vicp-crop-right\" _v-3a1deb25=\"\">\n                    <div class=\"vicp-preview\" _v-3a1deb25=\"\">\n                        <div class=\"vicp-preview-item\" _v-3a1deb25=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" _v-3a1deb25=\"\">\n                            <span _v-3a1deb25=\"\">{{ lang.preview }}</span>\n                        </div>\n                        <div class=\"vicp-preview-item\" _v-3a1deb25=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" v-if=\"!noCircle\" _v-3a1deb25=\"\">\n                            <span _v-3a1deb25=\"\">{{ lang.preview }}</span>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"setStep(1)\" @mousedown=\"ripple\" _v-3a1deb25=\"\">上一步</a>\n                <a class=\"vicp-operate-btn\" @click=\"upload\" @mousedown=\"ripple\" _v-3a1deb25=\"\">保存</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step3\" v-if=\"step == 3\" _v-3a1deb25=\"\">\n            <div class=\"vicp-upload\" _v-3a1deb25=\"\">\n                <span class=\"vicp-loading\" v-show=\"loading === 1\" _v-3a1deb25=\"\">{{ lang.loading }}</span>\n                <div class=\"vicp-progress-wrap\" _v-3a1deb25=\"\">\n                    <span class=\"vicp-progress\" v-show=\"loading === 1\" :style=\"progressStyle\" _v-3a1deb25=\"\"></span>\n                </div>\n                <div class=\"vicp-error\" v-show=\"hasError\" _v-3a1deb25=\"\">\n                    <i class=\"vicp-icon2\" _v-3a1deb25=\"\"></i> {{ errorMsg }}\n                </div>\n                <div class=\"vicp-success\" v-show=\"loading === 2\" _v-3a1deb25=\"\">\n                    <i class=\"vicp-icon3\" _v-3a1deb25=\"\"></i> {{ lang.success }}\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"setStep(2)\" @mousedown=\"ripple\" _v-3a1deb25=\"\">上一步</a>\n                <a @click=\"off\" @mousedown=\"ripple\" _v-3a1deb25=\"\">关闭</a>\n            </div>\n        </div>\n        <canvas v-show=\"false\" :width=\"width\" :height=\"height\" v-el:canvas=\"\" _v-3a1deb25=\"\"></canvas>\n    </div>\n</div>\n\n";
+	module.exports = "\n<div class=\"vue-image-crop-upload\" v-show=\"value\" _v-3a1deb25=\"\">\n    <div class=\"vicp-wrap\" _v-3a1deb25=\"\">\n        <div class=\"vicp-close\" @click=\"off\" _v-3a1deb25=\"\">\n            <i class=\"vicp-icon4\" _v-3a1deb25=\"\"></i>\n        </div>\n\n        <div class=\"vicp-step1\" v-show=\"step == 1\" _v-3a1deb25=\"\">\n            <div class=\"vicp-drop-area\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @click=\"handleClick\" @drop=\"handleChange\" _v-3a1deb25=\"\">\n                <i class=\"vicp-icon1\" v-show=\"loading != 1\" _v-3a1deb25=\"\">\n\t\t\t\t\t<i class=\"vicp-icon1-arrow\" _v-3a1deb25=\"\"></i>\n                <i class=\"vicp-icon1-body\" _v-3a1deb25=\"\"></i>\n                <i class=\"vicp-icon1-bottom\" _v-3a1deb25=\"\"></i>\n                </i>\n                <span class=\"vicp-hint\" v-show=\"loading !== 1\" _v-3a1deb25=\"\">{{ lang.hint }}</span>\n                <span class=\"vicp-no-supported-hint\" v-show=\"!isSupported\" _v-3a1deb25=\"\">{{ lang.noSupported }}</span>\n                <input type=\"file\" v-show=\"false\" @change=\"handleChange\" v-el:fileinput=\"\" _v-3a1deb25=\"\">\n            </div>\n            <div class=\"vicp-error\" v-show=\"hasError\" _v-3a1deb25=\"\">\n                <i class=\"vicp-icon2\" _v-3a1deb25=\"\"></i> {{ errorMsg }}\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"off\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.off }}</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step2\" v-if=\"step == 2\" _v-3a1deb25=\"\">\n            <div class=\"vicp-crop\" _v-3a1deb25=\"\">\n                <div class=\"vicp-crop-left\" _v-3a1deb25=\"\">\n                    <div class=\"vicp-img-container\" _v-3a1deb25=\"\">\n                        <img :src=\"sourceImgUrl\" :style=\"sourceImgStyle\" class=\"vicp-img\" draggable=\"false\" @drag=\"preventDefault\" @dragstart=\"preventDefault\" @dragend=\"preventDefault\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @drop=\"preventDefault\" @mousedown=\"imgStartMove\" @mousemove=\"imgMove\" @mouseup=\"createImg\" @mouseout=\"createImg\" v-el:img=\"\" _v-3a1deb25=\"\">\n                        <div class=\"vicp-img-shade vicp-img-shade-1\" :style=\"sourceImgShadeStyle\" _v-3a1deb25=\"\"></div>\n                        <div class=\"vicp-img-shade vicp-img-shade-2\" :style=\"sourceImgShadeStyle\" _v-3a1deb25=\"\"></div>\n                    </div>\n                    <div class=\"vicp-range\" _v-3a1deb25=\"\">\n                        <input type=\"range\" :value=\"scale.range\" step=\"1\" min=\"0\" max=\"100\" @change=\"zoomChange\" _v-3a1deb25=\"\">\n                        <i @mousedown=\"startZoomSub\" @mouseout=\"endZoomSub\" @mouseup=\"endZoomSub\" class=\"vicp-icon5\" _v-3a1deb25=\"\"></i>\n                        <i @mousedown=\"startZoomAdd\" @mouseout=\"endZoomAdd\" @mouseup=\"endZoomAdd\" class=\"vicp-icon6\" _v-3a1deb25=\"\"></i>\n                    </div>\n                </div>\n                <div class=\"vicp-crop-right\" _v-3a1deb25=\"\">\n                    <div class=\"vicp-preview\" _v-3a1deb25=\"\">\n                        <div class=\"vicp-preview-item\" _v-3a1deb25=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" _v-3a1deb25=\"\">\n                            <span _v-3a1deb25=\"\">{{ lang.preview }}</span>\n                        </div>\n                        <div class=\"vicp-preview-item\" _v-3a1deb25=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" v-if=\"!noCircle\" _v-3a1deb25=\"\">\n                            <span _v-3a1deb25=\"\">{{ lang.preview }}</span>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"setStep(1)\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.back }}</a>\n                <a class=\"vicp-operate-btn\" @click=\"upload\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.save }}</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step3\" v-if=\"step == 3\" _v-3a1deb25=\"\">\n            <div class=\"vicp-upload\" _v-3a1deb25=\"\">\n                <span class=\"vicp-loading\" v-show=\"loading === 1\" _v-3a1deb25=\"\">{{ lang.loading }}</span>\n                <div class=\"vicp-progress-wrap\" _v-3a1deb25=\"\">\n                    <span class=\"vicp-progress\" v-show=\"loading === 1\" :style=\"progressStyle\" _v-3a1deb25=\"\"></span>\n                </div>\n                <div class=\"vicp-error\" v-show=\"hasError\" _v-3a1deb25=\"\">\n                    <i class=\"vicp-icon2\" _v-3a1deb25=\"\"></i> {{ errorMsg }}\n                </div>\n                <div class=\"vicp-success\" v-show=\"loading === 2\" _v-3a1deb25=\"\">\n                    <i class=\"vicp-icon3\" _v-3a1deb25=\"\"></i> {{ lang.success }}\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"setStep(2)\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.back }}</a>\n                <a @click=\"off\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.close }}</a>\n            </div>\n        </div>\n        <canvas v-show=\"false\" :width=\"width\" :height=\"height\" v-el:canvas=\"\" _v-3a1deb25=\"\"></canvas>\n    </div>\n</div>\n\n";
 
 /***/ }
 /******/ ]);

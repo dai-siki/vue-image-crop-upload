@@ -12,7 +12,7 @@
 		}
 
 		body {
-			padding: 50px 20%;
+			padding: 100px 20%;
 			font-family: '微软雅黑';
 		}
 
@@ -26,13 +26,13 @@
 			text-align: center;
 		}
 
-		.wrap{
+		.wrap {
 			margin-bottom: 5px;
 		}
 
 		.btn {
 			display: block;
-			margin: 100px auto;
+			margin: 30px auto 10px auto;
 			width: 120px;
 			height: 40px;
 			font-size: 14px;
@@ -41,17 +41,41 @@
 			background-color: rgba(0, 0, 0, 0.08);
 			cursor: pointer;
 		}
+
+		.avatar {
+			display: block;
+			width: 300px;
+			height: 300px;
+			margin: 10px auto;
+		}
 	</style>
 </head>
 
 <body>
-<div id="app">
-	<a class="btn" @click="toggleShow">点我设置头像</a>
-	<my-upload url="https://httpbin.org/post"
-		:value.sync="show" field="img" key="0" :other-params="otherParams"></my-upload>
-</div>
+	<div id="app">
+		<div class="item">
+			<a class="btn" @click="toggleShow1">设置头像</a>
+			<img class="avatar" v-if="avatarUrl1" :src="avatarUrl1" v-show="true" style="display: none;">
+			<my-upload url="https://httpbin.org/post"
+				field="avatar1"
+				key="0"
+				:value.sync="show1"
+				:other-params="otherParams"></my-upload>
+		</div>
 
-<script src="demo-src.js"></script>
+		<div class="item">
+			<a class="btn" @click="toggleShow2">set avatar</a>
+			<img class="avatar" v-if="avatarUrl2" :src="avatarUrl2" v-show="true" style="display: none;">
+			<my-upload url="https://httpbin.org/post"
+				field="avatar2"
+				key="0"
+				lang-type="en"
+				:value.sync="show2"
+				:other-params="otherParams"></my-upload>
+		</div>
+	</div>
+
+	<script src="demo-src.js"></script>
 </body>
 
 </html>
