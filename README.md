@@ -1,6 +1,6 @@
 # vue-image-crop-upload
 
-A beautiful vue component for image upload and crop（vue图片剪裁上传组件）
+A beautiful vue component for image crop and upload. （vue图片剪裁上传组件）
 
 ## 中文文档在下面
 
