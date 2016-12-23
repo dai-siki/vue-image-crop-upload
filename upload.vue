@@ -79,7 +79,6 @@
         <canvas v-show="false" :width="width" :height="height" v-el:canvas></canvas>
     </div>
 </div>
-
 </template>
 
 <script>
@@ -217,21 +216,21 @@ export default {
                     }
                 },
                 en: {
-                    hint: 'click, or drag picture to there',
-                    loading: 'uploading……',
+                    hint: 'Click, or drag picture to there',
+                    loading: 'Uploading……',
                     noSupported: 'Browser not supported, please use IE10+ or else browser',
-                    success: 'upload success',
-                    preview: 'preview',
+                    success: 'Upload success',
+                    preview: 'Preview',
                     btn: {
-                        off: 'off',
-                        close: 'close',
-                        back: 'back',
-                        save: 'save'
+                        off: 'Off',
+                        close: 'Close',
+                        back: 'Back',
+                        save: 'Save'
                     },
                     error: {
-                        onlyImg: 'only image',
-                        outOfSize: 'image out of size: ',
-                        lowestPx: 'image lowest pixel（width*height）：'
+                        onlyImg: 'Only image',
+                        outOfSize: 'Image is out of size: ',
+                        lowestPx: 'Image lowest pixel（width*height）：'
                     }
                 }
             },
