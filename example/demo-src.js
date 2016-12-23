@@ -19634,11 +19634,12 @@
 
 	        imgFormat: {
 	            type: String,
-	            'default': 'png'
+	            'default': 'jpg'
 	        }
 	    },
 	    data: function data() {
 	        var that = this,
+	            imgFormat = that.imgFormat,
 	            langType = that.langType,
 	            langConf = that.langConf,
 	            width = that.width,
@@ -19682,7 +19683,9 @@
 	                }
 	            }
 	        },
-	            lang = langBag[langType] ? langBag[langType] : lang['zh'];
+	            lang = langBag[langType] ? langBag[langType] : lang['zh'],
+	            mime = mimes[imgFormat] ? mimes[imgFormat] : mimes['jpg'];
+
 
 	        if (langConf) {
 	            (0, _assign2.default)(lang, langConf);
@@ -19691,6 +19694,8 @@
 	            isSupported = false;
 	        }
 	        return {
+	            mime: mime,
+
 	            lang: lang,
 
 	            isSupported: isSupported,
@@ -20098,7 +20103,7 @@
 	        },
 	        createImg: function createImg(e) {
 	            var that = this,
-	                imgFormat = that.imgFormat,
+	                mime = that.mime,
 	                sourceImg = that.sourceImg,
 	                _that$scale = that.scale,
 	                x = _that$scale.x,
@@ -20107,8 +20112,7 @@
 	                height = _that$scale.height,
 	                scale = that.sourceImgMasking.scale,
 	                canvas = that.$els.canvas,
-	                ctx = canvas.getContext('2d'),
-	                mime = mimes[imgFormat] ? mimes[imgFormat] : mimes['jpg'];
+	                ctx = canvas.getContext('2d');
 
 	            if (e) {
 	                that.sourceImgMouseDown.on = false;
@@ -20118,16 +20122,15 @@
 	        },
 	        upload: function upload() {
 	            var that = this,
+	                mime = this.mime,
 	                url = this.url,
 	                otherParams = this.otherParams,
 	                field = this.field,
 	                key = this.key,
 	                createImgUrl = this.createImgUrl,
-	                fmData = new FormData(),
-	                img = new Image();
+	                fmData = new FormData();
 
-	            img.src = createImgUrl;
-	            fmData.append(field, img);
+	            fmData.append(field, data2blob(createImgUrl, mime));
 
 	            if ((typeof otherParams === 'undefined' ? 'undefined' : (0, _typeof3.default)(otherParams)) == 'object' && otherParams) {
 	                (0, _keys2.default)(otherParams).forEach(function (k) {
@@ -20176,6 +20179,17 @@
 	        }
 	    }
 	};
+
+	function data2blob(data, mime) {
+	    data = data.split(',')[1];
+	    data = window.atob(data);
+	    var ia = new Uint8Array(data.length);
+	    for (var i = 0; i < data.length; i++) {
+	        ia[i] = data.charCodeAt(i);
+	    };
+
+	    return new Blob([ia], { type: mime });
+	}
 
 /***/ },
 /* 308 */

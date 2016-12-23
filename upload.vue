@@ -184,12 +184,13 @@ export default {
         // 图片上传格式
         imgFormat: {
             type: String,
-            'default': 'png'
+            'default': 'jpg'
         }
     },
     data() {
         let that = this,
             {
+                imgFormat,
                 langType,
                 langConf,
                 width,
@@ -234,7 +235,9 @@ export default {
                     }
                 }
             },
-            lang = langBag[langType] ? langBag[langType] : lang['zh'];
+            lang = langBag[langType] ? langBag[langType] : lang['zh'],
+            mime = mimes[imgFormat] ? mimes[imgFormat] : mimes['jpg'];
+
         if (langConf) {
             Object.assign(lang, langConf);
         }
@@ -242,6 +245,9 @@ export default {
             isSupported = false;
         }
         return {
+            // 图片的mime
+            mime,
+
             // 语言包
             lang,
 
@@ -709,7 +715,7 @@ export default {
         createImg(e) {
             let that = this,
                 {
-                    imgFormat,
+                    mime,
                     sourceImg,
                     scale: {
                         x,
@@ -722,8 +728,7 @@ export default {
                     }
                 } = that,
                 canvas = that.$els.canvas,
-                ctx = canvas.getContext('2d'),
-                mime = mimes[imgFormat] ? mimes[imgFormat] : mimes['jpg'];
+                ctx = canvas.getContext('2d');
             if (e) {
                 // 取消鼠标按下移动状态
                 that.sourceImgMouseDown.on = false;
@@ -735,16 +740,15 @@ export default {
         upload() {
             let that = this,
                 {
+                    mime,
                     url,
                     otherParams,
                     field,
                     key,
                     createImgUrl
                 } = this,
-                fmData = new FormData(),
-                img = new Image();
-            img.src = createImgUrl;
-            fmData.append(field, img);
+                fmData = new FormData();
+            fmData.append(field, data2blob(createImgUrl, mime));
 
             // 添加其他参数
             if (typeof otherParams == 'object' && otherParams) {
@@ -803,6 +807,18 @@ export default {
     }
 }
 
+// database64文件格式转换为2进制
+function data2blob(data, mime){
+    // dataURL 的格式为 “data:image/png;base64,****”,逗号之前都是一些说明性的文字，我们只需要逗号之后的就行了
+    data = data.split(',')[1];
+    data = window.atob(data);
+    var ia = new Uint8Array(data.length);
+    for (var i = 0; i < data.length; i++) {
+        ia[i] = data.charCodeAt(i);
+    };
+    // canvas.toDataURL 返回的默认格式就是 image/png
+    return new Blob([ia], {type:mime});
+}
 </script>
 
 <style scoped>

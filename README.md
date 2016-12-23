@@ -37,7 +37,7 @@ $ npm install vue-image-crop-upload
 | langConf             | Object            |                   | language extend    |
 | width             | Number            |   200                | width of receive image     |
 | height             | Number            |  200                 | height of receive image   |
-| imgFormat             | string            | 'jpg'                  | jpg/png/gif, Server api receive file type.    |
+| imgFormat             | string            | 'jpg'                  | jpg/png, Server api receive file type.    |
 
 #### Events
 | 名称              | 说明                                         |
@@ -196,7 +196,7 @@ $ npm install vue-image-crop-upload
 | langConf             | Object            |                   | 语言包自行扩展    |
 | width             | Number            |   200                | 最终得到的图片宽度     |
 | height             | Number            |  200                 | 最终得到的图片高度   |
-| imgFormat             | string            | 'jpg'                  | jpg/png/gif, 最终得到的图片格式    |
+| imgFormat             | string            | 'jpg'                  | jpg/png, 最终得到的图片格式    |
 
 #### Events
 | 名称              | 说明                                         |
