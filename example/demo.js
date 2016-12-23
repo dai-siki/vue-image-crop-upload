@@ -17,7 +17,8 @@ new Vue({
 	},
 	methods: {
 		toggleShow() {
-			this.show = !this.show;
+			let {show} = this;
+			this.show = !show;
 		}
 	},
 	events: {

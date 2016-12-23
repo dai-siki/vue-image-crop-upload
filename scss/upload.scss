@@ -1,10 +1,10 @@
-$i_c: #999;
+$i_c: rgba(#000, 0.3);
 $i_w: 42px;
 $i_h: 42px;
 $c_succ: #4a7;
 $c_warn: #cc0;
 $c_error: #d10;
-$c_info: #06c;
+$c_info: #07d;
 @mixin bs1 {
 	box-shadow: 0 1px 3px 0 rgba(#000, 0.12);
 }
@@ -16,11 +16,11 @@ $c_info: #06c;
 }
 @keyframes vicp_progress {
 	0% {
-		background-position: 0 0;
+		background-position-y: 0;
 	}
 
 	100% {
-		background-position: 60px 0;
+		background-position-y: 40px;
 	}
 }
 @keyframes vicp {
@@ -46,7 +46,9 @@ $c_info: #06c;
 	right: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(#000, 0.5);
+	background-color: rgba(#000, 0.65);
+	-webkit-tap-highlight-color: transparent;
+	-moz-tap-highlight-color: transparent;
 
 	.vicp-wrap {
 		@include bs3;
@@ -60,8 +62,8 @@ $c_info: #06c;
 		right: 0;
 		margin: auto;
 		width: 600px;
-		height: 320px;
-		padding: 20px;
+		height: 330px;
+		padding: 25px;
 		background-color: #fff;
 		border-radius: 2px;
 		animation: vicp 0.12s ease-in;
@@ -77,18 +79,20 @@ $c_info: #06c;
 				width: 30px;
 				height: 30px;
 				cursor: pointer;
+				transition: transform 0.18s;
+				transform: rotate(0);
 
 				&::after,
 				&::before {
-					@include bs1;
+					@include bs3;
 					content: '';
 					position: absolute;
 					top: 12px;
 					left: 4px;
 					width: 20px;
 					height: 3px;
-					background-color: rgba(#fff, 0.9);
 					transform: rotate(45deg);
+					background-color: #fff;
 				}
 
 				&::after {
@@ -96,11 +100,7 @@ $c_info: #06c;
 				}
 
 				&:hover {
-					&::after,
-					&::before {
-						@include bs3;
-						background-color: #fff;
-					}
+					transform: rotate(90deg);
 				}
 			}
 		}
@@ -112,7 +112,8 @@ $c_info: #06c;
 				height: 100px;
 				background-color: rgba(0, 0, 0, 0.03);
 				text-align: center;
-				border: 1px dashed #ddd;
+				border: 1px dashed rgba(0, 0, 0, 0.08);
+				overflow: hidden;
 
 				// 上传图标
 				.vicp-icon1 {
@@ -144,7 +145,7 @@ $c_info: #06c;
 						box-sizing: border-box;
 						display: block;
 						height: $i_h * 0.3;
-						border: 8px solid $i_c;
+						border: 6px solid $i_c;
 						border-top: none;
 					}
 				}
@@ -174,12 +175,8 @@ $c_info: #06c;
 
 				&:hover {
 					cursor: pointer;
-					border-color: #ccc;
-					background-color: rgba(0, 0, 0, 0.06);
-
-					.vicp-hint {
-						color: #333;
-					}
+					border-color: rgba(0, 0, 0, 0.1);
+					background-color: rgba(0, 0, 0, 0.05);
 				}
 			}
 		}
@@ -190,7 +187,6 @@ $c_info: #06c;
 
 				.vicp-crop-left {
 					float: left;
-					overflow: hidden;
 
 					.vicp-img-container {
 						position: relative;
@@ -204,12 +200,13 @@ $c_info: #06c;
 							position: absolute;
 							display: block;
 							cursor: move;
+							user-select: none;
 						}
 
 						.vicp-img-shade {
 							@include bs2;
 							position: absolute;
-							background-color: rgba(#fff, 0.8);
+							background-color: rgba(#f1f2f3, 0.8);
 
 							&.vicp-img-shade-1 {
 								top: 0;
@@ -227,46 +224,50 @@ $c_info: #06c;
 						position: relative;
 						margin: 30px 0;
 						width: 240px;
-						height: 20px;
+						height: 18px;
 
-						// 减号
-						.vicp-icon5 {
+						.vicp-icon5,
+						.vicp-icon6 {
 							position: absolute;
 							top: 0;
-							left: 0;
 							width: 18px;
 							height: 18px;
 							border-radius: 100%;
-							background-color: rgba(#000, 0.1);
+							background-color: rgba(#000, 0.08);
+
+							&:hover {
+								@include bs1;
+								cursor: pointer;
+								background-color: rgba(#000, 0.14);
+							}
+						}
+
+						// 减号
+						.vicp-icon5 {
+							left: 0;
 
 							&::before {
 								position: absolute;
 								content: '';
 								display: block;
-								left: 2px;
+								left: 3px;
 								top: 8px;
-								width: 14px;
+								width: 12px;
 								height: 2px;
 								background-color: #fff;
 							}
 						}
 						// 加号
 						.vicp-icon6 {
-							position: absolute;
-							top: 0;
 							right: 0;
-							width: 18px;
-							height: 18px;
-							border-radius: 100%;
-							background-color: rgba(#000, 0.1);
 
 							&::before {
 								position: absolute;
 								content: '';
 								display: block;
-								left: 2px;
+								left: 3px;
 								top: 8px;
-								width: 14px;
+								width: 12px;
 								height: 2px;
 								background-color: #fff;
 							}
@@ -275,10 +276,10 @@ $c_info: #06c;
 								position: absolute;
 								content: '';
 								display: block;
-								top: 2px;
+								top: 3px;
 								left: 8px;
 								width: 2px;
-								height: 14px;
+								height: 12px;
 								background-color: #fff;
 							}
 						}
@@ -288,14 +289,14 @@ $c_info: #06c;
 							padding-top: 5px;
 							margin: 0 auto;
 							width: 180px;
-							vertical-align: middle;
+							height: 8px;
+							vertical-align: top;
 							background: transparent;
 							appearance: none;
 							cursor: pointer;
 
 							&:focus {
 								outline: none;
-								outline-offset: -2px;
 							}
 
 							/* 滑块
@@ -337,21 +338,21 @@ $c_info: #06c;
 							&:active {
 								&::-moz-range-thumb {
 									@include bs3;
-									width: 16px;
-									height: 16px;
+									width: 14px;
+									height: 14px;
 								}
 
 								&::-ms-thumb {
 									@include bs3;
-									width: 16px;
-									height: 16px;
+									width: 14px;
+									height: 14px;
 								}
 
 								&::-webkit-slider-thumb {
 									@include bs3;
-									margin-top: -5px;
-									width: 16px;
-									height: 16px;
+									margin-top: -4px;
+									width: 14px;
+									height: 14px;
 								}
 							}
 
@@ -387,7 +388,14 @@ $c_info: #06c;
 								height: 6px;
 								border-radius: 2px;
 								border: none;
+							}
+
+							&::-ms-fill-lower {
 								background-color: rgba($c_succ, 0.3);
+							}
+
+							&::-ms-fill-upper {
+								background-color: rgba($c_succ, 0.15);
 							}
 
 							&:focus {
@@ -399,8 +407,12 @@ $c_info: #06c;
 									background-color: rgba($c_succ, 0.5);
 								}
 
-								&::-ms-track {
-									background-color: rgba($c_succ, 0.5);
+								&::-ms-fill-lower {
+									background-color: rgba($c_succ, 0.45);
+								}
+
+								&::-ms-fill-upper {
+									background-color: rgba($c_succ, 0.25);
 								}
 							}
 						}
@@ -409,19 +421,10 @@ $c_info: #06c;
 
 				.vicp-crop-right {
 					float: right;
-					overflow: hidden;
 
 					.vicp-preview {
+						height: 150px;
 						overflow: hidden;
-
-						h6 {
-							margin-bottom: 10px;
-							line-height: 36px;
-							text-align: left;
-							font-size: 16px;
-							color: #666;
-							font-weight: normal;
-						}
 
 						.vicp-preview-item {
 							position: relative;
@@ -430,6 +433,16 @@ $c_info: #06c;
 							height: 100px;
 							float: left;
 							margin-right: 16px;
+
+							span {
+								position: absolute;
+								bottom: -30px;
+								width: 100%;
+								font-size: 14px;
+								color: #bbb;
+								display: block;
+								text-align: center;
+							}
 
 							img {
 								position: absolute;
@@ -443,6 +456,7 @@ $c_info: #06c;
 								background-color: #fff;
 								border: 1px solid rgba(#000, 0.15);
 								overflow: hidden;
+								user-select: none;
 							}
 
 							&:last-child {
@@ -469,42 +483,49 @@ $c_info: #06c;
 
 				.vicp-loading {
 					display: block;
-					padding: 25px;
+					padding: 15px;
 					font-size: 16px;
 					color: #999;
 					line-height: 30px;
 				}
 
-				.vicp-progress {
-					position: relative;
+				.vicp-progress-wrap {
 					margin-top: 12px;
-					display: block;
-					height: 5px;
-					background-color: $c_succ;
-					box-shadow: 0 1px 3px 0 rgba($c_succ, 0.3);
-					transition: width 0.5s ease;
-					background-image: linear-gradient(-45deg, rgba(#fff, 0.2) 25%, transparent 25%, transparent 50%, rgba(#fff, 0.2) 50%, rgba(#fff, 0.2) 75%, transparent 75%, transparent);
-					animation: vicp_progress 0.5s ease infinite;
+					background-color: rgba(#000, 0.08);
+					border-radius: 3px;
 
-					&::after {
-						content: '';
-						position: absolute;
+					.vicp-progress {
+						position: relative;
 						display: block;
-						top: -2px;
-						right: -2px;
-						width: 9px;
-						height: 9px;
-						border: 1px solid rgba(#fff, 0.6);
-						box-shadow: 0 1px 4px 0 rgba($c_succ, 0.7);
-						border-radius: 100%;
+						height: 5px;
+						border-radius: 3px;
 						background-color: $c_succ;
+						box-shadow: 0 2px 6px 0 rgba($c_succ, 0.3);
+						transition: width 0.15s linear;
+						background-image: linear-gradient(-45deg, rgba(#fff, 0.2) 25%, transparent 25%, transparent 50%, rgba(#fff, 0.2) 50%, rgba(#fff, 0.2) 75%, transparent 75%, transparent);
+						background-size: 40px 40px;
+						animation: vicp_progress 0.5s linear infinite;
+
+						&::after {
+							content: '';
+							position: absolute;
+							display: block;
+							top: -3px;
+							right: -3px;
+							width: 9px;
+							height: 9px;
+							border: 1px solid rgba(#f5f6f7, 0.7);
+							box-shadow: 0 1px 4px 0 rgba($c_succ, 0.7);
+							border-radius: 100%;
+							background-color: $c_succ;
+						}
 					}
 				}
 
 				.vicp-error,
 				.vicp-success {
-					height: 120px;
-					line-height: 120px;
+					height: 100px;
+					line-height: 100px;
 				}
 			}
 		}
@@ -518,22 +539,20 @@ $c_info: #06c;
 				position: relative;
 				float: left;
 				display: block;
+				margin-left: 10px;
 				width: 100px;
 				height: 36px;
 				line-height: 36px;
 				text-align: center;
 				cursor: pointer;
-				margin-left: 5px;
 				font-size: 14px;
+				color: $c_succ;
+				border-radius: 2px;
 				overflow: hidden;
-				color: $c_info;
+				user-select: none;
 
 				&:hover {
-					background-color: rgba(#000, 0.05);
-				}
-
-				&:active {
-					border-style: 0 2px 6px 0 rgba(#000, 0.18);
+					background-color: rgba(#000, 0.03);
 				}
 			}
 		}

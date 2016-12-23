@@ -29,14 +29,26 @@
 		.wrap{
 			margin-bottom: 5px;
 		}
+
+		.btn {
+			display: block;
+			margin: 100px auto;
+			width: 120px;
+			height: 40px;
+			font-size: 14px;
+			line-height: 40px;
+			text-align: center;
+			background-color: rgba(0, 0, 0, 0.08);
+			cursor: pointer;
+		}
 	</style>
 </head>
 
 <body>
 <div id="app">
-	<a class="btn" @click="toggleShow">上传图片</a>
+	<a class="btn" @click="toggleShow">点我设置头像</a>
 	<my-upload url="https://httpbin.org/post"
-		:value="show" field="img" key="0" max-size="2048" :other-params="otherParams"></my-upload>
+		:value.sync="show" field="img" key="0" :other-params="otherParams"></my-upload>
 </div>
 
 <script src="demo-src.js"></script>

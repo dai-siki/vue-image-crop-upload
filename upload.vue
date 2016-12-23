@@ -6,11 +6,16 @@
         </div>
 
         <div class="vicp-step1" v-show="step == 1">
-            <div class="vicp-drop-area" @dragleave="preventDefault" @dragover="preventDefault" @dragenter="preventDefault" @click="handleClick" @drop="handleChange">
+            <div class="vicp-drop-area"
+                @dragleave="preventDefault"
+                @dragover="preventDefault"
+                @dragenter="preventDefault"
+                @click="handleClick"
+                @drop="handleChange">
                 <i class="vicp-icon1" v-show="loading != 1">
 					<i class="vicp-icon1-arrow"></i>
-                <i class="vicp-icon1-body"></i>
-                <i class="vicp-icon1-bottom"></i>
+                    <i class="vicp-icon1-body"></i>
+                    <i class="vicp-icon1-bottom"></i>
                 </i>
                 <span class="vicp-hint" v-show="loading !== 1">{{ lang.hint }}</span>
                 <span class="vicp-no-supported-hint" v-show="!isSupported">{{ lang.noSupported }}</span>
@@ -28,40 +33,55 @@
             <div class="vicp-crop">
                 <div class="vicp-crop-left">
                     <div class="vicp-img-container">
-                        <img :src="sourceImgUrl" :style="sourceImgStyle" class="vicp-img" draggable="false" @dragleave="preventDefault" @dragover="preventDefault" @dragenter="preventDefault" @drop="preventDefault" @mousedown="imgStartMove" @mousemove="imgMove" @mouseup="createImg"
-                            @mouseout="createImg" v-el:img>
+                        <img :src="sourceImgUrl"
+                        :style="sourceImgStyle" class="vicp-img"
+                        draggable="false"
+                        @drag="preventDefault"
+                        @dragstart="preventDefault"
+                        @dragend="preventDefault"
+                        @dragleave="preventDefault"
+                        @dragover="preventDefault"
+                        @dragenter="preventDefault"
+                        @drop="preventDefault"
+                        @mousedown="imgStartMove"
+                        @mousemove="imgMove"
+                        @mouseup="createImg"
+                        @mouseout="createImg"
+                        v-el:img>
                         <div class="vicp-img-shade vicp-img-shade-1" :style="sourceImgShadeStyle"></div>
                         <div class="vicp-img-shade vicp-img-shade-2" :style="sourceImgShadeStyle"></div>
                     </div>
                     <div class="vicp-range">
-                        <input type="range" :value="scale.range" step="1" min="0" max="100" @change="zoomImg">
-                        <i class="vicp-icon5"></i>
-                        <i class="vicp-icon6"></i>
+                        <input type="range" :value="scale.range" step="1" min="0" max="100" @change="zoomChange">
+                        <i @mousedown="startZoomSub"  @mouseout="endZoomSub"  @mouseup="endZoomSub" class="vicp-icon5"></i>
+                        <i @mousedown="startZoomAdd"  @mouseout="endZoomAdd"  @mouseup="endZoomAdd" class="vicp-icon6"></i>
                     </div>
                 </div>
                 <div class="vicp-crop-right">
                     <div class="vicp-preview">
-                        <h6>{{ lang.preview }}</h6>
                         <div class="vicp-preview-item">
-                            <img :src="createImgUrl" :style="previewrStyle">
+                            <img :src="createImgUrl" :style="previewStyle">
+                            <span>{{ lang.preview }}</span>
                         </div>
                         <div class="vicp-preview-item">
-                            <img :src="createImgUrl" :style="previewrStyle" v-if="!noCircle">
+                            <img :src="createImgUrl" :style="previewStyle" v-if="!noCircle">
+                            <span>{{ lang.preview }}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="vicp-operate">
                 <a @click="setStep(1)" @mousedown="ripple">上一步</a>
-                <a @click="off" @mousedown="ripple">取消</a>
-                <a @click="upload" @mousedown="ripple">确认保存</a>
+                <a class="vicp-operate-btn" @click="upload" @mousedown="ripple">保存</a>
             </div>
         </div>
 
         <div class="vicp-step3" v-if="step == 3">
             <div class="vicp-upload">
                 <span class="vicp-loading" v-show="loading === 1">{{ lang.loading }}</span>
-                <span class="vicp-progress" v-show="loading === 1" :style="progressStyle"></span>
+                <div class="vicp-progress-wrap">
+                    <span class="vicp-progress" v-show="loading === 1" :style="progressStyle"></span>
+                </div>
                 <div class="vicp-error" v-show="hasError">
                     <i class="vicp-icon2"></i> {{ errorMsg }}
                 </div>
@@ -136,6 +156,13 @@ const mimes = {
             ripple.className = 'e-ripple z-active';
             return false;
         }
+    },
+    // 图片滤镜 ---------先不弄了
+    imgFilter = function(img){
+        let canvas = document.createElement('canvas'),
+            ctx = canvas.getContext('2d');
+        ctx.drawImage(img);
+        createImgUrl = canvas.toDataURL(mimes[pictureFormat]);
     };
 
 export default {
@@ -201,7 +228,7 @@ export default {
             } = that,
             isSupported = true,
             lang = {
-                hint: '点击，或将文件拖动至此处',
+                hint: '点击，或拖动图片至此处',
                 loading: '正在上传……',
                 noSupported: '浏览器不支持该功能，请使用IE10以上或其他现在浏览器！',
                 success: '上传成功',
@@ -268,6 +295,8 @@ export default {
 
             // 原图展示属性
             scale: {
+                zoomAddOn: false, //按钮缩放事件开启
+                zoomSubOn: false, //按钮缩放事件开启
                 range: 1, //最大100
                 x: 0,
                 y: 0,
@@ -353,7 +382,7 @@ export default {
                 height: h + 'px'
             };
         },
-        previewrStyle() {
+        previewStyle() {
             let {
                 width,
                 height,
@@ -390,11 +419,17 @@ export default {
         },
         // 关闭控件
         off() {
-            this.value = false;
+            let that = this;
+            setTimeout(function() {
+                that.value = false;
+            }, 200);
         },
         // 设置步骤
         setStep(no) {
-            this.step = no;
+            let that = this;
+            setTimeout(function() {
+                that.step = no;
+            }, 200);
         },
 
         /* 图片选择区域函数绑定
@@ -406,7 +441,9 @@ export default {
             if (this.loading !== 1) {
                 if (e.target !== this.$els.fileinput) {
                     e.preventDefault();
-                    this.$els.fileinput.click();
+                    if(document.activeElement !== this.$els){
+                        this.$els.fileinput.click();
+                    }
                 }
             }
         },
@@ -565,8 +602,52 @@ export default {
             scale.x = rX;
             scale.y = rY;
         },
+        // 按钮按下开始放大
+        startZoomAdd(e){
+            let that = this,
+                {scale} = that;
+            scale.zoomAddOn = true;
+            function zoom() {
+                if(scale.zoomAddOn){
+                    let range = scale.range>=100 ? 100 : ++scale.range;
+                    that.zoomImg(range);
+                    setTimeout(function () {
+                        zoom();
+                    }, 60);
+                }
+            }
+            zoom();
+        },
+        // 按钮松开或移开取消放大
+        endZoomAdd(e){
+            this.scale.zoomAddOn = false;
+        },
+        // 按钮按下开始缩小
+        startZoomSub(e){
+            let that = this,
+                {scale} = that;
+            scale.zoomSubOn = true;
+            function zoom() {
+                if(scale.zoomSubOn){
+                    let range = scale.range<=0 ? 0 : --scale.range;
+                    that.zoomImg(range);
+                    setTimeout(function () {
+                        zoom();
+                    }, 60);
+                }
+            }
+            zoom();
+        },
+        // 按钮松开或移开取消缩小
+        endZoomSub(e){
+            let {scale} = this;
+            scale.zoomSubOn = false;
+        },
+        zoomChange(e){
+            this.zoomImg(e.target.value);
+        },
         // 缩放原图
-        zoomImg(e) {
+        zoomImg(newRange) {
             let that = this,
                 {
                     sourceImgMasking,
@@ -578,28 +659,48 @@ export default {
                     maxHeight,
                     minWidth,
                     minHeight,
+                    width,
+                    height,
                     x,
                     y,
                     range
                 } = scale,
                 sim = sourceImgMasking,
-                newRange = e.target.value,
-                nX = x,
-                nY = y,
+                // 蒙版宽高
+                sWidth = sim.width,
+                sHeight = sim.height,
+                // 新宽高
                 nWidth = minWidth + (maxWidth - minWidth) * newRange / 100,
-                nHeight = minHeight + (maxHeight - minHeight) * newRange / 100;
-            if (nX < sim.width - nWidth) {
-                nX = sim.width - nWidth;
+                nHeight = minHeight + (maxHeight - minHeight) * newRange / 100,
+                // 新坐标（根据蒙版中心点缩放）
+                nX = sWidth / 2 - (nWidth / width) * (sWidth / 2 - x),
+                nY = sHeight  / 2 - (nHeight  / height) * (sHeight  / 2 - y);
+
+            // 判断新坐标是否超过蒙版限制
+            if (nX > 0) {
+                nX = 0;
             }
-            if (nY < sim.height - nHeight) {
-                nY = sim.height - nHeight;
+            if (nY > 0) {
+                nY = 0;
             }
+            if (nX < sWidth - nWidth) {
+                nX = sWidth - nWidth;
+            }
+            if (nY < sHeight - nHeight) {
+                nY = sHeight - nHeight;
+            }
+
+            // 赋值处理
             scale.x = nX;
             scale.y = nY;
             scale.width = nWidth;
             scale.height = nHeight;
-            scale.range = e.target.value;
-            that.createImg();
+            scale.range = newRange;
+            setTimeout(function () {
+                if(scale.range == newRange){
+                    that.createImg();
+                }
+            }, 300);
         },
         // 生成需求图片
         createImg(e) {
@@ -659,6 +760,7 @@ export default {
             that.loading = 1;
             that.progress = 0;
             that.setStep(3);
+            that.$dispatch('cropImgSuccess', createImgUrl, field, key);
             new Promise(function(resolve, reject) {
                 let client = new XMLHttpRequest();
                 client.open('POST', url, true);
@@ -679,7 +781,7 @@ export default {
                 function(resData) {
                     if (that.value) {
                         that.loading = 2;
-                        that.$dispatch('uploadSuccess', resData, field, key);
+                        that.$dispatch('cropUploadSuccess', resData, field, key);
                     }
 
                 },
@@ -689,7 +791,7 @@ export default {
                         that.loading = 3;
                         that.hasError = true;
                         that.errorMsg = '上传图片失败';
-                        that.$dispatch('uploadFail', sts, field, key);
+                        that.$dispatch('cropUploadFail', sts, field, key);
                     }
                 }
             );
