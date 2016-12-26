@@ -4,6 +4,11 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 
 ## 中文文档在下面
 
+## Change log
+#### @1.1.0
+- Adjusted Props naming: params=>params, langExt=>langExt
+- Optimized language packs
+
 ## Demo
 [Click me](http://dai-siki.github.io/vue-image-crop-upload/example/demo.html).
 
@@ -32,9 +37,9 @@ $ npm install vue-image-crop-upload
 | field       | String   | 'upload'     | Upload input filename, used for server side get the file stream.    |
 | value             | Boolean            | twoWay            | show or not    |
 | url             | String            |  ''                | Server api path,like "/avatar/upload"    |
-| otherParams             | Object            |  null                | POST Params，like "{k:v}"    |
+| params             | Object            |  null                | POST Params，like "{k:v}"    |
 | langType             | String            | 'zh'                 | language type    |
-| langConf             | Object            |                   | language extend    |
+| langExt             | Object            |                   | language extend    |
 | width             | Number            |   200                | width of receive image     |
 | height             | Number            |  200                 | height of receive image   |
 | imgFormat             | string            | 'jpg'                  | jpg/png, Server api receive file type.    |
@@ -54,6 +59,7 @@ $ npm install vue-image-crop-upload
         loading: '正在上传……',
         noSupported: '浏览器不支持该功能，请使用IE10以上或其他现在浏览器！',
         success: '上传成功',
+        fail: '图片上传失败',
         preview: '头像预览',
         btn: {
             off: '取消',
@@ -68,24 +74,25 @@ $ npm install vue-image-crop-upload
         }
     },
     en: {
-        hint: 'Click, or drag picture to there',
+        hint: 'Click, or drag the file here',
         loading: 'Uploading……',
-        noSupported: 'Browser not supported, please use IE10+ or else browser',
+        noSupported: 'Browser does not support, please use IE10+ or other browsers',
         success: 'Upload success',
+        fail: 'Upload failed',
         preview: 'Preview',
         btn: {
-            off: 'Off',
+            off: 'Cancel',
             close: 'Close',
             back: 'Back',
             save: 'Save'
         },
         error: {
-            onlyImg: 'Only image',
-            outOfSize: 'Image is out of size: ',
-            lowestPx: 'Image lowest pixel（width*height）：'
+            onlyImg: 'Image only',
+            outOfSize: 'Image exceeds size limit: ',
+            lowestPx: 'The lowest pixel in the image: '
         }
     }
-};
+}
 ```
 
 #### Example
@@ -95,7 +102,7 @@ $ npm install vue-image-crop-upload
 	<my-upload url="/upload" field="img"
         lang-type="en"
 		:value.sync="show"
-		:other-params="otherParams"></my-upload>
+		:params="params"></my-upload>
 </div>
 
 <script>
@@ -107,7 +114,7 @@ $ npm install vue-image-crop-upload
 		el: '#app',
 		data: {
 			show: true,
-			otherParams: {
+			params: {
 				token: '123456798',
 				name: 'avatar'
 			}
@@ -161,7 +168,11 @@ $ npm install vue-image-crop-upload
 ```
 
 --------------------------------
+# 中文文档
 
+## 更新日志
+#### @1.1.0
+- 调整了Props命名: params=>params, langExt=>langExt
 
 ## 示例
 [点我](http://dai-siki.github.io/vue-image-crop-upload/example/demo.html).
@@ -191,9 +202,9 @@ $ npm install vue-image-crop-upload
 | field       | String   | 'upload'     | 向服务器上传的文件名    |
 | value             | Boolean            | twoWay            | 是否显示控件，双向绑定    |
 | url             | String            |  ''                | 上传接口地址    |
-| otherParams             | Object            |  null                | 上传附带其他数据，如"{k:v}"    |
+| params             | Object            |  null                | 上传附带其他数据，如"{k:v}"    |
 | langType             | String            | 'zh'                 | 语言类型，默认中文    |
-| langConf             | Object            |                   | 语言包自行扩展    |
+| langExt             | Object            |                   | 语言包自行扩展    |
 | width             | Number            |   200                | 最终得到的图片宽度     |
 | height             | Number            |  200                 | 最终得到的图片高度   |
 | imgFormat             | string            | 'jpg'                  | jpg/png, 最终得到的图片格式    |
@@ -213,6 +224,7 @@ $ npm install vue-image-crop-upload
         loading: '正在上传……',
         noSupported: '浏览器不支持该功能，请使用IE10以上或其他现在浏览器！',
         success: '上传成功',
+        fail: '图片上传失败',
         preview: '头像预览',
         btn: {
             off: '取消',
@@ -227,24 +239,25 @@ $ npm install vue-image-crop-upload
         }
     },
     en: {
-        hint: 'Click, or drag picture to there',
+        hint: 'Click, or drag the file here',
         loading: 'Uploading……',
-        noSupported: 'Browser not supported, please use IE10+ or else browser',
+        noSupported: 'Browser does not support, please use IE10+ or other browsers',
         success: 'Upload success',
+        fail: 'Upload failed',
         preview: 'Preview',
         btn: {
-            off: 'Off',
+            off: 'Cancel',
             close: 'Close',
             back: 'Back',
             save: 'Save'
         },
         error: {
-            onlyImg: 'Only image',
-            outOfSize: 'Image is out of size: ',
-            lowestPx: 'Image lowest pixel（width*height）：'
+            onlyImg: 'Image only',
+            outOfSize: 'Image exceeds size limit: ',
+            lowestPx: 'The lowest pixel in the image: '
         }
     }
-};
+}
 ```
 
 #### 使用示例
@@ -254,7 +267,7 @@ $ npm install vue-image-crop-upload
 	<my-upload url="/upload" field="img"
         lang-type="en"
 		:value.sync="show"
-		:other-params="otherParams"></my-upload>
+		:params="params"></my-upload>
 </div>
 
 <script>
@@ -266,7 +279,7 @@ $ npm install vue-image-crop-upload
 		el: '#app',
 		data: {
 			show: true,
-			otherParams: {
+			params: {
 				token: '123456798',
 				name: 'avatar'
 			}

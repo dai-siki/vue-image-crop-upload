@@ -19214,7 +19214,7 @@
 	exports.i(__webpack_require__(305), "");
 
 	// module
-	exports.push([module.id, "\n\n", ""]);
+	exports.push([module.id, "\n", ""]);
 
 	// exports
 
@@ -19606,6 +19606,16 @@
 	            'default': true
 	        },
 
+	        url: {
+	            type: String,
+	            'default': ''
+	        },
+
+	        params: {
+	            type: Object,
+	            'default': null
+	        },
+
 	        width: {
 	            type: Number,
 	            default: 200
@@ -19626,22 +19636,12 @@
 	            'default': 10240
 	        },
 
-	        url: {
-	            type: String,
-	            'default': ''
-	        },
-
-	        otherParams: {
-	            type: Object,
-	            'default': null
-	        },
-
 	        langType: {
 	            type: String,
 	            'default': 'zh'
 	        },
 
-	        langConf: {
+	        langExt: {
 	            type: Object,
 	            'default': null
 	        },
@@ -19681,22 +19681,22 @@
 	                }
 	            },
 	            en: {
-	                hint: 'Click, or drag picture to there',
+	                hint: 'Click, or drag the file here',
 	                loading: 'Uploading……',
-	                noSupported: 'Browser not supported, please use IE10+ or else browser',
+	                noSupported: 'Browser does not support, please use IE10+ or other browsers',
 	                success: 'Upload success',
-	                fail: 'Upload fail',
+	                fail: 'Upload failed',
 	                preview: 'Preview',
 	                btn: {
-	                    off: 'Off',
+	                    off: 'Cancel',
 	                    close: 'Close',
 	                    back: 'Back',
 	                    save: 'Save'
 	                },
 	                error: {
-	                    onlyImg: 'Only image',
-	                    outOfSize: 'Image is out of size: ',
-	                    lowestPx: 'Image lowest pixel（width*height）：'
+	                    onlyImg: 'Image only',
+	                    outOfSize: 'Image exceeds size limit: ',
+	                    lowestPx: 'The lowest pixel in the image: '
 	                }
 	            }
 	        },
@@ -20145,7 +20145,7 @@
 	                imgFormat = this.imgFormat,
 	                mime = this.mime,
 	                url = this.url,
-	                otherParams = this.otherParams,
+	                params = this.params,
 	                field = this.field,
 	                key = this.key,
 	                createImgUrl = this.createImgUrl,
@@ -20153,9 +20153,9 @@
 
 	            fmData.append(field, data2blob(createImgUrl, mime), field + '.' + imgFormat);
 
-	            if ((typeof otherParams === 'undefined' ? 'undefined' : (0, _typeof3.default)(otherParams)) == 'object' && otherParams) {
-	                (0, _keys2.default)(otherParams).forEach(function (k) {
-	                    fmData.append(k, otherParams[k]);
+	            if ((typeof params === 'undefined' ? 'undefined' : (0, _typeof3.default)(params)) == 'object' && params) {
+	                (0, _keys2.default)(params).forEach(function (k) {
+	                    fmData.append(k, params[k]);
 	                });
 	            }
 

@@ -153,6 +153,16 @@ export default {
             twoWay: true,
             'default': true
         },
+        // 上传地址
+        url: {
+            type: String,
+            'default': ''
+        },
+        // 其他要上传文件附带的数据，对象格式
+        params: {
+            type: Object,
+            'default': null
+        },
         // 剪裁图片的宽
         width: {
             type: Number,
@@ -173,23 +183,13 @@ export default {
             type: Number,
             'default': 10240
         },
-        // 上传地址
-        url: {
-            type: String,
-            'default': ''
-        },
-        // 其他要上传文件附带的数据，对象格式
-        otherParams: {
-            type: Object,
-            'default': null
-        },
         // 语言类型
         langType: {
             type: String,
             'default': 'zh'
         },
         // 语言包
-        langConf: {
+        langExt: {
             type: Object,
             'default': null
         },
@@ -234,22 +234,22 @@ export default {
                     }
                 },
                 en: {
-                    hint: 'Click, or drag picture to there',
+                    hint: 'Click, or drag the file here',
                     loading: 'Uploading……',
-                    noSupported: 'Browser not supported, please use IE10+ or else browser',
+                    noSupported: 'Browser does not support, please use IE10+ or other browsers',
                     success: 'Upload success',
-                    fail: 'Upload fail',
+                    fail: 'Upload failed',
                     preview: 'Preview',
                     btn: {
-                        off: 'Off',
+                        off: 'Cancel',
                         close: 'Close',
                         back: 'Back',
                         save: 'Save'
                     },
                     error: {
-                        onlyImg: 'Only image',
-                        outOfSize: 'Image is out of size: ',
-                        lowestPx: 'Image lowest pixel（width*height）：'
+                        onlyImg: 'Image only',
+                        outOfSize: 'Image exceeds size limit: ',
+                        lowestPx: 'The lowest pixel in the image: '
                     }
                 }
             },
@@ -765,7 +765,7 @@ export default {
                     imgFormat,
                     mime,
                     url,
-                    otherParams,
+                    params,
                     field,
                     key,
                     createImgUrl
@@ -774,9 +774,9 @@ export default {
             fmData.append(field, data2blob(createImgUrl, mime), field + '.' + imgFormat);
 
             // 添加其他参数
-            if (typeof otherParams == 'object' && otherParams) {
-                Object.keys(otherParams).forEach((k) => {
-                    fmData.append(k, otherParams[k]);
+            if (typeof params == 'object' && params) {
+                Object.keys(params).forEach((k) => {
+                    fmData.append(k, params[k]);
                 })
             }
 
@@ -834,5 +834,4 @@ export default {
 
 <style scoped>
 @import "./upload.css"
-
 </style>
