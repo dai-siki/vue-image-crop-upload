@@ -106,10 +106,14 @@ $ npm install vue-image-crop-upload
 ```html
 <div id="app">
 	<a class="btn" @click="toggleShow">set avatar</a>
-	<my-upload url="/upload" field="img"
+	<my-upload field="img"
+		:width="300"
+		:height="300"
+		url="/upload"
+		:params="params"
         lang-type="en"
 		:value.sync="show"
-		:params="params"></my-upload>
+		img-format="png"></my-upload>
 </div>
 
 <script>
@@ -271,10 +275,13 @@ $ npm install vue-image-crop-upload
 ```html
 <div id="app">
 	<a class="btn" @click="toggleShow">设置头像</a>
-	<my-upload url="/upload" field="img"
-        lang-type="en"
+	<my-upload field="img"
+		:width="300"
+		:height="300"
+		url="/upload"
+		:params="params"
 		:value.sync="show"
-		:params="params"></my-upload>
+		img-format="png"></my-upload>
 </div>
 
 <script>
