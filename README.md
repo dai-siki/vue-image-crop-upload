@@ -114,7 +114,7 @@ $ npm install vue-image-crop-upload
         lang-type="en"
 		:value.sync="show"
 		img-format="png"></my-upload>
-	<img :src="dataURL">
+	<img :src="imgDataUrl">
 </div>
 
 <script>
@@ -130,7 +130,7 @@ $ npm install vue-image-crop-upload
 				token: '123456798',
 				name: 'avatar'
 			},
-			dataURL: '' // the datebase64 url of created image
+			imgDataUrl: '' // the datebase64 url of created image
 		},
 		components: {
 			'my-upload': myUpload
@@ -144,12 +144,12 @@ $ npm install vue-image-crop-upload
 			/**
 			 * crop success
 			 *
-			 * [param] imgDataBase64
+			 * [param] imgDataUrl
 			 * [param] field
 			 */
-			cropSuccess(imgDataBase64, field){
+			cropSuccess(imgDataUrl, field){
 				console.log('-------- crop success --------');
-				this.dataURL = imgDataBase64;
+				this.imgDataUrl = imgDataUrl;
 			},
 			/**
 			 * upload success
@@ -283,7 +283,7 @@ $ npm install vue-image-crop-upload
 		:params="params"
 		:value.sync="show"
 		img-format="png"></my-upload>
-	<img :src="dataURL">
+	<img :src="imgDataUrl">
 </div>
 
 <script>
@@ -299,7 +299,7 @@ $ npm install vue-image-crop-upload
 				token: '123456798',
 				name: 'avatar'
 			},
-			dataURL: '' // the datebase64 url of created image
+			imgDataUrl: '' // the datebase64 url of created image
 		},
 		components: {
 			'my-upload': myUpload
@@ -313,12 +313,12 @@ $ npm install vue-image-crop-upload
             /**
 			 * crop success
 			 *
-			 * [param] imgDataBase64
+			 * [param] imgDataUrl
 			 * [param] field
 			 */
-			cropSuccess(imgDataBase64, field){
+			cropSuccess(imgDataUrl, field){
 				console.log('-------- crop success --------');
-				this.dataURL = imgDataBase64;
+				this.imgDataUrl = imgDataUrl;
 			},
 			/**
 			 * upload success
