@@ -6,11 +6,16 @@
         </div>
 
         <div class="vicp-step1" v-show="step == 1">
-            <div class="vicp-drop-area" @dragleave="preventDefault" @dragover="preventDefault" @dragenter="preventDefault" @click="handleClick" @drop="handleChange">
+            <div class="vicp-drop-area"
+				@dragleave="preventDefault"
+				@dragover="preventDefault"
+				@dragenter="preventDefault"
+				@click="handleClick"
+				@drop="handleChange">
                 <i class="vicp-icon1" v-show="loading != 1">
 					<i class="vicp-icon1-arrow"></i>
-                <i class="vicp-icon1-body"></i>
-                <i class="vicp-icon1-bottom"></i>
+	                <i class="vicp-icon1-body"></i>
+	                <i class="vicp-icon1-bottom"></i>
                 </i>
                 <span class="vicp-hint" v-show="loading !== 1">{{ lang.hint }}</span>
                 <span class="vicp-no-supported-hint" v-show="!isSupported">{{ lang.noSupported }}</span>
@@ -28,8 +33,22 @@
             <div class="vicp-crop">
                 <div class="vicp-crop-left">
                     <div class="vicp-img-container">
-                        <img :src="sourceImgUrl" :style="sourceImgStyle" class="vicp-img" draggable="false" @drag="preventDefault" @dragstart="preventDefault" @dragend="preventDefault" @dragleave="preventDefault" @dragover="preventDefault" @dragenter="preventDefault" @drop="preventDefault"
-                            @mousedown="imgStartMove" @mousemove="imgMove" @mouseup="createImg" @mouseout="createImg" v-el:img>
+                        <img :src="sourceImgUrl"
+							:style="sourceImgStyle"
+							class="vicp-img"
+							draggable="false"
+							@drag="preventDefault"
+							@dragstart="preventDefault"
+							@dragend="preventDefault"
+							@dragleave="preventDefault"
+							@dragover="preventDefault"
+							@dragenter="preventDefault"
+							@drop="preventDefault"
+	                        @mousedown="imgStartMove"
+							@mousemove="imgMove"
+							@mouseup="createImg"
+							@mouseout="createImg"
+							v-el:img>
                         <div class="vicp-img-shade vicp-img-shade-1" :style="sourceImgShadeStyle"></div>
                         <div class="vicp-img-shade vicp-img-shade-2" :style="sourceImgShadeStyle"></div>
                     </div>
@@ -88,8 +107,8 @@ const mimes = {
         'jpg': 'image/jpeg',
         'png': 'image/png',
         'gif': 'image/gif',
-        // 'svg': 'image/svg+xml',
-        // 'psd': 'image/photoshop'
+        'svg': 'image/svg+xml',
+        'psd': 'image/photoshop'
     },
     // 点击波纹效果
     effectRipple = function(e, arg_opts) {
@@ -253,7 +272,7 @@ export default {
                     }
                 }
             },
-            tempImgFormat = Array.indexOf(imgFormat) === -1 ? 'jpg' : imgFormat,
+            tempImgFormat = allowImgFormat.indexOf(imgFormat) === -1 ? 'jpg' : imgFormat,
             lang = langBag[langType] ? langBag[langType] : lang['zh'],
             mime = mimes[tempImgFormat];
         // 规范图片格式
@@ -458,6 +477,7 @@ export default {
          ---------------------------------------------------------------*/
         preventDefault(e) {
             e.preventDefault();
+			return false;
         },
         handleClick(e) {
             if (this.loading !== 1) {

@@ -56,7 +56,7 @@
 		<div class="item">
 			<a class="btn" @click="toggleShow1">设置头像</a>
 			<img class="avatar" v-if="avatarUrl1" :src="avatarUrl1" v-show="true" style="display: none;">
-			<my-upload url="https://httpbin.org/post"
+			<my-upload url="https://httpbin.org/post" img-format="png"
 				field="avatar1"
 				key="0"
 				:value.sync="show1"
