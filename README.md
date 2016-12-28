@@ -115,7 +115,7 @@ $ npm install vue-image-crop-upload
 <script>
 	import 'babel-polyfill'; // es6 shim
 	import Vue from 'vue';
-	import mySwitch from 'vue-image-crop-upload';
+	import myUpload from 'vue-image-crop-upload';
 
 	new Vue({
 		el: '#app',
@@ -280,7 +280,7 @@ $ npm install vue-image-crop-upload
 <script>
 	import 'babel-polyfill'; // es6 shim
 	import Vue from 'vue';
-	import mySwitch from 'vue-image-crop-upload';
+	import myUpload from 'vue-image-crop-upload';
 
 	new Vue({
 		el: '#app',
