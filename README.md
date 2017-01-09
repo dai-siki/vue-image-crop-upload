@@ -14,6 +14,7 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## Change log
 #### @1.2.0
 - Compatible vue2
+
 #### @1.1.0
 - Adjusted Props naming: otherParams=>params, langConf=>langExt
 - Optimized language packs
@@ -264,6 +265,7 @@ $ npm install vue-image-crop-upload
 ## 更新日志
 #### @1.2.0
 - 兼容vue@2版本
+
 #### @1.1.0
 - 调整了Props命名: otherParams=>params, langConf=>langExt
 
