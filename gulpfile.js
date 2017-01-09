@@ -59,10 +59,21 @@ gulp.task('js', function() {
 		}
 	};
 
-	gulp.src('./example/demo.js').pipe($.plumber({errorHandler: _errrHandler})).pipe(named(function() {
-		return 'demo-src';
-	})).pipe(webpack(webpack_config))/*.pipe($.uglify())*/
-        .pipe(gulp.dest('./example'));
+	gulp.src('./example/demo.js')
+		.pipe($.plumber({errorHandler: _errrHandler}))
+		.pipe(named(function() {
+			return 'demo-src';
+		}))
+		.pipe(webpack(webpack_config))/*.pipe($.uglify())*/
+	    .pipe(gulp.dest('./example'));
+
+	gulp.src('./example-2/demo.js')
+		.pipe($.plumber({errorHandler: _errrHandler}))
+		.pipe(named(function() {
+			return 'demo-src';
+		}))
+		.pipe(webpack(webpack_config))/*.pipe($.uglify())*/
+	    .pipe(gulp.dest('./example-2'));
 });
 
 gulp.task('serve', function() {
@@ -72,11 +83,11 @@ gulp.task('serve', function() {
 		}
 	});
 	gulp.watch([
-		'./example/demo.js', './*.vue', './*.css'
+		'./example-2/demo.js','./example/demo.js', './*.vue', './*.css'
 	], ['js']);
 	gulp.watch(['./scss/*.scss'], ['css']);
 	gulp.watch([
-		'./example/**/*.html', './example/demo-src.js'
+		'./example/**/*.html', './example/demo-src.js', './example-2/**/*.html', './example-2/demo-src.js'
 	], function() {
 		reload();
 	});

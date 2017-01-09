@@ -12,6 +12,8 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## 中文文档在下面
 
 ## Change log
+#### @1.2.0
+- Compatible vue2
 #### @1.1.0
 - Adjusted Props naming: otherParams=>params, langConf=>langExt
 - Optimized language packs
@@ -27,7 +29,7 @@ IE10+
 
 
 ## Env
-vue@1.0 + webpack + es6
+vue@1/vue@2 + webpack + es6
 
 
 ## Install
@@ -102,7 +104,7 @@ $ npm install vue-image-crop-upload
 }
 ```
 
-#### Example
+#### Example vue@1
 ```html
 <div id="app">
 	<a class="btn" @click="toggleShow">set avatar</a>
@@ -179,10 +181,89 @@ $ npm install vue-image-crop-upload
 </script>
 ```
 
+#### Example vue@2
+```html
+<div id="app">
+	<a class="btn" @click="toggleShow">set avatar</a>
+	<my-upload field="img"
+        @crop-success="cropSuccess"
+        @crop-upload-success="cropUploadSuccess"
+        @crop-upload-fail="cropUploadFail"
+        v-model="show"
+		:width="300"
+		:height="300"
+		url="/upload"
+		:params="params"
+		img-format="png"></my-upload>
+	<img :src="imgDataUrl">
+</div>
+
+<script>
+	import 'babel-polyfill'; // es6 shim
+	import Vue from 'vue';
+	import myUpload from 'vue-image-crop-upload/upload-2.vue';
+
+	new Vue({
+		el: '#app',
+		data: {
+			show: true,
+			params: {
+				token: '123456798',
+				name: 'avatar'
+			},
+			imgDataUrl: '' // the datebase64 url of created image
+		},
+		components: {
+			'my-upload': myUpload
+		},
+		methods: {
+			toggleShow() {
+				this.show = !this.show;
+			},
+            /**
+			 * crop success
+			 *
+			 * [param] imgDataUrl
+			 * [param] field
+			 */
+			cropSuccess(imgDataUrl, field){
+				console.log('-------- crop success --------');
+				this.imgDataUrl = imgDataUrl;
+			},
+			/**
+			 * upload success
+			 *
+			 * [param] jsonData  server api return data, already json encode
+			 * [param] field
+			 */
+			cropUploadSuccess(jsonData, field){
+				console.log('-------- upload success --------');
+				console.log(jsonData);
+				console.log('field: ' + field);
+			},
+			/**
+			 * upload fail
+			 *
+			 * [param] status    server api return error status, like 500
+			 * [param] field
+			 */
+			cropUploadFail(status, field){
+				console.log('-------- upload fail --------');
+				console.log(status);
+				console.log('field: ' + field);
+			}
+		}
+	});
+</script>
+```
+
+
 --------------------------------
 # 中文文档
 
 ## 更新日志
+#### @1.2.0
+- 兼容vue@2版本
 #### @1.1.0
 - 调整了Props命名: otherParams=>params, langConf=>langExt
 
@@ -197,7 +278,7 @@ IE10+
 
 
 ## 配置环境
-vue@1.0 + webpack + es6
+vue@1/vue@2 + webpack + es6
 
 
 ## 安装
@@ -272,7 +353,7 @@ $ npm install vue-image-crop-upload
 }
 ```
 
-#### 使用示例
+#### 使用示例 vue@1
 ```html
 <div id="app">
 	<a class="btn" @click="toggleShow">设置头像</a>
@@ -310,6 +391,83 @@ $ npm install vue-image-crop-upload
 			}
 		},
 		events: {
+            /**
+			 * crop success
+			 *
+			 * [param] imgDataUrl
+			 * [param] field
+			 */
+			cropSuccess(imgDataUrl, field){
+				console.log('-------- crop success --------');
+				this.imgDataUrl = imgDataUrl;
+			},
+			/**
+			 * upload success
+			 *
+			 * [param] jsonData   服务器返回数据，已进行json转码
+			 * [param] field
+			 */
+			cropUploadSuccess(jsonData, field){
+				console.log('-------- upload success --------');
+				console.log(jsonData);
+				console.log('field: ' + field);
+			},
+			/**
+			 * upload fail
+			 *
+			 * [param] status    server api return error status, like 500
+			 * [param] field
+			 */
+			cropUploadFail(status, field){
+				console.log('-------- upload fail --------');
+				console.log(status);
+				console.log('field: ' + field);
+			}
+		}
+	});
+
+</script>
+```
+
+#### 使用示例 vue@2
+```html
+<div id="app">
+	<a class="btn" @click="toggleShow">设置头像</a>
+	<my-upload field="img"
+        @crop-success="cropSuccess"
+        @crop-upload-success="cropUploadSuccess"
+        @crop-upload-fail="cropUploadFail"
+        v-model="show"
+		:width="300"
+		:height="300"
+		url="/upload"
+		:params="params"
+		img-format="png"></my-upload>
+	<img :src="imgDataUrl">
+</div>
+
+<script>
+	import 'babel-polyfill'; // es6 shim
+	import Vue from 'vue';
+	import myUpload from 'vue-image-crop-upload/upload-2.vue';
+
+	new Vue({
+		el: '#app',
+		data: {
+			show: true,
+			params: {
+				token: '123456798',
+				name: 'avatar'
+			},
+			imgDataUrl: '' // the datebase64 url of created image
+		},
+		components: {
+			'my-upload': myUpload
+		},
+		methods: {
+			toggleShow() {
+				this.show = !this.show;
+			},
             /**
 			 * crop success
 			 *
