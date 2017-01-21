@@ -14,7 +14,7 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## Change log
 #### @1.3.0
 - Added the Russian language pack (thanks @bigperson)
-- Added a new Props: "headers" (Used to set the send header)
+- Added a new Props: "headers" (Used to set the POST request header)
 
 #### @1.2.0
 - Compatible vue2
@@ -138,7 +138,7 @@ $ npm install vue-image-crop-upload
 		:height="300"
 		url="/upload"
 		:params="params"
-		:params="headers"
+		:headers="headers"
         lang-type="en"
 		:value.sync="show"
 		img-format="png"></my-upload>
@@ -223,7 +223,7 @@ $ npm install vue-image-crop-upload
 		:height="300"
 		url="/upload"
 		:params="params"
-		:params="headers"
+		:headers="headers"
 		img-format="png"></my-upload>
 	<img :src="imgDataUrl">
 </div>
@@ -420,7 +420,7 @@ $ npm install vue-image-crop-upload
 		:height="300"
 		url="/upload"
 		:params="params"
-		:params="headers"
+		:headers="headers"
 		:value.sync="show"
 		img-format="png"></my-upload>
 	<img :src="imgDataUrl">
@@ -504,7 +504,7 @@ $ npm install vue-image-crop-upload
 		:height="300"
 		url="/upload"
 		:params="params"
-		:params="headers"
+		:headers="headers"
 		img-format="png"></my-upload>
 	<img :src="imgDataUrl">
 </div>

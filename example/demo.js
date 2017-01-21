@@ -7,8 +7,10 @@ new Vue({
 	data: {
 		show1: false,
 		show2: false,
+		show3: false,
 		avatarUrl1: null,
 		avatarUrl2: null,
+		avatarUrl3: null,
 		otherParams: {
 			token: '123456798',
 			name: 'img'
@@ -25,14 +27,20 @@ new Vue({
 		toggleShow2() {
 			let {show2} = this;
 			this.show2 = !show2;
+		},
+		toggleShow3() {
+			let {show3} = this;
+			this.show3 = !show3;
 		}
 	},
 	events: {
 		cropSuccess(data, field, key) {
 			if (field == 'avatar1') {
 				this.avatarUrl1 = data;
-			} else {
+			} else if(field == 'avatar2') {
 				this.avatarUrl2 = data;
+			} else {
+				this.avatarUrl3 = data;
 			}
 		},
 		cropUploadSuccess(data, field, key) {

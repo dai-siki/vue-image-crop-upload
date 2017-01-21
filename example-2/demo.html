@@ -83,16 +83,16 @@
 		</div>
 
 		<div class="item">
-			<a class="btn" @click="toggleShow2">аватара</a>
-			<img class="avatar" v-if="avatarUrl2" :src="avatarUrl2" v-show="true" style="display: none;">
+			<a class="btn" @click="toggleShow3">аватара</a>
+			<img class="avatar" v-if="avatarUrl3" :src="avatarUrl3" v-show="true" style="display: none;">
 			<my-upload url="https://httpbin.org/post"
 				@crop-success="cropSuccess"
 				@crop-upload-success="cropUploadSuccess"
 				@crop-upload-fail="cropUploadFail"
-				field="avatar2"
+				field="avatar3"
 				ki="0"
 				lang-type="ru"
-				v-model="show2"
+				v-model="show3"
 				:headers="headers"
 				:params="otherParams"></my-upload>
 		</div>

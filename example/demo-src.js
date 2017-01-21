@@ -70,8 +70,10 @@
 		data: {
 			show1: false,
 			show2: false,
+			show3: false,
 			avatarUrl1: null,
 			avatarUrl2: null,
+			avatarUrl3: null,
 			otherParams: {
 				token: '123456798',
 				name: 'img'
@@ -90,14 +92,21 @@
 				var show2 = this.show2;
 
 				this.show2 = !show2;
+			},
+			toggleShow3: function toggleShow3() {
+				var show3 = this.show3;
+
+				this.show3 = !show3;
 			}
 		},
 		events: {
 			cropSuccess: function cropSuccess(data, field, key) {
 				if (field == 'avatar1') {
 					this.avatarUrl1 = data;
-				} else {
+				} else if (field == 'avatar2') {
 					this.avatarUrl2 = data;
+				} else {
+					this.avatarUrl3 = data;
 				}
 			},
 			cropUploadSuccess: function cropUploadSuccess(data, field, key) {
