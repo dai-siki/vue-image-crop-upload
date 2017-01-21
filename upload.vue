@@ -164,7 +164,7 @@ export default {
             'default': 'avatar'
         },
         // 类似于id，触发事件会带上（如果一个页面多个图片上传控件，可以做区分
-        key: {
+        ki: {
             'default': 0
         },
         // 显示该控件与否
@@ -179,6 +179,11 @@ export default {
         },
         // 其他要上传文件附带的数据，对象格式
         params: {
+            type: Object,
+            'default': null
+        },
+		//Add custom headers
+        headers: {
             type: Object,
             'default': null
         },
@@ -269,6 +274,25 @@ export default {
                         onlyImg: 'Image only',
                         outOfSize: 'Image exceeds size limit: ',
                         lowestPx: 'The lowest pixel in the image: '
+                    }
+                },
+				ru: {
+                    hint: 'Нажмите, или перетащите файл в это окно',
+                    loading: 'Загружаю……',
+                    noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
+                    success: 'Загрузка выполнена успешно',
+                    fail: 'Ошибка загрузки',
+                    preview: 'Предпросмотр',
+                    btn: {
+                        off: 'Отменить',
+                        close: 'Закрыть',
+                        back: 'Назад',
+                        save: 'Сохранить'
+                    },
+                    error: {
+                        onlyImg: 'Только изображения',
+                        outOfSize: 'Изображение превышает предельный размер: ',
+                        lowestPx: 'Минимальный размер изображения: '
                     }
                 }
             },
@@ -787,7 +811,7 @@ export default {
                     url,
                     params,
                     field,
-                    key,
+                    ki,
                     createImgUrl
                 } = this,
                 fmData = new FormData();
@@ -811,7 +835,7 @@ export default {
             that.loading = 1;
             that.progress = 0;
             that.setStep(3);
-            that.$dispatch('cropSuccess', createImgUrl, field, key);
+            that.$dispatch('cropSuccess', createImgUrl, field, ki);
             new Promise(function(resolve, reject) {
                 let client = new XMLHttpRequest();
                 client.open('POST', url, true);
@@ -825,14 +849,20 @@ export default {
                         reject(this.status);
                     }
                 };
-                client.upload.addEventListener("progress", uploadProgress, false); //监听进度
+                client.upload.addEventListener("progress", uploadProgress, false); //监听进度\
+				// 设置header
+	            if (typeof headers == 'object' && headers) {
+	                Object.keys(headers).forEach((k) => {
+	                    client.setRequestHeader(k, headers[k]);
+	                })
+	            }
                 client.send(fmData);
             }).then(
                 // 上传成功
                 function(resData) {
                     if (that.value) {
                         that.loading = 2;
-                        that.$dispatch('cropUploadSuccess', resData, field, key);
+                        that.$dispatch('cropUploadSuccess', resData, field, ki);
                     }
 
                 },
@@ -842,7 +872,7 @@ export default {
                         that.loading = 3;
                         that.hasError = true;
                         that.errorMsg = lang.fail;
-                        that.$dispatch('cropUploadFail', sts, field, key);
+                        that.$dispatch('cropUploadFail', sts, field, ki);
                     }
                 }
             );

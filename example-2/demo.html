@@ -61,9 +61,10 @@
 				@crop-upload-success="cropUploadSuccess"
 				@crop-upload-fail="cropUploadFail"
 				field="avatar1"
-				key="0"
+				ki="0"
 				v-model="show1"
-				:other-params="otherParams"></my-upload>
+				:headers="headers"
+				:params="otherParams"></my-upload>
 		</div>
 
 		<div class="item">
@@ -74,10 +75,26 @@
 				@crop-upload-success="cropUploadSuccess"
 				@crop-upload-fail="cropUploadFail"
 				field="avatar2"
-				key="0"
+				ki="0"
 				lang-type="en"
 				v-model="show2"
-				:other-params="otherParams"></my-upload>
+				:headers="headers"
+				:params="otherParams"></my-upload>
+		</div>
+
+		<div class="item">
+			<a class="btn" @click="toggleShow2">аватара</a>
+			<img class="avatar" v-if="avatarUrl2" :src="avatarUrl2" v-show="true" style="display: none;">
+			<my-upload url="https://httpbin.org/post"
+				@crop-success="cropSuccess"
+				@crop-upload-success="cropUploadSuccess"
+				@crop-upload-fail="cropUploadFail"
+				field="avatar2"
+				ki="0"
+				lang-type="ru"
+				v-model="show2"
+				:headers="headers"
+				:params="otherParams"></my-upload>
 		</div>
 	</div>
 

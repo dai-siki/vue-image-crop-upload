@@ -13,6 +13,9 @@ new Vue({
 		otherParams: {
 			token: '123456798',
 			name: 'img'
+		},
+		headers: {
+			smail: '*_~'
 		}
 	},
 	components: {

@@ -163,8 +163,8 @@ export default {
             type: String,
             'default': 'avatar'
         },
-        // 类似于id，触发事件会带上（如果一个页面多个图片上传控件，可以做区分
-        key: {
+        // 原名key，类似于id，触发事件会带上（如果一个页面多个图片上传控件，可以做区分
+        ki: {
             'default': 0
         },
         // 显示该控件与否
@@ -181,7 +181,7 @@ export default {
             type: Object,
             'default': null
         },
-	//Add custom headers
+		//Add custom headers
         headers: {
             type: Object,
             'default': null
@@ -275,7 +275,7 @@ export default {
                         lowestPx: 'The lowest pixel in the image: '
                     }
                 },
-		ru: {
+				ru: {
                     hint: 'Нажмите, или перетащите файл в это окно',
                     loading: 'Загружаю……',
                     noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
@@ -809,9 +809,9 @@ export default {
                     mime,
                     url,
                     params,
-		    headers,
+					headers,
                     field,
-                    key,
+                    ki,
                     createImgUrl
                 } = this,
                 fmData = new FormData();
@@ -835,15 +835,10 @@ export default {
             that.loading = 1;
             that.progress = 0;
             that.setStep(3);
-            that.$emit('crop-success', createImgUrl, field, key);
+            that.$emit('crop-success', createImgUrl, field, ki);
             new Promise(function(resolve, reject) {
                 let client = new XMLHttpRequest();
                 client.open('POST', url, true);
-		for (let headerKey in headers) {
-                    if (headers.hasOwnProperty(headerKey)) {
-                        client.setRequestHeader(headerKey, headers[headerKey]);
-                    }
-                }
                 client.onreadystatechange = function() {
                     if (this.readyState !== 4) {
                         return;
@@ -855,13 +850,19 @@ export default {
                     }
                 };
                 client.upload.addEventListener("progress", uploadProgress, false); //监听进度
+				// 设置header
+	            if (typeof headers == 'object' && headers) {
+	                Object.keys(headers).forEach((k) => {
+	                    client.setRequestHeader(k, headers[k]);
+	                })
+	            }
                 client.send(fmData);
             }).then(
                 // 上传成功
                 function(resData) {
                     if (that.value) {
                         that.loading = 2;
-                        that.$emit('crop-upload-success', resData, field, key);
+                        that.$emit('crop-upload-success', resData, field, ki);
                     }
 
                 },
@@ -871,7 +872,7 @@ export default {
                         that.loading = 3;
                         that.hasError = true;
                         that.errorMsg = lang.fail;
-                        that.$emit('crop-upload-fail', sts, field, key);
+                        that.$emit('crop-upload-fail', sts, field, ki);
                     }
                 }
             );
