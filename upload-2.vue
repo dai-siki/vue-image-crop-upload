@@ -181,6 +181,11 @@ export default {
             type: Object,
             'default': null
         },
+	//Add custom headers
+        headers: {
+            type: Object,
+            'default': null
+        },
         // 剪裁图片的宽
         width: {
             type: Number,
@@ -268,6 +273,25 @@ export default {
                         onlyImg: 'Image only',
                         outOfSize: 'Image exceeds size limit: ',
                         lowestPx: 'The lowest pixel in the image: '
+                    }
+                },
+		ru: {
+                    hint: 'Нажмите, или перетащите файл в это окно',
+                    loading: 'Загружаю……',
+                    noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
+                    success: 'Загрузка выполнена успешно',
+                    fail: 'Ошибка загрузки',
+                    preview: 'Предпросмотр',
+                    btn: {
+                        off: 'Отменить',
+                        close: 'Закрыть',
+                        back: 'Назад',
+                        save: 'Сохранить'
+                    },
+                    error: {
+                        onlyImg: 'Только изображения',
+                        outOfSize: 'Изображение превышает предельный размер: ',
+                        lowestPx: 'Минимальный размер изображения: '
                     }
                 }
             },
@@ -785,6 +809,7 @@ export default {
                     mime,
                     url,
                     params,
+		    headers,
                     field,
                     key,
                     createImgUrl
@@ -814,6 +839,11 @@ export default {
             new Promise(function(resolve, reject) {
                 let client = new XMLHttpRequest();
                 client.open('POST', url, true);
+		for (let headerKey in headers) {
+                    if (headers.hasOwnProperty(headerKey)) {
+                        client.setRequestHeader(headerKey, headers[headerKey]);
+                    }
+                }
                 client.onreadystatechange = function() {
                     if (this.readyState !== 4) {
                         return;
