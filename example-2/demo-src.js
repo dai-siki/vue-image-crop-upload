@@ -9383,7 +9383,7 @@
 
 	        imgFormat: {
 	            type: String,
-	            'default': 'jpg'
+	            'default': 'png'
 	        }
 	    },
 	    data: function data() {
@@ -9872,6 +9872,7 @@
 	            if (e) {
 	                that.sourceImgMouseDown.on = false;
 	            }
+	            ctx.clearRect(0, 0, that.width, that.height);
 	            ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
 	            that.createImgUrl = canvas.toDataURL(mime);
 	        },

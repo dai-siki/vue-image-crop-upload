@@ -215,7 +215,7 @@ export default {
         // 图片上传格式
         imgFormat: {
             type: String,
-            'default': 'jpg'
+            'default': 'png'
         }
     },
     data() {
@@ -774,6 +774,7 @@ export default {
                 // 取消鼠标按下移动状态
                 that.sourceImgMouseDown.on = false;
             }
+            ctx.clearRect(0, 0, that.width, that.height);
             ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
             that.createImgUrl = canvas.toDataURL(mime);
         },
