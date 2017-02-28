@@ -12,11 +12,15 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## 中文文档在下面
 
 ## Change log
+#### @1.3.0
+- Added the Russian language pack (thanks @bigperson)
+- Added a new Props: "headers" (Used to set the POST request header)
+
 #### @1.2.0
 - Compatible vue2
 
 #### @1.1.0
-- Adjusted Props naming: otherParams=>params, langConf=>langExt
+- Adjusted Props naming: "otherParams"=>"params", "langConf"=>“langExt”
 - Optimized language packs
 
 ## Demo
@@ -48,6 +52,7 @@ $ npm install vue-image-crop-upload
 | value             | Boolean            | twoWay            | show or not    |
 | url             | String            |  ''                | Server api path,like "/avatar/upload"    |
 | params             | Object            |  null                | POST Params，like "{k:v}"    |
+| headers             | Object            |  null                | POST request header，like "{k:v}"    |
 | langType             | String            | 'zh'                 | language type    |
 | langExt             | Object            |                   | language extend    |
 | width             | Number            |   200                | width of receive image     |
@@ -101,7 +106,26 @@ $ npm install vue-image-crop-upload
             outOfSize: 'Image exceeds size limit: ',
             lowestPx: 'The lowest pixel in the image: '
         }
-    }
+    },
+	ru: {
+		hint: 'Нажмите, или перетащите файл в это окно',
+		loading: 'Загружаю……',
+		noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
+		success: 'Загрузка выполнена успешно',
+		fail: 'Ошибка загрузки',
+		preview: 'Предпросмотр',
+		btn: {
+			off: 'Отменить',
+			close: 'Закрыть',
+			back: 'Назад',
+			save: 'Сохранить'
+		},
+		error: {
+			onlyImg: 'Только изображения',
+			outOfSize: 'Изображение превышает предельный размер: ',
+			lowestPx: 'Минимальный размер изображения: '
+		}
+	}
 }
 ```
 
@@ -114,6 +138,7 @@ $ npm install vue-image-crop-upload
 		:height="300"
 		url="/upload"
 		:params="params"
+		:headers="headers"
         lang-type="en"
 		:value.sync="show"
 		img-format="png"></my-upload>
@@ -132,6 +157,9 @@ $ npm install vue-image-crop-upload
 			params: {
 				token: '123456798',
 				name: 'avatar'
+			},
+			headers: {
+				smail: '*_~'
 			},
 			imgDataUrl: '' // the datebase64 url of created image
 		},
@@ -195,6 +223,7 @@ $ npm install vue-image-crop-upload
 		:height="300"
 		url="/upload"
 		:params="params"
+		:headers="headers"
 		img-format="png"></my-upload>
 	<img :src="imgDataUrl">
 </div>
@@ -211,6 +240,9 @@ $ npm install vue-image-crop-upload
 			params: {
 				token: '123456798',
 				name: 'avatar'
+			},
+			headers: {
+				smail: '*_~'
 			},
 			imgDataUrl: '' // the datebase64 url of created image
 		},
@@ -263,11 +295,15 @@ $ npm install vue-image-crop-upload
 # 中文文档
 
 ## 更新日志
+#### @1.3.0
+- 添加了俄罗斯语言包 (thanks @bigperson)
+- 添加了新属性: "headers" (用于设置请求头部：setRequestHeader)
+
 #### @1.2.0
 - 兼容vue@2版本
 
 #### @1.1.0
-- 调整了Props命名: otherParams=>params, langConf=>langExt
+- 调整了Props命名: "otherParams"=>"params", "langConf"=>"langExt"
 
 ## 示例
 [点我](http://dai-siki.github.io/vue-image-crop-upload/example/demo.html).
@@ -297,7 +333,8 @@ $ npm install vue-image-crop-upload
 | field       | String   | 'upload'     | 向服务器上传的文件名    |
 | value             | Boolean            | twoWay            | 是否显示控件，双向绑定    |
 | url             | String            |  ''                | 上传接口地址    |
-| params             | Object            |  null                | 上传附带其他数据，如"{k:v}"    |
+| params             | Object            |  null                | 上传附带其他数据，格式"{k:v}"    |
+| headers             | Object            |  null                | 上传header设置，格式"{k:v}"    |
 | langType             | String            | 'zh'                 | 语言类型，默认中文    |
 | langExt             | Object            |                   | 语言包自行扩展    |
 | width             | Number            |   200                | 最终得到的图片宽度     |
@@ -351,7 +388,26 @@ $ npm install vue-image-crop-upload
             outOfSize: 'Image exceeds size limit: ',
             lowestPx: 'The lowest pixel in the image: '
         }
-    }
+    },
+	ru: {
+		hint: 'Нажмите, или перетащите файл в это окно',
+		loading: 'Загружаю……',
+		noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
+		success: 'Загрузка выполнена успешно',
+		fail: 'Ошибка загрузки',
+		preview: 'Предпросмотр',
+		btn: {
+			off: 'Отменить',
+			close: 'Закрыть',
+			back: 'Назад',
+			save: 'Сохранить'
+		},
+		error: {
+			onlyImg: 'Только изображения',
+			outOfSize: 'Изображение превышает предельный размер: ',
+			lowestPx: 'Минимальный размер изображения: '
+		}
+	}
 }
 ```
 
@@ -364,6 +420,7 @@ $ npm install vue-image-crop-upload
 		:height="300"
 		url="/upload"
 		:params="params"
+		:headers="headers"
 		:value.sync="show"
 		img-format="png"></my-upload>
 	<img :src="imgDataUrl">
@@ -381,6 +438,9 @@ $ npm install vue-image-crop-upload
 			params: {
 				token: '123456798',
 				name: 'avatar'
+			},
+			headers: {
+				smail: '*_~'
 			},
 			imgDataUrl: '' // the datebase64 url of created image
 		},
@@ -444,6 +504,7 @@ $ npm install vue-image-crop-upload
 		:height="300"
 		url="/upload"
 		:params="params"
+		:headers="headers"
 		img-format="png"></my-upload>
 	<img :src="imgDataUrl">
 </div>
@@ -460,6 +521,9 @@ $ npm install vue-image-crop-upload
 			params: {
 				token: '123456798',
 				name: 'avatar'
+			},
+			headers: {
+				smail: '*_~'
 			},
 			imgDataUrl: '' // the datebase64 url of created image
 		},

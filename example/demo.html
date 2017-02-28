@@ -60,7 +60,7 @@
 				field="avatar1"
 				key="0"
 				:value.sync="show1"
-				:other-params="otherParams"></my-upload>
+				:params="otherParams"></my-upload>
 		</div>
 
 		<div class="item">
@@ -71,7 +71,18 @@
 				key="0"
 				lang-type="en"
 				:value.sync="show2"
-				:other-params="otherParams"></my-upload>
+				:params="otherParams"></my-upload>
+		</div>
+
+		<div class="item">
+			<a class="btn" @click="toggleShow3">аватара</a>
+			<img class="avatar" v-if="avatarUrl3" :src="avatarUrl3" v-show="true" style="display: none;">
+			<my-upload url="https://httpbin.org/post"
+				field="avatar3"
+				key="0"
+				lang-type="ru"
+				:value.sync="show3"
+				:params="otherParams"></my-upload>
 		</div>
 	</div>
 
