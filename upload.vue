@@ -19,7 +19,7 @@
                 </i>
                 <span class="vicp-hint" v-show="loading !== 1">{{ lang.hint }}</span>
                 <span class="vicp-no-supported-hint" v-show="!isSupported">{{ lang.noSupported }}</span>
-                <input type="file" v-show="false" @change="handleChange" v-el:fileinput>
+                <input type="file" v-show="false" v-if="step == 1" @change="handleChange" v-el:fileinput>
             </div>
             <div class="vicp-error" v-show="hasError">
                 <i class="vicp-icon2"></i> {{ errorMsg }}
@@ -44,7 +44,7 @@
 							@dragover="preventDefault"
 							@dragenter="preventDefault"
 							@drop="preventDefault"
-	                        @mousedown="imgStartMove"
+	                          @mousedown="imgStartMove"
 							@mousemove="imgMove"
 							@mouseup="createImg"
 							@mouseout="createImg"
