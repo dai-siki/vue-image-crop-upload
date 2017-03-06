@@ -9407,7 +9407,7 @@
 	        var that = this,
 	            imgFormat = that.imgFormat,
 	            langType = that.langType,
-	            langConf = that.langConf,
+	            langExt = that.langExt,
 	            width = that.width,
 	            height = that.height,
 	            isSupported = true,
@@ -9477,8 +9477,8 @@
 
 	        that.imgFormat = tempImgFormat;
 
-	        if (langConf) {
-	            (0, _assign2.default)(lang, langConf);
+	        if (langExt) {
+	            (0, _assign2.default)(lang, langExt);
 	        }
 	        if (typeof FormData != 'function') {
 	            isSupported = false;

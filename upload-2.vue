@@ -227,7 +227,7 @@ export default {
             {
                 imgFormat,
                 langType,
-                langConf,
+                langExt,
                 width,
                 height
             } = that,
@@ -301,8 +301,8 @@ export default {
         // 规范图片格式
         that.imgFormat = tempImgFormat;
 
-        if (langConf) {
-            Object.assign(lang, langConf);
+        if (langExt) {
+            Object.assign(lang, langExt);
         }
         if (typeof FormData != 'function') {
             isSupported = false;
