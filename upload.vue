@@ -37,14 +37,18 @@
 							:style="sourceImgStyle"
 							class="vicp-img"
 							draggable="false"
-							@drag="preventDefault"
-							@dragstart="preventDefault"
-							@dragend="preventDefault"
-							@dragleave="preventDefault"
-							@dragover="preventDefault"
-							@dragenter="preventDefault"
-							@drop="preventDefault"
-	                        @mousedown="imgStartMove"
+                            @drag="preventDefault"
+                            @dragstart="preventDefault"
+                            @dragend="preventDefault"
+                            @dragleave="preventDefault"
+                            @dragover="preventDefault"
+                            @dragenter="preventDefault"
+                            @drop="preventDefault"
+                            @touchstart="imgStartMove"
+                            @touchmove="imgMove"
+                            @touchend="createImg"
+                            @touchcancel="createImg"
+                            @mousedown="imgStartMove"
 							@mousemove="imgMove"
 							@mouseup="createImg"
 							@mouseout="createImg"
@@ -317,6 +321,8 @@ export default {
 
             // 浏览器是否支持该控件
             isSupported,
+            // 浏览器是否支持触屏事件
+            isSupportTouch: document.hasOwnProperty("ontouchstart"),
 
             // 步骤
             step: 1, //1选择文件 2剪裁 3上传
@@ -549,12 +555,10 @@ export default {
         },
         // 重置控件
         reset() {
-            let that = this;
-            that.step = 1;
-            that.loading = 0;
-            that.hasError = false;
-            that.errorMsg = '';
-            that.progress = 0;
+            this.loading = 0;
+            this.progress = 0;
+            this.hasError = false;
+            this.errorMsg = '';
         },
         // 设置图片源
         setSourceImg(file) {
@@ -621,33 +625,45 @@ export default {
         },
         // 鼠标按下图片准备移动
         imgStartMove(e) {
-            let {
-                sourceImgMouseDown,
-                scale
-            } = this,
-            simd = sourceImgMouseDown;
-            simd.mX = e.screenX;
-            simd.mY = e.screenY;
+            e.preventDefault();
+            // 支持触摸事件，则鼠标事件无效
+            if(this.isSupportTouch && !e.targetTouches){
+                return false;
+            }
+            let et = e.targetTouches ? e.targetTouches[0] : e,
+                {
+                    sourceImgMouseDown,
+                    scale
+                } = this,
+                simd = sourceImgMouseDown;
+            simd.mX = et.screenX;
+            simd.mY = et.screenY;
             simd.x = scale.x;
             simd.y = scale.y;
             simd.on = true;
         },
         // 鼠标按下状态下移动，图片移动
         imgMove(e) {
-            let {
-                sourceImgMouseDown: {
-                    on,
-                    mX,
-                    mY,
-                    x,
-                    y
-                },
-                scale,
-                sourceImgMasking
-            } = this,
-            sim = sourceImgMasking,
-                nX = e.screenX,
-                nY = e.screenY,
+            e.preventDefault();
+            // 支持触摸事件，则鼠标事件无效
+            if(this.isSupportTouch && !e.targetTouches){
+                return false;
+            }
+            let et = e.targetTouches ? e.targetTouches[0] : e,
+                {
+                    sourceImgMouseDown: {
+                        on,
+                        mX,
+                        mY,
+                        x,
+                        y
+                    },
+                    scale,
+                    sourceImgMasking
+                } = this,
+                sim = sourceImgMasking,
+                nX = et.screenX,
+                nY = et.screenY,
                 dX = nX - mX,
                 dY = nY - mY,
                 rX = x + dX,
@@ -833,8 +849,8 @@ export default {
             };
 
             // 上传文件
+            that.reset();
             that.loading = 1;
-            that.progress = 0;
             that.setStep(3);
             that.$dispatch('cropSuccess', createImgUrl, field, ki);
             new Promise(function(resolve, reject) {

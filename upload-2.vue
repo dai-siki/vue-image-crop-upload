@@ -6,16 +6,11 @@
         </div>
 
         <div class="vicp-step1" v-show="step == 1">
-            <div class="vicp-drop-area"
-				@dragleave="preventDefault"
-				@dragover="preventDefault"
-				@dragenter="preventDefault"
-				@click="handleClick"
-				@drop="handleChange">
+            <div class="vicp-drop-area" @dragleave="preventDefault" @dragover="preventDefault" @dragenter="preventDefault" @click="handleClick" @drop="handleChange">
                 <i class="vicp-icon1" v-show="loading != 1">
 					<i class="vicp-icon1-arrow"></i>
-	                <i class="vicp-icon1-body"></i>
-	                <i class="vicp-icon1-bottom"></i>
+                <i class="vicp-icon1-body"></i>
+                <i class="vicp-icon1-bottom"></i>
                 </i>
                 <span class="vicp-hint" v-show="loading !== 1">{{ lang.hint }}</span>
                 <span class="vicp-no-supported-hint" v-show="!isSupported">{{ lang.noSupported }}</span>
@@ -33,22 +28,23 @@
             <div class="vicp-crop">
                 <div class="vicp-crop-left" v-show="true">
                     <div class="vicp-img-container">
-                        <img :src="sourceImgUrl"
-							:style="sourceImgStyle"
-							class="vicp-img"
-							draggable="false"
-							@drag="preventDefault"
-							@dragstart="preventDefault"
-							@dragend="preventDefault"
-							@dragleave="preventDefault"
-							@dragover="preventDefault"
-							@dragenter="preventDefault"
-							@drop="preventDefault"
-	                        @mousedown="imgStartMove"
+                        <img :src="sourceImgUrl" :style="sourceImgStyle" class="vicp-img" draggable="false"
+                            @drag="preventDefault"
+                            @dragstart="preventDefault"
+                            @dragend="preventDefault"
+                            @dragleave="preventDefault"
+                            @dragover="preventDefault"
+                            @dragenter="preventDefault"
+                            @drop="preventDefault"
+                            @touchstart="imgStartMove"
+                            @touchmove="imgMove"
+                            @touchend="createImg"
+                            @touchcancel="createImg"
+                            @mousedown="imgStartMove"
 							@mousemove="imgMove"
 							@mouseup="createImg"
 							@mouseout="createImg"
-							ref="img">
+                            ref="img">
                         <div class="vicp-img-shade vicp-img-shade-1" :style="sourceImgShadeStyle"></div>
                         <div class="vicp-img-shade vicp-img-shade-2" :style="sourceImgShadeStyle"></div>
                     </div>
@@ -98,6 +94,7 @@
         <canvas v-show="false" :width="width" :height="height" ref="canvas"></canvas>
     </div>
 </div>
+
 </template>
 
 <script>
@@ -144,7 +141,7 @@ const mimes = {
         }
     },
     // database64文件格式转换为2进制
-    data2blob = function (data, mime){
+    data2blob = function(data, mime) {
         // dataURL 的格式为 “data:image/png;base64,****”,逗号之前都是一些说明性的文字，我们只需要逗号之后的就行了
         data = data.split(',')[1];
         data = window.atob(data);
@@ -153,7 +150,9 @@ const mimes = {
             ia[i] = data.charCodeAt(i);
         };
         // canvas.toDataURL 返回的默认格式就是 image/png
-        return new Blob([ia], {type:mime});
+        return new Blob([ia], {
+            type: mime
+        });
     };
 
 export default {
@@ -181,7 +180,7 @@ export default {
             type: Object,
             'default': null
         },
-		//Add custom headers
+        //Add custom headers
         headers: {
             type: Object,
             'default': null
@@ -275,7 +274,7 @@ export default {
                         lowestPx: 'The lowest pixel in the image: '
                     }
                 },
-				ru: {
+                ru: {
                     hint: 'Нажмите, или перетащите файл в это окно',
                     loading: 'Загружаю……',
                     noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
@@ -316,6 +315,8 @@ export default {
 
             // 浏览器是否支持该控件
             isSupported,
+            // 浏览器是否支持触屏事件
+            isSupportTouch: document.hasOwnProperty("ontouchstart"),
 
             // 步骤
             step: 1, //1选择文件 2剪裁 3上传
@@ -388,12 +389,14 @@ export default {
         // 原图样式
         sourceImgStyle() {
             let {
-                scale,
-                sourceImgMasking
-            } = this;
+                    scale,
+                    sourceImgMasking
+                } = this,
+                top = scale.y + sourceImgMasking.y + 'px',
+                left = scale.x + sourceImgMasking.x + 'px';
             return {
-                top: scale.y + sourceImgMasking.y + 'px',
-                left: scale.x + sourceImgMasking.x + 'px',
+                top,
+                left,
                 width: scale.width + 'px',
                 height: scale.height + 'px'
             }
@@ -500,7 +503,7 @@ export default {
          ---------------------------------------------------------------*/
         preventDefault(e) {
             e.preventDefault();
-			return false;
+            return false;
         },
         handleClick(e) {
             if (this.loading !== 1) {
@@ -549,7 +552,6 @@ export default {
         // 重置控件
         reset() {
             let that = this;
-            that.step = 1;
             that.loading = 0;
             that.hasError = false;
             that.errorMsg = '';
@@ -620,33 +622,45 @@ export default {
         },
         // 鼠标按下图片准备移动
         imgStartMove(e) {
-            let {
-                sourceImgMouseDown,
-                scale
-            } = this,
-            simd = sourceImgMouseDown;
-            simd.mX = e.screenX;
-            simd.mY = e.screenY;
+            e.preventDefault();
+            // 支持触摸事件，则鼠标事件无效
+            if(this.isSupportTouch && !e.targetTouches){
+                return false;
+            }
+            let et = e.targetTouches ? e.targetTouches[0] : e,
+                {
+                    sourceImgMouseDown,
+                    scale
+                } = this,
+                simd = sourceImgMouseDown;
+            simd.mX = et.screenX;
+            simd.mY = et.screenY;
             simd.x = scale.x;
             simd.y = scale.y;
             simd.on = true;
         },
         // 鼠标按下状态下移动，图片移动
         imgMove(e) {
-            let {
-                sourceImgMouseDown: {
-                    on,
-                    mX,
-                    mY,
-                    x,
-                    y
-                },
-                scale,
-                sourceImgMasking
-            } = this,
-            sim = sourceImgMasking,
-                nX = e.screenX,
-                nY = e.screenY,
+            e.preventDefault();
+            // 支持触摸事件，则鼠标事件无效
+            if(this.isSupportTouch && !e.targetTouches){
+                return false;
+            }
+            let et = e.targetTouches ? e.targetTouches[0] : e,
+                {
+                    sourceImgMouseDown: {
+                        on,
+                        mX,
+                        mY,
+                        x,
+                        y
+                    },
+                    scale,
+                    sourceImgMasking
+                } = this,
+                sim = sourceImgMasking,
+                nX = et.screenX,
+                nY = et.screenY,
                 dX = nX - mX,
                 dY = nY - mY,
                 rX = x + dX,
@@ -810,7 +824,7 @@ export default {
                     mime,
                     url,
                     params,
-					headers,
+                    headers,
                     field,
                     ki,
                     createImgUrl
@@ -833,8 +847,8 @@ export default {
             };
 
             // 上传文件
+            that.reset();
             that.loading = 1;
-            that.progress = 0;
             that.setStep(3);
             that.$emit('crop-success', createImgUrl, field, ki);
             new Promise(function(resolve, reject) {
@@ -851,12 +865,12 @@ export default {
                     }
                 };
                 client.upload.addEventListener("progress", uploadProgress, false); //监听进度
-				// 设置header
-	            if (typeof headers == 'object' && headers) {
-	                Object.keys(headers).forEach((k) => {
-	                    client.setRequestHeader(k, headers[k]);
-	                })
-	            }
+                // 设置header
+                if (typeof headers == 'object' && headers) {
+                    Object.keys(headers).forEach((k) => {
+                        client.setRequestHeader(k, headers[k]);
+                    })
+                }
                 client.send(fmData);
             }).then(
                 // 上传成功
@@ -885,4 +899,5 @@ export default {
 
 <style scoped>
 @import "./upload.css"
+
 </style>

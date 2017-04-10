@@ -19750,6 +19750,8 @@
 
 	            isSupported: isSupported,
 
+	            isSupportTouch: document.hasOwnProperty("ontouchstart"),
+
 	            step: 1,
 	            loading: 0,
 	            progress: 0,
@@ -19950,12 +19952,10 @@
 	            return true;
 	        },
 	        reset: function reset() {
-	            var that = this;
-	            that.step = 1;
-	            that.loading = 0;
-	            that.hasError = false;
-	            that.errorMsg = '';
-	            that.progress = 0;
+	            this.loading = 0;
+	            this.progress = 0;
+	            this.hasError = false;
+	            this.errorMsg = '';
 	        },
 	        setSourceImg: function setSourceImg(file) {
 	            var that = this,
@@ -20018,18 +20018,30 @@
 	            };
 	        },
 	        imgStartMove: function imgStartMove(e) {
-	            var sourceImgMouseDown = this.sourceImgMouseDown,
+	            e.preventDefault();
+
+	            if (this.isSupportTouch && !e.targetTouches) {
+	                return false;
+	            }
+	            var et = e.targetTouches ? e.targetTouches[0] : e,
+	                sourceImgMouseDown = this.sourceImgMouseDown,
 	                scale = this.scale,
 	                simd = sourceImgMouseDown;
 
-	            simd.mX = e.screenX;
-	            simd.mY = e.screenY;
+	            simd.mX = et.screenX;
+	            simd.mY = et.screenY;
 	            simd.x = scale.x;
 	            simd.y = scale.y;
 	            simd.on = true;
 	        },
 	        imgMove: function imgMove(e) {
-	            var _sourceImgMouseDown = this.sourceImgMouseDown,
+	            e.preventDefault();
+
+	            if (this.isSupportTouch && !e.targetTouches) {
+	                return false;
+	            }
+	            var et = e.targetTouches ? e.targetTouches[0] : e,
+	                _sourceImgMouseDown = this.sourceImgMouseDown,
 	                on = _sourceImgMouseDown.on,
 	                mX = _sourceImgMouseDown.mX,
 	                mY = _sourceImgMouseDown.mY,
@@ -20038,8 +20050,8 @@
 	                scale = this.scale,
 	                sourceImgMasking = this.sourceImgMasking,
 	                sim = sourceImgMasking,
-	                nX = e.screenX,
-	                nY = e.screenY,
+	                nX = et.screenX,
+	                nY = et.screenY,
 	                dX = nX - mX,
 	                dY = nY - mY,
 	                rX = x + dX,
@@ -20198,8 +20210,8 @@
 	                }
 	            };
 
+	            that.reset();
 	            that.loading = 1;
-	            that.progress = 0;
 	            that.setStep(3);
 	            that.$dispatch('cropSuccess', createImgUrl, field, ki);
 	            new _promise2.default(function (resolve, reject) {
@@ -22561,7 +22573,7 @@
 /* 400 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"vue-image-crop-upload\" v-show=\"value\" _v-3a1deb25=\"\">\n    <div class=\"vicp-wrap\" _v-3a1deb25=\"\">\n        <div class=\"vicp-close\" @click=\"off\" _v-3a1deb25=\"\">\n            <i class=\"vicp-icon4\" _v-3a1deb25=\"\"></i>\n        </div>\n\n        <div class=\"vicp-step1\" v-show=\"step == 1\" _v-3a1deb25=\"\">\n            <div class=\"vicp-drop-area\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @click=\"handleClick\" @drop=\"handleChange\" _v-3a1deb25=\"\">\n                <i class=\"vicp-icon1\" v-show=\"loading != 1\" _v-3a1deb25=\"\">\n\t\t\t\t\t<i class=\"vicp-icon1-arrow\" _v-3a1deb25=\"\"></i>\n\t                <i class=\"vicp-icon1-body\" _v-3a1deb25=\"\"></i>\n\t                <i class=\"vicp-icon1-bottom\" _v-3a1deb25=\"\"></i>\n                </i>\n                <span class=\"vicp-hint\" v-show=\"loading !== 1\" _v-3a1deb25=\"\">{{ lang.hint }}</span>\n                <span class=\"vicp-no-supported-hint\" v-show=\"!isSupported\" _v-3a1deb25=\"\">{{ lang.noSupported }}</span>\n                <input type=\"file\" v-show=\"false\" v-if=\"step == 1\" @change=\"handleChange\" v-el:fileinput=\"\" _v-3a1deb25=\"\">\n            </div>\n            <div class=\"vicp-error\" v-show=\"hasError\" _v-3a1deb25=\"\">\n                <i class=\"vicp-icon2\" _v-3a1deb25=\"\"></i> {{ errorMsg }}\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"off\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.off }}</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step2\" v-if=\"step == 2\" _v-3a1deb25=\"\">\n            <div class=\"vicp-crop\" _v-3a1deb25=\"\">\n                <div class=\"vicp-crop-left\" _v-3a1deb25=\"\">\n                    <div class=\"vicp-img-container\" _v-3a1deb25=\"\">\n                        <img :src=\"sourceImgUrl\" :style=\"sourceImgStyle\" class=\"vicp-img\" draggable=\"false\" @drag=\"preventDefault\" @dragstart=\"preventDefault\" @dragend=\"preventDefault\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @drop=\"preventDefault\" @mousedown=\"imgStartMove\" @mousemove=\"imgMove\" @mouseup=\"createImg\" @mouseout=\"createImg\" v-el:img=\"\" _v-3a1deb25=\"\">\n                        <div class=\"vicp-img-shade vicp-img-shade-1\" :style=\"sourceImgShadeStyle\" _v-3a1deb25=\"\"></div>\n                        <div class=\"vicp-img-shade vicp-img-shade-2\" :style=\"sourceImgShadeStyle\" _v-3a1deb25=\"\"></div>\n                    </div>\n                    <div class=\"vicp-range\" _v-3a1deb25=\"\">\n                        <input type=\"range\" :value=\"scale.range\" step=\"1\" min=\"0\" max=\"100\" @input=\"zoomChange\" _v-3a1deb25=\"\">\n                        <i @mousedown=\"startZoomSub\" @mouseout=\"endZoomSub\" @mouseup=\"endZoomSub\" class=\"vicp-icon5\" _v-3a1deb25=\"\"></i>\n                        <i @mousedown=\"startZoomAdd\" @mouseout=\"endZoomAdd\" @mouseup=\"endZoomAdd\" class=\"vicp-icon6\" _v-3a1deb25=\"\"></i>\n                    </div>\n                </div>\n                <div class=\"vicp-crop-right\" _v-3a1deb25=\"\">\n                    <div class=\"vicp-preview\" _v-3a1deb25=\"\">\n                        <div class=\"vicp-preview-item\" _v-3a1deb25=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" _v-3a1deb25=\"\">\n                            <span _v-3a1deb25=\"\">{{ lang.preview }}</span>\n                        </div>\n                        <div class=\"vicp-preview-item\" _v-3a1deb25=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" v-if=\"!noCircle\" _v-3a1deb25=\"\">\n                            <span _v-3a1deb25=\"\">{{ lang.preview }}</span>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"setStep(1)\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.back }}</a>\n                <a class=\"vicp-operate-btn\" @click=\"upload\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.save }}</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step3\" v-if=\"step == 3\" _v-3a1deb25=\"\">\n            <div class=\"vicp-upload\" _v-3a1deb25=\"\">\n                <span class=\"vicp-loading\" v-show=\"loading === 1\" _v-3a1deb25=\"\">{{ lang.loading }}</span>\n                <div class=\"vicp-progress-wrap\" _v-3a1deb25=\"\">\n                    <span class=\"vicp-progress\" v-show=\"loading === 1\" :style=\"progressStyle\" _v-3a1deb25=\"\"></span>\n                </div>\n                <div class=\"vicp-error\" v-show=\"hasError\" _v-3a1deb25=\"\">\n                    <i class=\"vicp-icon2\" _v-3a1deb25=\"\"></i> {{ errorMsg }}\n                </div>\n                <div class=\"vicp-success\" v-show=\"loading === 2\" _v-3a1deb25=\"\">\n                    <i class=\"vicp-icon3\" _v-3a1deb25=\"\"></i> {{ lang.success }}\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"setStep(2)\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.back }}</a>\n                <a @click=\"off\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.close }}</a>\n            </div>\n        </div>\n        <canvas v-show=\"false\" :width=\"width\" :height=\"height\" v-el:canvas=\"\" _v-3a1deb25=\"\"></canvas>\n    </div>\n</div>\n";
+	module.exports = "\n<div class=\"vue-image-crop-upload\" v-show=\"value\" _v-3a1deb25=\"\">\n    <div class=\"vicp-wrap\" _v-3a1deb25=\"\">\n        <div class=\"vicp-close\" @click=\"off\" _v-3a1deb25=\"\">\n            <i class=\"vicp-icon4\" _v-3a1deb25=\"\"></i>\n        </div>\n\n        <div class=\"vicp-step1\" v-show=\"step == 1\" _v-3a1deb25=\"\">\n            <div class=\"vicp-drop-area\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @click=\"handleClick\" @drop=\"handleChange\" _v-3a1deb25=\"\">\n                <i class=\"vicp-icon1\" v-show=\"loading != 1\" _v-3a1deb25=\"\">\n\t\t\t\t\t<i class=\"vicp-icon1-arrow\" _v-3a1deb25=\"\"></i>\n\t                <i class=\"vicp-icon1-body\" _v-3a1deb25=\"\"></i>\n\t                <i class=\"vicp-icon1-bottom\" _v-3a1deb25=\"\"></i>\n                </i>\n                <span class=\"vicp-hint\" v-show=\"loading !== 1\" _v-3a1deb25=\"\">{{ lang.hint }}</span>\n                <span class=\"vicp-no-supported-hint\" v-show=\"!isSupported\" _v-3a1deb25=\"\">{{ lang.noSupported }}</span>\n                <input type=\"file\" v-show=\"false\" v-if=\"step == 1\" @change=\"handleChange\" v-el:fileinput=\"\" _v-3a1deb25=\"\">\n            </div>\n            <div class=\"vicp-error\" v-show=\"hasError\" _v-3a1deb25=\"\">\n                <i class=\"vicp-icon2\" _v-3a1deb25=\"\"></i> {{ errorMsg }}\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"off\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.off }}</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step2\" v-if=\"step == 2\" _v-3a1deb25=\"\">\n            <div class=\"vicp-crop\" _v-3a1deb25=\"\">\n                <div class=\"vicp-crop-left\" _v-3a1deb25=\"\">\n                    <div class=\"vicp-img-container\" _v-3a1deb25=\"\">\n                        <img :src=\"sourceImgUrl\" :style=\"sourceImgStyle\" class=\"vicp-img\" draggable=\"false\" @drag=\"preventDefault\" @dragstart=\"preventDefault\" @dragend=\"preventDefault\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @drop=\"preventDefault\" @touchstart=\"imgStartMove\" @touchmove=\"imgMove\" @touchend=\"createImg\" @touchcancel=\"createImg\" @mousedown=\"imgStartMove\" @mousemove=\"imgMove\" @mouseup=\"createImg\" @mouseout=\"createImg\" v-el:img=\"\" _v-3a1deb25=\"\">\n                        <div class=\"vicp-img-shade vicp-img-shade-1\" :style=\"sourceImgShadeStyle\" _v-3a1deb25=\"\"></div>\n                        <div class=\"vicp-img-shade vicp-img-shade-2\" :style=\"sourceImgShadeStyle\" _v-3a1deb25=\"\"></div>\n                    </div>\n                    <div class=\"vicp-range\" _v-3a1deb25=\"\">\n                        <input type=\"range\" :value=\"scale.range\" step=\"1\" min=\"0\" max=\"100\" @input=\"zoomChange\" _v-3a1deb25=\"\">\n                        <i @mousedown=\"startZoomSub\" @mouseout=\"endZoomSub\" @mouseup=\"endZoomSub\" class=\"vicp-icon5\" _v-3a1deb25=\"\"></i>\n                        <i @mousedown=\"startZoomAdd\" @mouseout=\"endZoomAdd\" @mouseup=\"endZoomAdd\" class=\"vicp-icon6\" _v-3a1deb25=\"\"></i>\n                    </div>\n                </div>\n                <div class=\"vicp-crop-right\" _v-3a1deb25=\"\">\n                    <div class=\"vicp-preview\" _v-3a1deb25=\"\">\n                        <div class=\"vicp-preview-item\" _v-3a1deb25=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" _v-3a1deb25=\"\">\n                            <span _v-3a1deb25=\"\">{{ lang.preview }}</span>\n                        </div>\n                        <div class=\"vicp-preview-item\" _v-3a1deb25=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" v-if=\"!noCircle\" _v-3a1deb25=\"\">\n                            <span _v-3a1deb25=\"\">{{ lang.preview }}</span>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"setStep(1)\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.back }}</a>\n                <a class=\"vicp-operate-btn\" @click=\"upload\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.save }}</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step3\" v-if=\"step == 3\" _v-3a1deb25=\"\">\n            <div class=\"vicp-upload\" _v-3a1deb25=\"\">\n                <span class=\"vicp-loading\" v-show=\"loading === 1\" _v-3a1deb25=\"\">{{ lang.loading }}</span>\n                <div class=\"vicp-progress-wrap\" _v-3a1deb25=\"\">\n                    <span class=\"vicp-progress\" v-show=\"loading === 1\" :style=\"progressStyle\" _v-3a1deb25=\"\"></span>\n                </div>\n                <div class=\"vicp-error\" v-show=\"hasError\" _v-3a1deb25=\"\">\n                    <i class=\"vicp-icon2\" _v-3a1deb25=\"\"></i> {{ errorMsg }}\n                </div>\n                <div class=\"vicp-success\" v-show=\"loading === 2\" _v-3a1deb25=\"\">\n                    <i class=\"vicp-icon3\" _v-3a1deb25=\"\"></i> {{ lang.success }}\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-3a1deb25=\"\">\n                <a @click=\"setStep(2)\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.back }}</a>\n                <a @click=\"off\" @mousedown=\"ripple\" _v-3a1deb25=\"\">{{ lang.btn.close }}</a>\n            </div>\n        </div>\n        <canvas v-show=\"false\" :width=\"width\" :height=\"height\" v-el:canvas=\"\" _v-3a1deb25=\"\"></canvas>\n    </div>\n</div>\n";
 
 /***/ }
 /******/ ]);

@@ -8964,7 +8964,7 @@
 	exports.i(__webpack_require__(304), "");
 
 	// module
-	exports.push([module.id, "\r\n", ""]);
+	exports.push([module.id, "\n\n", ""]);
 
 	// exports
 
@@ -9335,7 +9335,9 @@
 	        ia[i] = data.charCodeAt(i);
 	    };
 
-	    return new Blob([ia], { type: mime });
+	    return new Blob([ia], {
+	        type: mime
+	    });
 	};
 
 	exports.default = {
@@ -9490,6 +9492,8 @@
 
 	            isSupported: isSupported,
 
+	            isSupportTouch: document.hasOwnProperty("ontouchstart"),
+
 	            step: 1,
 	            loading: 0,
 	            progress: 0,
@@ -9549,11 +9553,13 @@
 	        },
 	        sourceImgStyle: function sourceImgStyle() {
 	            var scale = this.scale,
-	                sourceImgMasking = this.sourceImgMasking;
+	                sourceImgMasking = this.sourceImgMasking,
+	                top = scale.y + sourceImgMasking.y + 'px',
+	                left = scale.x + sourceImgMasking.x + 'px';
 
 	            return {
-	                top: scale.y + sourceImgMasking.y + 'px',
-	                left: scale.x + sourceImgMasking.x + 'px',
+	                top: top,
+	                left: left,
 	                width: scale.width + 'px',
 	                height: scale.height + 'px'
 	            };
@@ -9691,7 +9697,6 @@
 	        },
 	        reset: function reset() {
 	            var that = this;
-	            that.step = 1;
 	            that.loading = 0;
 	            that.hasError = false;
 	            that.errorMsg = '';
@@ -9758,18 +9763,30 @@
 	            };
 	        },
 	        imgStartMove: function imgStartMove(e) {
-	            var sourceImgMouseDown = this.sourceImgMouseDown,
+	            e.preventDefault();
+
+	            if (this.isSupportTouch && !e.targetTouches) {
+	                return false;
+	            }
+	            var et = e.targetTouches ? e.targetTouches[0] : e,
+	                sourceImgMouseDown = this.sourceImgMouseDown,
 	                scale = this.scale,
 	                simd = sourceImgMouseDown;
 
-	            simd.mX = e.screenX;
-	            simd.mY = e.screenY;
+	            simd.mX = et.screenX;
+	            simd.mY = et.screenY;
 	            simd.x = scale.x;
 	            simd.y = scale.y;
 	            simd.on = true;
 	        },
 	        imgMove: function imgMove(e) {
-	            var _sourceImgMouseDown = this.sourceImgMouseDown,
+	            e.preventDefault();
+
+	            if (this.isSupportTouch && !e.targetTouches) {
+	                return false;
+	            }
+	            var et = e.targetTouches ? e.targetTouches[0] : e,
+	                _sourceImgMouseDown = this.sourceImgMouseDown,
 	                on = _sourceImgMouseDown.on,
 	                mX = _sourceImgMouseDown.mX,
 	                mY = _sourceImgMouseDown.mY,
@@ -9778,8 +9795,8 @@
 	                scale = this.scale,
 	                sourceImgMasking = this.sourceImgMasking,
 	                sim = sourceImgMasking,
-	                nX = e.screenX,
-	                nY = e.screenY,
+	                nX = et.screenX,
+	                nY = et.screenY,
 	                dX = nX - mX,
 	                dY = nY - mY,
 	                rX = x + dX,
@@ -9939,8 +9956,8 @@
 	                }
 	            };
 
+	            that.reset();
 	            that.loading = 1;
-	            that.progress = 0;
 	            that.setStep(3);
 	            that.$emit('crop-success', createImgUrl, field, ki);
 	            new _promise2.default(function (resolve, reject) {
@@ -12302,7 +12319,7 @@
 /* 399 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"vue-image-crop-upload\" v-show=\"value\" _v-24bca70a=\"\">\n    <div class=\"vicp-wrap\" _v-24bca70a=\"\">\n        <div class=\"vicp-close\" @click=\"off\" _v-24bca70a=\"\">\n            <i class=\"vicp-icon4\" _v-24bca70a=\"\"></i>\n        </div>\n\n        <div class=\"vicp-step1\" v-show=\"step == 1\" _v-24bca70a=\"\">\n            <div class=\"vicp-drop-area\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @click=\"handleClick\" @drop=\"handleChange\" _v-24bca70a=\"\">\n                <i class=\"vicp-icon1\" v-show=\"loading != 1\" _v-24bca70a=\"\">\n\t\t\t\t\t<i class=\"vicp-icon1-arrow\" _v-24bca70a=\"\"></i>\n\t                <i class=\"vicp-icon1-body\" _v-24bca70a=\"\"></i>\n\t                <i class=\"vicp-icon1-bottom\" _v-24bca70a=\"\"></i>\n                </i>\n                <span class=\"vicp-hint\" v-show=\"loading !== 1\" _v-24bca70a=\"\">{{ lang.hint }}</span>\n                <span class=\"vicp-no-supported-hint\" v-show=\"!isSupported\" _v-24bca70a=\"\">{{ lang.noSupported }}</span>\n                <input type=\"file\" v-show=\"false\" v-if=\"step == 1\" @change=\"handleChange\" ref=\"fileinput\" _v-24bca70a=\"\">\n            </div>\n            <div class=\"vicp-error\" v-show=\"hasError\" _v-24bca70a=\"\">\n                <i class=\"vicp-icon2\" _v-24bca70a=\"\"></i> {{ errorMsg }}\n            </div>\n            <div class=\"vicp-operate\" _v-24bca70a=\"\">\n                <a @click=\"off\" @mousedown=\"ripple\" _v-24bca70a=\"\">{{ lang.btn.off }}</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step2\" v-if=\"step == 2\" _v-24bca70a=\"\">\n            <div class=\"vicp-crop\" _v-24bca70a=\"\">\n                <div class=\"vicp-crop-left\" v-show=\"true\" _v-24bca70a=\"\">\n                    <div class=\"vicp-img-container\" _v-24bca70a=\"\">\n                        <img :src=\"sourceImgUrl\" :style=\"sourceImgStyle\" class=\"vicp-img\" draggable=\"false\" @drag=\"preventDefault\" @dragstart=\"preventDefault\" @dragend=\"preventDefault\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @drop=\"preventDefault\" @mousedown=\"imgStartMove\" @mousemove=\"imgMove\" @mouseup=\"createImg\" @mouseout=\"createImg\" ref=\"img\" _v-24bca70a=\"\">\n                        <div class=\"vicp-img-shade vicp-img-shade-1\" :style=\"sourceImgShadeStyle\" _v-24bca70a=\"\"></div>\n                        <div class=\"vicp-img-shade vicp-img-shade-2\" :style=\"sourceImgShadeStyle\" _v-24bca70a=\"\"></div>\n                    </div>\n                    <div class=\"vicp-range\" _v-24bca70a=\"\">\n                        <input type=\"range\" :value=\"scale.range\" step=\"1\" min=\"0\" max=\"100\" @input=\"zoomChange\" _v-24bca70a=\"\">\n                        <i @mousedown=\"startZoomSub\" @mouseout=\"endZoomSub\" @mouseup=\"endZoomSub\" class=\"vicp-icon5\" _v-24bca70a=\"\"></i>\n                        <i @mousedown=\"startZoomAdd\" @mouseout=\"endZoomAdd\" @mouseup=\"endZoomAdd\" class=\"vicp-icon6\" _v-24bca70a=\"\"></i>\n                    </div>\n                </div>\n                <div class=\"vicp-crop-right\" v-show=\"true\" _v-24bca70a=\"\">\n                    <div class=\"vicp-preview\" _v-24bca70a=\"\">\n                        <div class=\"vicp-preview-item\" _v-24bca70a=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" _v-24bca70a=\"\">\n                            <span _v-24bca70a=\"\">{{ lang.preview }}</span>\n                        </div>\n                        <div class=\"vicp-preview-item\" _v-24bca70a=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" v-if=\"!noCircle\" _v-24bca70a=\"\">\n                            <span _v-24bca70a=\"\">{{ lang.preview }}</span>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-24bca70a=\"\">\n                <a @click=\"setStep(1)\" @mousedown=\"ripple\" _v-24bca70a=\"\">{{ lang.btn.back }}</a>\n                <a class=\"vicp-operate-btn\" @click=\"upload\" @mousedown=\"ripple\" _v-24bca70a=\"\">{{ lang.btn.save }}</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step3\" v-if=\"step == 3\" _v-24bca70a=\"\">\n            <div class=\"vicp-upload\" _v-24bca70a=\"\">\n                <span class=\"vicp-loading\" v-show=\"loading === 1\" _v-24bca70a=\"\">{{ lang.loading }}</span>\n                <div class=\"vicp-progress-wrap\" _v-24bca70a=\"\">\n                    <span class=\"vicp-progress\" v-show=\"loading === 1\" :style=\"progressStyle\" _v-24bca70a=\"\"></span>\n                </div>\n                <div class=\"vicp-error\" v-show=\"hasError\" _v-24bca70a=\"\">\n                    <i class=\"vicp-icon2\" _v-24bca70a=\"\"></i> {{ errorMsg }}\n                </div>\n                <div class=\"vicp-success\" v-show=\"loading === 2\" _v-24bca70a=\"\">\n                    <i class=\"vicp-icon3\" _v-24bca70a=\"\"></i> {{ lang.success }}\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-24bca70a=\"\">\n                <a @click=\"setStep(2)\" @mousedown=\"ripple\" _v-24bca70a=\"\">{{ lang.btn.back }}</a>\n                <a @click=\"off\" @mousedown=\"ripple\" _v-24bca70a=\"\">{{ lang.btn.close }}</a>\n            </div>\n        </div>\n        <canvas v-show=\"false\" :width=\"width\" :height=\"height\" ref=\"canvas\" _v-24bca70a=\"\"></canvas>\n    </div>\n</div>\n";
+	module.exports = "\n<div class=\"vue-image-crop-upload\" v-show=\"value\" _v-24bca70a=\"\">\n    <div class=\"vicp-wrap\" _v-24bca70a=\"\">\n        <div class=\"vicp-close\" @click=\"off\" _v-24bca70a=\"\">\n            <i class=\"vicp-icon4\" _v-24bca70a=\"\"></i>\n        </div>\n\n        <div class=\"vicp-step1\" v-show=\"step == 1\" _v-24bca70a=\"\">\n            <div class=\"vicp-drop-area\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @click=\"handleClick\" @drop=\"handleChange\" _v-24bca70a=\"\">\n                <i class=\"vicp-icon1\" v-show=\"loading != 1\" _v-24bca70a=\"\">\n\t\t\t\t\t<i class=\"vicp-icon1-arrow\" _v-24bca70a=\"\"></i>\n                <i class=\"vicp-icon1-body\" _v-24bca70a=\"\"></i>\n                <i class=\"vicp-icon1-bottom\" _v-24bca70a=\"\"></i>\n                </i>\n                <span class=\"vicp-hint\" v-show=\"loading !== 1\" _v-24bca70a=\"\">{{ lang.hint }}</span>\n                <span class=\"vicp-no-supported-hint\" v-show=\"!isSupported\" _v-24bca70a=\"\">{{ lang.noSupported }}</span>\n                <input type=\"file\" v-show=\"false\" v-if=\"step == 1\" @change=\"handleChange\" ref=\"fileinput\" _v-24bca70a=\"\">\n            </div>\n            <div class=\"vicp-error\" v-show=\"hasError\" _v-24bca70a=\"\">\n                <i class=\"vicp-icon2\" _v-24bca70a=\"\"></i> {{ errorMsg }}\n            </div>\n            <div class=\"vicp-operate\" _v-24bca70a=\"\">\n                <a @click=\"off\" @mousedown=\"ripple\" _v-24bca70a=\"\">{{ lang.btn.off }}</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step2\" v-if=\"step == 2\" _v-24bca70a=\"\">\n            <div class=\"vicp-crop\" _v-24bca70a=\"\">\n                <div class=\"vicp-crop-left\" v-show=\"true\" _v-24bca70a=\"\">\n                    <div class=\"vicp-img-container\" _v-24bca70a=\"\">\n                        <img :src=\"sourceImgUrl\" :style=\"sourceImgStyle\" class=\"vicp-img\" draggable=\"false\" @drag=\"preventDefault\" @dragstart=\"preventDefault\" @dragend=\"preventDefault\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @drop=\"preventDefault\" @touchstart=\"imgStartMove\" @touchmove=\"imgMove\" @touchend=\"createImg\" @touchcancel=\"createImg\" @mousedown=\"imgStartMove\" @mousemove=\"imgMove\" @mouseup=\"createImg\" @mouseout=\"createImg\" ref=\"img\" _v-24bca70a=\"\">\n                        <div class=\"vicp-img-shade vicp-img-shade-1\" :style=\"sourceImgShadeStyle\" _v-24bca70a=\"\"></div>\n                        <div class=\"vicp-img-shade vicp-img-shade-2\" :style=\"sourceImgShadeStyle\" _v-24bca70a=\"\"></div>\n                    </div>\n                    <div class=\"vicp-range\" _v-24bca70a=\"\">\n                        <input type=\"range\" :value=\"scale.range\" step=\"1\" min=\"0\" max=\"100\" @input=\"zoomChange\" _v-24bca70a=\"\">\n                        <i @mousedown=\"startZoomSub\" @mouseout=\"endZoomSub\" @mouseup=\"endZoomSub\" class=\"vicp-icon5\" _v-24bca70a=\"\"></i>\n                        <i @mousedown=\"startZoomAdd\" @mouseout=\"endZoomAdd\" @mouseup=\"endZoomAdd\" class=\"vicp-icon6\" _v-24bca70a=\"\"></i>\n                    </div>\n                </div>\n                <div class=\"vicp-crop-right\" v-show=\"true\" _v-24bca70a=\"\">\n                    <div class=\"vicp-preview\" _v-24bca70a=\"\">\n                        <div class=\"vicp-preview-item\" _v-24bca70a=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" _v-24bca70a=\"\">\n                            <span _v-24bca70a=\"\">{{ lang.preview }}</span>\n                        </div>\n                        <div class=\"vicp-preview-item\" _v-24bca70a=\"\">\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\" v-if=\"!noCircle\" _v-24bca70a=\"\">\n                            <span _v-24bca70a=\"\">{{ lang.preview }}</span>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-24bca70a=\"\">\n                <a @click=\"setStep(1)\" @mousedown=\"ripple\" _v-24bca70a=\"\">{{ lang.btn.back }}</a>\n                <a class=\"vicp-operate-btn\" @click=\"upload\" @mousedown=\"ripple\" _v-24bca70a=\"\">{{ lang.btn.save }}</a>\n            </div>\n        </div>\n\n        <div class=\"vicp-step3\" v-if=\"step == 3\" _v-24bca70a=\"\">\n            <div class=\"vicp-upload\" _v-24bca70a=\"\">\n                <span class=\"vicp-loading\" v-show=\"loading === 1\" _v-24bca70a=\"\">{{ lang.loading }}</span>\n                <div class=\"vicp-progress-wrap\" _v-24bca70a=\"\">\n                    <span class=\"vicp-progress\" v-show=\"loading === 1\" :style=\"progressStyle\" _v-24bca70a=\"\"></span>\n                </div>\n                <div class=\"vicp-error\" v-show=\"hasError\" _v-24bca70a=\"\">\n                    <i class=\"vicp-icon2\" _v-24bca70a=\"\"></i> {{ errorMsg }}\n                </div>\n                <div class=\"vicp-success\" v-show=\"loading === 2\" _v-24bca70a=\"\">\n                    <i class=\"vicp-icon3\" _v-24bca70a=\"\"></i> {{ lang.success }}\n                </div>\n            </div>\n            <div class=\"vicp-operate\" _v-24bca70a=\"\">\n                <a @click=\"setStep(2)\" @mousedown=\"ripple\" _v-24bca70a=\"\">{{ lang.btn.back }}</a>\n                <a @click=\"off\" @mousedown=\"ripple\" _v-24bca70a=\"\">{{ lang.btn.close }}</a>\n            </div>\n        </div>\n        <canvas v-show=\"false\" :width=\"width\" :height=\"height\" ref=\"canvas\" _v-24bca70a=\"\"></canvas>\n    </div>\n</div>\n\n";
 
 /***/ }
 /******/ ]);
