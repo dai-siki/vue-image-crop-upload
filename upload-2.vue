@@ -60,8 +60,8 @@
                             <img :src="createImgUrl" :style="previewStyle">
                             <span>{{ lang.preview }}</span>
                         </div>
-                        <div class="vicp-preview-item">
-                            <img :src="createImgUrl" :style="previewStyle" v-if="!noCircle">
+                        <div class="vicp-preview-item" v-if="!noCircle">
+                            <img :src="createImgUrl" :style="previewStyle">
                             <span>{{ lang.preview }}</span>
                         </div>
                     </div>
