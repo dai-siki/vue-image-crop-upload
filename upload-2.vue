@@ -58,7 +58,18 @@
                         <i @mousedown="startZoomAdd" @mouseout="endZoomAdd" @mouseup="endZoomAdd" class="vicp-icon6"></i>
                     </div>
                 </div>
-                
+                <div class="vicp-crop-right" v-if="!isMobile">
+                    <div class="vicp-preview">
+                        <div class="vicp-preview-item">
+                            <img :src="createImgUrl" :style="previewStyle">
+                            <span>{{ lang.preview }}</span>
+                        </div>
+                        <div class="vicp-preview-item">
+                            <img :src="createImgUrl" :style="previewStyle" v-if="!noCircle">
+                            <span>{{ lang.preview }}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="vicp-operate">
                 <a @click="setStep(1)" @mousedown="ripple">{{ lang.btn.back }}</a>
@@ -305,6 +316,9 @@ export default {
 
             // 浏览器是否支持该控件
             isSupported,
+
+            // 是否是移动端
+            isMobile: (screen.width <= 640) || (window.matchMedia && window.matchMedia('only screen and (max-width: 640px)').matches),
 
             // 步骤
             step: 1, //1选择文件 2剪裁 3上传

@@ -66,6 +66,11 @@
     border-radius: 2px;
     -webkit-animation: vicp 0.12s ease-in;
             animation: vicp 0.12s ease-in; }
+    @media only screen and (min-width: 768px) {
+        .vue-image-crop-upload .vicp-wrap {
+            width: 600px;
+        }
+    }
     .vue-image-crop-upload .vicp-wrap .vicp-close {
       position: absolute;
       right: -30px;
