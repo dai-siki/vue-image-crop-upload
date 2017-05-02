@@ -474,7 +474,7 @@ export default {
     },
     watch: {
         value(newValue) {
-            if (newValue) {
+            if (newValue && this.loading != 1) {
                 this.reset();
             }
         }
@@ -489,6 +489,9 @@ export default {
             let that = this;
             setTimeout(function() {
                 that.$emit('input', false);
+                if(that.step == 3 && that.loading == 2){
+                    that.setStep(1);
+                }
             }, 200);
         },
         // 设置步骤
