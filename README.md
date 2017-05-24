@@ -109,105 +109,105 @@ $ npm install vue-image-crop-upload
             lowestPx: 'The lowest pixel in the image: '
         }
     },
-	ru: {
-		hint: 'Нажмите, или перетащите файл в это окно',
-		loading: 'Загружаю……',
-		noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
-		success: 'Загрузка выполнена успешно',
-		fail: 'Ошибка загрузки',
-		preview: 'Предпросмотр',
-		btn: {
-			off: 'Отменить',
-			close: 'Закрыть',
-			back: 'Назад',
-			save: 'Сохранить'
-		},
-		error: {
-			onlyImg: 'Только изображения',
-			outOfSize: 'Изображение превышает предельный размер: ',
-			lowestPx: 'Минимальный размер изображения: '
-		}
-	}
+    ru: {
+        hint: 'Нажмите, или перетащите файл в это окно',
+        loading: 'Загружаю……',
+        noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
+        success: 'Загрузка выполнена успешно',
+        fail: 'Ошибка загрузки',
+        preview: 'Предпросмотр',
+        btn: {
+            off: 'Отменить',
+            close: 'Закрыть',
+            back: 'Назад',
+            save: 'Сохранить'
+        },
+        error: {
+            onlyImg: 'Только изображения',
+            outOfSize: 'Изображение превышает предельный размер: ',
+            lowestPx: 'Минимальный размер изображения: '
+        }
+    }
 }
 ```
 
 #### Example vue@1
 ```html
 <div id="app">
-	<a class="btn" @click="toggleShow">set avatar</a>
-	<my-upload field="img"
-		:width="300"
-		:height="300"
-		url="/upload"
-		:params="params"
-		:headers="headers"
+    <a class="btn" @click="toggleShow">set avatar</a>
+    <my-upload field="img"
+        :width="300"
+        :height="300"
+        url="/upload"
+        :params="params"
+        :headers="headers"
         lang-type="en"
-		:value.sync="show"
-		img-format="png"></my-upload>
-	<img :src="imgDataUrl">
+        :value.sync="show"
+        img-format="png"></my-upload>
+    <img :src="imgDataUrl">
 </div>
 
 <script>
-	import 'babel-polyfill'; // es6 shim
-	import Vue from 'vue';
-	import myUpload from 'vue-image-crop-upload';
+    import 'babel-polyfill'; // es6 shim
+    import Vue from 'vue';
+    import myUpload from 'vue-image-crop-upload';
 
-	new Vue({
-		el: '#app',
-		data: {
-			show: true,
-			params: {
-				token: '123456798',
-				name: 'avatar'
-			},
-			headers: {
-				smail: '*_~'
-			},
-			imgDataUrl: '' // the datebase64 url of created image
-		},
-		components: {
-			'my-upload': myUpload
-		},
-		methods: {
-			toggleShow() {
-				this.show = !this.show;
-			}
-		},
-		events: {
-			/**
-			 * crop success
-			 *
-			 * [param] imgDataUrl
-			 * [param] field
-			 */
-			cropSuccess(imgDataUrl, field){
-				console.log('-------- crop success --------');
-				this.imgDataUrl = imgDataUrl;
-			},
-			/**
-			 * upload success
-			 *
-			 * [param] jsonData   server api return data, already json encode
-			 * [param] field
-			 */
-			cropUploadSuccess(jsonData, field){
-				console.log('-------- upload success --------');
-				console.log(jsonData);
-				console.log('field: ' + field);
-			},
-			/**
-			 * upload fail
-			 *
-			 * [param] status    server api return error status, like 500
-			 * [param] field
-			 */
-			cropUploadFail(status, field){
-				console.log('-------- upload fail --------');
-				console.log(status);
-				console.log('field: ' + field);
-			}
-		}
-	});
+    new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            params: {
+                token: '123456798',
+                name: 'avatar'
+            },
+            headers: {
+                smail: '*_~'
+            },
+            imgDataUrl: '' // the datebase64 url of created image
+        },
+        components: {
+            'my-upload': myUpload
+        },
+        methods: {
+            toggleShow() {
+                this.show = !this.show;
+            }
+        },
+        events: {
+            /**
+             * crop success
+             *
+             * [param] imgDataUrl
+             * [param] field
+             */
+            cropSuccess(imgDataUrl, field){
+                console.log('-------- crop success --------');
+                this.imgDataUrl = imgDataUrl;
+            },
+            /**
+             * upload success
+             *
+             * [param] jsonData   server api return data, already json encode
+             * [param] field
+             */
+            cropUploadSuccess(jsonData, field){
+                console.log('-------- upload success --------');
+                console.log(jsonData);
+                console.log('field: ' + field);
+            },
+            /**
+             * upload fail
+             *
+             * [param] status    server api return error status, like 500
+             * [param] field
+             */
+            cropUploadFail(status, field){
+                console.log('-------- upload fail --------');
+                console.log(status);
+                console.log('field: ' + field);
+            }
+        }
+    });
 
 </script>
 ```
@@ -215,80 +215,80 @@ $ npm install vue-image-crop-upload
 #### Example vue@2
 ```html
 <div id="app">
-	<a class="btn" @click="toggleShow">set avatar</a>
-	<my-upload field="img"
+    <a class="btn" @click="toggleShow">set avatar</a>
+    <my-upload field="img"
         @crop-success="cropSuccess"
         @crop-upload-success="cropUploadSuccess"
         @crop-upload-fail="cropUploadFail"
         v-model="show"
-		:width="300"
-		:height="300"
-		url="/upload"
-		:params="params"
-		:headers="headers"
-		img-format="png"></my-upload>
-	<img :src="imgDataUrl">
+        :width="300"
+        :height="300"
+        url="/upload"
+        :params="params"
+        :headers="headers"
+        img-format="png"></my-upload>
+    <img :src="imgDataUrl">
 </div>
 
 <script>
-	import 'babel-polyfill'; // es6 shim
-	import Vue from 'vue';
-	import myUpload from 'vue-image-crop-upload/upload-2.vue';
+    import 'babel-polyfill'; // es6 shim
+    import Vue from 'vue';
+    import myUpload from 'vue-image-crop-upload/upload-2.vue';
 
-	new Vue({
-		el: '#app',
-		data: {
-			show: true,
-			params: {
-				token: '123456798',
-				name: 'avatar'
-			},
-			headers: {
-				smail: '*_~'
-			},
-			imgDataUrl: '' // the datebase64 url of created image
-		},
-		components: {
-			'my-upload': myUpload
-		},
-		methods: {
-			toggleShow() {
-				this.show = !this.show;
-			},
+    new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            params: {
+                token: '123456798',
+                name: 'avatar'
+            },
+            headers: {
+                smail: '*_~'
+            },
+            imgDataUrl: '' // the datebase64 url of created image
+        },
+        components: {
+            'my-upload': myUpload
+        },
+        methods: {
+            toggleShow() {
+                this.show = !this.show;
+            },
             /**
-			 * crop success
-			 *
-			 * [param] imgDataUrl
-			 * [param] field
-			 */
-			cropSuccess(imgDataUrl, field){
-				console.log('-------- crop success --------');
-				this.imgDataUrl = imgDataUrl;
-			},
-			/**
-			 * upload success
-			 *
-			 * [param] jsonData  server api return data, already json encode
-			 * [param] field
-			 */
-			cropUploadSuccess(jsonData, field){
-				console.log('-------- upload success --------');
-				console.log(jsonData);
-				console.log('field: ' + field);
-			},
-			/**
-			 * upload fail
-			 *
-			 * [param] status    server api return error status, like 500
-			 * [param] field
-			 */
-			cropUploadFail(status, field){
-				console.log('-------- upload fail --------');
-				console.log(status);
-				console.log('field: ' + field);
-			}
-		}
-	});
+             * crop success
+             *
+             * [param] imgDataUrl
+             * [param] field
+             */
+            cropSuccess(imgDataUrl, field){
+                console.log('-------- crop success --------');
+                this.imgDataUrl = imgDataUrl;
+            },
+            /**
+             * upload success
+             *
+             * [param] jsonData  server api return data, already json encode
+             * [param] field
+             */
+            cropUploadSuccess(jsonData, field){
+                console.log('-------- upload success --------');
+                console.log(jsonData);
+                console.log('field: ' + field);
+            },
+            /**
+             * upload fail
+             *
+             * [param] status    server api return error status, like 500
+             * [param] field
+             */
+            cropUploadFail(status, field){
+                console.log('-------- upload fail --------');
+                console.log(status);
+                console.log('field: ' + field);
+            }
+        }
+    });
 </script>
 ```
 
@@ -391,104 +391,104 @@ $ npm install vue-image-crop-upload
             lowestPx: 'The lowest pixel in the image: '
         }
     },
-	ru: {
-		hint: 'Нажмите, или перетащите файл в это окно',
-		loading: 'Загружаю……',
-		noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
-		success: 'Загрузка выполнена успешно',
-		fail: 'Ошибка загрузки',
-		preview: 'Предпросмотр',
-		btn: {
-			off: 'Отменить',
-			close: 'Закрыть',
-			back: 'Назад',
-			save: 'Сохранить'
-		},
-		error: {
-			onlyImg: 'Только изображения',
-			outOfSize: 'Изображение превышает предельный размер: ',
-			lowestPx: 'Минимальный размер изображения: '
-		}
-	}
+    ru: {
+        hint: 'Нажмите, или перетащите файл в это окно',
+        loading: 'Загружаю……',
+        noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
+        success: 'Загрузка выполнена успешно',
+        fail: 'Ошибка загрузки',
+        preview: 'Предпросмотр',
+        btn: {
+            off: 'Отменить',
+            close: 'Закрыть',
+            back: 'Назад',
+            save: 'Сохранить'
+        },
+        error: {
+            onlyImg: 'Только изображения',
+            outOfSize: 'Изображение превышает предельный размер: ',
+            lowestPx: 'Минимальный размер изображения: '
+        }
+    }
 }
 ```
 
 #### 使用示例 vue@1
 ```html
 <div id="app">
-	<a class="btn" @click="toggleShow">设置头像</a>
-	<my-upload field="img"
-		:width="300"
-		:height="300"
-		url="/upload"
-		:params="params"
-		:headers="headers"
-		:value.sync="show"
-		img-format="png"></my-upload>
-	<img :src="imgDataUrl">
+    <a class="btn" @click="toggleShow">设置头像</a>
+    <my-upload field="img"
+        :width="300"
+        :height="300"
+        url="/upload"
+        :params="params"
+        :headers="headers"
+        :value.sync="show"
+        img-format="png"></my-upload>
+    <img :src="imgDataUrl">
 </div>
 
 <script>
-	import 'babel-polyfill'; // es6 shim
-	import Vue from 'vue';
-	import myUpload from 'vue-image-crop-upload';
+    import 'babel-polyfill'; // es6 shim
+    import Vue from 'vue';
+    import myUpload from 'vue-image-crop-upload';
 
-	new Vue({
-		el: '#app',
-		data: {
-			show: true,
-			params: {
-				token: '123456798',
-				name: 'avatar'
-			},
-			headers: {
-				smail: '*_~'
-			},
-			imgDataUrl: '' // the datebase64 url of created image
-		},
-		components: {
-			'my-upload': myUpload
-		},
-		methods: {
-			toggleShow() {
-				this.show = !this.show;
-			}
-		},
-		events: {
+    new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            params: {
+                token: '123456798',
+                name: 'avatar'
+            },
+            headers: {
+                smail: '*_~'
+            },
+            imgDataUrl: '' // the datebase64 url of created image
+        },
+        components: {
+            'my-upload': myUpload
+        },
+        methods: {
+            toggleShow() {
+                this.show = !this.show;
+            }
+        },
+        events: {
             /**
-			 * crop success
-			 *
-			 * [param] imgDataUrl
-			 * [param] field
-			 */
-			cropSuccess(imgDataUrl, field){
-				console.log('-------- crop success --------');
-				this.imgDataUrl = imgDataUrl;
-			},
-			/**
-			 * upload success
-			 *
-			 * [param] jsonData   服务器返回数据，已进行json转码
-			 * [param] field
-			 */
-			cropUploadSuccess(jsonData, field){
-				console.log('-------- upload success --------');
-				console.log(jsonData);
-				console.log('field: ' + field);
-			},
-			/**
-			 * upload fail
-			 *
-			 * [param] status    server api return error status, like 500
-			 * [param] field
-			 */
-			cropUploadFail(status, field){
-				console.log('-------- upload fail --------');
-				console.log(status);
-				console.log('field: ' + field);
-			}
-		}
-	});
+             * crop success
+             *
+             * [param] imgDataUrl
+             * [param] field
+             */
+            cropSuccess(imgDataUrl, field){
+                console.log('-------- crop success --------');
+                this.imgDataUrl = imgDataUrl;
+            },
+            /**
+             * upload success
+             *
+             * [param] jsonData   服务器返回数据，已进行json转码
+             * [param] field
+             */
+            cropUploadSuccess(jsonData, field){
+                console.log('-------- upload success --------');
+                console.log(jsonData);
+                console.log('field: ' + field);
+            },
+            /**
+             * upload fail
+             *
+             * [param] status    server api return error status, like 500
+             * [param] field
+             */
+            cropUploadFail(status, field){
+                console.log('-------- upload fail --------');
+                console.log(status);
+                console.log('field: ' + field);
+            }
+        }
+    });
 
 </script>
 ```
@@ -496,80 +496,80 @@ $ npm install vue-image-crop-upload
 #### 使用示例 vue@2
 ```html
 <div id="app">
-	<a class="btn" @click="toggleShow">设置头像</a>
-	<my-upload field="img"
+    <a class="btn" @click="toggleShow">设置头像</a>
+    <my-upload field="img"
         @crop-success="cropSuccess"
         @crop-upload-success="cropUploadSuccess"
         @crop-upload-fail="cropUploadFail"
         v-model="show"
-		:width="300"
-		:height="300"
-		url="/upload"
-		:params="params"
-		:headers="headers"
-		img-format="png"></my-upload>
-	<img :src="imgDataUrl">
+        :width="300"
+        :height="300"
+        url="/upload"
+        :params="params"
+        :headers="headers"
+        img-format="png"></my-upload>
+    <img :src="imgDataUrl">
 </div>
 
 <script>
-	import 'babel-polyfill'; // es6 shim
-	import Vue from 'vue';
-	import myUpload from 'vue-image-crop-upload/upload-2.vue';
+    import 'babel-polyfill'; // es6 shim
+    import Vue from 'vue';
+    import myUpload from 'vue-image-crop-upload/upload-2.vue';
 
-	new Vue({
-		el: '#app',
-		data: {
-			show: true,
-			params: {
-				token: '123456798',
-				name: 'avatar'
-			},
-			headers: {
-				smail: '*_~'
-			},
-			imgDataUrl: '' // the datebase64 url of created image
-		},
-		components: {
-			'my-upload': myUpload
-		},
-		methods: {
-			toggleShow() {
-				this.show = !this.show;
-			},
+    new Vue({
+        el: '#app',
+        data: {
+            show: true,
+            params: {
+                token: '123456798',
+                name: 'avatar'
+            },
+            headers: {
+                smail: '*_~'
+            },
+            imgDataUrl: '' // the datebase64 url of created image
+        },
+        components: {
+            'my-upload': myUpload
+        },
+        methods: {
+            toggleShow() {
+                this.show = !this.show;
+            },
             /**
-			 * crop success
-			 *
-			 * [param] imgDataUrl
-			 * [param] field
-			 */
-			cropSuccess(imgDataUrl, field){
-				console.log('-------- crop success --------');
-				this.imgDataUrl = imgDataUrl;
-			},
-			/**
-			 * upload success
-			 *
-			 * [param] jsonData   服务器返回数据，已进行json转码
-			 * [param] field
-			 */
-			cropUploadSuccess(jsonData, field){
-				console.log('-------- upload success --------');
-				console.log(jsonData);
-				console.log('field: ' + field);
-			},
-			/**
-			 * upload fail
-			 *
-			 * [param] status    server api return error status, like 500
-			 * [param] field
-			 */
-			cropUploadFail(status, field){
-				console.log('-------- upload fail --------');
-				console.log(status);
-				console.log('field: ' + field);
-			}
-		}
-	});
+             * crop success
+             *
+             * [param] imgDataUrl
+             * [param] field
+             */
+            cropSuccess(imgDataUrl, field){
+                console.log('-------- crop success --------');
+                this.imgDataUrl = imgDataUrl;
+            },
+            /**
+             * upload success
+             *
+             * [param] jsonData   服务器返回数据，已进行json转码
+             * [param] field
+             */
+            cropUploadSuccess(jsonData, field){
+                console.log('-------- upload success --------');
+                console.log(jsonData);
+                console.log('field: ' + field);
+            },
+            /**
+             * upload fail
+             *
+             * [param] status    server api return error status, like 500
+             * [param] field
+             */
+            cropUploadFail(status, field){
+                console.log('-------- upload fail --------');
+                console.log(status);
+                console.log('field: ' + field);
+            }
+        }
+    });
 
 </script>
 ```
