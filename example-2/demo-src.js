@@ -9956,7 +9956,7 @@
 	                    if (this.readyState !== 4) {
 	                        return;
 	                    }
-	                    if (this.status === 200) {
+	                    if (this.status === 200 || this.status === 201) {
 	                        resolve(JSON.parse(this.responseText));
 	                    } else {
 	                        reject(this.status);
