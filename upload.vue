@@ -1010,8 +1010,10 @@ export default {
                   transform: rotate(90deg); }
     .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area {
       position: relative;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
       padding: 35px;
-      height: 100px;
+      height: 170px;
       background-color: rgba(0, 0, 0, 0.03);
       text-align: center;
       border: 1px dashed rgba(0, 0, 0, 0.08);
@@ -1293,8 +1295,10 @@ export default {
                 border-radius: 100%; }
     .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload {
       position: relative;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
       padding: 35px;
-      height: 100px;
+      height: 170px;
       background-color: rgba(0, 0, 0, 0.03);
       text-align: center;
       border: 1px dashed #ddd; }
