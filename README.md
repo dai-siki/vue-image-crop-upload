@@ -11,7 +11,7 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 
 [![NPM](https://nodei.co/npm/vue-image-crop-upload.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-image-crop-upload/)
 
-## 中文文档在下面
+## 中文文档在后面
 
 ## Change log
 #### @1.3.0
