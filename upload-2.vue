@@ -256,9 +256,9 @@ export default {
                     }
                 },
                 en: {
-                    hint: 'Click, or drag the file here',
-                    loading: 'Uploading……',
-                    noSupported: 'Browser does not support, please use IE10+ or other browsers',
+                    hint: 'Click or drag the file here to upload',
+                    loading: 'Uploading…',
+                    noSupported: 'Browser is not supported, please use IE10+ or other browsers',
                     success: 'Upload success',
                     fail: 'Upload failed',
                     preview: 'Preview',
@@ -271,7 +271,28 @@ export default {
                     error: {
                         onlyImg: 'Image only',
                         outOfSize: 'Image exceeds size limit: ',
-                        lowestPx: 'The lowest pixel in the image: '
+                        lowestPx: 'Image\'s size is too low. Expected at least: '
+                    }
+                },
+                ro: {
+                    hint: 'Atinge sau trage fișierul aici',
+                    loading: 'Se încarcă',
+                    noSupported: 'Browser-ul tău nu suportă acest feature. Te rugăm încearcă cu alt browser.',
+                    success: 'S-a încărcat cu succes',
+                    fail: 'A apărut o problemă la încărcare',
+                    preview: 'Previzualizează',
+
+                    btn: {
+                        off: 'Anulează',
+                        close: 'Închide',
+                        back: 'Înapoi',
+                        save: 'Salvează'
+                    },
+
+                    error: {
+                        onlyImg: 'Doar imagini',
+                        outOfSize: 'Imaginea depășește limita de: ',
+                        loewstPx: 'Imaginea este prea mică; Minim: '
                     }
                 },
                 ru: {
