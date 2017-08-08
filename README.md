@@ -14,8 +14,11 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## 中文文档在后面
 
 ## Change log
+#### @1.3.5
+- Added the *Romanian* language pack (thanks @doriandrn)
+
 #### @1.3.0
-- Added the Russian language pack (thanks @bigperson)
+- Added the *Russian* language pack (thanks @bigperson)
 - Added a new Props: "headers" (Used to set the POST request header)
 
 #### @1.2.0
@@ -48,7 +51,7 @@ $ npm install vue-image-crop-upload
 
 ## Usage
 #### Props
-| 名称              | 类型               | 默认             | 说明                                         |
+| name              | type               | default             | info                                         |
 | ----------------| ---------------- | ---------------| ------------------------------------------|
 | field       | String   | 'upload'     | Upload input filename, used for server side get the file stream.    |
 | value             | Boolean            | twoWay            | show or not    |
@@ -91,9 +94,9 @@ $ npm install vue-image-crop-upload
         }
     },
     en: {
-        hint: 'Click, or drag the file here',
-        loading: 'Uploading……',
-        noSupported: 'Browser does not support, please use IE10+ or other browsers',
+        hint: 'Click or drag the file here to upload',
+        loading: 'Uploading…',
+        noSupported: 'Browser is not supported, please use IE10+ or other browsers',
         success: 'Upload success',
         fail: 'Upload failed',
         preview: 'Preview',
@@ -106,28 +109,49 @@ $ npm install vue-image-crop-upload
         error: {
             onlyImg: 'Image only',
             outOfSize: 'Image exceeds size limit: ',
-            lowestPx: 'The lowest pixel in the image: '
+            lowestPx: 'Image\'s size is too low. Expected at least: '
         }
     },
-	ru: {
-		hint: 'Нажмите, или перетащите файл в это окно',
-		loading: 'Загружаю……',
-		noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
-		success: 'Загрузка выполнена успешно',
-		fail: 'Ошибка загрузки',
-		preview: 'Предпросмотр',
-		btn: {
-			off: 'Отменить',
-			close: 'Закрыть',
-			back: 'Назад',
-			save: 'Сохранить'
-		},
-		error: {
-			onlyImg: 'Только изображения',
-			outOfSize: 'Изображение превышает предельный размер: ',
-			lowestPx: 'Минимальный размер изображения: '
-		}
-	}
+    ro: {
+        hint: 'Atinge sau trage fișierul aici',
+        loading: 'Se încarcă',
+        noSupported: 'Browser-ul tău nu suportă acest feature. Te rugăm încearcă cu alt browser.',
+        success: 'S-a încărcat cu succes',
+        fail: 'A apărut o problemă la încărcare',
+        preview: 'Previzualizează',
+
+        btn: {
+            off: 'Anulează',
+            close: 'Închide',
+            back: 'Înapoi',
+            save: 'Salvează'
+        },
+
+        error: {
+            onlyImg: 'Doar imagini',
+            outOfSize: 'Imaginea depășește limita de: ',
+            loewstPx: 'Imaginea este prea mică; Minim: '
+        }
+    },
+    ru: {
+        hint: 'Нажмите, или перетащите файл в это окно',
+        loading: 'Загружаю……',
+        noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
+        success: 'Загрузка выполнена успешно',
+        fail: 'Ошибка загрузки',
+        preview: 'Предпросмотр',
+        btn: {
+            off: 'Отменить',
+            close: 'Закрыть',
+            back: 'Назад',
+            save: 'Сохранить'
+        },
+        error: {
+            onlyImg: 'Только изображения',
+            outOfSize: 'Изображение превышает предельный размер: ',
+            lowestPx: 'Минимальный размер изображения: '
+        }
+    }
 }
 ```
 
@@ -371,45 +395,7 @@ $ npm install vue-image-crop-upload
             outOfSize: '单文件大小不能超过 ',
             lowestPx: '图片最低像素为（宽*高）：'
         }
-    },
-    en: {
-        hint: 'Click, or drag the file here',
-        loading: 'Uploading……',
-        noSupported: 'Browser does not support, please use IE10+ or other browsers',
-        success: 'Upload success',
-        fail: 'Upload failed',
-        preview: 'Preview',
-        btn: {
-            off: 'Cancel',
-            close: 'Close',
-            back: 'Back',
-            save: 'Save'
-        },
-        error: {
-            onlyImg: 'Image only',
-            outOfSize: 'Image exceeds size limit: ',
-            lowestPx: 'The lowest pixel in the image: '
-        }
-    },
-	ru: {
-		hint: 'Нажмите, или перетащите файл в это окно',
-		loading: 'Загружаю……',
-		noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
-		success: 'Загрузка выполнена успешно',
-		fail: 'Ошибка загрузки',
-		preview: 'Предпросмотр',
-		btn: {
-			off: 'Отменить',
-			close: 'Закрыть',
-			back: 'Назад',
-			save: 'Сохранить'
-		},
-		error: {
-			onlyImg: 'Только изображения',
-			outOfSize: 'Изображение превышает предельный размер: ',
-			lowestPx: 'Минимальный размер изображения: '
-		}
-	}
+    }
 }
 ```
 
