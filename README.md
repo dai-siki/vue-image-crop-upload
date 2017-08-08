@@ -15,10 +15,10 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 
 ## Change log
 #### @1.3.5
-- Added the *Romanian* language pack (thanks @doriandrn)
+- Added the **Romanian** language pack (thanks @doriandrn)
 
 #### @1.3.0
-- Added the *Russian* language pack (thanks @bigperson)
+- Added the **Russian** language pack (thanks @bigperson)
 - Added a new Props: "headers" (Used to set the POST request header)
 
 #### @1.2.0
