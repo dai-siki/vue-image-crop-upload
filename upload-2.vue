@@ -313,6 +313,25 @@ export default {
                         outOfSize: 'Изображение превышает предельный размер: ',
                         lowestPx: 'Минимальный размер изображения: '
                     }
+                },
+                fr: {
+                    hint: 'Cliquez ou glissez le fichier ici.',
+                    loading: 'Téléchargement…',
+                    noSupported: 'Votre navigateur n\'est pas supporté. Utilisez IE10 + ou un autre navigateur s\'il vous plaît.',
+                    success: 'Téléchargement réussit',
+                    fail: 'Téléchargement echoué',
+                    preview: 'Aperçu',
+                    btn: {
+                        off: 'Annuler',
+                        close: 'Fermer',
+                        back: 'Retour',
+                        save: 'Enregistrer'
+                    },
+                    error: {
+                        onlyImg: 'Image uniquement',
+                        outOfSize: 'L\'image sélectionnée dépasse la taille maximum: ',
+                        lowestPx: 'L\'image sélectionnée est trop petite. Dimensions attendues: '
+                    }
                 }
             },
             tempImgFormat = allowImgFormat.indexOf(imgFormat) === -1 ? 'jpg' : imgFormat,
