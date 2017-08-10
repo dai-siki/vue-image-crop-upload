@@ -2,7 +2,7 @@
 
 A beautiful vue component for image crop and upload. （vue图片剪裁上传组件）.
 
-** Notice:  ** This component is designed for pc, not recommended for use on the mobile side.(该组件适用于pc端，不推荐手机端使用)
+**Notice**: This component is designed for pc, **not recommended for use on the mobile side**.(该组件适用于pc端，不推荐手机端使用)
 
 [![GitHub issues](https://img.shields.io/github/issues/dai-siki/vue-image-crop-upload.svg)](https://github.com/dai-siki/vue-image-crop-upload/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dai-siki/vue-image-crop-upload.svg)](https://github.com/dai-siki/vue-image-crop-upload/network)
