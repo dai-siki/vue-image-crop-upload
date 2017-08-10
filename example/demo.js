@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 import Vue from 'vue';
-import myUpload from '../upload.vue';
+import myUpload from '../upload-1.vue';
 
 new Vue({
 	el: '#app',

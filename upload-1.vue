@@ -106,59 +106,10 @@
 
 <script>
 'use strict';
-
-const mimes = {
-        'jpg': 'image/jpeg',
-        'png': 'image/png',
-        'gif': 'image/gif',
-        'svg': 'image/svg+xml',
-        'psd': 'image/photoshop'
-    },
-    // 点击波纹效果
-    effectRipple = function(e, arg_opts) {
-        let opts = Object.assign({
-                ele: e.target, // 波纹作用元素
-                type: 'hit', // hit点击位置扩散　center中心点扩展
-                bgc: 'rgba(0, 0, 0, 0.15)' // 波纹颜色
-            }, arg_opts),
-            target = opts.ele;
-        if (target) {
-            let rect = target.getBoundingClientRect(),
-                ripple = target.querySelector('.e-ripple');
-            if (!ripple) {
-                ripple = document.createElement('span');
-                ripple.className = 'e-ripple';
-                ripple.style.height = ripple.style.width = Math.max(rect.width, rect.height) + 'px';
-                target.appendChild(ripple);
-            } else {
-                ripple.className = 'e-ripple';
-            }
-            switch (opts.type) {
-                case 'center':
-                    ripple.style.top = (rect.height / 2 - ripple.offsetHeight / 2) + 'px';
-                    ripple.style.left = (rect.width / 2 - ripple.offsetWidth / 2) + 'px';
-                    break;
-                default:
-                    ripple.style.top = (e.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop) + 'px';
-                    ripple.style.left = (e.pageX - rect.left - ripple.offsetWidth / 2 - document.body.scrollLeft) + 'px';
-            }
-            ripple.style.backgroundColor = opts.bgc;
-            ripple.className = 'e-ripple z-active';
-            return false;
-        }
-    },
-    // database64文件格式转换为2进制
-    data2blob = function (data, mime){
-        // dataURL 的格式为 “data:image/png;base64,****”,逗号之前都是一些说明性的文字，我们只需要逗号之后的就行了
-        data = data.split(',')[1];
-        data = window.atob(data);
-        var ia = new Uint8Array(data.length);
-        for (var i = 0; i < data.length; i++) {
-            ia[i] = data.charCodeAt(i);
-        };
-        // canvas.toDataURL 返回的默认格式就是 image/png
-        return new Blob([ia], {type:mime});
-    };
+import language from './utils/language.js';
+import mimes from './utils/mimes.js';
+import data2blob from './utils/data2blob.js';
+import effectRipple from './utils/effectRipple.js';
 
 export default {
     props: {
@@ -241,88 +192,8 @@ export default {
                 'jpg',
                 'png'
             ],
-            langBag = {
-                zh: {
-                    hint: '点击，或拖动图片至此处',
-                    loading: '正在上传……',
-                    noSupported: '浏览器不支持该功能，请使用IE10以上或其他现在浏览器！',
-                    success: '上传成功',
-                    fail: '图片上传失败',
-                    preview: '头像预览',
-                    btn: {
-                        off: '取消',
-                        close: '关闭',
-                        back: '上一步',
-                        save: '保存'
-                    },
-                    error: {
-                        onlyImg: '仅限图片格式',
-                        outOfSize: '单文件大小不能超过 ',
-                        lowestPx: '图片最低像素为（宽*高）：'
-                    }
-                },
-                en: {
-                    hint: 'Click or drag the file here to upload',
-                    loading: 'Uploading…',
-                    noSupported: 'Browser is not supported, please use IE10+ or other browsers',
-                    success: 'Upload success',
-                    fail: 'Upload failed',
-                    preview: 'Preview',
-                    btn: {
-                        off: 'Cancel',
-                        close: 'Close',
-                        back: 'Back',
-                        save: 'Save'
-                    },
-                    error: {
-                        onlyImg: 'Image only',
-                        outOfSize: 'Image exceeds size limit: ',
-                        lowestPx: 'Image\'s size is too low. Expected at least: '
-                    }
-                },
-                ro: {
-                    hint: 'Atinge sau trage fișierul aici',
-                    loading: 'Se încarcă',
-                    noSupported: 'Browser-ul tău nu suportă acest feature. Te rugăm încearcă cu alt browser.',
-                    success: 'S-a încărcat cu succes',
-                    fail: 'A apărut o problemă la încărcare',
-                    preview: 'Previzualizează',
-
-                    btn: {
-                        off: 'Anulează',
-                        close: 'Închide',
-                        back: 'Înapoi',
-                        save: 'Salvează'
-                    },
-
-                    error: {
-                        onlyImg: 'Doar imagini',
-                        outOfSize: 'Imaginea depășește limita de: ',
-                        loewstPx: 'Imaginea este prea mică; Minim: '
-                    }
-                },
-                ru: {
-                    hint: 'Нажмите, или перетащите файл в это окно',
-                    loading: 'Загружаю……',
-                    noSupported: 'Ваш браузер не поддерживается, пожалуйста, используйте IE10 + или другие браузеры',
-                    success: 'Загрузка выполнена успешно',
-                    fail: 'Ошибка загрузки',
-                    preview: 'Предпросмотр',
-                    btn: {
-                        off: 'Отменить',
-                        close: 'Закрыть',
-                        back: 'Назад',
-                        save: 'Сохранить'
-                    },
-                    error: {
-                        onlyImg: 'Только изображения',
-                        outOfSize: 'Изображение превышает предельный размер: ',
-                        lowestPx: 'Минимальный размер изображения: '
-                    }
-                }
-            },
             tempImgFormat = allowImgFormat.indexOf(imgFormat) === -1 ? 'jpg' : imgFormat,
-            lang = langBag[langType] ? langBag[langType] : lang['zh'],
+            lang = language[langType] ? language[langType] : language['en'],
             mime = mimes[tempImgFormat];
         // 规范图片格式
         that.imgFormat = tempImgFormat;
