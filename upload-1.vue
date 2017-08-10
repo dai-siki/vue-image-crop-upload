@@ -77,7 +77,7 @@
             </div>
             <div class="vicp-operate">
                 <a @click="setStep(1)" @mousedown="ripple">{{ lang.btn.back }}</a>
-                <a class="vicp-operate-btn" @click="upload" @mousedown="ripple">{{ lang.btn.save }}</a>
+                <a class="vicp-operate-btn" @click="prepareUpload" @mousedown="ripple">{{ lang.btn.save }}</a>
             </div>
         </div>
 
@@ -713,6 +713,21 @@ export default {
             ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
             that.createImgUrl = canvas.toDataURL(mime);
         },
+        // 预备上传
+        prepareUpload(){
+            let {
+                url,
+                createImgUrl,
+                field,
+                ki
+            } = this;
+            this.$dispatch('cropSuccess', createImgUrl, field, ki);
+            if(typeof url == 'string' && url){
+                this.upload();
+            }else{
+                this.off();
+            }
+        },
         // 上传图片
         upload() {
             let that = this,
@@ -747,7 +762,6 @@ export default {
             that.reset();
             that.loading = 1;
             that.setStep(3);
-            that.$dispatch('cropSuccess', createImgUrl, field, ki);
             new Promise(function(resolve, reject) {
                 let client = new XMLHttpRequest();
                 client.open('POST', url, true);

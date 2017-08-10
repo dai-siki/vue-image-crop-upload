@@ -42,6 +42,8 @@ new Vue({
 			} else {
 				this.avatarUrl3 = data;
 			}
+			console.log('-------- 裁剪成功 --------');
+			console.log(field);
 		},
 		cropUploadSuccess(data, field, key) {
 			console.log('-------- 上传成功 --------');

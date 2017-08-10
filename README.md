@@ -14,6 +14,10 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## 中文文档在后面
 
 ## Change log
+
+#### @2.0.1
+- If url prop is empty, the picture will not be uploaded
+
 #### @2.0.0
 - Adjust the import mode for different versions of vue, **The default vue version is vue2**
 - Added the **French** language pack (thanks @valerymelou)
@@ -60,9 +64,9 @@ $ npm install vue-image-crop-upload
 #### Props
 | Name              | Type               | Default             | Description                                         |
 | ----------------| ---------------- | ---------------| ------------------------------------------|
+| url             | String            |  ''                | Server api path,like "/avatar/upload", If empty, will not be uploaded    |
 | field       | String   | 'upload'     | Upload input filename, used for server side get the file stream.    |
 | value             | Boolean            | twoWay            | show or not    |
-| url             | String            |  ''                | Server api path,like "/avatar/upload"    |
 | params             | Object            |  null                | POST Params，like "{k:v}"    |
 | headers             | Object            |  null                | POST request header，like "{k:v}"    |
 | langType             | String            | 'zh'                 | language type    |
@@ -318,9 +322,9 @@ $ npm install vue-image-crop-upload
 #### Props
 | 名称              | 类型               | 默认             | 说明                                         |
 | ----------------| ---------------- | ---------------| ------------------------------------------|
+| url             | String            |  ''                | 上传接口地址，如果为空，图片不会上传    |
 | field       | String   | 'upload'     | 向服务器上传的文件名    |
 | value             | Boolean            | twoWay            | 是否显示控件，双向绑定    |
-| url             | String            |  ''                | 上传接口地址    |
 | params             | Object            |  null                | 上传附带其他数据，格式"{k:v}"    |
 | headers             | Object            |  null                | 上传header设置，格式"{k:v}"    |
 | langType             | String            | 'zh'                 | 语言类型，默认中文    |
