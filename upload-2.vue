@@ -274,6 +274,25 @@ export default {
                         lowestPx: 'Image\'s size is too low. Expected at least: '
                     }
                 },
+		'pt-br': {
+                    hint: 'Clique ou arraste o arquivo aqui para carregar',
+                    loading: 'Carregando…',
+                    noSupported: 'Browser não suportado, use o IE10+ ou outro browser',
+                    success: 'Sucesso ao carregar imagem',
+                    fail: 'Falha ao carregar imagem',
+                    preview: 'Pré-visualizar',
+                    btn: {
+                        off: 'Cancelar',
+                        close: 'Fechar',
+                        back: 'Voltar',
+                        save: 'Salvar'
+                    },
+                    error: {
+                        onlyImg: 'Apenas imagens',
+                        outOfSize: 'A imagem excede o limite de tamanho: ',
+                        lowestPx: 'O tamanho da imagem é muito pequeno. Tamanho mínimo: '
+                    }
+                },
                 ro: {
                     hint: 'Atinge sau trage fișierul aici',
                     loading: 'Se încarcă',
