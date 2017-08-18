@@ -116,22 +116,22 @@ export default {
 		}
 	},
 	nl: {
-        hint: 'Klik hier of sleep een afbeelding in dit vlak',
-        loading: 'Uploaden…',
-        noSupported: 'Je browser wordt helaas niet ondersteund. Gebruik IE10+ of een andere browser.',
-        success: 'Upload succesvol',
-        fail: 'Upload mislukt',
-        preview: 'Voorbeeld',
-        btn: {
-            off: 'Annuleren',
-            close: 'Sluiten',
-            back: 'Terug',
-            save: 'Opslaan'
-        },
-        error: {
-            onlyImg: 'Alleen afbeeldingen',
-            outOfSize: 'De afbeelding is groter dan: ',
-            lowestPx: 'De afbeelding is te klein! Minimale afmetingen: '
-        }
-    }
+		hint: 'Klik hier of sleep een afbeelding in dit vlak',
+		loading: 'Uploaden…',
+		noSupported: 'Je browser wordt helaas niet ondersteund. Gebruik IE10+ of een andere browser.',
+		success: 'Upload succesvol',
+		fail: 'Upload mislukt',
+		preview: 'Voorbeeld',
+		btn: {
+			off: 'Annuleren',
+			close: 'Sluiten',
+			back: 'Terug',
+			save: 'Opslaan'
+		},
+		error: {
+			onlyImg: 'Alleen afbeeldingen',
+			outOfSize: 'De afbeelding is groter dan: ',
+			lowestPx: 'De afbeelding is te klein! Minimale afmetingen: '
+		}
+	}
 };
