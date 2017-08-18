@@ -118,7 +118,7 @@ export default {
 	nl: {
         hint: 'Klik hier of sleep een afbeelding in dit vlak',
         loading: 'Uploaden…',
-        noSupported: 'Je browser wordt helaas niet ondersteund. Gebruik IE10+ or other browsers',
+        noSupported: 'Je browser wordt helaas niet ondersteund. Gebruik IE10+ of een andere browser.',
         success: 'Upload succesvol',
         fail: 'Upload mislukt',
         preview: 'Voorbeeld',
