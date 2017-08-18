@@ -15,6 +15,9 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 
 ## Change log
 
+#### @2.0.2
+- Added the **Dutch** language pack (thanks @blyleven)
+
 #### @2.0.1
 - If url prop is empty, the picture will not be uploaded
 
@@ -91,6 +94,7 @@ $ npm install vue-image-crop-upload
 | Romanian          | ro           | doriandrn       |
 | Portuguese (Brazil) | pt-br      | abensur       |
 | French            | fr           | valerymelou       |
+| Dutch             | nl           | blyleven       |
 
 ```js
 // example
