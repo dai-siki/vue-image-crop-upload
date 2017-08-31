@@ -9386,7 +9386,7 @@
 
 
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n@charset \"UTF-8\";\r\n@-webkit-keyframes vicp_progress {\r\n  0% {\r\n    background-position-y: 0; }\r\n  100% {\r\n    background-position-y: 40px; } }\r\n@keyframes vicp_progress {\r\n  0% {\r\n    background-position-y: 0; }\r\n  100% {\r\n    background-position-y: 40px; } }\r\n\r\n@-webkit-keyframes vicp {\r\n  0% {\r\n    opacity: 0;\r\n    -webkit-transform: scale(0) translatey(-60px);\r\n            transform: scale(0) translatey(-60px); }\r\n  100% {\r\n    opacity: 1;\r\n    -webkit-transform: scale(1) translatey(0);\r\n            transform: scale(1) translatey(0); } }\r\n\r\n@keyframes vicp {\r\n  0% {\r\n    opacity: 0;\r\n    -webkit-transform: scale(0) translatey(-60px);\r\n            transform: scale(0) translatey(-60px); }\r\n  100% {\r\n    opacity: 1;\r\n    -webkit-transform: scale(1) translatey(0);\r\n            transform: scale(1) translatey(0); } }\r\n\r\n.vue-image-crop-upload {\r\n  position: fixed;\r\n  display: block;\r\n  box-sizing: border-box;\r\n  z-index: 10000;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: rgba(0, 0, 0, 0.65);\r\n  -webkit-tap-highlight-color: transparent;\r\n  -moz-tap-highlight-color: transparent; }\r\n  .vue-image-crop-upload .vicp-wrap {\r\n    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.23);\r\n    position: fixed;\r\n    display: block;\r\n    box-sizing: border-box;\r\n    z-index: 10000;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    margin: auto;\r\n    width: 600px;\r\n    height: 330px;\r\n    padding: 25px;\r\n    background-color: #fff;\r\n    border-radius: 2px;\r\n    -webkit-animation: vicp 0.12s ease-in;\r\n            animation: vicp 0.12s ease-in; }\r\n    .vue-image-crop-upload .vicp-wrap .vicp-close {\r\n      position: absolute;\r\n      right: -30px;\r\n      top: -30px; }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-close .vicp-icon4 {\r\n        position: relative;\r\n        display: block;\r\n        width: 30px;\r\n        height: 30px;\r\n        cursor: pointer;\r\n        transition: -webkit-transform 0.18s;\r\n        transition: transform 0.18s;\r\n        transition: transform 0.18s, -webkit-transform 0.18s;\r\n        -webkit-transform: rotate(0);\r\n                transform: rotate(0); }\r\n        .vue-image-crop-upload .vicp-wrap .vicp-close .vicp-icon4::after, .vue-image-crop-upload .vicp-wrap .vicp-close .vicp-icon4::before {\r\n          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.23);\r\n          content: '';\r\n          position: absolute;\r\n          top: 12px;\r\n          left: 4px;\r\n          width: 20px;\r\n          height: 3px;\r\n          -webkit-transform: rotate(45deg);\r\n                  transform: rotate(45deg);\r\n          background-color: #fff; }\r\n        .vue-image-crop-upload .vicp-wrap .vicp-close .vicp-icon4::after {\r\n          -webkit-transform: rotate(-45deg);\r\n                  transform: rotate(-45deg); }\r\n        .vue-image-crop-upload .vicp-wrap .vicp-close .vicp-icon4:hover {\r\n          -webkit-transform: rotate(90deg);\r\n                  transform: rotate(90deg); }\r\n    .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area {\r\n      position: relative;\r\n      box-sizing: border-box;\r\n      padding: 35px;\r\n      height: 170px;\r\n      background-color: rgba(0, 0, 0, 0.03);\r\n      text-align: center;\r\n      border: 1px dashed rgba(0, 0, 0, 0.08);\r\n      overflow: hidden; }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-icon1 {\r\n        display: block;\r\n        margin: 0 auto 6px;\r\n        width: 42px;\r\n        height: 42px;\r\n        overflow: hidden; }\r\n        .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-icon1 .vicp-icon1-arrow {\r\n          display: block;\r\n          margin: 0 auto;\r\n          width: 0;\r\n          height: 0;\r\n          border-bottom: 14.7px solid rgba(0, 0, 0, 0.3);\r\n          border-left: 14.7px solid transparent;\r\n          border-right: 14.7px solid transparent; }\r\n        .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-icon1 .vicp-icon1-body {\r\n          display: block;\r\n          width: 12.6px;\r\n          height: 14.7px;\r\n          margin: 0 auto;\r\n          background-color: rgba(0, 0, 0, 0.3); }\r\n        .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-icon1 .vicp-icon1-bottom {\r\n          box-sizing: border-box;\r\n          display: block;\r\n          height: 12.6px;\r\n          border: 6px solid rgba(0, 0, 0, 0.3);\r\n          border-top: none; }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-hint {\r\n        display: block;\r\n        padding: 15px;\r\n        font-size: 14px;\r\n        color: #666;\r\n        line-height: 30px; }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-no-supported-hint {\r\n        display: block;\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        padding: 30px;\r\n        width: 100%;\r\n        height: 60px;\r\n        line-height: 30px;\r\n        background-color: #eee;\r\n        text-align: center;\r\n        color: #666;\r\n        font-size: 14px; }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area:hover {\r\n        cursor: pointer;\r\n        border-color: rgba(0, 0, 0, 0.1);\r\n        background-color: rgba(0, 0, 0, 0.05); }\r\n    .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop {\r\n      overflow: hidden; }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left {\r\n        float: left; }\r\n        .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-img-container {\r\n          position: relative;\r\n          display: block;\r\n          width: 240px;\r\n          height: 180px;\r\n          background-color: #e5e5e0;\r\n          overflow: hidden; }\r\n          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-img-container .vicp-img {\r\n            position: absolute;\r\n            display: block;\r\n            cursor: move;\r\n            -webkit-user-select: none;\r\n               -moz-user-select: none;\r\n                -ms-user-select: none;\r\n                    user-select: none; }\r\n          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-img-container .vicp-img-shade {\r\n            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18);\r\n            position: absolute;\r\n            background-color: rgba(241, 242, 243, 0.8); }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-img-container .vicp-img-shade.vicp-img-shade-1 {\r\n              top: 0;\r\n              left: 0; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-img-container .vicp-img-shade.vicp-img-shade-2 {\r\n              bottom: 0;\r\n              right: 0; }\r\n        .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range {\r\n          position: relative;\r\n          margin: 30px 0;\r\n          width: 240px;\r\n          height: 18px; }\r\n          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5,\r\n          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6 {\r\n            position: absolute;\r\n            top: 0;\r\n            width: 18px;\r\n            height: 18px;\r\n            border-radius: 100%;\r\n            background-color: rgba(0, 0, 0, 0.08); }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5:hover,\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6:hover {\r\n              box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);\r\n              cursor: pointer;\r\n              background-color: rgba(0, 0, 0, 0.14); }\r\n          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5 {\r\n            left: 0; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5::before {\r\n              position: absolute;\r\n              content: '';\r\n              display: block;\r\n              left: 3px;\r\n              top: 8px;\r\n              width: 12px;\r\n              height: 2px;\r\n              background-color: #fff; }\r\n          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6 {\r\n            right: 0; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6::before {\r\n              position: absolute;\r\n              content: '';\r\n              display: block;\r\n              left: 3px;\r\n              top: 8px;\r\n              width: 12px;\r\n              height: 2px;\r\n              background-color: #fff; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6::after {\r\n              position: absolute;\r\n              content: '';\r\n              display: block;\r\n              top: 3px;\r\n              left: 8px;\r\n              width: 2px;\r\n              height: 12px;\r\n              background-color: #fff; }\r\n          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range] {\r\n            display: block;\r\n            padding-top: 5px;\r\n            margin: 0 auto;\r\n            width: 180px;\r\n            height: 8px;\r\n            vertical-align: top;\r\n            background: transparent;\r\n            -webkit-appearance: none;\r\n               -moz-appearance: none;\r\n                    appearance: none;\r\n            cursor: pointer;\r\n            /* 滑块\r\n\t\t\t\t\t\t\t ---------------------------------------------------------------*/\r\n            /* 轨道\r\n\t\t\t\t\t\t\t ---------------------------------------------------------------*/ }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus {\r\n              outline: none; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-webkit-slider-thumb {\r\n              box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18);\r\n              -webkit-appearance: none;\r\n                      appearance: none;\r\n              margin-top: -3px;\r\n              width: 12px;\r\n              height: 12px;\r\n              background-color: #61c091;\r\n              border-radius: 100%;\r\n              border: none;\r\n              transition: 0.2s; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-moz-range-thumb {\r\n              box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18);\r\n              -moz-appearance: none;\r\n                   appearance: none;\r\n              width: 12px;\r\n              height: 12px;\r\n              background-color: #61c091;\r\n              border-radius: 100%;\r\n              border: none;\r\n              transition: 0.2s; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-ms-thumb {\r\n              box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18);\r\n              appearance: none;\r\n              width: 12px;\r\n              height: 12px;\r\n              background-color: #61c091;\r\n              border: none;\r\n              border-radius: 100%;\r\n              transition: 0.2s; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:active::-moz-range-thumb {\r\n              box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.23);\r\n              width: 14px;\r\n              height: 14px; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:active::-ms-thumb {\r\n              box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.23);\r\n              width: 14px;\r\n              height: 14px; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:active::-webkit-slider-thumb {\r\n              box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.23);\r\n              margin-top: -4px;\r\n              width: 14px;\r\n              height: 14px; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-webkit-slider-runnable-track {\r\n              box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);\r\n              width: 100%;\r\n              height: 6px;\r\n              cursor: pointer;\r\n              border-radius: 2px;\r\n              border: none;\r\n              background-color: rgba(68, 170, 119, 0.3); }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-moz-range-track {\r\n              box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);\r\n              width: 100%;\r\n              height: 6px;\r\n              cursor: pointer;\r\n              border-radius: 2px;\r\n              border: none;\r\n              background-color: rgba(68, 170, 119, 0.3); }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-ms-track {\r\n              box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);\r\n              width: 100%;\r\n              cursor: pointer;\r\n              background: transparent;\r\n              border-color: transparent;\r\n              color: transparent;\r\n              height: 6px;\r\n              border-radius: 2px;\r\n              border: none; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-ms-fill-lower {\r\n              background-color: rgba(68, 170, 119, 0.3); }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-ms-fill-upper {\r\n              background-color: rgba(68, 170, 119, 0.15); }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus::-webkit-slider-runnable-track {\r\n              background-color: rgba(68, 170, 119, 0.5); }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus::-moz-range-track {\r\n              background-color: rgba(68, 170, 119, 0.5); }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus::-ms-fill-lower {\r\n              background-color: rgba(68, 170, 119, 0.45); }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus::-ms-fill-upper {\r\n              background-color: rgba(68, 170, 119, 0.25); }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right {\r\n        float: right; }\r\n        .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview {\r\n          height: 150px;\r\n          overflow: hidden; }\r\n          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item {\r\n            position: relative;\r\n            padding: 5px;\r\n            width: 100px;\r\n            height: 100px;\r\n            float: left;\r\n            margin-right: 16px; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item span {\r\n              position: absolute;\r\n              bottom: -30px;\r\n              width: 100%;\r\n              font-size: 14px;\r\n              color: #bbb;\r\n              display: block;\r\n              text-align: center; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item img {\r\n              position: absolute;\r\n              display: block;\r\n              top: 0;\r\n              bottom: 0;\r\n              left: 0;\r\n              right: 0;\r\n              margin: auto;\r\n              padding: 3px;\r\n              background-color: #fff;\r\n              border: 1px solid rgba(0, 0, 0, 0.15);\r\n              overflow: hidden;\r\n              -webkit-user-select: none;\r\n                 -moz-user-select: none;\r\n                  -ms-user-select: none;\r\n                      user-select: none; }\r\n            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item:last-child {\r\n              margin-right: 0; }\r\n              .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item:last-child img {\r\n                border-radius: 100%; }\r\n    .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload {\r\n      position: relative;\r\n      box-sizing: border-box;\r\n      padding: 35px;\r\n      height: 170px;\r\n      background-color: rgba(0, 0, 0, 0.03);\r\n      text-align: center;\r\n      border: 1px dashed #ddd; }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-loading {\r\n        display: block;\r\n        padding: 15px;\r\n        font-size: 16px;\r\n        color: #999;\r\n        line-height: 30px; }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-progress-wrap {\r\n        margin-top: 12px;\r\n        background-color: rgba(0, 0, 0, 0.08);\r\n        border-radius: 3px; }\r\n        .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-progress-wrap .vicp-progress {\r\n          position: relative;\r\n          display: block;\r\n          height: 5px;\r\n          border-radius: 3px;\r\n          background-color: #4a7;\r\n          box-shadow: 0 2px 6px 0 rgba(68, 170, 119, 0.3);\r\n          transition: width 0.15s linear;\r\n          background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);\r\n          background-size: 40px 40px;\r\n          -webkit-animation: vicp_progress 0.5s linear infinite;\r\n                  animation: vicp_progress 0.5s linear infinite; }\r\n          .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-progress-wrap .vicp-progress::after {\r\n            content: '';\r\n            position: absolute;\r\n            display: block;\r\n            top: -3px;\r\n            right: -3px;\r\n            width: 9px;\r\n            height: 9px;\r\n            border: 1px solid rgba(245, 246, 247, 0.7);\r\n            box-shadow: 0 1px 4px 0 rgba(68, 170, 119, 0.7);\r\n            border-radius: 100%;\r\n            background-color: #4a7; }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-error,\r\n      .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-success {\r\n        height: 100px;\r\n        line-height: 100px; }\r\n    .vue-image-crop-upload .vicp-wrap .vicp-operate {\r\n      position: absolute;\r\n      right: 20px;\r\n      bottom: 20px; }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-operate a {\r\n        position: relative;\r\n        float: left;\r\n        display: block;\r\n        margin-left: 10px;\r\n        width: 100px;\r\n        height: 36px;\r\n        line-height: 36px;\r\n        text-align: center;\r\n        cursor: pointer;\r\n        font-size: 14px;\r\n        color: #4a7;\r\n        border-radius: 2px;\r\n        overflow: hidden;\r\n        -webkit-user-select: none;\r\n           -moz-user-select: none;\r\n            -ms-user-select: none;\r\n                user-select: none; }\r\n        .vue-image-crop-upload .vicp-wrap .vicp-operate a:hover {\r\n          background-color: rgba(0, 0, 0, 0.03); }\r\n    .vue-image-crop-upload .vicp-wrap .vicp-error,\r\n    .vue-image-crop-upload .vicp-wrap .vicp-success {\r\n      display: block;\r\n      font-size: 14px;\r\n      line-height: 24px;\r\n      height: 24px;\r\n      color: #d10;\r\n      text-align: center;\r\n      vertical-align: top; }\r\n    .vue-image-crop-upload .vicp-wrap .vicp-success {\r\n      color: #4a7; }\r\n    .vue-image-crop-upload .vicp-wrap .vicp-icon3 {\r\n      position: relative;\r\n      display: inline-block;\r\n      width: 20px;\r\n      height: 20px;\r\n      top: 4px; }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-icon3::after {\r\n        position: absolute;\r\n        top: 3px;\r\n        left: 6px;\r\n        width: 6px;\r\n        height: 10px;\r\n        border-width: 0 2px 2px 0;\r\n        border-color: #4a7;\r\n        border-style: solid;\r\n        -webkit-transform: rotate(45deg);\r\n                transform: rotate(45deg);\r\n        content: ''; }\r\n    .vue-image-crop-upload .vicp-wrap .vicp-icon2 {\r\n      position: relative;\r\n      display: inline-block;\r\n      width: 20px;\r\n      height: 20px;\r\n      top: 4px; }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-icon2::after, .vue-image-crop-upload .vicp-wrap .vicp-icon2::before {\r\n        content: '';\r\n        position: absolute;\r\n        top: 9px;\r\n        left: 4px;\r\n        width: 13px;\r\n        height: 2px;\r\n        background-color: #d10;\r\n        -webkit-transform: rotate(45deg);\r\n                transform: rotate(45deg); }\r\n      .vue-image-crop-upload .vicp-wrap .vicp-icon2::after {\r\n        -webkit-transform: rotate(-45deg);\r\n                transform: rotate(-45deg); }\r\n\r\n.e-ripple {\r\n  position: absolute;\r\n  border-radius: 100%;\r\n  background-color: rgba(0, 0, 0, 0.15);\r\n  background-clip: padding-box;\r\n  pointer-events: none;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n  -webkit-transform: scale(0);\r\n          transform: scale(0);\r\n  opacity: 1; }\r\n  .e-ripple.z-active {\r\n    opacity: 0;\r\n    -webkit-transform: scale(2);\r\n            transform: scale(2);\r\n    transition: opacity 1.2s ease-out, -webkit-transform 0.6s ease-out;\r\n    transition: opacity 1.2s ease-out, transform 0.6s ease-out;\r\n    transition: opacity 1.2s ease-out, transform 0.6s ease-out, -webkit-transform 0.6s ease-out; }\r\n\r\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n@charset \"UTF-8\";\r\n@-webkit-keyframes vicp_progress {\r\n  0% {\r\n\tbackground-position-y: 0; }\r\n  100% {\r\n\tbackground-position-y: 40px; } }\r\n@keyframes vicp_progress {\r\n  0% {\r\n\tbackground-position-y: 0; }\r\n  100% {\r\n\tbackground-position-y: 40px; } }\r\n\r\n@-webkit-keyframes vicp {\r\n  0% {\r\n\topacity: 0;\r\n\t-webkit-transform: scale(0) translatey(-60px);\r\n\t\t\ttransform: scale(0) translatey(-60px); }\r\n  100% {\r\n\topacity: 1;\r\n\t-webkit-transform: scale(1) translatey(0);\r\n\t\t\ttransform: scale(1) translatey(0); } }\r\n\r\n@keyframes vicp {\r\n  0% {\r\n\topacity: 0;\r\n\t-webkit-transform: scale(0) translatey(-60px);\r\n\t\t\ttransform: scale(0) translatey(-60px); }\r\n  100% {\r\n\topacity: 1;\r\n\t-webkit-transform: scale(1) translatey(0);\r\n\t\t\ttransform: scale(1) translatey(0); } }\r\n\r\n.vue-image-crop-upload {\r\n  position: fixed;\r\n  display: block;\r\n\t\tbox-sizing: border-box;\r\n  z-index: 10000;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: rgba(0, 0, 0, 0.65);\r\n  -webkit-tap-highlight-color: transparent;\r\n  -moz-tap-highlight-color: transparent; }\r\n  .vue-image-crop-upload .vicp-wrap {\r\n\tbox-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.23);\r\n\tposition: fixed;\r\n\tdisplay: block;\r\n\tbox-sizing: border-box;\r\n\tz-index: 10000;\r\n\ttop: 0;\r\n\tbottom: 0;\r\n\tleft: 0;\r\n\tright: 0;\r\n\tmargin: auto;\r\n\twidth: 600px;\r\n\theight: 330px;\r\n\tpadding: 25px;\r\n\tbackground-color: #fff;\r\n\tborder-radius: 2px;\r\n\t-webkit-animation: vicp 0.12s ease-in;\r\n\t\t\tanimation: vicp 0.12s ease-in; }\r\n\t.vue-image-crop-upload .vicp-wrap .vicp-close {\r\n\t  position: absolute;\r\n\t  right: -30px;\r\n\t  top: -30px; }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-close .vicp-icon4 {\r\n\t\tposition: relative;\r\n\t\tdisplay: block;\r\n\t\twidth: 30px;\r\n\t\theight: 30px;\r\n\t\tcursor: pointer;\r\n\t\ttransition: -webkit-transform 0.18s;\r\n\t\ttransition: transform 0.18s;\r\n\t\ttransition: transform 0.18s, -webkit-transform 0.18s;\r\n\t\t-webkit-transform: rotate(0);\r\n\t\t\t\ttransform: rotate(0); }\r\n\t\t.vue-image-crop-upload .vicp-wrap .vicp-close .vicp-icon4::after, .vue-image-crop-upload .vicp-wrap .vicp-close .vicp-icon4::before {\r\n\t\t\t\tbox-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.23);\r\n\t\t  content: '';\r\n\t\t  position: absolute;\r\n\t\t  top: 12px;\r\n\t\t  left: 4px;\r\n\t\t  width: 20px;\r\n\t\t  height: 3px;\r\n\t\t  -webkit-transform: rotate(45deg);\r\n\t\t\t\t  transform: rotate(45deg);\r\n\t\t  background-color: #fff; }\r\n\t\t.vue-image-crop-upload .vicp-wrap .vicp-close .vicp-icon4::after {\r\n\t\t  -webkit-transform: rotate(-45deg);\r\n\t\t\t\t  transform: rotate(-45deg); }\r\n\t\t.vue-image-crop-upload .vicp-wrap .vicp-close .vicp-icon4:hover {\r\n\t\t  -webkit-transform: rotate(90deg);\r\n\t\t\t\t  transform: rotate(90deg); }\r\n\t.vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area {\r\n\t  position: relative;\r\n\t\t\tbox-sizing: border-box;\r\n\t  padding: 35px;\r\n\t  height: 170px;\r\n\t  background-color: rgba(0, 0, 0, 0.03);\r\n\t  text-align: center;\r\n\t  border: 1px dashed rgba(0, 0, 0, 0.08);\r\n\t  overflow: hidden; }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-icon1 {\r\n\t\tdisplay: block;\r\n\t\tmargin: 0 auto 6px;\r\n\t\twidth: 42px;\r\n\t\theight: 42px;\r\n\t\toverflow: hidden; }\r\n\t\t.vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-icon1 .vicp-icon1-arrow {\r\n\t\t  display: block;\r\n\t\t  margin: 0 auto;\r\n\t\t  width: 0;\r\n\t\t  height: 0;\r\n\t\t  border-bottom: 14.7px solid rgba(0, 0, 0, 0.3);\r\n\t\t  border-left: 14.7px solid transparent;\r\n\t\t  border-right: 14.7px solid transparent; }\r\n\t\t.vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-icon1 .vicp-icon1-body {\r\n\t\t  display: block;\r\n\t\t  width: 12.6px;\r\n\t\t  height: 14.7px;\r\n\t\t  margin: 0 auto;\r\n\t\t  background-color: rgba(0, 0, 0, 0.3); }\r\n\t\t.vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-icon1 .vicp-icon1-bottom {\r\n\t\t\t\tbox-sizing: border-box;\r\n\t\t  display: block;\r\n\t\t  height: 12.6px;\r\n\t\t  border: 6px solid rgba(0, 0, 0, 0.3);\r\n\t\t  border-top: none; }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-hint {\r\n\t\tdisplay: block;\r\n\t\tpadding: 15px;\r\n\t\tfont-size: 14px;\r\n\t\tcolor: #666;\r\n\t\tline-height: 30px; }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-no-supported-hint {\r\n\t\tdisplay: block;\r\n\t\tposition: absolute;\r\n\t\ttop: 0;\r\n\t\tleft: 0;\r\n\t\tpadding: 30px;\r\n\t\twidth: 100%;\r\n\t\theight: 60px;\r\n\t\tline-height: 30px;\r\n\t\tbackground-color: #eee;\r\n\t\ttext-align: center;\r\n\t\tcolor: #666;\r\n\t\tfont-size: 14px; }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area:hover {\r\n\t\tcursor: pointer;\r\n\t\tborder-color: rgba(0, 0, 0, 0.1);\r\n\t\tbackground-color: rgba(0, 0, 0, 0.05); }\r\n\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop {\r\n\t  overflow: hidden; }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left {\r\n\t\tfloat: left; }\r\n\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-img-container {\r\n\t\t  position: relative;\r\n\t\t  display: block;\r\n\t\t  width: 240px;\r\n\t\t  height: 180px;\r\n\t\t  background-color: #e5e5e0;\r\n\t\t  overflow: hidden; }\r\n\t\t  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-img-container .vicp-img {\r\n\t\t\tposition: absolute;\r\n\t\t\tdisplay: block;\r\n\t\t\tcursor: move;\r\n\t\t\t-webkit-user-select: none;\r\n\t\t\t   -moz-user-select: none;\r\n\t\t\t\t-ms-user-select: none;\r\n\t\t\t\t\tuser-select: none; }\r\n\t\t  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-img-container .vicp-img-shade {\r\n\t\t\tbox-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18);\r\n\t\t\tposition: absolute;\r\n\t\t\tbackground-color: rgba(241, 242, 243, 0.8); }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-img-container .vicp-img-shade.vicp-img-shade-1 {\r\n\t\t\t  top: 0;\r\n\t\t\t  left: 0; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-img-container .vicp-img-shade.vicp-img-shade-2 {\r\n\t\t\t  bottom: 0;\r\n\t\t\t  right: 0; }\r\n\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range {\r\n\t\t  position: relative;\r\n\t\t  margin: 30px 0;\r\n\t\t  width: 240px;\r\n\t\t  height: 18px; }\r\n\t\t  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5,\r\n\t\t  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6 {\r\n\t\t\tposition: absolute;\r\n\t\t\ttop: 0;\r\n\t\t\twidth: 18px;\r\n\t\t\theight: 18px;\r\n\t\t\tborder-radius: 100%;\r\n\t\t\tbackground-color: rgba(0, 0, 0, 0.08); }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5:hover,\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6:hover {\r\n\t\t\t\t\tbox-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);\r\n\t\t\t  cursor: pointer;\r\n\t\t\t  background-color: rgba(0, 0, 0, 0.14); }\r\n\t\t  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5 {\r\n\t\t\tleft: 0; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5::before {\r\n\t\t\t  position: absolute;\r\n\t\t\t  content: '';\r\n\t\t\t  display: block;\r\n\t\t\t  left: 3px;\r\n\t\t\t  top: 8px;\r\n\t\t\t  width: 12px;\r\n\t\t\t  height: 2px;\r\n\t\t\t  background-color: #fff; }\r\n\t\t  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6 {\r\n\t\t\tright: 0; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6::before {\r\n\t\t\t  position: absolute;\r\n\t\t\t  content: '';\r\n\t\t\t  display: block;\r\n\t\t\t  left: 3px;\r\n\t\t\t  top: 8px;\r\n\t\t\t  width: 12px;\r\n\t\t\t  height: 2px;\r\n\t\t\t  background-color: #fff; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6::after {\r\n\t\t\t  position: absolute;\r\n\t\t\t  content: '';\r\n\t\t\t  display: block;\r\n\t\t\t  top: 3px;\r\n\t\t\t  left: 8px;\r\n\t\t\t  width: 2px;\r\n\t\t\t  height: 12px;\r\n\t\t\t  background-color: #fff; }\r\n\t\t  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range] {\r\n\t\t\tdisplay: block;\r\n\t\t\tpadding-top: 5px;\r\n\t\t\tmargin: 0 auto;\r\n\t\t\twidth: 180px;\r\n\t\t\theight: 8px;\r\n\t\t\tvertical-align: top;\r\n\t\t\tbackground: transparent;\r\n\t\t\t-webkit-appearance: none;\r\n\t\t\t   -moz-appearance: none;\r\n\t\t\t\t\tappearance: none;\r\n\t\t\tcursor: pointer;\r\n\t\t\t/* 滑块\r\n\t\t\t\t\t\t\t ---------------------------------------------------------------*/\r\n\t\t\t/* 轨道\r\n\t\t\t\t\t\t\t ---------------------------------------------------------------*/ }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus {\r\n\t\t\t  outline: none; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-webkit-slider-thumb {\r\n\t\t\t\t\tbox-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18);\r\n\t\t\t  -webkit-appearance: none;\r\n\t\t\t\t\t  appearance: none;\r\n\t\t\t  margin-top: -3px;\r\n\t\t\t  width: 12px;\r\n\t\t\t  height: 12px;\r\n\t\t\t  background-color: #61c091;\r\n\t\t\t  border-radius: 100%;\r\n\t\t\t  border: none;\r\n\t\t\t  transition: 0.2s; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-moz-range-thumb {\r\n\t\t\t  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18);\r\n\t\t\t  -moz-appearance: none;\r\n\t\t\t\t   appearance: none;\r\n\t\t\t  width: 12px;\r\n\t\t\t  height: 12px;\r\n\t\t\t  background-color: #61c091;\r\n\t\t\t  border-radius: 100%;\r\n\t\t\t  border: none;\r\n\t\t\t  transition: 0.2s; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-ms-thumb {\r\n\t\t\t  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.18);\r\n\t\t\t  appearance: none;\r\n\t\t\t  width: 12px;\r\n\t\t\t  height: 12px;\r\n\t\t\t  background-color: #61c091;\r\n\t\t\t  border: none;\r\n\t\t\t  border-radius: 100%;\r\n\t\t\t  transition: 0.2s; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:active::-moz-range-thumb {\r\n\t\t\t  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.23);\r\n\t\t\t  width: 14px;\r\n\t\t\t  height: 14px; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:active::-ms-thumb {\r\n\t\t\t  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.23);\r\n\t\t\t  width: 14px;\r\n\t\t\t  height: 14px; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:active::-webkit-slider-thumb {\r\n\t\t\t\t\tbox-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.23);\r\n\t\t\t  margin-top: -4px;\r\n\t\t\t  width: 14px;\r\n\t\t\t  height: 14px; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-webkit-slider-runnable-track {\r\n\t\t\t\t\tbox-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);\r\n\t\t\t  width: 100%;\r\n\t\t\t  height: 6px;\r\n\t\t\t  cursor: pointer;\r\n\t\t\t  border-radius: 2px;\r\n\t\t\t  border: none;\r\n\t\t\t  background-color: rgba(68, 170, 119, 0.3); }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-moz-range-track {\r\n\t\t\t  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);\r\n\t\t\t  width: 100%;\r\n\t\t\t  height: 6px;\r\n\t\t\t  cursor: pointer;\r\n\t\t\t  border-radius: 2px;\r\n\t\t\t  border: none;\r\n\t\t\t  background-color: rgba(68, 170, 119, 0.3); }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-ms-track {\r\n\t\t\t  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);\r\n\t\t\t  width: 100%;\r\n\t\t\t  cursor: pointer;\r\n\t\t\t  background: transparent;\r\n\t\t\t  border-color: transparent;\r\n\t\t\t  color: transparent;\r\n\t\t\t  height: 6px;\r\n\t\t\t  border-radius: 2px;\r\n\t\t\t  border: none; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-ms-fill-lower {\r\n\t\t\t  background-color: rgba(68, 170, 119, 0.3); }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]::-ms-fill-upper {\r\n\t\t\t  background-color: rgba(68, 170, 119, 0.15); }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus::-webkit-slider-runnable-track {\r\n\t\t\t  background-color: rgba(68, 170, 119, 0.5); }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus::-moz-range-track {\r\n\t\t\t  background-color: rgba(68, 170, 119, 0.5); }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus::-ms-fill-lower {\r\n\t\t\t  background-color: rgba(68, 170, 119, 0.45); }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range]:focus::-ms-fill-upper {\r\n\t\t\t  background-color: rgba(68, 170, 119, 0.25); }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right {\r\n\t\tfloat: right; }\r\n\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview {\r\n\t\t  height: 150px;\r\n\t\t  overflow: hidden; }\r\n\t\t  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item {\r\n\t\t\tposition: relative;\r\n\t\t\tpadding: 5px;\r\n\t\t\twidth: 100px;\r\n\t\t\theight: 100px;\r\n\t\t\tfloat: left;\r\n\t\t\tmargin-right: 16px; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item span {\r\n\t\t\t  position: absolute;\r\n\t\t\t  bottom: -30px;\r\n\t\t\t  width: 100%;\r\n\t\t\t  font-size: 14px;\r\n\t\t\t  color: #bbb;\r\n\t\t\t  display: block;\r\n\t\t\t  text-align: center; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item img {\r\n\t\t\t  position: absolute;\r\n\t\t\t  display: block;\r\n\t\t\t  top: 0;\r\n\t\t\t  bottom: 0;\r\n\t\t\t  left: 0;\r\n\t\t\t  right: 0;\r\n\t\t\t  margin: auto;\r\n\t\t\t  padding: 3px;\r\n\t\t\t  background-color: #fff;\r\n\t\t\t  border: 1px solid rgba(0, 0, 0, 0.15);\r\n\t\t\t  overflow: hidden;\r\n\t\t\t  -webkit-user-select: none;\r\n\t\t\t\t -moz-user-select: none;\r\n\t\t\t\t  -ms-user-select: none;\r\n\t\t\t\t\t  user-select: none; }\r\n\t\t\t.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item:last-child {\r\n\t\t\t  margin-right: 0; }\r\n\t\t\t  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item:last-child img {\r\n\t\t\t\tborder-radius: 100%; }\r\n\t.vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload {\r\n\t  position: relative;\r\n\t\t\tbox-sizing: border-box;\r\n\t  padding: 35px;\r\n\t  height: 170px;\r\n\t  background-color: rgba(0, 0, 0, 0.03);\r\n\t  text-align: center;\r\n\t  border: 1px dashed #ddd; }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-loading {\r\n\t\tdisplay: block;\r\n\t\tpadding: 15px;\r\n\t\tfont-size: 16px;\r\n\t\tcolor: #999;\r\n\t\tline-height: 30px; }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-progress-wrap {\r\n\t\tmargin-top: 12px;\r\n\t\tbackground-color: rgba(0, 0, 0, 0.08);\r\n\t\tborder-radius: 3px; }\r\n\t\t.vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-progress-wrap .vicp-progress {\r\n\t\t  position: relative;\r\n\t\t  display: block;\r\n\t\t  height: 5px;\r\n\t\t  border-radius: 3px;\r\n\t\t  background-color: #4a7;\r\n\t\t\t\tbox-shadow: 0 2px 6px 0 rgba(68, 170, 119, 0.3);\r\n\t\t  transition: width 0.15s linear;\r\n\t\t  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);\r\n\t\t  background-size: 40px 40px;\r\n\t\t  -webkit-animation: vicp_progress 0.5s linear infinite;\r\n\t\t\t\t  animation: vicp_progress 0.5s linear infinite; }\r\n\t\t  .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-progress-wrap .vicp-progress::after {\r\n\t\t\tcontent: '';\r\n\t\t\tposition: absolute;\r\n\t\t\tdisplay: block;\r\n\t\t\ttop: -3px;\r\n\t\t\tright: -3px;\r\n\t\t\twidth: 9px;\r\n\t\t\theight: 9px;\r\n\t\t\tborder: 1px solid rgba(245, 246, 247, 0.7);\r\n\t\t\tbox-shadow: 0 1px 4px 0 rgba(68, 170, 119, 0.7);\r\n\t\t\tborder-radius: 100%;\r\n\t\t\tbackground-color: #4a7; }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-error,\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload .vicp-success {\r\n\t\theight: 100px;\r\n\t\tline-height: 100px; }\r\n\t.vue-image-crop-upload .vicp-wrap .vicp-operate {\r\n\t  position: absolute;\r\n\t  right: 20px;\r\n\t  bottom: 20px; }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-operate a {\r\n\t\tposition: relative;\r\n\t\tfloat: left;\r\n\t\tdisplay: block;\r\n\t\tmargin-left: 10px;\r\n\t\twidth: 100px;\r\n\t\theight: 36px;\r\n\t\tline-height: 36px;\r\n\t\ttext-align: center;\r\n\t\tcursor: pointer;\r\n\t\tfont-size: 14px;\r\n\t\tcolor: #4a7;\r\n\t\tborder-radius: 2px;\r\n\t\toverflow: hidden;\r\n\t\t-webkit-user-select: none;\r\n\t\t   -moz-user-select: none;\r\n\t\t\t-ms-user-select: none;\r\n\t\t\t\tuser-select: none; }\r\n\t\t.vue-image-crop-upload .vicp-wrap .vicp-operate a:hover {\r\n\t\t  background-color: rgba(0, 0, 0, 0.03); }\r\n\t.vue-image-crop-upload .vicp-wrap .vicp-error,\r\n\t.vue-image-crop-upload .vicp-wrap .vicp-success {\r\n\t  display: block;\r\n\t  font-size: 14px;\r\n\t  line-height: 24px;\r\n\t  height: 24px;\r\n\t  color: #d10;\r\n\t  text-align: center;\r\n\t  vertical-align: top; }\r\n\t.vue-image-crop-upload .vicp-wrap .vicp-success {\r\n\t  color: #4a7; }\r\n\t.vue-image-crop-upload .vicp-wrap .vicp-icon3 {\r\n\t  position: relative;\r\n\t  display: inline-block;\r\n\t  width: 20px;\r\n\t  height: 20px;\r\n\t  top: 4px; }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-icon3::after {\r\n\t\tposition: absolute;\r\n\t\ttop: 3px;\r\n\t\tleft: 6px;\r\n\t\twidth: 6px;\r\n\t\theight: 10px;\r\n\t\tborder-width: 0 2px 2px 0;\r\n\t\tborder-color: #4a7;\r\n\t\tborder-style: solid;\r\n\t\t-webkit-transform: rotate(45deg);\r\n\t\t\t\ttransform: rotate(45deg);\r\n\t\tcontent: ''; }\r\n\t.vue-image-crop-upload .vicp-wrap .vicp-icon2 {\r\n\t  position: relative;\r\n\t  display: inline-block;\r\n\t  width: 20px;\r\n\t  height: 20px;\r\n\t  top: 4px; }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-icon2::after, .vue-image-crop-upload .vicp-wrap .vicp-icon2::before {\r\n\t\tcontent: '';\r\n\t\tposition: absolute;\r\n\t\ttop: 9px;\r\n\t\tleft: 4px;\r\n\t\twidth: 13px;\r\n\t\theight: 2px;\r\n\t\tbackground-color: #d10;\r\n\t\t-webkit-transform: rotate(45deg);\r\n\t\t\t\ttransform: rotate(45deg); }\r\n\t  .vue-image-crop-upload .vicp-wrap .vicp-icon2::after {\r\n\t\t-webkit-transform: rotate(-45deg);\r\n\t\t\t\ttransform: rotate(-45deg); }\r\n\r\n.e-ripple {\r\n  position: absolute;\r\n  border-radius: 100%;\r\n  background-color: rgba(0, 0, 0, 0.15);\r\n  background-clip: padding-box;\r\n  pointer-events: none;\r\n  -webkit-user-select: none;\r\n\t -moz-user-select: none;\r\n\t  -ms-user-select: none;\r\n\t\t  user-select: none;\r\n  -webkit-transform: scale(0);\r\n\t\t  transform: scale(0);\r\n  opacity: 1; }\r\n  .e-ripple.z-active {\r\n\topacity: 0;\r\n\t-webkit-transform: scale(2);\r\n\t\t\ttransform: scale(2);\r\n\ttransition: opacity 1.2s ease-out, -webkit-transform 0.6s ease-out;\r\n\ttransition: opacity 1.2s ease-out, transform 0.6s ease-out;\r\n\ttransition: opacity 1.2s ease-out, transform 0.6s ease-out, -webkit-transform 0.6s ease-out; }\r\n\r\n", ""]);
 
 	// exports
 
@@ -9676,7 +9676,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+		value: true
 	});
 
 	var _promise = __webpack_require__(337);
@@ -9714,616 +9714,625 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = {
-	    props: {
-	        field: {
-	            type: String,
-	            'default': 'avatar'
-	        },
+		props: {
+			field: {
+				type: String,
+				'default': 'avatar'
+			},
 
-	        ki: {
-	            'default': 0
-	        },
+			ki: {
+				'default': 0
+			},
 
-	        value: {
-	            'default': true
-	        },
+			value: {
+				'default': true
+			},
 
-	        url: {
-	            type: String,
-	            'default': ''
-	        },
+			url: {
+				type: String,
+				'default': ''
+			},
 
-	        params: {
-	            type: Object,
-	            'default': null
-	        },
+			params: {
+				type: Object,
+				'default': null
+			},
 
-	        headers: {
-	            type: Object,
-	            'default': null
-	        },
+			headers: {
+				type: Object,
+				'default': null
+			},
 
-	        width: {
-	            type: Number,
-	            default: 200
-	        },
+			width: {
+				type: Number,
+				default: 200
+			},
 
-	        height: {
-	            type: Number,
-	            default: 200
-	        },
+			height: {
+				type: Number,
+				default: 200
+			},
 
-	        noCircle: {
-	            type: Boolean,
-	            default: false
-	        },
+			noCircle: {
+				type: Boolean,
+				default: false
+			},
 
-	        maxSize: {
-	            type: Number,
-	            'default': 10240
-	        },
+			maxSize: {
+				type: Number,
+				'default': 10240
+			},
 
-	        langType: {
-	            type: String,
-	            'default': 'zh'
-	        },
+			langType: {
+				type: String,
+				'default': 'zh'
+			},
 
-	        langExt: {
-	            type: Object,
-	            'default': null
-	        },
+			langExt: {
+				type: Object,
+				'default': null
+			},
 
-	        imgFormat: {
-	            type: String,
-	            'default': 'png'
-	        }
-	    },
-	    data: function data() {
-	        var that = this,
-	            imgFormat = that.imgFormat,
-	            langType = that.langType,
-	            langExt = that.langExt,
-	            width = that.width,
-	            height = that.height,
-	            isSupported = true,
-	            allowImgFormat = ['jpg', 'png'],
-	            tempImgFormat = allowImgFormat.indexOf(imgFormat) === -1 ? 'jpg' : imgFormat,
-	            lang = _language2.default[langType] ? _language2.default[langType] : _language2.default['en'],
-	            mime = _mimes2.default[tempImgFormat];
+			imgFormat: {
+				type: String,
+				'default': 'png'
+			}
+		},
+		data: function data() {
+			var that = this,
+			    imgFormat = that.imgFormat,
+			    langType = that.langType,
+			    langExt = that.langExt,
+			    width = that.width,
+			    height = that.height,
+			    isSupported = true,
+			    allowImgFormat = ['jpg', 'png'],
+			    tempImgFormat = allowImgFormat.indexOf(imgFormat) === -1 ? 'jpg' : imgFormat,
+			    lang = _language2.default[langType] ? _language2.default[langType] : _language2.default['en'],
+			    mime = _mimes2.default[tempImgFormat];
 
-	        that.imgFormat = tempImgFormat;
+			that.imgFormat = tempImgFormat;
 
-	        if (langExt) {
-	            (0, _assign2.default)(lang, langExt);
-	        }
-	        if (typeof FormData != 'function') {
-	            isSupported = false;
-	        }
-	        return {
-	            mime: mime,
+			if (langExt) {
+				(0, _assign2.default)(lang, langExt);
+			}
+			if (typeof FormData != 'function') {
+				isSupported = false;
+			}
+			return {
+				mime: mime,
 
-	            lang: lang,
+				lang: lang,
 
-	            isSupported: isSupported,
+				isSupported: isSupported,
 
-	            isSupportTouch: document.hasOwnProperty("ontouchstart"),
+				isSupportTouch: document.hasOwnProperty("ontouchstart"),
 
-	            step: 1,
-	            loading: 0,
-	            progress: 0,
+				step: 1,
+				loading: 0,
+				progress: 0,
 
-	            hasError: false,
-	            errorMsg: '',
+				hasError: false,
+				errorMsg: '',
 
-	            ratio: width / height,
+				ratio: width / height,
 
-	            sourceImg: null,
-	            sourceImgUrl: '',
-	            createImgUrl: '',
+				sourceImg: null,
+				sourceImgUrl: '',
+				createImgUrl: '',
 
-	            sourceImgMouseDown: {
-	                on: false,
-	                mX: 0,
-	                mY: 0,
-	                x: 0,
-	                y: 0
-	            },
+				sourceImgMouseDown: {
+					on: false,
+					mX: 0,
+					mY: 0,
+					x: 0,
+					y: 0
+				},
 
-	            previewContainer: {
-	                width: 100,
-	                height: 100
-	            },
+				previewContainer: {
+					width: 100,
+					height: 100
+				},
 
-	            sourceImgContainer: {
-	                width: 240,
-	                height: 180
-	            },
+				sourceImgContainer: {
+					width: 240,
+					height: 180
+				},
 
-	            scale: {
-	                zoomAddOn: false,
-	                zoomSubOn: false,
-	                range: 1,
-	                x: 0,
-	                y: 0,
-	                width: 0,
-	                height: 0,
-	                maxWidth: 0,
-	                maxHeight: 0,
-	                minWidth: 0,
-	                minHeight: 0,
-	                naturalWidth: 0,
-	                naturalHeight: 0
-	            }
-	        };
-	    },
+				scale: {
+					zoomAddOn: false,
+					zoomSubOn: false,
+					range: 1,
+					x: 0,
+					y: 0,
+					width: 0,
+					height: 0,
+					maxWidth: 0,
+					maxHeight: 0,
+					minWidth: 0,
+					minHeight: 0,
+					naturalWidth: 0,
+					naturalHeight: 0
+				}
+			};
+		},
 
-	    computed: {
-	        progressStyle: function progressStyle() {
-	            var progress = this.progress;
+		computed: {
+			progressStyle: function progressStyle() {
+				var progress = this.progress;
 
-	            return {
-	                width: progress + '%'
-	            };
-	        },
-	        sourceImgStyle: function sourceImgStyle() {
-	            var scale = this.scale,
-	                sourceImgMasking = this.sourceImgMasking,
-	                top = scale.y + sourceImgMasking.y + 'px',
-	                left = scale.x + sourceImgMasking.x + 'px';
+				return {
+					width: progress + '%'
+				};
+			},
+			sourceImgStyle: function sourceImgStyle() {
+				var scale = this.scale,
+				    sourceImgMasking = this.sourceImgMasking,
+				    top = scale.y + sourceImgMasking.y + 'px',
+				    left = scale.x + sourceImgMasking.x + 'px';
 
-	            return {
-	                top: top,
-	                left: left,
-	                width: scale.width + 'px',
-	                height: scale.height + 'px'
-	            };
-	        },
-	        sourceImgMasking: function sourceImgMasking() {
-	            var width = this.width,
-	                height = this.height,
-	                ratio = this.ratio,
-	                sourceImgContainer = this.sourceImgContainer,
-	                sic = sourceImgContainer,
-	                sicRatio = sic.width / sic.height,
-	                x = 0,
-	                y = 0,
-	                w = sic.width,
-	                h = sic.height,
-	                scale = 1;
+				return {
+					top: top,
+					left: left,
+					width: scale.width + 'px',
+					height: scale.height + 'px'
+				};
+			},
+			sourceImgMasking: function sourceImgMasking() {
+				var width = this.width,
+				    height = this.height,
+				    ratio = this.ratio,
+				    sourceImgContainer = this.sourceImgContainer,
+				    sic = sourceImgContainer,
+				    sicRatio = sic.width / sic.height,
+				    x = 0,
+				    y = 0,
+				    w = sic.width,
+				    h = sic.height,
+				    scale = 1;
 
-	            if (ratio < sicRatio) {
-	                scale = sic.height / height;
-	                w = sic.height * ratio;
-	                x = (sic.width - w) / 2;
-	            }
-	            if (ratio > sicRatio) {
-	                scale = sic.width / width;
-	                h = sic.width / ratio;
-	                y = (sic.height - h) / 2;
-	            }
-	            return {
-	                scale: scale,
-	                x: x,
-	                y: y,
-	                width: w,
-	                height: h
-	            };
-	        },
-	        sourceImgShadeStyle: function sourceImgShadeStyle() {
-	            var sourceImgMasking = this.sourceImgMasking,
-	                sourceImgContainer = this.sourceImgContainer,
-	                sic = sourceImgContainer,
-	                sim = sourceImgMasking,
-	                w = sim.width == sic.width ? sim.width : (sic.width - sim.width) / 2,
-	                h = sim.height == sic.height ? sim.height : (sic.height - sim.height) / 2;
+				if (ratio < sicRatio) {
+					scale = sic.height / height;
+					w = sic.height * ratio;
+					x = (sic.width - w) / 2;
+				}
+				if (ratio > sicRatio) {
+					scale = sic.width / width;
+					h = sic.width / ratio;
+					y = (sic.height - h) / 2;
+				}
+				return {
+					scale: scale,
+					x: x,
+					y: y,
+					width: w,
+					height: h
+				};
+			},
+			sourceImgShadeStyle: function sourceImgShadeStyle() {
+				var sourceImgMasking = this.sourceImgMasking,
+				    sourceImgContainer = this.sourceImgContainer,
+				    sic = sourceImgContainer,
+				    sim = sourceImgMasking,
+				    w = sim.width == sic.width ? sim.width : (sic.width - sim.width) / 2,
+				    h = sim.height == sic.height ? sim.height : (sic.height - sim.height) / 2;
 
-	            return {
-	                width: w + 'px',
-	                height: h + 'px'
-	            };
-	        },
-	        previewStyle: function previewStyle() {
-	            var width = this.width,
-	                height = this.height,
-	                ratio = this.ratio,
-	                previewContainer = this.previewContainer,
-	                pc = previewContainer,
-	                w = pc.width,
-	                h = pc.height,
-	                pcRatio = w / h;
+				return {
+					width: w + 'px',
+					height: h + 'px'
+				};
+			},
+			previewStyle: function previewStyle() {
+				var width = this.width,
+				    height = this.height,
+				    ratio = this.ratio,
+				    previewContainer = this.previewContainer,
+				    pc = previewContainer,
+				    w = pc.width,
+				    h = pc.height,
+				    pcRatio = w / h;
 
-	            if (ratio < pcRatio) {
-	                w = pc.height * ratio;
-	            }
-	            if (ratio > pcRatio) {
-	                h = pc.width / ratio;
-	            }
-	            return {
-	                width: w + 'px',
-	                height: h + 'px'
-	            };
-	        }
-	    },
-	    watch: {
-	        value: function value(newValue) {
-	            if (newValue && this.loading != 1) {
-	                this.reset();
-	            }
-	        }
-	    },
-	    methods: {
-	        ripple: function ripple(e) {
-	            (0, _effectRipple2.default)(e);
-	        },
-	        off: function off() {
-	            var that = this;
-	            setTimeout(function () {
-	                that.$emit('input', false);
-	                if (that.step == 3 && that.loading == 2) {
-	                    that.setStep(1);
-	                }
-	            }, 200);
-	        },
-	        setStep: function setStep(no) {
-	            var that = this;
-	            setTimeout(function () {
-	                that.step = no;
-	            }, 200);
-	        },
-	        preventDefault: function preventDefault(e) {
-	            e.preventDefault();
-	            return false;
-	        },
-	        handleClick: function handleClick(e) {
-	            if (this.loading !== 1) {
-	                if (e.target !== this.$refs.fileinput) {
-	                    e.preventDefault();
-	                    if (document.activeElement !== this.$refs) {
-	                        this.$refs.fileinput.click();
-	                    }
-	                }
-	            }
-	        },
-	        handleChange: function handleChange(e) {
-	            e.preventDefault();
-	            if (this.loading !== 1) {
-	                var files = e.target.files || e.dataTransfer.files;
-	                this.reset();
-	                if (this.checkFile(files[0])) {
-	                    this.setSourceImg(files[0]);
-	                }
-	            }
-	        },
-	        checkFile: function checkFile(file) {
-	            var that = this,
-	                lang = that.lang,
-	                maxSize = that.maxSize;
+				if (ratio < pcRatio) {
+					w = pc.height * ratio;
+				}
+				if (ratio > pcRatio) {
+					h = pc.width / ratio;
+				}
+				return {
+					width: w + 'px',
+					height: h + 'px'
+				};
+			}
+		},
+		watch: {
+			value: function value(newValue) {
+				if (newValue && this.loading != 1) {
+					this.reset();
+				}
+			}
+		},
+		methods: {
+			ripple: function ripple(e) {
+				(0, _effectRipple2.default)(e);
+			},
+			off: function off() {
+				var that = this;
+				setTimeout(function () {
+					that.$emit('input', false);
+					if (that.step == 3 && that.loading == 2) {
+						that.setStep(1);
+					}
+				}, 200);
+			},
+			setStep: function setStep(no) {
+				var that = this;
+				setTimeout(function () {
+					that.step = no;
+				}, 200);
+			},
+			preventDefault: function preventDefault(e) {
+				e.preventDefault();
+				return false;
+			},
+			handleClick: function handleClick(e) {
+				if (this.loading !== 1) {
+					if (e.target !== this.$refs.fileinput) {
+						e.preventDefault();
+						if (document.activeElement !== this.$refs) {
+							this.$refs.fileinput.click();
+						}
+					}
+				}
+			},
+			handleChange: function handleChange(e) {
+				e.preventDefault();
+				if (this.loading !== 1) {
+					var files = e.target.files || e.dataTransfer.files;
+					this.reset();
+					if (this.checkFile(files[0])) {
+						this.setSourceImg(files[0]);
+					}
+				}
+			},
+			checkFile: function checkFile(file) {
+				var that = this,
+				    lang = that.lang,
+				    maxSize = that.maxSize;
 
-	            if (file.type.indexOf('image') === -1) {
-	                that.hasError = true;
-	                that.errorMsg = lang.error.onlyImg;
-	                return false;
-	            }
+				if (file.type.indexOf('image') === -1) {
+					that.hasError = true;
+					that.errorMsg = lang.error.onlyImg;
+					return false;
+				}
 
-	            if (file.size / 1024 > maxSize) {
-	                that.hasError = true;
-	                that.errorMsg = lang.error.outOfSize + maxSize + 'kb';
-	                return false;
-	            }
-	            return true;
-	        },
-	        reset: function reset() {
-	            var that = this;
-	            that.loading = 0;
-	            that.hasError = false;
-	            that.errorMsg = '';
-	            that.progress = 0;
-	        },
-	        setSourceImg: function setSourceImg(file) {
-	            var that = this,
-	                fr = new FileReader();
-	            fr.onload = function (e) {
-	                that.sourceImgUrl = fr.result;
-	                that.startCrop();
-	            };
-	            fr.readAsDataURL(file);
-	        },
-	        startCrop: function startCrop() {
-	            var that = this,
-	                width = that.width,
-	                height = that.height,
-	                ratio = that.ratio,
-	                scale = that.scale,
-	                sourceImgUrl = that.sourceImgUrl,
-	                sourceImgMasking = that.sourceImgMasking,
-	                lang = that.lang,
-	                sim = sourceImgMasking,
-	                img = new Image();
+				if (file.size / 1024 > maxSize) {
+					that.hasError = true;
+					that.errorMsg = lang.error.outOfSize + maxSize + 'kb';
+					return false;
+				}
+				return true;
+			},
+			reset: function reset() {
+				var that = this;
+				that.loading = 0;
+				that.hasError = false;
+				that.errorMsg = '';
+				that.progress = 0;
+			},
+			setSourceImg: function setSourceImg(file) {
+				var that = this,
+				    fr = new FileReader();
+				fr.onload = function (e) {
+					that.sourceImgUrl = fr.result;
+					that.startCrop();
+				};
+				fr.readAsDataURL(file);
+			},
+			startCrop: function startCrop() {
+				var that = this,
+				    width = that.width,
+				    height = that.height,
+				    ratio = that.ratio,
+				    scale = that.scale,
+				    sourceImgUrl = that.sourceImgUrl,
+				    sourceImgMasking = that.sourceImgMasking,
+				    lang = that.lang,
+				    sim = sourceImgMasking,
+				    img = new Image();
 
-	            img.src = sourceImgUrl;
-	            img.onload = function () {
-	                var nWidth = img.naturalWidth,
-	                    nHeight = img.naturalHeight,
-	                    nRatio = nWidth / nHeight,
-	                    w = sim.width,
-	                    h = sim.height,
-	                    x = 0,
-	                    y = 0;
+				img.src = sourceImgUrl;
+				img.onload = function () {
+					var nWidth = img.naturalWidth,
+					    nHeight = img.naturalHeight,
+					    nRatio = nWidth / nHeight,
+					    w = sim.width,
+					    h = sim.height,
+					    x = 0,
+					    y = 0;
 
-	                if (nWidth < width || nHeight < height) {
-	                    that.hasError = true;
-	                    that.errorMsg = lang.error.lowestPx + width + '*' + height;
-	                    return false;
-	                }
-	                if (ratio > nRatio) {
-	                    h = w / nRatio;
-	                    y = (sim.height - h) / 2;
-	                }
-	                if (ratio < nRatio) {
-	                    w = h * nRatio;
-	                    x = (sim.width - w) / 2;
-	                }
-	                scale.range = 0;
-	                scale.x = x;
-	                scale.y = y;
-	                scale.width = w;
-	                scale.height = h;
-	                scale.minWidth = w;
-	                scale.minHeight = h;
-	                scale.maxWidth = nWidth * sim.scale;
-	                scale.maxHeight = nHeight * sim.scale;
-	                scale.naturalWidth = nWidth;
-	                scale.naturalHeight = nHeight;
-	                that.sourceImg = img;
-	                that.createImg();
-	                that.setStep(2);
-	            };
-	        },
-	        imgStartMove: function imgStartMove(e) {
-	            e.preventDefault();
+					if (nWidth < width || nHeight < height) {
+						that.hasError = true;
+						that.errorMsg = lang.error.lowestPx + width + '*' + height;
+						return false;
+					}
+					if (ratio > nRatio) {
+						h = w / nRatio;
+						y = (sim.height - h) / 2;
+					}
+					if (ratio < nRatio) {
+						w = h * nRatio;
+						x = (sim.width - w) / 2;
+					}
+					scale.range = 0;
+					scale.x = x;
+					scale.y = y;
+					scale.width = w;
+					scale.height = h;
+					scale.minWidth = w;
+					scale.minHeight = h;
+					scale.maxWidth = nWidth * sim.scale;
+					scale.maxHeight = nHeight * sim.scale;
+					scale.naturalWidth = nWidth;
+					scale.naturalHeight = nHeight;
+					that.sourceImg = img;
+					that.createImg();
+					that.setStep(2);
+				};
+			},
+			imgStartMove: function imgStartMove(e) {
+				e.preventDefault();
 
-	            if (this.isSupportTouch && !e.targetTouches) {
-	                return false;
-	            }
-	            var et = e.targetTouches ? e.targetTouches[0] : e,
-	                sourceImgMouseDown = this.sourceImgMouseDown,
-	                scale = this.scale,
-	                simd = sourceImgMouseDown;
+				if (this.isSupportTouch && !e.targetTouches) {
+					return false;
+				}
+				var et = e.targetTouches ? e.targetTouches[0] : e,
+				    sourceImgMouseDown = this.sourceImgMouseDown,
+				    scale = this.scale,
+				    simd = sourceImgMouseDown;
 
-	            simd.mX = et.screenX;
-	            simd.mY = et.screenY;
-	            simd.x = scale.x;
-	            simd.y = scale.y;
-	            simd.on = true;
-	        },
-	        imgMove: function imgMove(e) {
-	            e.preventDefault();
+				simd.mX = et.screenX;
+				simd.mY = et.screenY;
+				simd.x = scale.x;
+				simd.y = scale.y;
+				simd.on = true;
+			},
+			imgMove: function imgMove(e) {
+				e.preventDefault();
 
-	            if (this.isSupportTouch && !e.targetTouches) {
-	                return false;
-	            }
-	            var et = e.targetTouches ? e.targetTouches[0] : e,
-	                _sourceImgMouseDown = this.sourceImgMouseDown,
-	                on = _sourceImgMouseDown.on,
-	                mX = _sourceImgMouseDown.mX,
-	                mY = _sourceImgMouseDown.mY,
-	                x = _sourceImgMouseDown.x,
-	                y = _sourceImgMouseDown.y,
-	                scale = this.scale,
-	                sourceImgMasking = this.sourceImgMasking,
-	                sim = sourceImgMasking,
-	                nX = et.screenX,
-	                nY = et.screenY,
-	                dX = nX - mX,
-	                dY = nY - mY,
-	                rX = x + dX,
-	                rY = y + dY;
+				if (this.isSupportTouch && !e.targetTouches) {
+					return false;
+				}
+				var et = e.targetTouches ? e.targetTouches[0] : e,
+				    _sourceImgMouseDown = this.sourceImgMouseDown,
+				    on = _sourceImgMouseDown.on,
+				    mX = _sourceImgMouseDown.mX,
+				    mY = _sourceImgMouseDown.mY,
+				    x = _sourceImgMouseDown.x,
+				    y = _sourceImgMouseDown.y,
+				    scale = this.scale,
+				    sourceImgMasking = this.sourceImgMasking,
+				    sim = sourceImgMasking,
+				    nX = et.screenX,
+				    nY = et.screenY,
+				    dX = nX - mX,
+				    dY = nY - mY,
+				    rX = x + dX,
+				    rY = y + dY;
 
-	            if (!on) return;
-	            if (rX > 0) {
-	                rX = 0;
-	            }
-	            if (rY > 0) {
-	                rY = 0;
-	            }
-	            if (rX < sim.width - scale.width) {
-	                rX = sim.width - scale.width;
-	            }
-	            if (rY < sim.height - scale.height) {
-	                rY = sim.height - scale.height;
-	            }
-	            scale.x = rX;
-	            scale.y = rY;
-	        },
-	        startZoomAdd: function startZoomAdd(e) {
-	            var that = this,
-	                scale = that.scale;
+				if (!on) return;
+				if (rX > 0) {
+					rX = 0;
+				}
+				if (rY > 0) {
+					rY = 0;
+				}
+				if (rX < sim.width - scale.width) {
+					rX = sim.width - scale.width;
+				}
+				if (rY < sim.height - scale.height) {
+					rY = sim.height - scale.height;
+				}
+				scale.x = rX;
+				scale.y = rY;
+			},
+			startZoomAdd: function startZoomAdd(e) {
+				var that = this,
+				    scale = that.scale;
 
-	            scale.zoomAddOn = true;
+				scale.zoomAddOn = true;
 
-	            function zoom() {
-	                if (scale.zoomAddOn) {
-	                    var range = scale.range >= 100 ? 100 : ++scale.range;
-	                    that.zoomImg(range);
-	                    setTimeout(function () {
-	                        zoom();
-	                    }, 60);
-	                }
-	            }
-	            zoom();
-	        },
-	        endZoomAdd: function endZoomAdd(e) {
-	            this.scale.zoomAddOn = false;
-	        },
-	        startZoomSub: function startZoomSub(e) {
-	            var that = this,
-	                scale = that.scale;
+				function zoom() {
+					if (scale.zoomAddOn) {
+						var range = scale.range >= 100 ? 100 : ++scale.range;
+						that.zoomImg(range);
+						setTimeout(function () {
+							zoom();
+						}, 60);
+					}
+				}
+				zoom();
+			},
+			endZoomAdd: function endZoomAdd(e) {
+				this.scale.zoomAddOn = false;
+			},
+			startZoomSub: function startZoomSub(e) {
+				var that = this,
+				    scale = that.scale;
 
-	            scale.zoomSubOn = true;
+				scale.zoomSubOn = true;
 
-	            function zoom() {
-	                if (scale.zoomSubOn) {
-	                    var range = scale.range <= 0 ? 0 : --scale.range;
-	                    that.zoomImg(range);
-	                    setTimeout(function () {
-	                        zoom();
-	                    }, 60);
-	                }
-	            }
-	            zoom();
-	        },
-	        endZoomSub: function endZoomSub(e) {
-	            var scale = this.scale;
+				function zoom() {
+					if (scale.zoomSubOn) {
+						var range = scale.range <= 0 ? 0 : --scale.range;
+						that.zoomImg(range);
+						setTimeout(function () {
+							zoom();
+						}, 60);
+					}
+				}
+				zoom();
+			},
+			endZoomSub: function endZoomSub(e) {
+				var scale = this.scale;
 
-	            scale.zoomSubOn = false;
-	        },
-	        zoomChange: function zoomChange(e) {
-	            this.zoomImg(e.target.value);
-	        },
-	        zoomImg: function zoomImg(newRange) {
-	            var that = this,
-	                sourceImgMasking = this.sourceImgMasking,
-	                sourceImgMouseDown = this.sourceImgMouseDown,
-	                scale = this.scale,
-	                maxWidth = scale.maxWidth,
-	                maxHeight = scale.maxHeight,
-	                minWidth = scale.minWidth,
-	                minHeight = scale.minHeight,
-	                width = scale.width,
-	                height = scale.height,
-	                x = scale.x,
-	                y = scale.y,
-	                range = scale.range,
-	                sim = sourceImgMasking,
-	                sWidth = sim.width,
-	                sHeight = sim.height,
-	                nWidth = minWidth + (maxWidth - minWidth) * newRange / 100,
-	                nHeight = minHeight + (maxHeight - minHeight) * newRange / 100,
-	                nX = sWidth / 2 - nWidth / width * (sWidth / 2 - x),
-	                nY = sHeight / 2 - nHeight / height * (sHeight / 2 - y);
+				scale.zoomSubOn = false;
+			},
+			zoomChange: function zoomChange(e) {
+				this.zoomImg(e.target.value);
+			},
+			zoomImg: function zoomImg(newRange) {
+				var that = this,
+				    sourceImgMasking = this.sourceImgMasking,
+				    sourceImgMouseDown = this.sourceImgMouseDown,
+				    scale = this.scale,
+				    maxWidth = scale.maxWidth,
+				    maxHeight = scale.maxHeight,
+				    minWidth = scale.minWidth,
+				    minHeight = scale.minHeight,
+				    width = scale.width,
+				    height = scale.height,
+				    x = scale.x,
+				    y = scale.y,
+				    range = scale.range,
+				    sim = sourceImgMasking,
+				    sWidth = sim.width,
+				    sHeight = sim.height,
+				    nWidth = minWidth + (maxWidth - minWidth) * newRange / 100,
+				    nHeight = minHeight + (maxHeight - minHeight) * newRange / 100,
+				    nX = sWidth / 2 - nWidth / width * (sWidth / 2 - x),
+				    nY = sHeight / 2 - nHeight / height * (sHeight / 2 - y);
 
-	            if (nX > 0) {
-	                nX = 0;
-	            }
-	            if (nY > 0) {
-	                nY = 0;
-	            }
-	            if (nX < sWidth - nWidth) {
-	                nX = sWidth - nWidth;
-	            }
-	            if (nY < sHeight - nHeight) {
-	                nY = sHeight - nHeight;
-	            }
+				if (nX > 0) {
+					nX = 0;
+				}
+				if (nY > 0) {
+					nY = 0;
+				}
+				if (nX < sWidth - nWidth) {
+					nX = sWidth - nWidth;
+				}
+				if (nY < sHeight - nHeight) {
+					nY = sHeight - nHeight;
+				}
 
-	            scale.x = nX;
-	            scale.y = nY;
-	            scale.width = nWidth;
-	            scale.height = nHeight;
-	            scale.range = newRange;
-	            setTimeout(function () {
-	                if (scale.range == newRange) {
-	                    that.createImg();
-	                }
-	            }, 300);
-	        },
-	        createImg: function createImg(e) {
-	            var that = this,
-	                mime = that.mime,
-	                sourceImg = that.sourceImg,
-	                _that$scale = that.scale,
-	                x = _that$scale.x,
-	                y = _that$scale.y,
-	                width = _that$scale.width,
-	                height = _that$scale.height,
-	                scale = that.sourceImgMasking.scale,
-	                canvas = that.$refs.canvas,
-	                ctx = canvas.getContext('2d');
+				scale.x = nX;
+				scale.y = nY;
+				scale.width = nWidth;
+				scale.height = nHeight;
+				scale.range = newRange;
+				setTimeout(function () {
+					if (scale.range == newRange) {
+						that.createImg();
+					}
+				}, 300);
+			},
+			createImg: function createImg(e) {
+				var that = this,
+				    mime = that.mime,
+				    sourceImg = that.sourceImg,
+				    _that$scale = that.scale,
+				    x = _that$scale.x,
+				    y = _that$scale.y,
+				    width = _that$scale.width,
+				    height = _that$scale.height,
+				    scale = that.sourceImgMasking.scale,
+				    canvas = that.$refs.canvas,
+				    ctx = canvas.getContext('2d');
 
-	            if (e) {
-	                that.sourceImgMouseDown.on = false;
-	            }
-	            ctx.clearRect(0, 0, that.width, that.height);
-	            ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
-	            that.createImgUrl = canvas.toDataURL(mime);
-	        },
-	        prepareUpload: function prepareUpload() {
-	            var url = this.url,
-	                createImgUrl = this.createImgUrl,
-	                field = this.field,
-	                ki = this.ki;
+				if (e) {
+					that.sourceImgMouseDown.on = false;
+				}
+				ctx.clearRect(0, 0, that.width, that.height);
+				ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
+				that.createImgUrl = canvas.toDataURL(mime);
+			},
+			prepareUpload: function prepareUpload() {
+				var url = this.url,
+				    createImgUrl = this.createImgUrl,
+				    field = this.field,
+				    ki = this.ki;
 
-	            this.$emit('crop-success', createImgUrl, field, ki);
-	            if (typeof url == 'string' && url) {
-	                this.upload();
-	            } else {
-	                this.off();
-	            }
-	        },
-	        upload: function upload() {
-	            var that = this,
-	                lang = this.lang,
-	                imgFormat = this.imgFormat,
-	                mime = this.mime,
-	                url = this.url,
-	                params = this.params,
-	                headers = this.headers,
-	                field = this.field,
-	                ki = this.ki,
-	                createImgUrl = this.createImgUrl,
-	                fmData = new FormData();
+				this.$emit('crop-success', createImgUrl, field, ki);
+				if (typeof url == 'string' && url) {
+					this.upload();
+				} else {
+					this.off();
+				}
+			},
+			upload: function upload() {
+				var that = this,
+				    lang = this.lang,
+				    imgFormat = this.imgFormat,
+				    mime = this.mime,
+				    url = this.url,
+				    params = this.params,
+				    headers = this.headers,
+				    field = this.field,
+				    ki = this.ki,
+				    createImgUrl = this.createImgUrl,
+				    fmData = new FormData();
 
-	            fmData.append(field, (0, _data2blob2.default)(createImgUrl, mime), field + '.' + imgFormat);
+				fmData.append(field, (0, _data2blob2.default)(createImgUrl, mime), field + '.' + imgFormat);
 
-	            if ((typeof params === 'undefined' ? 'undefined' : (0, _typeof3.default)(params)) == 'object' && params) {
-	                (0, _keys2.default)(params).forEach(function (k) {
-	                    fmData.append(k, params[k]);
-	                });
-	            }
+				if ((typeof params === 'undefined' ? 'undefined' : (0, _typeof3.default)(params)) == 'object' && params) {
+					(0, _keys2.default)(params).forEach(function (k) {
+						fmData.append(k, params[k]);
+					});
+				}
 
-	            var uploadProgress = function uploadProgress(event) {
-	                if (event.lengthComputable) {
-	                    that.progress = 100 * Math.round(event.loaded) / event.total;
-	                }
-	            };
+				var uploadProgress = function uploadProgress(event) {
+					if (event.lengthComputable) {
+						that.progress = 100 * Math.round(event.loaded) / event.total;
+					}
+				};
 
-	            that.reset();
-	            that.loading = 1;
-	            that.setStep(3);
-	            new _promise2.default(function (resolve, reject) {
-	                var client = new XMLHttpRequest();
-	                client.open('POST', url, true);
-	                client.onreadystatechange = function () {
-	                    if (this.readyState !== 4) {
-	                        return;
-	                    }
-	                    if (this.status === 200 || this.status === 201) {
-	                        resolve(JSON.parse(this.responseText));
-	                    } else {
-	                        reject(this.status);
-	                    }
-	                };
-	                client.upload.addEventListener("progress", uploadProgress, false);
-	                if ((typeof headers === 'undefined' ? 'undefined' : (0, _typeof3.default)(headers)) == 'object' && headers) {
-	                    (0, _keys2.default)(headers).forEach(function (k) {
-	                        client.setRequestHeader(k, headers[k]);
-	                    });
-	                }
-	                client.send(fmData);
-	            }).then(function (resData) {
-	                if (that.value) {
-	                    that.loading = 2;
-	                    that.$emit('crop-upload-success', resData, field, ki);
-	                }
-	            }, function (sts) {
-	                if (that.value) {
-	                    that.loading = 3;
-	                    that.hasError = true;
-	                    that.errorMsg = lang.fail;
-	                    that.$emit('crop-upload-fail', sts, field, ki);
-	                }
-	            });
-	        }
-	    }
+				that.reset();
+				that.loading = 1;
+				that.setStep(3);
+				new _promise2.default(function (resolve, reject) {
+					var client = new XMLHttpRequest();
+					client.open('POST', url, true);
+					client.onreadystatechange = function () {
+						if (this.readyState !== 4) {
+							return;
+						}
+						if (this.status === 200 || this.status === 201) {
+							resolve(JSON.parse(this.responseText));
+						} else {
+							reject(this.status);
+						}
+					};
+					client.upload.addEventListener("progress", uploadProgress, false);
+					if ((typeof headers === 'undefined' ? 'undefined' : (0, _typeof3.default)(headers)) == 'object' && headers) {
+						(0, _keys2.default)(headers).forEach(function (k) {
+							client.setRequestHeader(k, headers[k]);
+						});
+					}
+					client.send(fmData);
+				}).then(function (resData) {
+					if (that.value) {
+						that.loading = 2;
+						that.$emit('crop-upload-success', resData, field, ki);
+					}
+				}, function (sts) {
+					if (that.value) {
+						that.loading = 3;
+						that.hasError = true;
+						that.errorMsg = lang.fail;
+						that.$emit('crop-upload-fail', sts, field, ki);
+					}
+				});
+			}
+		},
+		created: function created() {
+			var _this = this;
+
+			document.addEventListener('keyup', function (e) {
+				if (_this.value && (e.key == 'Escape' || e.keyCode == 27)) {
+					_this.off();
+				}
+			});
+		}
 	};
 
 /***/ }),
@@ -12961,7 +12970,7 @@
 /* 438 */
 /***/ (function(module, exports) {
 
-	module.exports = "\r\n<div class=\"vue-image-crop-upload\" v-show=\"value\">\r\n    <div class=\"vicp-wrap\">\r\n        <div class=\"vicp-close\" @click=\"off\">\r\n            <i class=\"vicp-icon4\"></i>\r\n        </div>\r\n\r\n        <div class=\"vicp-step1\" v-show=\"step == 1\">\r\n            <div class=\"vicp-drop-area\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @click=\"handleClick\" @drop=\"handleChange\">\r\n                <i class=\"vicp-icon1\" v-show=\"loading != 1\">\r\n\t\t\t\t\t<i class=\"vicp-icon1-arrow\"></i>\r\n                <i class=\"vicp-icon1-body\"></i>\r\n                <i class=\"vicp-icon1-bottom\"></i>\r\n                </i>\r\n                <span class=\"vicp-hint\" v-show=\"loading !== 1\">{{ lang.hint }}</span>\r\n                <span class=\"vicp-no-supported-hint\" v-show=\"!isSupported\">{{ lang.noSupported }}</span>\r\n                <input type=\"file\" v-show=\"false\" v-if=\"step == 1\" @change=\"handleChange\" ref=\"fileinput\">\r\n            </div>\r\n            <div class=\"vicp-error\" v-show=\"hasError\">\r\n                <i class=\"vicp-icon2\"></i> {{ errorMsg }}\r\n            </div>\r\n            <div class=\"vicp-operate\">\r\n                <a @click=\"off\" @mousedown=\"ripple\">{{ lang.btn.off }}</a>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"vicp-step2\" v-if=\"step == 2\">\r\n            <div class=\"vicp-crop\">\r\n                <div class=\"vicp-crop-left\" v-show=\"true\">\r\n                    <div class=\"vicp-img-container\">\r\n                        <img :src=\"sourceImgUrl\" :style=\"sourceImgStyle\" class=\"vicp-img\" draggable=\"false\"\r\n                            @drag=\"preventDefault\"\r\n                            @dragstart=\"preventDefault\"\r\n                            @dragend=\"preventDefault\"\r\n                            @dragleave=\"preventDefault\"\r\n                            @dragover=\"preventDefault\"\r\n                            @dragenter=\"preventDefault\"\r\n                            @drop=\"preventDefault\"\r\n                            @touchstart=\"imgStartMove\"\r\n                            @touchmove=\"imgMove\"\r\n                            @touchend=\"createImg\"\r\n                            @touchcancel=\"createImg\"\r\n                            @mousedown=\"imgStartMove\"\r\n\t\t\t\t\t\t\t@mousemove=\"imgMove\"\r\n\t\t\t\t\t\t\t@mouseup=\"createImg\"\r\n\t\t\t\t\t\t\t@mouseout=\"createImg\"\r\n                            ref=\"img\">\r\n                        <div class=\"vicp-img-shade vicp-img-shade-1\" :style=\"sourceImgShadeStyle\"></div>\r\n                        <div class=\"vicp-img-shade vicp-img-shade-2\" :style=\"sourceImgShadeStyle\"></div>\r\n                    </div>\r\n                    <div class=\"vicp-range\">\r\n                        <input type=\"range\" :value=\"scale.range\" step=\"1\" min=\"0\" max=\"100\" @input=\"zoomChange\">\r\n                        <i @mousedown=\"startZoomSub\" @mouseout=\"endZoomSub\" @mouseup=\"endZoomSub\" class=\"vicp-icon5\"></i>\r\n                        <i @mousedown=\"startZoomAdd\" @mouseout=\"endZoomAdd\" @mouseup=\"endZoomAdd\" class=\"vicp-icon6\"></i>\r\n                    </div>\r\n                </div>\r\n                <div class=\"vicp-crop-right\" v-show=\"true\">\r\n                    <div class=\"vicp-preview\">\r\n                        <div class=\"vicp-preview-item\">\r\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\">\r\n                            <span>{{ lang.preview }}</span>\r\n                        </div>\r\n                        <div class=\"vicp-preview-item\" v-if=\"!noCircle\">\r\n                            <img :src=\"createImgUrl\" :style=\"previewStyle\">\r\n                            <span>{{ lang.preview }}</span>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"vicp-operate\">\r\n                <a @click=\"setStep(1)\" @mousedown=\"ripple\">{{ lang.btn.back }}</a>\r\n                <a class=\"vicp-operate-btn\" @click=\"prepareUpload\" @mousedown=\"ripple\">{{ lang.btn.save }}</a>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"vicp-step3\" v-if=\"step == 3\">\r\n            <div class=\"vicp-upload\">\r\n                <span class=\"vicp-loading\" v-show=\"loading === 1\">{{ lang.loading }}</span>\r\n                <div class=\"vicp-progress-wrap\">\r\n                    <span class=\"vicp-progress\" v-show=\"loading === 1\" :style=\"progressStyle\"></span>\r\n                </div>\r\n                <div class=\"vicp-error\" v-show=\"hasError\">\r\n                    <i class=\"vicp-icon2\"></i> {{ errorMsg }}\r\n                </div>\r\n                <div class=\"vicp-success\" v-show=\"loading === 2\">\r\n                    <i class=\"vicp-icon3\"></i> {{ lang.success }}\r\n                </div>\r\n            </div>\r\n            <div class=\"vicp-operate\">\r\n                <a @click=\"setStep(2)\" @mousedown=\"ripple\">{{ lang.btn.back }}</a>\r\n                <a @click=\"off\" @mousedown=\"ripple\">{{ lang.btn.close }}</a>\r\n            </div>\r\n        </div>\r\n        <canvas v-show=\"false\" :width=\"width\" :height=\"height\" ref=\"canvas\"></canvas>\r\n    </div>\r\n</div>\r\n\r\n";
+	module.exports = "\r\n<div class=\"vue-image-crop-upload\" v-show=\"value\" @keyup.esc=\"off\">\r\n\t<div class=\"vicp-wrap\">\r\n\t\t<div class=\"vicp-close\" @click=\"off\">\r\n\t\t\t<i class=\"vicp-icon4\"></i>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"vicp-step1\" v-show=\"step == 1\">\r\n\t\t\t<div class=\"vicp-drop-area\" @dragleave=\"preventDefault\" @dragover=\"preventDefault\" @dragenter=\"preventDefault\" @click=\"handleClick\" @drop=\"handleChange\">\r\n\t\t\t\t<i class=\"vicp-icon1\" v-show=\"loading != 1\">\r\n\t\t\t\t<i class=\"vicp-icon1-arrow\"></i>\r\n\t\t\t\t<i class=\"vicp-icon1-body\"></i>\r\n\t\t\t\t<i class=\"vicp-icon1-bottom\"></i>\r\n\t\t\t\t</i>\r\n\t\t\t\t<span class=\"vicp-hint\" v-show=\"loading !== 1\">{{ lang.hint }}</span>\r\n\t\t\t\t<span class=\"vicp-no-supported-hint\" v-show=\"!isSupported\">{{ lang.noSupported }}</span>\r\n\t\t\t\t<input type=\"file\" v-show=\"false\" v-if=\"step == 1\" @change=\"handleChange\" ref=\"fileinput\">\r\n\t\t\t</div>\r\n\t\t\t<div class=\"vicp-error\" v-show=\"hasError\">\r\n\t\t\t\t<i class=\"vicp-icon2\"></i> {{ errorMsg }}\r\n\t\t\t</div>\r\n\t\t\t<div class=\"vicp-operate\">\r\n\t\t\t\t<a @click=\"off\" @mousedown=\"ripple\">{{ lang.btn.off }}</a>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"vicp-step2\" v-if=\"step == 2\">\r\n\t\t\t<div class=\"vicp-crop\">\r\n\t\t\t\t<div class=\"vicp-crop-left\" v-show=\"true\">\r\n\t\t\t\t\t<div class=\"vicp-img-container\">\r\n\t\t\t\t\t\t<img :src=\"sourceImgUrl\" :style=\"sourceImgStyle\" class=\"vicp-img\" draggable=\"false\"\r\n\t\t\t\t\t\t\t@drag=\"preventDefault\"\r\n\t\t\t\t\t\t\t@dragstart=\"preventDefault\"\r\n\t\t\t\t\t\t\t@dragend=\"preventDefault\"\r\n\t\t\t\t\t\t\t@dragleave=\"preventDefault\"\r\n\t\t\t\t\t\t\t@dragover=\"preventDefault\"\r\n\t\t\t\t\t\t\t@dragenter=\"preventDefault\"\r\n\t\t\t\t\t\t\t@drop=\"preventDefault\"\r\n\t\t\t\t\t\t\t@touchstart=\"imgStartMove\"\r\n\t\t\t\t\t\t\t@touchmove=\"imgMove\"\r\n\t\t\t\t\t\t\t@touchend=\"createImg\"\r\n\t\t\t\t\t\t\t@touchcancel=\"createImg\"\r\n\t\t\t\t\t\t\t@mousedown=\"imgStartMove\"\r\n\t\t\t\t\t\t\t@mousemove=\"imgMove\"\r\n\t\t\t\t\t\t\t@mouseup=\"createImg\"\r\n\t\t\t\t\t\t\t@mouseout=\"createImg\"\r\n\t\t\t\t\t\t\tref=\"img\">\r\n\t\t\t\t\t\t<div class=\"vicp-img-shade vicp-img-shade-1\" :style=\"sourceImgShadeStyle\"></div>\r\n\t\t\t\t\t\t<div class=\"vicp-img-shade vicp-img-shade-2\" :style=\"sourceImgShadeStyle\"></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"vicp-range\">\r\n\t\t\t\t\t\t<input type=\"range\" :value=\"scale.range\" step=\"1\" min=\"0\" max=\"100\" @input=\"zoomChange\">\r\n\t\t\t\t\t\t<i @mousedown=\"startZoomSub\" @mouseout=\"endZoomSub\" @mouseup=\"endZoomSub\" class=\"vicp-icon5\"></i>\r\n\t\t\t\t\t\t<i @mousedown=\"startZoomAdd\" @mouseout=\"endZoomAdd\" @mouseup=\"endZoomAdd\" class=\"vicp-icon6\"></i>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"vicp-crop-right\" v-show=\"true\">\r\n\t\t\t\t\t<div class=\"vicp-preview\">\r\n\t\t\t\t\t\t<div class=\"vicp-preview-item\">\r\n\t\t\t\t\t\t\t<img :src=\"createImgUrl\" :style=\"previewStyle\">\r\n\t\t\t\t\t\t\t<span>{{ lang.preview }}</span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"vicp-preview-item\" v-if=\"!noCircle\">\r\n\t\t\t\t\t\t\t<img :src=\"createImgUrl\" :style=\"previewStyle\">\r\n\t\t\t\t\t\t\t<span>{{ lang.preview }}</span>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"vicp-operate\">\r\n\t\t\t\t<a @click=\"setStep(1)\" @mousedown=\"ripple\">{{ lang.btn.back }}</a>\r\n\t\t\t\t<a class=\"vicp-operate-btn\" @click=\"prepareUpload\" @mousedown=\"ripple\">{{ lang.btn.save }}</a>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"vicp-step3\" v-if=\"step == 3\">\r\n\t\t\t<div class=\"vicp-upload\">\r\n\t\t\t\t<span class=\"vicp-loading\" v-show=\"loading === 1\">{{ lang.loading }}</span>\r\n\t\t\t\t<div class=\"vicp-progress-wrap\">\r\n\t\t\t\t\t<span class=\"vicp-progress\" v-show=\"loading === 1\" :style=\"progressStyle\"></span>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"vicp-error\" v-show=\"hasError\">\r\n\t\t\t\t\t<i class=\"vicp-icon2\"></i> {{ errorMsg }}\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"vicp-success\" v-show=\"loading === 2\">\r\n\t\t\t\t\t<i class=\"vicp-icon3\"></i> {{ lang.success }}\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"vicp-operate\">\r\n\t\t\t\t<a @click=\"setStep(2)\" @mousedown=\"ripple\">{{ lang.btn.back }}</a>\r\n\t\t\t\t<a @click=\"off\" @mousedown=\"ripple\">{{ lang.btn.close }}</a>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<canvas v-show=\"false\" :width=\"width\" :height=\"height\" ref=\"canvas\"></canvas>\r\n\t</div>\r\n</div>\r\n";
 
 /***/ })
 /******/ ]);
