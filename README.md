@@ -2,7 +2,7 @@
 
 A beautiful vue component for image crop and upload. （vue图片剪裁上传组件）.
 
-** Notice:  ** This component is designed for pc, not recommended for use on the mobile side.(该组件适用于pc端，不推荐手机端使用)
+**Notice**: This component is designed for pc, **not recommended for use on the mobile side**.(该组件适用于pc端，不推荐手机端使用)
 
 [![GitHub issues](https://img.shields.io/github/issues/dai-siki/vue-image-crop-upload.svg)](https://github.com/dai-siki/vue-image-crop-upload/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dai-siki/vue-image-crop-upload.svg)](https://github.com/dai-siki/vue-image-crop-upload/network)
@@ -14,6 +14,9 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## 中文文档在后面
 
 ## Change log
+
+#### @2.0.2
+- Added the **Dutch** language pack (thanks @blyleven)
 
 #### @2.0.1
 - If url prop is empty, the picture will not be uploaded
@@ -91,6 +94,7 @@ $ npm install vue-image-crop-upload
 | Romanian          | ro           | doriandrn       |
 | Portuguese (Brazil) | pt-br      | abensur       |
 | French            | fr           | valerymelou       |
+| Dutch             | nl           | blyleven       |
 
 ```js
 // example
