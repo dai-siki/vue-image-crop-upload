@@ -1,5 +1,5 @@
 <template>
-<div class="vue-image-crop-upload" v-show="value" @keyup.esc="off">
+<div class="vue-image-crop-upload" v-show="value">
 	<div class="vicp-wrap">
 		<div class="vicp-close" @click="off">
 			<i class="vicp-icon4"></i>
