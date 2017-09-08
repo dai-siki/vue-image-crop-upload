@@ -1199,7 +1199,7 @@ export default {
 					  user-select: none; }
 			.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item:last-child {
 			  margin-right: 0; }
-			  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item:last-child img {
+			  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right .vicp-preview .vicp-preview-item:nth-child(2) img {
 				border-radius: 100%; }
 	.vue-image-crop-upload .vicp-wrap .vicp-step3 .vicp-upload {
 	  position: relative;
