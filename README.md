@@ -15,6 +15,10 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 
 ## Change log
 
+#### @2.0.4
+- Added the **Turkish** language pack (thanks @smhayhan)
+
+
 #### @2.0.2
 - Added the **Dutch** language pack (thanks @blyleven)
 
@@ -77,7 +81,7 @@ $ npm install vue-image-crop-upload
 | width             | Number            |   200                | width of receive image     |
 | height             | Number            |  200                 | height of receive image   |
 | imgFormat             | string            | 'jpg'                  | jpg/png, Server api receive file type.    |
-| noCircle | Boolean | false | disable/enable circle preview | 
+| noCircle          | Boolean             | false         | disable/enable circle preview |
 
 #### Events
 | Name              | Description                                         |
@@ -96,6 +100,7 @@ $ npm install vue-image-crop-upload
 | Portuguese (Brazil) | pt-br      | abensur       |
 | French            | fr           | valerymelou       |
 | Dutch             | nl           | blyleven       |
+| Turkish             | tr           | smhayhan        |
 
 ```js
 // example
@@ -337,7 +342,7 @@ $ npm install vue-image-crop-upload
 | width             | Number            |   200                | 最终得到的图片宽度     |
 | height             | Number            |  200                 | 最终得到的图片高度   |
 | imgFormat             | string            | 'jpg'                  | jpg/png, 最终得到的图片格式    |
-| noCricle | Boolean | false | 啟用/關閉 圓形預覽 |
+| noCricle            | Boolean              | false             | 启用/关闭 圆形图像预览 |
 
 #### Events
 | 名称              | 说明                                         |
