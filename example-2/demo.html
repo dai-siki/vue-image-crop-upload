@@ -96,6 +96,21 @@
 				:headers="headers"
 				:params="otherParams"></my-upload>
 		</div>
+
+		<div class="item">
+			<a class="btn" @click="toggleShow3">Subir avatar</a>
+			<img class="avatar" v-if="avatarUrl3" :src="avatarUrl3" v-show="true" style="display: none;">
+			<my-upload url="https://httpbin.org/post"
+				@crop-success="cropSuccess"
+				@crop-upload-success="cropUploadSuccess"
+				@crop-upload-fail="cropUploadFail"
+				field="avatar3"
+				ki="0"
+				lang-type="es-MX"
+				v-model="show3"
+				:headers="headers"
+				:params="otherParams"></my-upload>
+		</div>
 	</div>
 
 	<script src="vue.js"></script>

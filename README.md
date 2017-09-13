@@ -52,6 +52,11 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## Screenshot
 ![screenshot](screenshot/1.png)
 
+## Version movil
+![screenshot](screenshot/movil1.png)
+
+![screenshot](screenshot/movil2.png)
+
 ## Brower compatibility
 IE10+
 

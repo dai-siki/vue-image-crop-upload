@@ -1352,4 +1352,26 @@ export default {
     transition: opacity 1.2s ease-out, transform 0.6s ease-out;
     transition: opacity 1.2s ease-out, transform 0.6s ease-out, -webkit-transform 0.6s ease-out; }
 
+/*
+* For mobiles
+*/
+
+
+
+@media screen and (max-width:768px){
+	
+	.vue-image-crop-upload .vicp-wrap {
+		width:50vh;
+	}
+	.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-right {
+		display:none
+	}
+}
+
+@media screen and (max-width: 768px) and (orientation:landscape) {
+  /* Styles for Landscape screen */
+  	.vue-image-crop-upload .vicp-wrap {
+		width:90vh;
+	}
+}
 </style>
