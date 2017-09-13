@@ -160,7 +160,7 @@ export default {
 		success:'Subido exitosamente',
 		fail:'Sucedió un error',
 		preview:'Vista previa',
-		bnt:{
+		btn:{
 			off:'Cancelar',
 			close:'Cerrar',
 			back:'Atras',
