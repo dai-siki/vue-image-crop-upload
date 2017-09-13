@@ -51,7 +51,6 @@ export default {
             back: 'Înapoi',
             save: 'Salvează'
         },
-
         error: {
             onlyImg: 'Doar imagini',
             outOfSize: 'Imaginea depășește limita de: ',
