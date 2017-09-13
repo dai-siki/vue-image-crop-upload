@@ -153,7 +153,7 @@ export default {
 			lowestPx: 'Resmin boyutu çok küçük. En az olması gereken: '
 		}
 	},
-	'es-MX':{
+	'es-MX': {
 		hint:'Selecciona o arrastra una imagen',
 		loading:'Subiendo...',
 		noSupported:'Tu navegador no es soportado, porfavor usa IE10+ u otros navegadores mas recientes',
@@ -171,5 +171,5 @@ export default {
 			outOfSize:'La imagen excede el tamaño maximo:',
 			lowestPx:'La imagen es demasiado pequeño. Se espera por lo menos:'
 		}
-	},
+	}
 };
