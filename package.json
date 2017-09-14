@@ -1,6 +1,6 @@
 {
   "name": "vue-image-crop-upload",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "a vue plgin for image upload and crop（vue图片剪裁上传插件）",
   "main": "upload-2.vue",
   "scripts": {
@@ -36,6 +36,7 @@
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.17.0",
+    "babel-eslint": "^8.0.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-polyfill": "^6.16.0",
@@ -45,6 +46,7 @@
     "browser-sync": "^2.13.0",
     "classnames": "^2.2.5",
     "css-loader": "^0.23.1",
+    "eslint": "^4.6.1",
     "gulp": "^3.8.8",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-changed": "^1.3.0",
