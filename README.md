@@ -346,7 +346,7 @@ $ npm install vue-image-crop-upload
 | width             | Number            |   200                | 最终得到的图片宽度     |
 | height             | Number            |  200                 | 最终得到的图片高度   |
 | imgFormat             | string            | 'jpg'                  | jpg/png, 最终得到的图片格式    |
-| noCricle            | Boolean              | false             | 启用/关闭 圆形图像预览 |
+| noCircle            | Boolean              | false             | 启用/关闭 圆形图像预览 |
 
 #### Events
 | 名称              | 说明                                         |
