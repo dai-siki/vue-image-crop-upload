@@ -9880,8 +9880,8 @@
 				if (e) {
 					that.sourceImgMouseDown.on = false;
 				}
-				canvas.width = that.height;
-				canvas.height = that.width;
+				canvas.width = that.width;
+				canvas.height = that.height;
 				ctx.clearRect(0, 0, that.width, that.height);
 
 				ctx.fillStyle = "#fff";
@@ -9889,7 +9889,7 @@
 
 				ctx.translate(that.width * 0.5, that.height * 0.5);
 				ctx.rotate(Math.PI * degree / 180);
-				ctx.translate(-that.height * 0.5, -that.width * 0.5);
+				ctx.translate(-that.width * 0.5, -that.height * 0.5);
 
 				ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
 				that.createImgUrl = canvas.toDataURL(mime);

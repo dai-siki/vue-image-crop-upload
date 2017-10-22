@@ -781,8 +781,8 @@ export default {
                 // 取消鼠标按下移动状态
                 that.sourceImgMouseDown.on = false;
 			}
-            canvas.width = that.height;
-            canvas.height = that.width;
+            canvas.width = that.width;
+            canvas.height = that.height;
             ctx.clearRect(0, 0, that.width, that.height);
 
             // 将透明区域设置为白色底边
@@ -791,7 +791,7 @@ export default {
 
             ctx.translate(that.width * 0.5, that.height * 0.5);
             ctx.rotate(Math.PI * degree / 180);
-            ctx.translate(-that.height * 0.5, -that.width * 0.5);
+            ctx.translate(-that.width * 0.5, -that.height * 0.5);
 
             ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
             that.createImgUrl = canvas.toDataURL(mime);
@@ -899,7 +899,7 @@ export default {
 
 </script>
 
-<!-- 
+<!--
 <style lang='sass' src="./scss/upload.scss">
 </style> -->
 

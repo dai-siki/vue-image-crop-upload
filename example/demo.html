@@ -57,6 +57,8 @@
 			<a class="btn" @click="toggleShow1">设置头像</a>
 			<img class="avatar" v-if="avatarUrl1" :src="avatarUrl1" v-show="true" style="display: none;">
 			<my-upload url="https://httpbin.org/post" img-format="png"
+				:width="300"
+				:height="500"
 				field="avatar1"
 				key="0"
 				:no-rotate="false"
