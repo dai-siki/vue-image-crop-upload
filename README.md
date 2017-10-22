@@ -15,7 +15,7 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 
 ## Change log
 #### @2.1.0
-- Strengthen the function of image rotation and not preview square avatar
+- Strengthen the function of image rotation and does not display square preview picture
 
 #### @2.0.5
 - Added the **spanish MX** language pack (thanks @vickvasquez)
@@ -302,6 +302,9 @@ $ npm install vue-image-crop-upload
 # 中文文档
 
 ## 更新日志
+#### @2.1.0
+- 增加了图片旋转和不显示方形预览图片的功能
+
 #### @2.0.0
 - 默认支持版本改为vue2，vue1的同学需要引入upload-1.vue
 
