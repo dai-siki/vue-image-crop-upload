@@ -53,6 +53,10 @@
 						<i @mousedown="startZoomSub" @mouseout="endZoomSub" @mouseup="endZoomSub" class="vicp-icon5"></i>
 						<i @mousedown="startZoomAdd" @mouseout="endZoomAdd" @mouseup="endZoomAdd" class="vicp-icon6"></i>
 					</div>
+					<div class="vicp-range" style="margin-top: -20px;">
+                            <i @mousedown="startRotateLeft" @mouseout="endRotate" @mouseup="endRotate" class="vicp-icon7">↺</i>
+                            <i @mousedown="startRotateRight" @mouseout="endRotate" @mouseup="endRotate" class="vicp-icon8">↻</i>
+                    </div>
 				</div>
 				<div class="vicp-crop-right" v-show="true">
 					<div class="vicp-preview">
@@ -251,7 +255,10 @@ export default {
 			scale: {
 				zoomAddOn: false, //按钮缩放事件开启
 				zoomSubOn: false, //按钮缩放事件开启
+				rotateLeft: false,//按钮向左旋转事件开启
+                rotateRight: false,//按钮向右旋转事件开启
 				range: 1, //最大100
+				degree: 0, // 旋转度数
 				x: 0,
 				y: 0,
 				width: 0,
@@ -287,7 +294,12 @@ export default {
 				top,
 				left,
 				width: scale.width + 'px',
-				height: scale.height + 'px'
+				height: scale.height + 'px',
+				transform: 'rotate(' + scale.degree + 'deg)',// 旋转时 左侧原始图旋转样式
+                '-ms-transform': 'rotate(' + scale.degree + 'deg)', // 兼容IE9
+                '-moz-transform': 'rotate(' + scale.degree + 'deg)', // 兼容FireFox
+                '-webkit-transform': 'rotate(' + scale.degree + 'deg)',// 兼容Safari 和 chrome
+                '-o-transform': 'rotate(' + scale.degree + 'deg)',// 兼容 Opera
 			}
 		},
 		// 原图蒙版属性
@@ -573,6 +585,50 @@ export default {
 			scale.x = rX;
 			scale.y = rY;
 		},
+		 // 按钮按下开始向右旋转
+        startRotateRight(e) {
+            let that = this,
+                {
+                    scale
+                } = that;
+            scale.rotateLeft = true;
+            function rotate() {
+                if (scale.rotateLeft) {
+                    let degree = ++scale.degree;
+                    that.createImg(degree);
+                    setTimeout(function () {
+                        rotate();
+                    }, 60);
+                }
+            }
+            rotate();
+        },
+		// 按钮按下开始向右旋转
+        startRotateLeft(e) {
+            let that = this,
+                {
+                    scale
+                } = that;
+            scale.rotateLeft = true;
+            function rotate() {
+                if (scale.rotateLeft) {
+                    let degree = --scale.degree;
+                    that.createImg(degree);
+                    setTimeout(function () {
+                        rotate();
+                    }, 60);
+                }
+            }
+            rotate();
+        },
+		// 停止旋转
+        endRotate() {
+            let {
+                scale
+            } = this;
+            scale.rotateLeft = false;
+            scale.rotateRight = false;
+        },
 		// 按钮按下开始放大
 		startZoomAdd(e) {
 			let that = this,
@@ -681,32 +737,41 @@ export default {
 				}
 			}, 300);
 		},
-		// 生成需求图片
-		createImg(e) {
-			let that = this,
-				{
-					mime,
-					sourceImg,
-					scale: {
-						x,
-						y,
-						width,
-						height
-					},
-					sourceImgMasking: {
-						scale
-					}
-				} = that,
-				canvas = that.$refs.canvas,
-				ctx = canvas.getContext('2d');
-			if (e) {
-				// 取消鼠标按下移动状态
-				that.sourceImgMouseDown.on = false;
-			}
-			ctx.clearRect(0, 0, that.width, that.height);
-			ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
-			that.createImgUrl = canvas.toDataURL(mime);
-		},
+		 // 生成需求图片
+        createImg(e) {
+            let that = this,
+                {
+                    mime,
+                    sourceImg,
+                    scale: {
+                        x,
+                        y,
+                        width,
+                        height,
+                        degree
+                    },
+                    sourceImgMasking: {
+                        scale
+                    }
+                } = that,
+                canvas = that.$refs.canvas,
+                ctx = canvas.getContext('2d');
+            if (e) {
+                // 取消鼠标按下移动状态
+                that.sourceImgMouseDown.on = false;
+            }
+            canvas.width = that.height;
+            canvas.height = that.width;
+            ctx.clearRect(0, 0, that.width, that.height);
+            // 将透明区域设置为白色底边
+            ctx.fillStyle = "#fff";
+            ctx.fillRect(0, 0, that.width, that.height);
+            ctx.translate(canvas.width * 0.5, canvas.height * 0.5);
+            ctx.rotate(Math.PI * degree / 180);
+            ctx.translate(-canvas.height * 0.5, -canvas.width * 0.5);
+            ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
+            that.createImgUrl = canvas.toDataURL(mime);
+        },
 		prepareUpload(){
 			let {
 				url,
@@ -1012,7 +1077,10 @@ export default {
           width: 240px;
           height: 18px; }
           .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5,
-          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6 {
+          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6,
+          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon7,
+          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon8
+		   {
             position: absolute;
             top: 0;
             width: 18px;
@@ -1020,12 +1088,15 @@ export default {
             border-radius: 100%;
             background-color: rgba(0, 0, 0, 0.08); }
             .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5:hover,
-            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6:hover {
+            .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6:hover,
+			.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon7:hover,
+			.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon8:hover{
               -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);
-                      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+              box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);
               cursor: pointer;
               background-color: rgba(0, 0, 0, 0.14); }
-          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5 {
+          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5,
+		  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon7 {
             left: 0; }
             .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon5::before {
               position: absolute;
@@ -1036,7 +1107,8 @@ export default {
               width: 12px;
               height: 2px;
               background-color: #fff; }
-          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6 {
+          .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6,
+		  .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon8 {
             right: 0; }
             .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon6::before {
               position: absolute;
@@ -1056,6 +1128,25 @@ export default {
               width: 2px;
               height: 12px;
               background-color: #fff; }
+			.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon7 {
+			  transform: rotate(10deg);
+			  -webkit-transform: rotate(10deg);
+			  -moz-transform: rotate(-10deg);
+			  -ms-transform: rotate(-10deg);
+			  -o-transform: rotate(-10deg);}
+			.vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon8 {
+			  transform: rotate(10deg);
+			  -webkit-transform: rotate(10deg);
+			  -moz-transform: rotate(-10deg);
+			  -ms-transform: rotate(-10deg);
+			  -o-transform: rotate(-10deg);
+			}
+		   .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon7,
+		   .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range .vicp-icon8 {
+			 color: rgb(255, 255, 255);
+			 line-height: 20px;
+			 font-weight: bold;
+			}
           .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left .vicp-range input[type=range] {
             display: block;
             padding-top: 5px;
