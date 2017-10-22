@@ -60,7 +60,7 @@
 				</div>
 				<div class="vicp-crop-right" v-show="true">
 					<div class="vicp-preview">
-						<div class="vicp-preview-item">
+						<div class="vicp-preview-item" v-if="!noSquare">
 							<img :src="createImgUrl" :style="previewStyle">
 							<span>{{ lang.preview }}</span>
 						</div>
@@ -149,6 +149,10 @@ export default {
 		},
 		// 不预览圆形图片
 		noCircle: {
+			type: Boolean,
+			default: false
+		},
+		noSquare: {
 			type: Boolean,
 			default: false
 		},
