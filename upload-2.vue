@@ -260,7 +260,7 @@ export default {
 			// 原图容器宽高
 			sourceImgContainer: { // sic
 				width: 240,
-				height: 180
+				height: 184 // 如果生成图比例与此一致会出现bug，先改成特殊的格式吧，哈哈哈
 			},
 
 			// 原图展示属性
@@ -319,12 +319,12 @@ export default {
 		// 原图蒙版属性
 		sourceImgMasking() {
 			let {
-				width,
-				height,
-				ratio,
-				sourceImgContainer
-			} = this,
-			sic = sourceImgContainer,
+					width,
+					height,
+					ratio,
+					sourceImgContainer
+				} = this,
+				sic = sourceImgContainer,
 				sicRatio = sic.width / sic.height, // 原图容器宽高比
 				x = 0,
 				y = 0,
@@ -352,10 +352,10 @@ export default {
 		// 原图遮罩样式
 		sourceImgShadeStyle() {
 			let {
-				sourceImgMasking,
-				sourceImgContainer
-			} = this,
-			sic = sourceImgContainer,
+					sourceImgMasking,
+					sourceImgContainer
+				} = this,
+				sic = sourceImgContainer,
 				sim = sourceImgMasking,
 				w = sim.width == sic.width ? sim.width : (sic.width - sim.width) / 2,
 				h = sim.height == sic.height ? sim.height : (sic.height - sim.height) / 2;
@@ -366,12 +366,12 @@ export default {
 		},
 		previewStyle() {
 			let {
-				width,
-				height,
-				ratio,
-				previewContainer
-			} = this,
-			pc = previewContainer,
+					width,
+					height,
+					ratio,
+					previewContainer
+				} = this,
+				pc = previewContainer,
 				w = pc.width,
 				h = pc.height,
 				pcRatio = w / h;
@@ -401,19 +401,18 @@ export default {
 		},
 		// 关闭控件
 		off() {
-			let that = this;
-			setTimeout(function() {
-				that.$emit('input', false);
-				if(that.step == 3 && that.loading == 2){
-					that.setStep(1);
+			setTimeout(()=> {
+				this.$emit('input', false);
+				if(this.step == 3 && this.loading == 2){
+					this.setStep(1);
 				}
 			}, 200);
 		},
 		// 设置步骤
 		setStep(no) {
-			let that = this;
-			setTimeout(function() {
-				that.step = no;
+			// 延时是为了显示动画效果呢，哈哈哈
+			setTimeout(()=> {
+				this.step = no;
 			}, 200);
 		},
 
