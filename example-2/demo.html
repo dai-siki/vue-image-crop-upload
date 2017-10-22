@@ -63,7 +63,7 @@
 				field="avatar1"
 				ki="0"
 				v-model="show1"
-				:no-circle="false"
+				:no-rotate="false"
 				:headers="headers"
 				:params="otherParams"></my-upload>
 		</div>
@@ -75,6 +75,7 @@
 				@crop-success="cropSuccess"
 				@crop-upload-success="cropUploadSuccess"
 				@crop-upload-fail="cropUploadFail"
+				:no-square="true"
 				field="avatar2"
 				ki="0"
 				lang-type="en"
@@ -90,6 +91,7 @@
 				@crop-success="cropSuccess"
 				@crop-upload-success="cropUploadSuccess"
 				@crop-upload-fail="cropUploadFail"
+				:no-circle="true"
 				field="avatar3"
 				ki="0"
 				lang-type="ru"

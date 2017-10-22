@@ -1,10 +1,11 @@
 {
   "name": "vue-image-crop-upload",
-  "version": "2.0.7",
+  "version": "2.1.0",
   "description": "a vue plgin for image upload and crop（vue图片剪裁上传插件）",
   "main": "upload-2.vue",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp",
+    "build": "cross-env NODE_ENV=production gulp b"
   },
   "repository": {
     "type": "git",

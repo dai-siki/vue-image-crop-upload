@@ -221,9 +221,43 @@ $c_info: #07d;
 						}
 					}
 
+					.vicp-rotate {
+						position: relative;
+						width: 240px;
+						height: 18px;
+
+						i {
+							display: block;
+							width: 18px;
+							height: 18px;
+							border-radius: 100%;
+							line-height: 18px;
+							text-align: center;
+							font-size: 12px;
+							font-weight: bold;
+							background-color: rgba(#000, 0.08);
+							color: #fff;
+							overflow: hidden;
+
+							&:hover {
+								@include bs1;
+								cursor: pointer;
+								background-color: rgba(#000, 0.14);
+							}
+
+							&:first-child {
+								float: left;
+							}
+
+							&:last-child {
+								float: right;
+							}
+						}
+					}
+
 					.vicp-range {
 						position: relative;
-						margin: 30px 0;
+						margin: 30px 0 10px 0;
 						width: 240px;
 						height: 18px;
 
@@ -460,7 +494,7 @@ $c_info: #07d;
 								user-select: none;
 							}
 
-							&:nth-child(2) {
+							&.vicp-preview-item-circle {
 								margin-right: 0;
 
 								img {
