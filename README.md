@@ -88,6 +88,7 @@ $ npm install vue-image-crop-upload
 | noCircle          | Boolean             | false         | disable circle preview |
 | noSquare          | Boolean             | false         | disable square preview |
 | noRotate          | Boolean             | true         | disable rotate function |
+| withCredentials          | Boolean             | false         | support cross-domain |
 
 #### Events
 | Name              | Description                                         |
@@ -355,6 +356,7 @@ $ npm install vue-image-crop-upload
 | noCircle            | Boolean              | false             | 关闭 圆形图像预览 |
 | noSquare            | Boolean              | false             | 关闭 方形图像预览 |
 | noRotate            | Boolean              | true             | 关闭 旋转图像功能 |
+| withCredentials          | Boolean             | false         | 支持跨域 |
 
 #### Events
 | 名称              | 说明                                         |
