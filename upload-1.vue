@@ -192,7 +192,12 @@ export default {
         imgFormat: {
             type: String,
             'default': 'png'
-        }
+        },
+        // 是否支持跨域
+		withCredentials: {
+			type: Boolean,
+			'default': false
+		}
     },
     data() {
         let that = this,
@@ -820,7 +825,8 @@ export default {
                     params,
                     field,
                     ki,
-                    createImgUrl
+                    createImgUrl,
+                    withCredentials
                 } = this,
                 fmData = new FormData();
             fmData.append(field, data2blob(createImgUrl, mime), field + '.' + imgFormat);
@@ -846,6 +852,7 @@ export default {
             new Promise(function(resolve, reject) {
                 let client = new XMLHttpRequest();
                 client.open('POST', url, true);
+                client.withCredentials = withCredentials;
                 client.onreadystatechange = function() {
                     if (this.readyState !== 4) {
                         return;
