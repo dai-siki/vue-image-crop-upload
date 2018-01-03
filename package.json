@@ -1,6 +1,6 @@
 {
   "name": "vue-image-crop-upload",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "a vue plgin for image upload and crop（vue图片剪裁上传插件）",
   "main": "upload-2.vue",
   "scripts": {

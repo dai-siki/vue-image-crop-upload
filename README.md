@@ -14,6 +14,9 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## 中文文档在后面
 
 ## Change log
+#### @2.2.1
+- Added the **Chinese Traditional** language pack (thanks @s950329)
+
 #### @2.1.0
 - Strengthen the function of image rotation and does not display square preview picture
 
@@ -101,6 +104,7 @@ $ npm install vue-image-crop-upload
 | Support language | Shorthand   | Contributors    |
 | ---------------  | ----------- |---------------- |
 | 中文（default）    | zh           | dai-siki        |
+| 繁体中文          | zh-tw          | s950329        |
 | English           | en           | dai-siki / doriandrn    |
 | Russian           | ru           | bigperson       |
 | Romanian          | ro           | doriandrn       |
