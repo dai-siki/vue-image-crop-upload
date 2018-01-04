@@ -163,6 +163,7 @@
         border-color: rgba(0, 0, 0, 0.1);
         background-color: rgba(0, 0, 0, 0.05); }
     .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop {
+      text-align: center;
       overflow: hidden; }
       .vue-image-crop-upload .vicp-wrap .vicp-step2 .vicp-crop .vicp-crop-left {
         float: left; }
