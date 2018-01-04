@@ -14,6 +14,14 @@ $c_info: #07d;
 @mixin bs3 {
 	box-shadow: 0 1px 3px 0 rgba(#000, 0.23);
 }
+
+//手機
+ @mixin mobile() {
+	@media all and (max-width: 576px) {
+        @content;
+  	}
+ }
+
 @keyframes vicp_progress {
 	0% {
 		background-position-y: 0;
@@ -61,12 +69,18 @@ $c_info: #07d;
 		left: 0;
 		right: 0;
 		margin: auto;
-		width: 600px;
+		max-width: 600px;
 		height: 330px;
 		padding: 25px;
 		background-color: #fff;
 		border-radius: 2px;
 		animation: vicp 0.12s ease-in;
+
+		@include mobile {
+        	display: table;
+    	    width: 100%;
+    	    height: auto;
+    	}
 
 		.vicp-close {
 			position: absolute;
@@ -188,6 +202,11 @@ $c_info: #07d;
 
 				.vicp-crop-left {
 					float: left;
+
+					@include mobile{
+	                	float: none;
+	                	display: inline-block;
+		        	}
 
 					.vicp-img-container {
 						position: relative;
@@ -457,6 +476,11 @@ $c_info: #07d;
 				.vicp-crop-right {
 					float: right;
 
+					@include mobile{
+	                	float: none;
+	                	display: inline-block;
+		        	}
+
 					.vicp-preview {
 						height: 150px;
 						overflow: hidden;
@@ -571,6 +595,18 @@ $c_info: #07d;
 			right: 20px;
 			bottom: 20px;
 
+			&:after{
+				display: block;
+				content: '';
+				clear: both;
+			}
+
+			@include mobile {
+				margin-top: 20px;
+				position: unset;
+            	text-align: center;
+        	}
+
 			a {
 				position: relative;
 				float: left;
@@ -590,6 +626,11 @@ $c_info: #07d;
 				&:hover {
 					background-color: rgba(#000, 0.03);
 				}
+
+				@include mobile {
+					display: inline-block;
+					float: none;
+	        	}
 			}
 		}
 
@@ -654,6 +695,8 @@ $c_info: #07d;
 				transform: rotate(-45deg);
 			}
 		}
+
+
 	}
 }
 
