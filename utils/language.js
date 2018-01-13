@@ -190,5 +190,24 @@ export default {
 			outOfSize:'La imagen excede el tamaño maximo:',
 			lowestPx:'La imagen es demasiado pequeño. Se espera por lo menos:'
 		}
+	},
+	de: {
+		hint: 'Klick hier oder zieh eine Datei hier rein zum Hochladen',
+		loading: 'Hochladen…',
+		noSupported: 'Browser wird nicht unterstützt, bitte verwende IE10+ oder andere Browser',
+		success: 'Upload erfolgreich',
+		fail: 'Upload fehlgeschlagen',
+		preview: 'Vorschau',
+		btn: {
+			off: 'Abbrechen',
+			close: 'Schließen',
+			back: 'Zurück',
+			save: 'Speichern'
+		},
+		error: {
+			onlyImg: 'Nur Bilder',
+			outOfSize: 'Das Bild ist zu groß: ',
+			lowestPx: 'Das Bild ist zu klein. Mindestens: '
+		}
 	}
 };
