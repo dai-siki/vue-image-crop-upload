@@ -14,6 +14,9 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## 中文文档在后面
 
 ## Change log
+#### @2.2.2
+- Added the **German** language pack (thanks @attx)
+
 #### @2.2.1
 - Added the **Chinese Traditional** language pack (thanks @s950329)
 
@@ -113,6 +116,7 @@ $ npm install vue-image-crop-upload
 | Dutch             | nl           | blyleven       |
 | Turkish             | tr           | smhayhan        |
 | spanish MX         | es-MX          | vickvasquez    |
+| German         | de          | attx    |
 
 ```js
 // example
