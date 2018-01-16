@@ -32,7 +32,8 @@
   },
   "homepage": "https://github.com/dai-siki/vue-image-crop-upload#readme",
   "dependencies": {
-    "babel-runtime": "^6.11.6"
+    "babel-runtime": "^6.11.6",
+    "cross-env": "^5.1.3"
   },
   "devDependencies": {
     "babel": "^6.5.2",
