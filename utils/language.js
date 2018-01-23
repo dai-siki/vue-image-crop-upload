@@ -209,5 +209,24 @@ export default {
 			outOfSize: 'Das Bild ist zu groß: ',
 			lowestPx: 'Das Bild ist zu klein. Mindestens: '
 		}
+	},
+	ja: {
+		hint: 'クリック・ドラッグしてファイルをアップロード',
+		loading: 'アップロード中...',
+		noSupported: 'このブラウザは対応されていません。IE10+かその他の主要ブラウザをお使いください。',
+		success: 'アップロード成功',
+		fail: 'アップロード失敗',
+		preview: 'プレビュー',
+		btn: {
+			off: 'キャンセル',
+			close: '閉じる',
+			back: '戻る',
+			save: '保存'
+		},
+		error: {
+			onlyImg: '画像のみ',
+			outOfSize: '画像サイズが上限を超えています。上限: ',
+			lowestPx: '画像が小さすぎます。最小サイズ: '
+		}
 	}
 };
