@@ -188,7 +188,12 @@ export default {
 		withCredentials: {
 			type: Boolean,
 			'default': false
-		}
+		},
+
+    withAlphaChannel: {
+      type: Boolean,
+      'default': false
+    }
 	},
 	data() {
 		let that = this,
@@ -783,9 +788,11 @@ export default {
             canvas.height = that.height;
             ctx.clearRect(0, 0, that.width, that.height);
 
-            // 将透明区域设置为白色底边
-            // ctx.fillStyle = "#fff";
-            // ctx.fillRect(0, 0, that.width, that.height);
+            if(!that.withAlphaChannel){
+              // 将透明区域设置为白色底边
+              ctx.fillStyle = "#fff";
+              ctx.fillRect(0, 0, that.width, that.height);
+						}
 
             ctx.translate(that.width * 0.5, that.height * 0.5);
             ctx.rotate(Math.PI * degree / 180);
