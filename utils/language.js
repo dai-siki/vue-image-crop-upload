@@ -243,7 +243,7 @@ export default {
       save: 'Salva'
     },
     error: {
-      onlyImg: 'Solo immagine',
+      onlyImg: 'Sono accettate solo immagini',
       outOfSize: 'L\'immagine eccede i limiti di dimensione: ',
       lowestPx: 'L\'immagine è troppo piccola. Il requisito minimo è: '
     }
