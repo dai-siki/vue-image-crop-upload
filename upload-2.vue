@@ -184,6 +184,10 @@ export default {
 			type: String,
 			'default': 'png'
 		},
+		fillStyle: {
+			type: String,
+			'default': '#fff'
+		},
 		// 是否支持跨域
 		withCredentials: {
 			type: Boolean,
@@ -784,7 +788,7 @@ export default {
             ctx.clearRect(0, 0, that.width, that.height);
 
             // 将透明区域设置为白色底边
-            ctx.fillStyle = "#fff";
+            ctx.fillStyle = that.fillStyle;
             ctx.fillRect(0, 0, that.width, that.height);
 
             ctx.translate(that.width * 0.5, that.height * 0.5);
