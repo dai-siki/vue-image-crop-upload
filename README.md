@@ -100,7 +100,7 @@ $ npm install vue-image-crop-upload
 | langExt             | Object            |                   | language extend    |
 | width             | Number            |   200                | width of receive image     |
 | height             | Number            |  200                 | height of receive image   |
-| imgFormat             | string            | 'jpg'                  | jpg/png, Server api receive file type.    |
+| imgFormat             | string            | 'png'                  | jpg/png, Server api receive file type.    |
 | imgBgc             | string            | '#fff'                  | background color, if the imgFormat prop is jpg   |
 | noCircle          | Boolean             | false         | disable circle preview |
 | noSquare          | Boolean             | false         | disable square preview |
@@ -379,8 +379,8 @@ $ npm install vue-image-crop-upload
 | langExt             | Object            |                   | 语言包自行扩展    |
 | width             | Number            |   200                | 最终得到的图片宽度     |
 | height             | Number            |  200                 | 最终得到的图片高度   |
-| imgFormat             | string            | 'jpg'                  | jpg/png, 最终得到的图片格式    |
-| imgBgc             | string            | '#fff'                  | 导出图片背景色   |
+| imgFormat             | string            | 'png'                  | jpg/png, 最终得到的图片格式    |
+| imgBgc             | string            | '#fff'                  | 导出图片背景色,当imgFormat属性为jpg时生效   |
 | noCircle            | Boolean              | false             | 关闭 圆形图像预览 |
 | noSquare            | Boolean              | false             | 关闭 方形图像预览 |
 | noRotate            | Boolean              | true             | 关闭 旋转图像功能 |
