@@ -173,22 +173,22 @@ export default {
 		}
 	},
 	'es-MX': {
-		hint:'Selecciona o arrastra una imagen',
-		loading:'Subiendo...',
-		noSupported:'Tu navegador no es soportado, porfavor usa IE10+ u otros navegadores mas recientes',
-		success:'Subido exitosamente',
-		fail:'Sucedió un error',
-		preview:'Vista previa',
-		btn:{
-			off:'Cancelar',
-			close:'Cerrar',
-			back:'Atras',
-			save:'Guardar'
+		hint: 'Selecciona o arrastra una imagen',
+		loading: 'Subiendo...',
+		noSupported: 'Tu navegador no es soportado, porfavor usa IE10+ u otros navegadores mas recientes',
+		success: 'Subido exitosamente',
+		fail: 'Sucedió un error',
+		preview: 'Vista previa',
+		btn: {
+			off: 'Cancelar',
+			close: 'Cerrar',
+			back: 'Atras',
+			save: 'Guardar'
 		},
-		error:{
-			onlyImg:'Unicamente imagenes',
-			outOfSize:'La imagen excede el tamaño maximo:',
-			lowestPx:'La imagen es demasiado pequeño. Se espera por lo menos:'
+		error: {
+			onlyImg: 'Unicamente imagenes',
+			outOfSize: 'La imagen excede el tamaño maximo:',
+			lowestPx: 'La imagen es demasiado pequeño. Se espera por lo menos:'
 		}
 	},
 	de: {
@@ -229,43 +229,43 @@ export default {
 			lowestPx: '画像が小さすぎます。最小サイズ: '
 		}
 	},
-  ua: {
-    hint: 'Натисніть, або перетягніть файл в це вікно',
-    loading: 'Завантажую……',
-    noSupported: 'Ваш браузер не підтримується, будь ласка скористайтесь IE10 + або іншими браузерами',
-    success: 'Завантаження виконано успішно',
-    fail: 'Помилка завантаження',
-    preview: 'Попередній перегляд',
-    btn: {
-      off: 'Відмінити',
-      close: 'Закрити',
-      back: 'Назад',
-      save: 'Зберегти'
-    },
-    error: {
-      onlyImg: 'Тільки зображення',
-      outOfSize: 'Зображення перевищує граничний розмір: ',
-      lowestPx: 'Мінімальний розмір зображення: '
-    }
-  },
-  it: {
-    hint: 'Clicca o trascina qui il file per caricarlo',
-    loading: 'Caricamento del file…',
-    noSupported: 'Browser non supportato, per favore usa IE10+ o un altro browser',
-    success: 'Caricamento completato',
-    fail: 'Caricamento fallito',
-    preview: 'Anteprima',
-    btn: {
-      off: 'Annulla',
-      close: 'Chiudi',
-      back: 'Indietro',
-      save: 'Salva'
-    },
-    error: {
-      onlyImg: 'Sono accettate solo immagini',
-      outOfSize: 'L\'immagine eccede i limiti di dimensione: ',
-      lowestPx: 'L\'immagine è troppo piccola. Il requisito minimo è: '
-    }
+	ua: {
+		hint: 'Натисніть, або перетягніть файл в це вікно',
+		loading: 'Завантажую……',
+		noSupported: 'Ваш браузер не підтримується, будь ласка скористайтесь IE10 + або іншими браузерами',
+		success: 'Завантаження виконано успішно',
+		fail: 'Помилка завантаження',
+		preview: 'Попередній перегляд',
+		btn: {
+			off: 'Відмінити',
+			close: 'Закрити',
+			back: 'Назад',
+			save: 'Зберегти'
+		},
+		error: {
+			onlyImg: 'Тільки зображення',
+			outOfSize: 'Зображення перевищує граничний розмір: ',
+			lowestPx: 'Мінімальний розмір зображення: '
+		}
+	},
+	it: {
+		hint: 'Clicca o trascina qui il file per caricarlo',
+		loading: 'Caricamento del file…',
+		noSupported: 'Browser non supportato, per favore usa IE10+ o un altro browser',
+		success: 'Caricamento completato',
+		fail: 'Caricamento fallito',
+		preview: 'Anteprima',
+		btn: {
+			off: 'Annulla',
+			close: 'Chiudi',
+			back: 'Indietro',
+			save: 'Salva'
+		},
+		error: {
+			onlyImg: 'Sono accettate solo immagini',
+			outOfSize: 'L\'immagine eccede i limiti di dimensione: ',
+			lowestPx: 'L\'immagine è troppo piccola. Il requisito minimo è: '
+		}
 	},
 	ar: {
 		hint: 'اضغط أو اسحب الملف هنا للتحميل',

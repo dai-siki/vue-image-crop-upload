@@ -56,8 +56,7 @@
 					</div>
 
 					<div class="vicp-rotate" v-if="!noRotate">
-                        <i @mousedown="startRotateLeft" @mouseout="endRotate" @mouseup="endRotate">↺</i>
-                        <i @mousedown="startRotateRight" @mouseout="endRotate" @mouseup="endRotate">↻</i>
+                        <i @click="rotateImg">↻</i>
                     </div>
 				</div>
 				<div class="vicp-crop-right" v-show="true">
@@ -184,16 +183,16 @@ export default {
 			type: String,
 			'default': 'png'
 		},
+		// 图片背景 jpg情况下生效
+		imgBgc: {
+			type: String,
+			'default': '#fff'
+		},
 		// 是否支持跨域
 		withCredentials: {
 			type: Boolean,
 			'default': false
-		},
-
-    withAlphaChannel: {
-      type: Boolean,
-      'default': false
-    }
+		}
 	},
 	data() {
 		let that = this,
@@ -279,10 +278,6 @@ export default {
 				zoomSubOn: false, //按钮缩放事件开启
 				range: 1, //最大100
 
-				rotateLeft: false,//按钮向左旋转事件开启
-                rotateRight: false,//按钮向右旋转事件开启
-				degree: 0, // 旋转度数
-
 				x: 0,
 				y: 0,
 				width: 0,
@@ -318,12 +313,7 @@ export default {
 				top,
 				left,
 				width: scale.width + 'px',
-				height: scale.height + 'px',
-				transform: 'rotate(' + scale.degree + 'deg)',// 旋转时 左侧原始图旋转样式
-                '-ms-transform': 'rotate(' + scale.degree + 'deg)', // 兼容IE9
-                '-moz-transform': 'rotate(' + scale.degree + 'deg)', // 兼容FireFox
-                '-webkit-transform': 'rotate(' + scale.degree + 'deg)',// 兼容Safari 和 chrome
-                '-o-transform': 'rotate(' + scale.degree + 'deg)',// 兼容 Opera
+				height: scale.height + 'px',// 兼容 Opera
 			}
 		},
 		// 原图蒙版属性
@@ -536,7 +526,6 @@ export default {
 				scale.y = y;
 				scale.width = w;
 				scale.height = h;
-				scale.degree = 0;
 				scale.minWidth = w;
 				scale.minHeight = h;
 				scale.maxWidth = nWidth * sim.scale;
@@ -609,50 +598,36 @@ export default {
 			scale.x = rX;
 			scale.y = rY;
 		},
-		 // 按钮按下开始向右旋转
-        startRotateRight(e) {
-            let that = this,
-                {
-                    scale
-                } = that;
-            scale.rotateRight = true;
-            function rotate() {
-                if (scale.rotateRight) {
-                    let degree = ++scale.degree;
-                    that.createImg(degree);
-                    setTimeout(function () {
-                        rotate();
-                    }, 60);
-                }
-            }
-            rotate();
+		// 顺时针旋转图片
+        rotateImg(e) {
+			let {
+					sourceImg,
+                    scale: {
+						naturalWidth,
+						naturalHeight,
+                    }
+                } = this,
+				width = naturalHeight,
+				height = naturalWidth,
+                canvas = this.$refs.canvas,
+                ctx = canvas.getContext('2d');
+			canvas.width = width;
+            canvas.height = height;
+            ctx.clearRect(0, 0, width, height);
+
+			ctx.fillStyle = 'rgba(0,0,0,0)';
+			ctx.fillRect(0, 0, width, height);
+
+			ctx.translate(width, 0);
+            ctx.rotate(Math.PI * 90 / 180);
+
+            ctx.drawImage(sourceImg, 0, 0, naturalWidth, naturalHeight);
+            let imgUrl = canvas.toDataURL(mimes['png']);
+
+			this.sourceImgUrl = imgUrl;
+			this.startCrop();
         },
-		// 按钮按下开始向右旋转
-        startRotateLeft(e) {
-            let that = this,
-                {
-                    scale
-                } = that;
-            scale.rotateLeft = true;
-            function rotate() {
-                if (scale.rotateLeft) {
-                    let degree = --scale.degree;
-                    that.createImg(degree);
-                    setTimeout(function () {
-                        rotate();
-                    }, 60);
-                }
-            }
-            rotate();
-        },
-		// 停止旋转
-        endRotate() {
-            let {
-                scale
-            } = this;
-            scale.rotateLeft = false;
-            scale.rotateRight = false;
-        },
+
 		// 按钮按下开始放大
 		startZoomAdd(e) {
 			let that = this,
@@ -765,6 +740,8 @@ export default {
         createImg(e) {
             let that = this,
                 {
+					imgFormat,
+					imgBgc,
                     mime,
                     sourceImg,
                     scale: {
@@ -772,7 +749,6 @@ export default {
                         y,
                         width,
                         height,
-                        degree,
                     },
                     sourceImgMasking: {
                         scale
@@ -788,15 +764,13 @@ export default {
             canvas.height = that.height;
             ctx.clearRect(0, 0, that.width, that.height);
 
-            if(!that.withAlphaChannel){
-              // 将透明区域设置为白色底边
-              ctx.fillStyle = "#fff";
-              ctx.fillRect(0, 0, that.width, that.height);
-						}
-
-            ctx.translate(that.width * 0.5, that.height * 0.5);
-            ctx.rotate(Math.PI * degree / 180);
-            ctx.translate(-that.width * 0.5, -that.height * 0.5);
+			if(imgFormat == 'png'){
+				ctx.fillStyle = 'rgba(0,0,0,0)';
+			} else{
+				// 如果jpg 为透明区域设置背景，默认白色
+				ctx.fillStyle = imgBgc;
+			}
+			ctx.fillRect(0, 0, that.width, that.height);
 
             ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
             that.createImgUrl = canvas.toDataURL(mime);
@@ -880,7 +854,6 @@ export default {
 						that.loading = 2;
 						that.$emit('crop-upload-success', resData, field, ki);
 					}
-
 				},
 				// 上传失败
 				function(sts) {

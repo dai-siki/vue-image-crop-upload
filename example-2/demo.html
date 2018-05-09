@@ -55,13 +55,13 @@
 		<div class="item">
 			<a class="btn" @click="toggleShow1">设置头像</a>
 			<img class="avatar" v-if="avatarUrl1" :src="avatarUrl1" v-show="true" style="display: none;">
-			<my-upload url="https://httpbin.org/post" img-format="png"
+			<my-upload url="https://httpbin.org/post" img-format="jpg" img-bgc="#fff"
+				v-model="show1"
+				field="avatar1"
+				ki="0"
 				@crop-success="cropSuccess"
 				@crop-upload-success="cropUploadSuccess"
 				@crop-upload-fail="cropUploadFail"
-				field="avatar1"
-				ki="0"
-				v-model="show1"
 				:no-rotate="false"
 				:headers="headers"
 				:params="otherParams"></my-upload>

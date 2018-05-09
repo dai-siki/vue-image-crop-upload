@@ -14,6 +14,13 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## 中文文档在后面
 
 ## Change log
+#### @2.3.0
+- If the exported picture is in jpg format, the background is white by default, and you can customize it with the "imgBgc" attribute. If it is png, the default transparent color
+- Optimized image rotation
+- Added the **Italian** language pack (thanks @phaberest)
+- Added the **Arabic** language pack (thanks @barakat-turki)
+- Added the **Ukrainian** language pack (thanks @dvomaks)
+
 #### @2.2.3
 - Added the **Japanese** language pack (thanks @KangYoosam)
 
@@ -122,6 +129,8 @@ $ npm install vue-image-crop-upload
 | German         | de          | attx    |
 | Japanese         | ja          | KangYoosam     |
 | Italian         | it          | phaberest     |
+| Arabic         | ar          | barakat-turki      |
+| ukrainian          | ua          | dvomaks     |
 
 ```js
 // example
@@ -316,6 +325,10 @@ $ npm install vue-image-crop-upload
 # 中文文档
 
 ## 更新日志
+#### @2.3.0
+- 如果导出图片格式为jpg，则背景默认白色，你也可以通过新增的“imgBgc”属性自定义。如果导出格式为png，则默认透明
+- 优化了旋转效果
+
 #### @2.1.0
 - 增加了图片旋转和不显示方形预览图片的功能
 
