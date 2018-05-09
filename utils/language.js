@@ -248,4 +248,42 @@ export default {
       lowestPx: 'Мінімальний розмір зображення: '
     }
   },
+  it: {
+    hint: 'Clicca o trascina qui il file per caricarlo',
+    loading: 'Caricamento del file…',
+    noSupported: 'Browser non supportato, per favore usa IE10+ o un altro browser',
+    success: 'Caricamento completato',
+    fail: 'Caricamento fallito',
+    preview: 'Anteprima',
+    btn: {
+      off: 'Annulla',
+      close: 'Chiudi',
+      back: 'Indietro',
+      save: 'Salva'
+    },
+    error: {
+      onlyImg: 'Sono accettate solo immagini',
+      outOfSize: 'L\'immagine eccede i limiti di dimensione: ',
+      lowestPx: 'L\'immagine è troppo piccola. Il requisito minimo è: '
+    }
+	},
+	ar: {
+		hint: 'اضغط أو اسحب الملف هنا للتحميل',
+		loading: 'جاري التحميل...',
+		noSupported: 'المتصفح غير مدعوم ، يرجى استخدام IE10 + أو متصفح أخر',
+		success: 'تم التحميل بنجاح',
+		fail: 'فشل التحميل',
+		preview: 'معاينه',
+		btn: {
+			off: 'إلغاء',
+			close: 'إغلاق',
+			back: 'رجوع',
+			save: 'حفظ'
+		},
+		error: {
+			onlyImg: 'صور فقط',
+			outOfSize: 'تتجاوز الصوره الحجم المحدد: ',
+			lowestPx: 'حجم الصورة صغير جدا. من المتوقع على الأقل: '
+		}
+	}
 };
