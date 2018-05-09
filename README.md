@@ -101,6 +101,7 @@ $ npm install vue-image-crop-upload
 | width             | Number            |   200                | width of receive image     |
 | height             | Number            |  200                 | height of receive image   |
 | imgFormat             | string            | 'jpg'                  | jpg/png, Server api receive file type.    |
+| imgBgc             | string            | '#fff'                  | background color, if the imgFormat prop is jpg   |
 | noCircle          | Boolean             | false         | disable circle preview |
 | noSquare          | Boolean             | false         | disable square preview |
 | noRotate          | Boolean             | true         | disable rotate function |
@@ -379,6 +380,7 @@ $ npm install vue-image-crop-upload
 | width             | Number            |   200                | 最终得到的图片宽度     |
 | height             | Number            |  200                 | 最终得到的图片高度   |
 | imgFormat             | string            | 'jpg'                  | jpg/png, 最终得到的图片格式    |
+| imgBgc             | string            | '#fff'                  | 导出图片背景色   |
 | noCircle            | Boolean              | false             | 关闭 圆形图像预览 |
 | noSquare            | Boolean              | false             | 关闭 方形图像预览 |
 | noRotate            | Boolean              | true             | 关闭 旋转图像功能 |
