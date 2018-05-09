@@ -247,5 +247,24 @@ export default {
       outOfSize: 'L\'immagine eccede i limiti di dimensione: ',
       lowestPx: 'L\'immagine è troppo piccola. Il requisito minimo è: '
     }
-  }
+	},
+	ar: {
+		hint: 'اضغط أو اسحب الملف هنا للتحميل',
+		loading: 'جاري التحميل...',
+		noSupported: 'المتصفح غير مدعوم ، يرجى استخدام IE10 + أو متصفح أخر',
+		success: 'تم التحميل بنجاح',
+		fail: 'فشل التحميل',
+		preview: 'معاينه',
+		btn: {
+			off: 'إلغاء',
+			close: 'إغلاق',
+			back: 'رجوع',
+			save: 'حفظ'
+		},
+		error: {
+			onlyImg: 'صور فقط',
+			outOfSize: 'تتجاوز الصوره الحجم المحدد: ',
+			lowestPx: 'حجم الصورة صغير جدا. من المتوقع على الأقل: '
+		}
+	}
 };
