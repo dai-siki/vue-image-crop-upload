@@ -121,6 +121,7 @@ $ npm install vue-image-crop-upload
 | spanish MX         | es-MX          | vickvasquez    |
 | German         | de          | attx    |
 | Japanese         | ja          | KangYoosam     |
+| Italian         | it          | phaberest     |
 
 ```js
 // example

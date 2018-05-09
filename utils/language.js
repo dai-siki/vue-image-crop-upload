@@ -228,6 +228,25 @@ export default {
 			outOfSize: '画像サイズが上限を超えています。上限: ',
 			lowestPx: '画像が小さすぎます。最小サイズ: '
 		}
+  },
+  it: {
+    hint: 'Clicca o trascina qui il file per caricarlo',
+    loading: 'Caricamento del file…',
+    noSupported: 'Browser non supportato, per favore usa IE10+ o un altro browser',
+    success: 'Caricamento completato',
+    fail: 'Caricamento fallito',
+    preview: 'Anteprima',
+    btn: {
+      off: 'Annulla',
+      close: 'Chiudi',
+      back: 'Indietro',
+      save: 'Salva'
+    },
+    error: {
+      onlyImg: 'Sono accettate solo immagini',
+      outOfSize: 'L\'immagine eccede i limiti di dimensione: ',
+      lowestPx: 'L\'immagine è troppo piccola. Il requisito minimo è: '
+    }
 	},
 	ar: {
 		hint: 'اضغط أو اسحب الملف هنا للتحميل',
