@@ -175,20 +175,20 @@ export default {
 	'es-MX': {
 		hint: 'Selecciona o arrastra una imagen',
 		loading: 'Subiendo...',
-		noSupported: 'Tu navegador no es soportado, porfavor usa IE10+ u otros navegadores mas recientes',
+		noSupported: 'Tu navegador no es soportado, por favor usa IE10+ u otros navegadores más recientes',
 		success: 'Subido exitosamente',
 		fail: 'Sucedió un error',
 		preview: 'Vista previa',
 		btn: {
 			off: 'Cancelar',
 			close: 'Cerrar',
-			back: 'Atras',
+			back: 'Atrás',
 			save: 'Guardar'
 		},
 		error: {
-			onlyImg: 'Unicamente imagenes',
+			onlyImg: 'Únicamente imágenes',
 			outOfSize: 'La imagen excede el tamaño maximo:',
-			lowestPx: 'La imagen es demasiado pequeño. Se espera por lo menos:'
+			lowestPx: 'La imagen es demasiado pequeña. Se espera por lo menos:'
 		}
 	},
 	de: {
