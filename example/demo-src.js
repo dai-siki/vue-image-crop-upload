@@ -23436,20 +23436,20 @@
 		'es-MX': {
 			hint: 'Selecciona o arrastra una imagen',
 			loading: 'Subiendo...',
-			noSupported: 'Tu navegador no es soportado, porfavor usa IE10+ u otros navegadores mas recientes',
+			noSupported: 'Tu navegador no es soportado, por favor usa IE10+ u otros navegadores más recientes',
 			success: 'Subido exitosamente',
 			fail: 'Sucedió un error',
 			preview: 'Vista previa',
 			btn: {
 				off: 'Cancelar',
 				close: 'Cerrar',
-				back: 'Atras',
+				back: 'Atrás',
 				save: 'Guardar'
 			},
 			error: {
-				onlyImg: 'Unicamente imagenes',
+				onlyImg: 'Únicamente imágenes',
 				outOfSize: 'La imagen excede el tamaño maximo:',
-				lowestPx: 'La imagen es demasiado pequeño. Se espera por lo menos:'
+				lowestPx: 'La imagen es demasiado pequeña. Se espera por lo menos:'
 			}
 		},
 		de: {
@@ -23564,6 +23564,25 @@
 				onlyImg: 'پەقەت رەسىم فورماتىنىلا قوللايدۇ',
 				outOfSize: 'رەسىم چوڭ - كىچىكلىكى چەكتىن ئىشىپ كەتتى',
 				lowestPx: 'رەسىمنىڭ ئەڭ كىچىك ئۆلچىمى :'
+			}
+		},
+		th: {
+			hint: 'คลิ๊กหรือลากรูปมาที่นี่',
+			loading: 'กำลังอัพโหลด…',
+			noSupported: 'เบราเซอร์ไม่รองรับ, กรุณาใช้ IE เวอร์ชั่น 10 ขึ้นไป หรือใช้เบราเซอร์ตัวอื่น',
+			success: 'อัพโหลดสำเร็จ',
+			fail: 'อัพโหลดล้มเหลว',
+			preview: 'ตัวอย่าง',
+			btn: {
+				off: 'ยกเลิก',
+				close: 'ปิด',
+				back: 'กลับ',
+				save: 'บันทึก'
+			},
+			error: {
+				onlyImg: 'ไฟล์ภาพเท่านั้น',
+				outOfSize: 'ไฟล์ใหญ่เกินกำหนด: ',
+				lowestPx: 'ไฟล์เล็กเกินไป. อย่างน้อยต้องมีขนาด: '
 			}
 		}
 	};
