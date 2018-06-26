@@ -323,5 +323,24 @@ export default {
 			outOfSize: 'ไฟล์ใหญ่เกินกำหนด: ',
 			lowestPx: 'ไฟล์เล็กเกินไป. อย่างน้อยต้องมีขนาด: '
 		}
-	}
+	},
+	se: {
+		hint: 'Klicka eller dra en fil hit för att ladda upp den',
+		loading: 'Laddar upp…',
+		noSupported: 'Din webbläsare stöds inte, vänligen använd IE10+ eller andra webbläsare',
+		success: 'Uppladdning lyckades',
+		fail: 'Uppladdning misslyckades',
+		preview: 'Förhandsgranska',
+		btn: {
+			off: 'Avbryt',
+			close: 'Stäng',
+			back: 'Tillbaka',
+			save: 'Spara'
+		},
+		error: {
+			onlyImg: 'Endast bilder',
+			outOfSize: 'Bilden är större än max-gränsen: ',
+			lowestPx: 'Bilden är för liten. Minimum är: '
+		}
+	},
 };
