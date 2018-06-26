@@ -342,5 +342,5 @@ export default {
 			outOfSize: 'Bilden är större än max-gränsen: ',
 			lowestPx: 'Bilden är för liten. Minimum är: '
 		}
-	},
+	}
 };
