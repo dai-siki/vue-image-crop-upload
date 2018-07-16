@@ -341,6 +341,24 @@ export default {
 			onlyImg: 'ဓာတ်ပုံ သီးသန့်သာ',
 			outOfSize: 'ဓာတ်ပုံဆိုဒ် ကြီးလွန်းသည် ။ အများဆုံး ဆိုဒ် : ',
 			lowestPx: 'ဓာတ်ပုံဆိုဒ် သေးလွန်းသည်။ အနည်းဆုံး ဆိုဒ် : '
+  },
+	se: {
+		hint: 'Klicka eller dra en fil hit för att ladda upp den',
+		loading: 'Laddar upp…',
+		noSupported: 'Din webbläsare stöds inte, vänligen använd IE10+ eller andra webbläsare',
+		success: 'Uppladdning lyckades',
+		fail: 'Uppladdning misslyckades',
+		preview: 'Förhandsgranska',
+		btn: {
+			off: 'Avbryt',
+			close: 'Stäng',
+			back: 'Tillbaka',
+			save: 'Spara'
+		},
+		error: {
+			onlyImg: 'Endast bilder',
+			outOfSize: 'Bilden är större än max-gränsen: ',
+			lowestPx: 'Bilden är för liten. Minimum är: '
 		}
 	}
 };
