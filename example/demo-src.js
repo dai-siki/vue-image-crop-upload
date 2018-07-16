@@ -23584,6 +23584,44 @@
 				outOfSize: 'ไฟล์ใหญ่เกินกำหนด: ',
 				lowestPx: 'ไฟล์เล็กเกินไป. อย่างน้อยต้องมีขนาด: '
 			}
+		},
+		mm: {
+			hint: 'ဖိုင်ကို ဤနေရာတွင် နှိပ်၍ (သို့) ဆွဲထည့်၍ တင်ပါ',
+			loading: 'တင်နေသည်…',
+			noSupported: 'ဤဘရောက်ဇာကို အထောက်အပံ့ မပေးပါ၊ ကျေးဇူးပြု၍ IE10+ သို့မဟုတ် အခြား ဘရောက်ဇာ ကို အသုံးပြုပါ',
+			success: 'ဖိုင်တင်နေမှု မပြီးမြောက်ပါ',
+			fail: 'ဖိုင်တင်နေမှု မအောင်မြင်ပါ',
+			preview: 'အစမ်းကြည့်',
+			btn: {
+				off: 'မလုပ်တော့ပါ',
+				close: 'ပိတ်မည်',
+				back: 'နောက်သို့',
+				save: 'သိမ်းမည်'
+			},
+			error: {
+				onlyImg: 'ဓာတ်ပုံ သီးသန့်သာ',
+				outOfSize: 'ဓာတ်ပုံဆိုဒ် ကြီးလွန်းသည် ။ အများဆုံး ဆိုဒ် : ',
+				lowestPx: 'ဓာတ်ပုံဆိုဒ် သေးလွန်းသည်။ အနည်းဆုံး ဆိုဒ် : '
+			}
+		},
+		se: {
+			hint: 'Klicka eller dra en fil hit för att ladda upp den',
+			loading: 'Laddar upp…',
+			noSupported: 'Din webbläsare stöds inte, vänligen använd IE10+ eller andra webbläsare',
+			success: 'Uppladdning lyckades',
+			fail: 'Uppladdning misslyckades',
+			preview: 'Förhandsgranska',
+			btn: {
+				off: 'Avbryt',
+				close: 'Stäng',
+				back: 'Tillbaka',
+				save: 'Spara'
+			},
+			error: {
+				onlyImg: 'Endast bilder',
+				outOfSize: 'Bilden är större än max-gränsen: ',
+				lowestPx: 'Bilden är för liten. Minimum är: '
+			}
 		}
 	};
 
