@@ -50,7 +50,7 @@
 					</div>
 
 					<div class="vicp-range">
-						<input type="range" :value="scale.range" step="1" min="0" max="100" @input="zoomChange">
+						<input type="range" :value="scale.range" step="1" min="0" max="100" @mousemove="zoomChange">
 						<i @mousedown="startZoomSub" @mouseout="endZoomSub" @mouseup="endZoomSub" class="vicp-icon5"></i>
 						<i @mousedown="startZoomAdd" @mouseout="endZoomAdd" @mouseup="endZoomAdd" class="vicp-icon6"></i>
 					</div>
