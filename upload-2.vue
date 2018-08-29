@@ -476,6 +476,7 @@ export default {
 		},
 		// 设置图片源
 		setSourceImg(file) {
+			this.$emit('src-file-set', file.name, file.type, file.size);
 			let that = this,
 				fr = new FileReader();
 			fr.onload = function(e) {
