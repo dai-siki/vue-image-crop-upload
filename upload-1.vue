@@ -481,7 +481,8 @@ export default {
         },
         // 设置图片源
         setSourceImg(file) {
-            let that = this,
+            this.$dispatch('srcFileSet', file.name, file.type, file.size);
+			let that = this,
                 fr = new FileReader();
             fr.onload = function(e) {
                 that.sourceImgUrl = fr.result;

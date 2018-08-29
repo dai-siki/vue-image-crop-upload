@@ -14,6 +14,9 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## 中文文档在后面
 
 ## Change log
+#### @2.4.0
+- Added the **src-file-set** event, emit event when file is selected (thanks @choruru)
+
 #### @2.3.3
 - Added the **Swedish** language pack (thanks @hekin1)
 - Added the **Myanmar** language pack (thanks @tintnaingwinn)
@@ -120,6 +123,7 @@ $ npm install vue-image-crop-upload
 #### Events
 | Name              | Description                                         |
 | ----------------| ------------------------------------------|
+| srcFileSet   |Once you've selected the file, params( fileName, fileType, fileSize )     |
 | cropSuccess   | image crop success, params( imageDataUrl, field )     |
 | cropUploadSuccess | upload success, params( jsonData, field )    |
 | cropUploadFail    | upload fail, params( status, field )    |
@@ -340,6 +344,9 @@ $ npm install vue-image-crop-upload
 # 中文文档
 
 ## 更新日志
+#### @2.4.0
+- 增加了“src-file-set”回调事件，在用户选择文件之后触发。
+
 #### @2.3.0
 - 如果导出图片格式为jpg，则背景默认白色，你也可以通过新增的“imgBgc”属性自定义。如果导出格式为png，则默认透明
 - 优化了旋转效果
@@ -403,6 +410,7 @@ $ npm install vue-image-crop-upload
 #### Events
 | 名称              | 说明                                         |
 | ----------------| ------------------------------------------|
+| srcFileSet   |用户选取文件之后, 参数( fileName, fileType, fileSize )     |
 | cropSuccess   | 图片截取完成事件（上传前), 参数( imageDataUrl, field )     |
 | cropUploadSuccess | 上传成功， 参数( jsonData, field )    |
 | cropUploadFail    | 上传失败， 参数( status, field )    |
