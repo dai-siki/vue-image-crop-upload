@@ -192,6 +192,10 @@ export default {
 		withCredentials: {
 			type: Boolean,
 			'default': false
+		},
+		method: {
+			type: String,
+			'default': 'POST'
 		}
 	},
 	data() {
@@ -803,7 +807,8 @@ export default {
 					field,
 					ki,
 					createImgUrl,
-					withCredentials
+					withCredentials,
+					method
 				} = this,
 				fmData = new FormData();
 			fmData.append(field, data2blob(createImgUrl, mime), field + '.' + imgFormat);
@@ -828,7 +833,7 @@ export default {
 			that.setStep(3);
 			new Promise(function(resolve, reject) {
 				let client = new XMLHttpRequest();
-				client.open('POST', url, true);
+				client.open(method, url, true);
 				client.withCredentials = withCredentials;
 				client.onreadystatechange = function() {
 					if (this.readyState !== 4) {

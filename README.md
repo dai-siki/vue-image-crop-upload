@@ -119,6 +119,7 @@ $ npm install vue-image-crop-upload
 | noSquare          | Boolean             | false         | disable square preview |
 | noRotate          | Boolean             | true         | disable rotate function |
 | withCredentials          | Boolean             | false         | support cross-domain |
+| method						| String							| 'POST'               | request http method
 
 #### Events
 | Name              | Description                                         |
