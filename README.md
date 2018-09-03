@@ -14,6 +14,9 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## 中文文档在后面
 
 ## Change log
+#### @2.5.0
+- added http method prop (thanks @sarco3t)
+
 #### @2.4.0
 - Added the **src-file-set** event, emit event when file is selected (thanks @choruru)
 
@@ -105,6 +108,7 @@ $ npm install vue-image-crop-upload
 | Name              | Type               | Default             | Description                                         |
 | ----------------| ---------------- | ---------------| ------------------------------------------|
 | url             | String            |  ''                | Server api path,like "/avatar/upload", If empty, will not be uploaded    |
+| method				| String		| 'POST'               | request http method |
 | field       | String   | 'upload'     | Upload input filename, used for server side get the file stream.    |
 | value             | Boolean            | twoWay            | show or not    |
 | params             | Object            |  null                | POST Params，like "{k:v}"    |
@@ -119,7 +123,6 @@ $ npm install vue-image-crop-upload
 | noSquare          | Boolean             | false         | disable square preview |
 | noRotate          | Boolean             | true         | disable rotate function |
 | withCredentials          | Boolean             | false         | support cross-domain |
-| method						| String							| 'POST'               | request http method
 
 #### Events
 | Name              | Description                                         |
@@ -393,6 +396,7 @@ $ npm install vue-image-crop-upload
 | 名称              | 类型               | 默认             | 说明                                         |
 | ----------------| ---------------- | ---------------| ------------------------------------------|
 | url             | String            |  ''                | 上传接口地址，如果为空，图片不会上传    |
+| method				| String		| 'POST'               | 上传方法 |
 | field       | String   | 'upload'     | 向服务器上传的文件名    |
 | value             | Boolean            | twoWay            | 是否显示控件，双向绑定    |
 | params             | Object            |  null                | 上传附带其他数据，格式"{k:v}"    |
