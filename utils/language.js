@@ -98,11 +98,11 @@ export default {
 	},
 	'pt-br': {
 		hint: 'Clique ou arraste o arquivo aqui para carregar',
-		loading: 'Carregando…',
-		noSupported: 'Browser não suportado, use o IE10+ ou outro browser',
-		success: 'Sucesso ao carregar imagem',
-		fail: 'Falha ao carregar imagem',
-		preview: 'Pré-visualizar',
+		loading: 'Carregando...',
+		noSupported: 'Browser não suportado, por favor utilize o Internet Explorer 10+ ou outro browser',
+		success: 'Imagem carregada com sucesso',
+		fail: 'Ocorreu um erro ao carregar a imagem',
+		preview: 'Pré-visualização',
 		btn: {
 			off: 'Cancelar',
 			close: 'Fechar',
@@ -110,8 +110,27 @@ export default {
 			save: 'Salvar'
 		},
 		error: {
-			onlyImg: 'Apenas imagens',
-			outOfSize: 'A imagem excede o limite de tamanho: ',
+			onlyImg: 'Por favor envie apenas imagens',
+			outOfSize: 'A imagem excede o limite de tamanho suportado: ',
+			lowestPx: 'O tamanho da imagem é muito pequeno. Tamanho mínimo: '
+		}
+	},
+	'pt-pt': {
+		hint: 'Clique ou arraste o arquivo para a janela para carregar',
+		loading: 'A processar...',
+		noSupported: 'Browser não suportado, por favor utilize o Internet Explorer 10+ ou outro browser',
+		success: 'Imagem carregada com sucesso',
+		fail: 'Ocorreu um erro ao carregar a imagem',
+		preview: 'Pré-visualização',
+		btn: {
+			off: 'Cancelar',
+			close: 'Fechar',
+			back: 'Voltar',
+			save: 'Guardar'
+		},
+		error: {
+			onlyImg: 'Por favor envie apenas imagens',
+			outOfSize: 'A imagem excede o limite de tamanho suportado: ',
 			lowestPx: 'O tamanho da imagem é muito pequeno. Tamanho mínimo: '
 		}
 	},
