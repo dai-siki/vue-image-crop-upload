@@ -361,5 +361,24 @@ export default {
 			outOfSize: 'Bilden är större än max-gränsen: ',
 			lowestPx: 'Bilden är för liten. Minimum är: '
 		}
+	},
+	da: {
+		hint: 'Klik eller træk en fil herhen for at uploade',
+		loading: 'Uploader…',
+		noSupported: 'Din browser er ikke understøttet, benyt venligst IE10+ eller en anden browser',
+		success: 'Upload lykkedes',
+		fail: 'Upload mislykkedes',
+		preview: 'Preview',
+		btn: {
+			off: 'Fortryd',
+			close: 'Luk',
+			back: 'Tilbage',
+			save: 'Gem'
+		},
+		error: {
+			onlyImg: 'Kun billeder',
+			outOfSize: 'Billedet overskrider størrelsesgrænsen: ',
+			lowestPx: 'Billedet er for lille. Minimumsstørrelsen er: '
+		}
 	}
 };
