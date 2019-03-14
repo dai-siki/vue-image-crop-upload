@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dai-siki/vue-image-crop-upload.git"
+    "url": "git+https://github.com/xiziliu/vue-image-crop-upload.git"
   },
   "keywords": [
     "vue",

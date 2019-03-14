@@ -55,6 +55,7 @@
 		<div class="item">
 			<a class="btn" @click="toggleShow1">设置头像</a>
 			<img class="avatar" v-if="avatarUrl1" :src="avatarUrl1" v-show="true" style="display: none;">
+			
 			<my-upload url="https://httpbin.org/post" img-format="jpg" img-bgc="#fff"
 				v-model="show1"
 				field="avatar1"
@@ -65,6 +66,24 @@
 				:no-rotate="false"
 				:headers="headers"
 				:params="otherParams"></my-upload>
+		</div>
+
+		<div class="item">
+			<a class="btn" @click="toggleShowRemote">裁剪网络图片</a>
+			<img class="avatar" v-if="avatarUrl1" :src="avatarUrl1" v-show="true" style="display: none;">
+			
+			<my-upload url="https://httpbin.org/post" img-format="jpg" img-bgc="#fff"
+				v-model="showRemote"
+				field="avatar1" 
+				ki="0"
+				crossOrigin="*" 
+				@crop-success="cropSuccess"
+				@crop-upload-success="cropUploadSuccess"
+				@crop-upload-fail="cropUploadFail"
+				:no-rotate="false"
+				:headers="headers"
+				:params="otherParams" 
+				ref="uploaddd"></my-upload>
 		</div>
 
 		<div class="item">

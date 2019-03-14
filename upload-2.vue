@@ -110,6 +110,10 @@ import effectRipple from './utils/effectRipple.js';
 
 export default {
 	props: {
+		crossOrigin:{
+			type:String,
+			'default':''
+		},
 		// 域，上传文件name，触发事件会带上（如果一个页面多个图片上传控件，可以做区分
 		field: {
 			type: String,
@@ -254,7 +258,6 @@ export default {
 			sourceImg: null,
 			sourceImgUrl: '',
 			createImgUrl: '',
-
 			// 原图片拖动事件初始值
 			sourceImgMouseDown: {
 				on: false,
@@ -399,6 +402,11 @@ export default {
 		}
 	},
 	methods: {
+		//编辑网络图片
+		cropRemoteImg(imgUrl){
+			this.sourceImgUrl = imgUrl;
+			this.startCrop();
+		},
 		// 点击波纹效果
 		ripple(e) {
 			effectRipple(e);
@@ -499,10 +507,14 @@ export default {
 					scale,
 					sourceImgUrl,
 					sourceImgMasking,
-					lang
+					lang,
+					crossOrigin
 				} = that,
 				sim = sourceImgMasking,
 				img = new Image();
+			console.log("crossOrigin:"+crossOrigin);
+			img.crossOrigin = crossOrigin;
+		
 			img.src = sourceImgUrl;
 			img.onload = function() {
 				let nWidth = img.naturalWidth,

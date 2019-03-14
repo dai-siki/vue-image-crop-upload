@@ -6,6 +6,7 @@ const Vue = window.Vue;
 new Vue({
 	el: '#app',
 	data: {
+		showRemote:false,
 		show1: false,
 		show2: false,
 		show3: false,
@@ -24,6 +25,11 @@ new Vue({
 		'my-upload': myUpload
 	},
 	methods: {
+		toggleShowRemote() {
+			this.$refs.uploaddd.cropRemoteImg('http://imgs.idsome.com/5a4d06eeb22e3810b4000048large_jpg.jpg');
+			let {showRemote} = this;
+			this.showRemote = !showRemote;
+		},
 		toggleShow1() {
 			let {show1} = this;
 			this.show1 = !show1;
