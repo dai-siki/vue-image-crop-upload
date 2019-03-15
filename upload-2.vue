@@ -110,10 +110,6 @@ import effectRipple from './utils/effectRipple.js';
 
 export default {
 	props: {
-		crossOrigin:{
-			type:String,
-			'default':''
-		},
 		// 域，上传文件name，触发事件会带上（如果一个页面多个图片上传控件，可以做区分
 		field: {
 			type: String,
@@ -196,6 +192,11 @@ export default {
 		withCredentials: {
 			type: Boolean,
 			'default': false
+		},
+		//裁剪网络图片时是否跨域
+		crossorigin:{
+			type:Boolean,
+			'default':false
 		},
 		method: {
 			type: String,
@@ -508,12 +509,12 @@ export default {
 					sourceImgUrl,
 					sourceImgMasking,
 					lang,
-					crossOrigin
+					crossorigin
 				} = that,
 				sim = sourceImgMasking,
 				img = new Image();
-			console.log("crossOrigin:"+crossOrigin);
-			img.crossOrigin = crossOrigin;
+			if(crossorigin)
+				img.crossOrigin = "Anonymous";
 		
 			img.src = sourceImgUrl;
 			img.onload = function() {

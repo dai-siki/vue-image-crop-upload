@@ -74,9 +74,9 @@
 			
 			<my-upload url="https://httpbin.org/post" img-format="jpg" img-bgc="#fff"
 				v-model="showRemote"
-				field="avatar1" 
+				field="avatar2" 
 				ki="0"
-				crossOrigin="*" 
+				:crossorigin="true"
 				@crop-success="cropSuccess"
 				@crop-upload-success="cropUploadSuccess"
 				@crop-upload-fail="cropUploadFail"
