@@ -196,7 +196,11 @@ export default {
 		method: {
 			type: String,
 			'default': 'POST'
-		}
+		},
+		initialImgUrl: {
+			type: String,
+			'default': ''
+    }
 	},
 	data() {
 		let that = this,
@@ -252,8 +256,8 @@ export default {
 
 			// 原图地址、生成图片地址
 			sourceImg: null,
-			sourceImgUrl: '',
-			createImgUrl: '',
+			sourceImgUrl: this.initialImgUrl,
+			createImgUrl: this.initialImgUrl,
 
 			// 原图片拖动事件初始值
 			sourceImgMouseDown: {
@@ -880,7 +884,12 @@ export default {
 				this.off();
 			}
 		})
-	}
+	},
+	mounted() {
+		if (this.sourceImgUrl) {
+			this.startCrop();
+		}
+  }
 }
 
 </script>
