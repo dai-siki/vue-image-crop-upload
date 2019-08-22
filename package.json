@@ -1,6 +1,6 @@
 {
-  "name": "vue-image-crop-upload",
-  "version": "2.5.0",
+  "name": "rui-vue-image-crop-upload",
+  "version": "2.5.12",
   "description": "a vue plgin for image upload and crop（vue图片剪裁上传插件）",
   "main": "upload-2.vue",
   "scripts": {
@@ -71,5 +71,8 @@
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.13.1",
     "webpack-stream": "^3.2.0"
+  },
+  "directories": {
+    "example": "example"
   }
 }
