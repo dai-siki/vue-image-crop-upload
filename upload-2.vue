@@ -196,6 +196,10 @@ export default {
 		method: {
 			type: String,
 			'default': 'POST'
+		},
+		beforeUpload: {
+			type: Function,
+			'default': () => null
 		}
 	},
 	data() {
@@ -780,7 +784,7 @@ export default {
             ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
             that.createImgUrl = canvas.toDataURL(mime);
         },
-		prepareUpload(){
+		async prepareUpload(){
 			let {
 				url,
 				createImgUrl,
@@ -789,13 +793,15 @@ export default {
 			} = this;
 			this.$emit('crop-success', createImgUrl, field, ki);
 			if(typeof url == 'string' && url){
-				this.upload();
+				await this.upload();
 			}else{
 				this.off();
 			}
 		},
 		// 上传图片
-		upload() {
+		async upload() {
+			await beforeUpload()
+		
 			let that = this,
 				{
 					lang,
