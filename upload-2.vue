@@ -865,7 +865,7 @@ export default {
 				function(resData) {
 					if (that.value) {
 						that.loading = 2;
-						that.$emit('crop-upload-success', resData, field, ki, that.off);
+						that.$emit('crop-upload-success', resData, createImgUrl, field, ki, that.off);
 					}
 				},
 				// 上传失败
@@ -874,7 +874,7 @@ export default {
 						that.loading = 3;
 						that.hasError = true;
 						that.errorMsg = lang.fail;
-						that.$emit('crop-upload-fail', sts, field, ki, that.off);
+						that.$emit('crop-upload-fail', sts, createImgUrl, field, ki, that.off);
 					}
 				}
 			);
