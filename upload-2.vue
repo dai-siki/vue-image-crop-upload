@@ -792,11 +792,8 @@ export default {
 				ki
 			} = this;
 			this.$emit('crop-success', createImgUrl, field, ki);
-			if(typeof url == 'string' && url){
-				await this.upload();
-			}else{
-				this.off();
-			}
+
+			await this.upload();
 		},
 		// 上传图片
 		async upload() {
@@ -817,6 +814,12 @@ export default {
 					method
 				} = this,
 				fmData = new FormData();
+
+			// 检查是否有url
+			if(typeof url != 'string' || !url){
+				this.off();
+				return;
+			}
 
 			// 添加其他参数
 			if (typeof params == 'object' && params) {
