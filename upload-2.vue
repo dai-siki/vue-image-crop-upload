@@ -196,6 +196,10 @@ export default {
 		method: {
 			type: String,
 			'default': 'POST'
+		},
+		beforeUpload: {
+			type: Function,
+			'default': () => {}
 		}
 	},
 	data() {
@@ -780,7 +784,7 @@ export default {
             ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
             that.createImgUrl = canvas.toDataURL(mime);
         },
-		prepareUpload(){
+		async prepareUpload(){
 			let {
 				url,
 				createImgUrl,
@@ -788,14 +792,13 @@ export default {
 				ki
 			} = this;
 			this.$emit('crop-success', createImgUrl, field, ki);
-			if(typeof url == 'string' && url){
-				this.upload();
-			}else{
-				this.off();
-			}
+
+			await this.upload();
 		},
 		// 上传图片
-		upload() {
+		async upload() {
+			await this.beforeUpload(this.createImgUrl, this.field, this.ki)
+		
 			let that = this,
 				{
 					lang,
@@ -811,7 +814,12 @@ export default {
 					method
 				} = this,
 				fmData = new FormData();
-			fmData.append(field, data2blob(createImgUrl, mime), field + '.' + imgFormat);
+
+			// 检查是否有url
+			if(typeof url != 'string' || !url){
+				this.off();
+				return;
+			}
 
 			// 添加其他参数
 			if (typeof params == 'object' && params) {
@@ -819,6 +827,8 @@ export default {
 					fmData.append(k, params[k]);
 				})
 			}
+
+			fmData.append(field, data2blob(createImgUrl, mime), field + '.' + imgFormat);
 
 			// 监听进度回调
 			const uploadProgress = function(event) {
@@ -858,7 +868,7 @@ export default {
 				function(resData) {
 					if (that.value) {
 						that.loading = 2;
-						that.$emit('crop-upload-success', resData, field, ki);
+						that.$emit('crop-upload-success', resData, createImgUrl, field, ki, that.off);
 					}
 				},
 				// 上传失败
@@ -867,7 +877,7 @@ export default {
 						that.loading = 3;
 						that.hasError = true;
 						that.errorMsg = lang.fail;
-						that.$emit('crop-upload-fail', sts, field, ki);
+						that.$emit('crop-upload-fail', sts, createImgUrl, field, ki, that.off);
 					}
 				}
 			);
