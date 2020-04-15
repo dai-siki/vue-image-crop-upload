@@ -873,13 +873,17 @@ export default {
 			);
 		}
 	},
+	handleEscClose(e){
+		if(this.value && (e.key == 'Escape' || e.keyCode == 27)){
+			this.off();
+		}
+	},
 	created(){
 		// 绑定按键esc隐藏此插件事件
-		document.addEventListener('keyup', (e)=>{
-			if(this.value && (e.key == 'Escape' || e.keyCode == 27)){
-				this.off();
-			}
-		})
+		document.addEventListener('keyup', this.handleEscClose )
+	},
+	beforeDestroy(){
+		document.removeEventListener('keyup', this.handleEscClose )
 	}
 }
 
