@@ -119,7 +119,7 @@ export default {
 		hint: 'Cliquez ou glissez le fichier ici.',
 		loading: 'Téléchargement…',
 		noSupported: 'Votre navigateur n\'est pas supporté. Utilisez IE10 + ou un autre navigateur s\'il vous plaît.',
-		success: 'Téléchargement réussit',
+		success: 'Téléchargement réussi',
 		fail: 'Téléchargement echoué',
 		preview: 'Aperçu',
 		btn: {
