@@ -361,5 +361,24 @@ export default {
 			outOfSize: 'Bilden är större än max-gränsen: ',
 			lowestPx: 'Bilden är för liten. Minimum är: '
 		}
-	}
+	},
+	vi: {
+		hint: 'Nhấp hoặc kéo tệp vào đây để tải lên',
+		loading: 'Đang xử lý…',
+		noSupported: 'Trình duyệt không được hỗ trợ, vui lòng sử dụng IE10 + hoặc các trình duyệt khác',
+		success: 'Tải lên thành công',
+		fail: 'Tải lên thất bại',
+		preview: 'Xem trước',
+		btn: {
+			off: 'Hủy',
+			close: 'Đóng',
+			back: 'Quay lại',
+			save: 'Lưu'
+		},
+		error: {
+			onlyImg: 'Chỉ cho phép tập tin hình ảnh',
+			outOfSize: 'Hình ảnh vượt quá giới hạn kích thước: ',
+			lowestPx: ' Kích thước của hình ảnh quá thấp. Kích thước thấp nhất: '
+		}
+	},
 };
