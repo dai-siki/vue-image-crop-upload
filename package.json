@@ -59,7 +59,7 @@
     "gulp-watch": "^4.3.6",
     "gulp.spritesmith": "^6.2.1",
     "html-webpack-plugin": "^2.22.0",
-    "node-sass": "^3.8.0",
+    "node-sass": "^4.13.1",
     "sass-loader": "^4.0.0",
     "scss": "^0.2.4",
     "scss-loader": "^0.0.1",
