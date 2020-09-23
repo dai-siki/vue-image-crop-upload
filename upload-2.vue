@@ -396,6 +396,9 @@ export default {
 			if (newValue && this.loading != 1) {
 				this.reset();
 			}
+		},
+		langType () {
+			this.lang = this.langExt
 		}
 	},
 	methods: {
