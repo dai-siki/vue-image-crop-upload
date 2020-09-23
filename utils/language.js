@@ -361,5 +361,24 @@ export default {
 			outOfSize: 'Bilden är större än max-gränsen: ',
 			lowestPx: 'Bilden är för liten. Minimum är: '
 		}
+	},
+	km: {
+		hint: 'ចុចឬអូសឯកសារនៅទីនេះដើម្បីផ្ទុកឡើង',
+		loading: 'កំពុងផ្ទុកឡើង...',
+		noSupported: 'កម្មវិធីរុករកមិនត្រូវបានគាំទ្រសូមប្រើ IE10 + ឬកម្មវិធីរុករកផ្សេងទៀត',
+		success: 'ផ្ទុកឡើងជោគជ័យ',
+		fail: 'ផ្ទុកឡើងបរាជ័យ',
+		preview: 'ព្រាង',
+		btn: {
+			off: 'បោះបង់',
+			close: 'បិទ',
+			back: 'ត្រលប់ក្រោយ',
+			save: 'រក្សាទុក'
+		},
+		error: {
+			onlyImg: 'អនុញ្ញាតបានតែប្រភេទរូបភាពទេ',
+			outOfSize: 'ទំហំនៃសំណុំឯកសារមានកំណត់: ',
+			lowestPx: 'ទំហំនៃសំណុំឯកសារតូចពេក យ៉ាងហោចតូចបំផុត: '
+		}
 	}
 };

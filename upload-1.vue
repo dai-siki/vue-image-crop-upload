@@ -405,7 +405,7 @@ export default {
             }
         },
         langType () {
-            this.lang = this.langExt
+            this.lang = language[this.langType] ? language[this.langType] : language['en']
         }
     },
     methods: {
