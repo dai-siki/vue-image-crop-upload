@@ -811,7 +811,6 @@ export default {
 					method
 				} = this,
 				fmData = new FormData();
-			fmData.append(field, data2blob(createImgUrl, mime), field + '.' + imgFormat);
 
 			// 添加其他参数
 			if (typeof params == 'object' && params) {
@@ -819,6 +818,10 @@ export default {
 					fmData.append(k, params[k]);
 				})
 			}
+
+			// 将field的添加放到表单域的最后，以支持阿里云OSS的表单上传
+			fmData.append(field, data2blob(createImgUrl, mime), field + '.' + imgFormat);
+
 
 			// 监听进度回调
 			const uploadProgress = function(event) {
