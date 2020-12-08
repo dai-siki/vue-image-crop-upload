@@ -300,6 +300,12 @@ export default {
 		}
 	},
 	mounted() {
+		console.log('mounted');
+		if(this.initialImageUrl)
+		{
+			this.sourceImgUrl = this.initialImageUrl;
+			this.createImgUrl = this.initialImageUrl
+		}
 		if (this.sourceImgUrl) {
 			this.startCrop();
 		}
@@ -523,9 +529,11 @@ export default {
 					y = 0;
 				// 图片像素不达标
 				if (nWidth < width || nHeight < height) {
-					that.hasError = true;
-					that.errorMsg = lang.error.lowestPx + width + '*' + height;
-					return false;
+					nWidth = width;
+					nHeight = height;
+					// that.hasError = true;
+					// that.errorMsg = lang.error.lowestPx + width + '*' + height;
+					// return false;
 				}
 				if (ratio > nRatio) {
 					h = w / nRatio;
@@ -786,7 +794,7 @@ export default {
 			}
 			ctx.fillRect(0, 0, that.width, that.height);
 
-            ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
+			ctx.drawImage(sourceImg, x / scale, y / scale, width / scale, height / scale);
             that.createImgUrl = canvas.toDataURL(mime);
         },
 		prepareUpload(){
