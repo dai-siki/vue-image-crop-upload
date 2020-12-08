@@ -300,7 +300,6 @@ export default {
 		}
 	},
 	mounted() {
-		console.log('mounted');
 		if(this.initialImageUrl)
 		{
 			this.sourceImgUrl = this.initialImageUrl;
@@ -778,7 +777,6 @@ export default {
                 } = that,
                 canvas = that.$refs.canvas,
 				ctx = canvas.getContext('2d');
-			console.log('that', that)
             if (e) {
                 // 取消鼠标按下移动状态
                 that.sourceImgMouseDown.on = false;
