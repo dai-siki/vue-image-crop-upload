@@ -304,7 +304,7 @@ export default {
 		if(this.initialImageUrl)
 		{
 			this.sourceImgUrl = this.initialImageUrl;
-			this.createImgUrl = this.initialImageUrl
+			this.createImgUrl = this.initialImageUrl;
 		}
 		if (this.sourceImgUrl) {
 			this.startCrop();
@@ -531,9 +531,9 @@ export default {
 				if (nWidth < width || nHeight < height) {
 					nWidth = width;
 					nHeight = height;
-					// that.hasError = true;
-					// that.errorMsg = lang.error.lowestPx + width + '*' + height;
-					// return false;
+					that.hasError = true;
+					that.errorMsg = lang.error.lowestPx + width + '*' + height;
+					return false;
 				}
 				if (ratio > nRatio) {
 					h = w / nRatio;
@@ -777,7 +777,8 @@ export default {
                     }
                 } = that,
                 canvas = that.$refs.canvas,
-                ctx = canvas.getContext('2d');
+				ctx = canvas.getContext('2d');
+			console.log('that', that)
             if (e) {
                 // 取消鼠标按下移动状态
                 that.sourceImgMouseDown.on = false;
