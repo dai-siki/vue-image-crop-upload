@@ -361,5 +361,24 @@ export default {
 			outOfSize: 'Bilden är större än max-gränsen: ',
 			lowestPx: 'Bilden är för liten. Minimum är: '
 		}
+	},
+	ko: {
+		hint: '클릭 또는 드래그로 이미지 파일 업로드',
+		loading: '업로드 중...',
+		noSupported: '지원하지 않는 브라우저입니다. IE10+ 또는 다른 브라우저를 사용해주세요.',
+		success: '업로드 성공',
+		fail: '업로드 실패',
+		preview: '미리보기',
+		btn: {
+			off: '취소',
+			close: '닫기',
+			back: '뒤로',
+			save: '저장'
+		},
+		error: {
+			onlyImg: '이미지 파일만 업로드 가능합니다.',
+			outOfSize: '이미지의 최대 용량: ',
+			lowestPx: '이미지의 크기가 너무 작습니다. 최소 크기: '
+		}
 	}
 };
