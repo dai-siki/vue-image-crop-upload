@@ -381,6 +381,25 @@ export default {
 			lowestPx: 'Bilden är för liten. Minimum är: '
 		}
 	},
+	da: {
+		hint: 'Klik eller træk en fil herhen for at uploade',
+		loading: 'Uploader…',
+		noSupported: 'Din browser er ikke understøttet, benyt venligst IE10+ eller en anden browser',
+		success: 'Upload lykkedes',
+		fail: 'Upload mislykkedes',
+		preview: 'Preview',
+		btn: {
+			off: 'Fortryd',
+			close: 'Luk',
+			back: 'Tilbage',
+			save: 'Gem'
+		},
+		error: {
+			onlyImg: 'Kun billeder',
+			outOfSize: 'Billedet overskrider størrelsesgrænsen: ',
+			lowestPx: 'Billedet er for lille. Minimumsstørrelsen er: '
+		}
+	},
 	ko: {
 		hint: '클릭 또는 드래그하여 이미지를 업로드하세요.',
 		loading: '업로드 중…',
