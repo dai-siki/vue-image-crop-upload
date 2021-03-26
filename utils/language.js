@@ -381,6 +381,25 @@ export default {
 			lowestPx: 'Bilden är för liten. Minimum är: '
 		}
 	},
+	vi: {
+		hint: 'Bấm hoặc kéo thả file để tải lên',
+		loading: 'Đang tải lên...',
+		noSupported: 'Trình duyệt không hỗ trợ, hãy sử dụng IE10+ hoặc trình duyệt khác',
+		success: 'Tải lên thành công',
+		fail: 'Tải lên thất bại',
+		preview: 'Xem trước',
+		btn: {
+			off: 'Huỷ',
+			close: 'Đóng',
+			back: 'Trở lại',
+			save: 'Lưu'
+		},
+		error: {
+			onlyImg: 'Chỉ hình ảnh',
+			outOfSize: 'Hình ảnh vượt quá giới hạn cho phép: ',
+			lowestPx: 'Kích thước hình quá nhỏ. Kích thước tối thiểu: '
+     	}
+	},
 	fa: {
 		hint: 'برای بارگذاری تصویر کلیک کنید یا تصویر را به این ناحیه درگ کنید',
 		loading: 'در حال بارگذاری ...',
