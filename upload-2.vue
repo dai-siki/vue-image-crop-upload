@@ -14,7 +14,7 @@
 				</i>
 				<span class="vicp-hint" v-show="loading !== 1">{{ lang.hint }}</span>
 				<span class="vicp-no-supported-hint" v-show="!isSupported">{{ lang.noSupported }}</span>
-				<input type="file" v-show="false" v-if="step == 1" @change="handleChange" ref="fileinput">
+				<input type="file" accept="image/*" v-show="false" v-if="step == 1" @change="handleChange" ref="fileinput">
 			</div>
 			<div class="vicp-error" v-show="hasError">
 				<i class="vicp-icon2"></i> {{ errorMsg }}
@@ -196,7 +196,11 @@ export default {
 		method: {
 			type: String,
 			'default': 'POST'
-		}
+		},
+		initialImgUrl: {
+			type: String,
+			'default': ''
+    }
 	},
 	data() {
 		let that = this,
@@ -252,8 +256,8 @@ export default {
 
 			// 原图地址、生成图片地址
 			sourceImg: null,
-			sourceImgUrl: '',
-			createImgUrl: '',
+			sourceImgUrl: this.initialImgUrl,
+			createImgUrl: this.initialImgUrl,
 
 			// 原图片拖动事件初始值
 			sourceImgMouseDown: {
@@ -839,7 +843,7 @@ export default {
 					if (this.readyState !== 4) {
 						return;
 					}
-					if (this.status === 200 || this.status === 201) {
+					if (this.status === 200 || this.status === 201 || this.staus ===202 ) {
 						resolve(JSON.parse(this.responseText));
 					} else {
 						reject(this.status);
@@ -873,14 +877,23 @@ export default {
 			);
 		}
 	},
+	handleEscClose(e){
+		if(this.value && (e.key == 'Escape' || e.keyCode == 27)){
+			this.off();
+		}
+	},
 	created(){
 		// 绑定按键esc隐藏此插件事件
-		document.addEventListener('keyup', (e)=>{
-			if(this.value && (e.key == 'Escape' || e.keyCode == 27)){
-				this.off();
-			}
-		})
-	}
+		document.addEventListener('keyup', this.handleEscClose )
+	},
+	beforeDestroy(){
+		document.removeEventListener('keyup', this.handleEscClose )
+	},
+	mounted() {
+		if (this.sourceImgUrl) {
+			this.startCrop();
+		}
+  }
 }
 
 </script>

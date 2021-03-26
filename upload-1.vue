@@ -844,7 +844,7 @@ export default {
                     if (this.readyState !== 4) {
                         return;
                     }
-                    if (this.status === 200 || this.status === 201) {
+                    if (this.status === 200 || this.status === 201 || this.status ===202) {
                         resolve(JSON.parse(this.responseText));
                     } else {
                         reject(this.status);
@@ -879,14 +879,18 @@ export default {
             );
         }
     },
-    created(){
-        // 绑定按键esc隐藏此插件事件
-        document.addEventListener('keyup', (e)=>{
-            if(this.value && (e.key == 'Escape' || e.keyCode == 27)){
-                this.off();
-            }
-        })
-    }
+	handleEscClose(e){
+		if(this.value && (e.key == 'Escape' || e.keyCode == 27)){
+			this.off();
+		}
+	},
+	created(){
+		// 绑定按键esc隐藏此插件事件
+		document.addEventListener('keyup', this.handleEscClose )
+	},
+	beforeDestroy(){
+		document.removeEventListener('keyup', this.handleEscClose )
+	}
 }
 
 </script>
