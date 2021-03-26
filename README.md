@@ -19,7 +19,7 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 
 
 ## Demo
-[Click me](http://dai-siki.github.io/vue-image-crop-upload/example/demo.html).
+[Click me](http://dai-siki.github.io/vue-image-crop-upload/example-3/demo.html).
 
 
 ## Screenshot
@@ -319,7 +319,7 @@ $ npm install vue-image-crop-upload
 - 兼容vue3
 
 ## 示例
-[点我](http://dai-siki.github.io/vue-image-crop-upload/example/demo.html).
+[点我](http://dai-siki.github.io/vue-image-crop-upload/example-3/demo.html).
 
 ## 截图
 ![screenshot](screenshot/2.png)
