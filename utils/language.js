@@ -98,11 +98,11 @@ export default {
 	},
 	'pt-br': {
 		hint: 'Clique ou arraste o arquivo aqui para carregar',
-		loading: 'Carregando…',
-		noSupported: 'Browser não suportado, use o IE10+ ou outro browser',
-		success: 'Sucesso ao carregar imagem',
-		fail: 'Falha ao carregar imagem',
-		preview: 'Pré-visualizar',
+		loading: 'Carregando...',
+		noSupported: 'Browser não suportado, por favor utilize o Internet Explorer 10+ ou outro browser',
+		success: 'Imagem carregada com sucesso',
+		fail: 'Ocorreu um erro ao carregar a imagem',
+		preview: 'Pré-visualização',
 		btn: {
 			off: 'Cancelar',
 			close: 'Fechar',
@@ -110,8 +110,27 @@ export default {
 			save: 'Salvar'
 		},
 		error: {
-			onlyImg: 'Apenas imagens',
-			outOfSize: 'A imagem excede o limite de tamanho: ',
+			onlyImg: 'Por favor envie apenas imagens',
+			outOfSize: 'A imagem excede o limite de tamanho suportado: ',
+			lowestPx: 'O tamanho da imagem é muito pequeno. Tamanho mínimo: '
+		}
+	},
+	'pt-pt': {
+		hint: 'Clique ou arraste o arquivo para a janela para carregar',
+		loading: 'A processar...',
+		noSupported: 'Browser não suportado, por favor utilize o Internet Explorer 10+ ou outro browser',
+		success: 'Imagem carregada com sucesso',
+		fail: 'Ocorreu um erro ao carregar a imagem',
+		preview: 'Pré-visualização',
+		btn: {
+			off: 'Cancelar',
+			close: 'Fechar',
+			back: 'Voltar',
+			save: 'Guardar'
+		},
+		error: {
+			onlyImg: 'Por favor envie apenas imagens',
+			outOfSize: 'A imagem excede o limite de tamanho suportado: ',
 			lowestPx: 'O tamanho da imagem é muito pequeno. Tamanho mínimo: '
 		}
 	},
@@ -379,6 +398,63 @@ export default {
 			onlyImg: 'Chỉ hình ảnh',
 			outOfSize: 'Hình ảnh vượt quá giới hạn cho phép: ',
 			lowestPx: 'Kích thước hình quá nhỏ. Kích thước tối thiểu: '
+     	}
+	},
+	fa: {
+		hint: 'برای بارگذاری تصویر کلیک کنید یا تصویر را به این ناحیه درگ کنید',
+		loading: 'در حال بارگذاری ...',
+		noSupported: 'نسخه یا نوع مرورگر شما از این قابلیت پشتیبانی نمیکند. لطفا از اینترنت اکسپلورر ورژن بالاتر از ده یا مرورگرهای دیگر استفاده کنید',
+		success: 'بارگذاری با موفقیت انجام شد',
+		fail: 'بارگذاری انجام نشد',
+		preview: 'پیشنمایش',
+		btn: {
+			off: 'لغو',
+			close: 'بستن',
+			back: 'بازگشت',
+			save: 'ذخیره'
+		},
+		error: {
+			onlyImg: 'فقط تصویر',
+			outOfSize: 'حجم تصویر بیش از اندازه‌ی مجاز است: ',
+			lowestPx: 'حجم تصویر بسیار پایین است، حداقل سایز تصویر: '
+      }
+	},
+	da: {
+		hint: 'Klik eller træk en fil herhen for at uploade',
+		loading: 'Uploader…',
+		noSupported: 'Din browser er ikke understøttet, benyt venligst IE10+ eller en anden browser',
+		success: 'Upload lykkedes',
+		fail: 'Upload mislykkedes',
+		preview: 'Preview',
+		btn: {
+			off: 'Fortryd',
+			close: 'Luk',
+			back: 'Tilbage',
+			save: 'Gem'
+		},
+		error: {
+			onlyImg: 'Kun billeder',
+			outOfSize: 'Billedet overskrider størrelsesgrænsen: ',
+			lowestPx: 'Billedet er for lille. Minimumsstørrelsen er: '
+		}
+	},
+	ko: {
+		hint: '클릭 또는 드래그하여 이미지를 업로드하세요.',
+		loading: '업로드 중…',
+		noSupported: '죄송합니다, 인터넷 익스플로러 버전 10 이상 혹은 다른 브라우저를 사용해주세요.',
+		success: '업로드 성공',
+		fail: '업로드 실패',
+		preview: '미리보기',
+		btn: {
+			off: '취소',
+			close: '닫기',
+			back: '뒤로가기',
+			save: '저장'
+		},
+		error: {
+			onlyImg: '이미지만 업로드 할 수 있습니다.',
+			outOfSize: '업로드 할 수 있는 최대 이미지 사이즈를 초과했습니다: ',
+			lowestPx: '이미지의 크기는 적어도 다음 사이즈보다 커야 합니다: '
 		}
 	},
 };
