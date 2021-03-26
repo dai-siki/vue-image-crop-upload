@@ -1,9 +1,8 @@
 # vue-image-crop-upload
-## [中文文档](https://github.com/dai-siki/vue-image-crop-upload/blob/master/README-zh.md).
 
-A beautiful vue component for image crop and upload.
+vue图片剪裁上传组件
 
-**Notice**: This component is designed for pc, **not recommended for use on the mobile side**.
+**Notice**: (该组件适用于pc端，不推荐手机端使用)
 
 [![GitHub issues](https://img.shields.io/github/issues/dai-siki/vue-image-crop-upload.svg)](https://github.com/dai-siki/vue-image-crop-upload/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dai-siki/vue-image-crop-upload.svg)](https://github.com/dai-siki/vue-image-crop-upload/network)
@@ -12,97 +11,89 @@ A beautiful vue component for image crop and upload.
 
 [![NPM](https://nodei.co/npm/vue-image-crop-upload.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-image-crop-upload/)
 
-## Change log
+## 更新日志
 #### @3.0.0
-- Compatible vue3
+- 兼容vue3
 
+## 示例
+[点我](http://dai-siki.github.io/vue-image-crop-upload/example-3/demo.html).
 
-## Demo
-[Click me](http://dai-siki.github.io/vue-image-crop-upload/example-3/demo.html).
+## 截图
+![screenshot](screenshot/2.png)
 
-
-## Screenshot
-![screenshot](screenshot/1.png)
-
-## Brower compatibility
+## 浏览器兼容
 IE10+
 
-## Install
+## 安装
 #### npm
 ```shell
 $ npm install vue-image-crop-upload
 ```
 
 
-## Usage
+## 使用
 #### Props
-| Name              | Type               | Default             | Description                                         |
+| 名称              | 类型               | 默认             | 说明                                         |
 | ----------------| ---------------- | ---------------| ------------------------------------------|
-| url             | String            |  ''                | Server api path,like "/avatar/upload", If empty, will not be uploaded    |
-| method				| String		| 'POST'               | request http method |
-| field       | String   | 'upload'     | Upload input filename, used for server side get the file stream.    |
-| value             | Boolean            | twoWay            | show or not    |
-| params             | Object            |  null                | POST Params，like "{k:v}"    |
-| headers             | Object            |  null                | POST request header，like "{k:v}"    |
-| langType             | String            | 'zh'                 | language type    |
-| langExt             | Object            |                   | language extend    |
-| width             | Number            |   200                | width of receive image     |
-| height             | Number            |  200                 | height of receive image   |
-| imgFormat             | string            | 'png'                  | jpg/png, Server api receive file type.    |
-| imgBgc             | string            | '#fff'                  | background color, if the imgFormat prop is jpg   |
-| noCircle          | Boolean             | false         | disable circle preview |
-| noSquare          | Boolean             | false         | disable square preview |
-| noRotate          | Boolean             | true         | disable rotate function |
-| withCredentials          | Boolean             | false         | support cross-domain |
+| url             | String            |  ''                | 上传接口地址，如果为空，图片不会上传    |
+| method				| String		| 'POST'               | 上传方法 |
+| field       | String   | 'upload'     | 向服务器上传的文件名    |
+| value             | Boolean            | twoWay            | 是否显示控件，双向绑定    |
+| params             | Object            |  null                | 上传附带其他数据，格式"{k:v}"    |
+| headers             | Object            |  null                | 上传header设置，格式"{k:v}"    |
+| langType             | String            | 'zh'                 | 语言类型，默认中文    |
+| langExt             | Object            |                   | 语言包自行扩展    |
+| width             | Number            |   200                | 最终得到的图片宽度     |
+| height             | Number            |  200                 | 最终得到的图片高度   |
+| imgFormat             | string            | 'png'                  | jpg/png, 最终得到的图片格式    |
+| imgBgc             | string            | '#fff'                  | 导出图片背景色,当imgFormat属性为jpg时生效   |
+| noCircle            | Boolean              | false             | 关闭 圆形图像预览 |
+| noSquare            | Boolean              | false             | 关闭 方形图像预览 |
+| noRotate            | Boolean              | true             | 关闭 旋转图像功能 |
+| withCredentials          | Boolean             | false         | 支持跨域 |
 
 #### Events
-| Name              | Description                                         |
+| 名称              | 说明                                         |
 | ----------------| ------------------------------------------|
-| srcFileSet   |Once you've selected the file, params( fileName, fileType, fileSize )     |
-| cropSuccess   | image crop success, params( imageDataUrl, field )     |
-| cropUploadSuccess | upload success, params( jsonData, field )    |
-| cropUploadFail    | upload fail, params( status, field )    |
+| srcFileSet   |用户选取文件之后, 参数( fileName, fileType, fileSize )     |
+| cropSuccess   | 图片截取完成事件（上传前), 参数( imageDataUrl, field )     |
+| cropUploadSuccess | 上传成功， 参数( jsonData, field )    |
+| cropUploadFail    | 上传失败， 参数( status, field )    |
 
-#### Language package
-[view details](http://dai-siki.github.io/vue-image-crop-upload/utils/language.js).
-
-#### Example Of "langExt"
+#### langExt示例
 ```js
 {
-    hint: 'Click or drag the file here to upload',
-    loading: 'Uploading…',
-    noSupported: 'Browser is not supported, please use IE10+ or other browsers',
-    success: 'Upload success',
-    fail: 'Upload failed',
-    preview: 'Preview',
+    hint: '点击，或拖动图片至此处',
+    loading: '正在上传……',
+    noSupported: '浏览器不支持该功能，请使用IE10以上或其他现在浏览器！',
+    success: '上传成功',
+    fail: '图片上传失败',
+    preview: '头像预览',
     btn: {
-    	off: 'Cancel',
-    	close: 'Close',
-    	back: 'Back',
-    	save: 'Save'
+        off: '取消',
+        close: '关闭',
+        back: '上一步',
+        save: '保存'
     },
     error: {
-    	onlyImg: 'Image only',
-    	outOfSize: 'Image exceeds size limit: ',
-    	lowestPx: 'Image\'s size is too low. Expected at least: '
+        onlyImg: '仅限图片格式',
+        outOfSize: '单文件大小不能超过 ',
+        lowestPx: '图片最低像素为（宽*高）：'
     }
 }
 ```
 
-#### Example vue@3
+#### 使用示例 vue@1
 ```html
 <div id="app">
-	<a class="btn" @click="toggleShow">set avatar</a>
+	<a class="btn" @click="toggleShow">设置头像</a>
 	<my-upload field="img"
-        @crop-success="cropSuccess"
-        @crop-upload-success="cropUploadSuccess"
-        @crop-upload-fail="cropUploadFail"
-        v-model="show"
 		:width="300"
 		:height="300"
 		url="/upload"
 		:params="params"
 		:headers="headers"
+		:value.sync="show"
 		img-format="png"></my-upload>
 	<img :src="imgDataUrl">
 </div>
@@ -110,7 +101,7 @@ $ npm install vue-image-crop-upload
 <script>
 	import 'babel-polyfill'; // es6 shim
 	import Vue from 'vue';
-	import myUpload from 'vue-image-crop-upload';
+	import myUpload from 'vue-image-crop-upload/upload-1.vue';
 
 	new Vue({
 		el: '#app',
@@ -131,7 +122,9 @@ $ npm install vue-image-crop-upload
 		methods: {
 			toggleShow() {
 				this.show = !this.show;
-			},
+			}
+		},
+		events: {
             /**
 			 * crop success
 			 *
@@ -145,7 +138,7 @@ $ npm install vue-image-crop-upload
 			/**
 			 * upload success
 			 *
-			 * [param] jsonData  server api return data, already json encode
+			 * [param] jsonData   服务器返回数据，已进行json转码
 			 * [param] field
 			 */
 			cropUploadSuccess(jsonData, field){
@@ -166,13 +159,14 @@ $ npm install vue-image-crop-upload
 			}
 		}
 	});
+
 </script>
 ```
 
-#### Example vue@2
+#### 使用示例 vue@2
 ```html
 <div id="app">
-	<a class="btn" @click="toggleShow">set avatar</a>
+	<a class="btn" @click="toggleShow">设置头像</a>
 	<my-upload field="img"
         @crop-success="cropSuccess"
         @crop-upload-success="cropUploadSuccess"
@@ -225,7 +219,7 @@ $ npm install vue-image-crop-upload
 			/**
 			 * upload success
 			 *
-			 * [param] jsonData  server api return data, already json encode
+			 * [param] jsonData   服务器返回数据，已进行json转码
 			 * [param] field
 			 */
 			cropUploadSuccess(jsonData, field){
@@ -246,21 +240,24 @@ $ npm install vue-image-crop-upload
 			}
 		}
 	});
+
 </script>
 ```
 
-#### Example vue@1
+#### 使用示例 vue@3
 ```html
 <div id="app">
-	<a class="btn" @click="toggleShow">set avatar</a>
+	<a class="btn" @click="toggleShow">设置头像</a>
 	<my-upload field="img"
+        @crop-success="cropSuccess"
+        @crop-upload-success="cropUploadSuccess"
+        @crop-upload-fail="cropUploadFail"
+        v-model="show"
 		:width="300"
 		:height="300"
 		url="/upload"
 		:params="params"
 		:headers="headers"
-        lang-type="en"
-		:value.sync="show"
 		img-format="png"></my-upload>
 	<img :src="imgDataUrl">
 </div>
@@ -268,7 +265,7 @@ $ npm install vue-image-crop-upload
 <script>
 	import 'babel-polyfill'; // es6 shim
 	import Vue from 'vue';
-	import myUpload from 'vue-image-crop-upload/upload-1.vue';
+	import myUpload from 'vue-image-crop-upload';
 
 	new Vue({
 		el: '#app',
@@ -289,10 +286,8 @@ $ npm install vue-image-crop-upload
 		methods: {
 			toggleShow() {
 				this.show = !this.show;
-			}
-		},
-		events: {
-			/**
+			},
+            /**
 			 * crop success
 			 *
 			 * [param] imgDataUrl
@@ -305,7 +300,7 @@ $ npm install vue-image-crop-upload
 			/**
 			 * upload success
 			 *
-			 * [param] jsonData   server api return data, already json encode
+			 * [param] jsonData   服务器返回数据，已进行json转码
 			 * [param] field
 			 */
 			cropUploadSuccess(jsonData, field){
