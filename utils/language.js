@@ -381,6 +381,25 @@ export default {
 			lowestPx: 'Bilden är för liten. Minimum är: '
 		}
 	},
+	fa: {
+		hint: 'برای بارگذاری تصویر کلیک کنید یا تصویر را به این ناحیه درگ کنید',
+		loading: 'در حال بارگذاری ...',
+		noSupported: 'نسخه یا نوع مرورگر شما از این قابلیت پشتیبانی نمیکند. لطفا از اینترنت اکسپلورر ورژن بالاتر از ده یا مرورگرهای دیگر استفاده کنید',
+		success: 'بارگذاری با موفقیت انجام شد',
+		fail: 'بارگذاری انجام نشد',
+		preview: 'پیشنمایش',
+		btn: {
+			off: 'لغو',
+			close: 'بستن',
+			back: 'بازگشت',
+			save: 'ذخیره'
+		},
+		error: {
+			onlyImg: 'فقط تصویر',
+			outOfSize: 'حجم تصویر بیش از اندازه‌ی مجاز است: ',
+			lowestPx: 'حجم تصویر بسیار پایین است، حداقل سایز تصویر: '
+      }
+	},
 	da: {
 		hint: 'Klik eller træk en fil herhen for at uploade',
 		loading: 'Uploader…',
