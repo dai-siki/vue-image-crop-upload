@@ -28,11 +28,6 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## Brower compatibility
 IE10+
 
-
-## Env
-vue@1/vue@2 + webpack + es6
-
-
 ## Install
 #### npm
 ```shell
@@ -70,7 +65,7 @@ $ npm install vue-image-crop-upload
 | cropUploadFail    | upload fail, params( status, field )    |
 
 #### Language package
-[view details](../utils/language.js).
+[view details](http://dai-siki.github.io/vue-image-crop-upload/utils/language.js).
 
 #### Example vue@3
 ```html
@@ -323,28 +318,6 @@ $ npm install vue-image-crop-upload
 #### @3.0.0
 - 兼容vue3
 
-#### @2.4.0
-- 增加了“src-file-set”回调事件，在用户选择文件之后触发。
-
-#### @2.3.0
-- 如果导出图片格式为jpg，则背景默认白色，你也可以通过新增的“imgBgc”属性自定义。如果导出格式为png，则默认透明
-- 优化了旋转效果
-
-#### @2.1.0
-- 增加了图片旋转和不显示方形预览图片的功能
-
-#### @2.0.0
-- 默认支持版本改为vue2，vue1的同学需要引入upload-1.vue
-
-#### @1.3.0
-- 添加了新属性: "headers" (用于设置请求头部：setRequestHeader)
-
-#### @1.2.0
-- 兼容vue@2版本
-
-#### @1.1.0
-- 调整了Props命名: "otherParams"=>"params", "langConf"=>"langExt"
-
 ## 示例
 [点我](http://dai-siki.github.io/vue-image-crop-upload/example/demo.html).
 
@@ -353,11 +326,6 @@ $ npm install vue-image-crop-upload
 
 ## 浏览器兼容
 IE10+
-
-
-## 配置环境
-vue@2（或vue@1） + webpack + es6
-
 
 ## 安装
 #### npm
