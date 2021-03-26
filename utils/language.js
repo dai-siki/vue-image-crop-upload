@@ -381,6 +381,25 @@ export default {
 			lowestPx: 'Bilden är för liten. Minimum är: '
 		}
 	},
+	pl {
+		hint: 'Kliknij lub upuść plik tutaj',
+		loading: 'Wgrywanie…',
+		noSupported: 'Twoja przeglądarka nie jest wspierana, użyj IE10+ lub innej przeglądarki',
+		success: 'Błąd',
+		fail: 'Sukces',
+		preview: 'Podgląd',
+		btn: {
+			off: 'Anuluj',
+			close: 'Zamknij',
+			back: 'Wstecz',
+			save: 'Zapisz'
+		},
+		error: {
+			onlyImg: 'Tylko obrazki',
+			outOfSize: 'Rozmiar obrazka przekracza: ',
+			lowestPx: 'Obrazek jest za mały. Minimalne wymiary to: '
+		}
+	},
 	vi: {
 		hint: 'Bấm hoặc kéo thả file để tải lên',
 		loading: 'Đang tải lên...',
