@@ -27,7 +27,7 @@
 		<div class="vicp-step2" v-if="step == 2">
 			<div class="vicp-crop">
 				<div class="vicp-crop-left" v-show="true">
-					<div class="vicp-img-container">
+					<div class="vicp-img-container" @wheel.prevent="handleMouseWheel">
 						<img :src="sourceImgUrl" :style="sourceImgStyle" class="vicp-img" draggable="false"
 							@drag="preventDefault"
 							@dragstart="preventDefault"
@@ -636,7 +636,25 @@ export default {
 			this.sourceImgUrl = imgUrl;
 			this.startCrop();
         },
-
+        handleMouseWheel(e){
+			e = e || window.event;
+			let 	{ scale } = this;
+			if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件
+				if (e.wheelDelta > 0) { //当滑轮向上滚动时
+					this.zoomImg(scale.range >= 100 ? 100 : ++scale.range);
+				}
+				if (e.wheelDelta < 0) {
+					this.zoomImg(scale.range <= 0 ? 0 : --scale.range);
+				}
+			} else if (e.detail) {  //Firefox滑轮事件
+				if (e.detail > 0) { //当滑轮向上滚动时
+					this.zoomImg(scale.range >= 100 ? 100 : ++scale.range);
+				}
+				if (e.detail < 0) {
+					this.zoomImg(scale.range <= 0 ? 0 : --scale.range);
+				}
+			}
+		},
 		// 按钮按下开始放大
 		startZoomAdd(e) {
 			let that = this,

@@ -381,7 +381,7 @@ export default {
 			lowestPx: 'Bilden är för liten. Minimum är: '
 		}
 	},
-	pl {
+	pl: {
 		hint: 'Kliknij lub upuść plik tutaj',
 		loading: 'Wgrywanie…',
 		noSupported: 'Twoja przeglądarka nie jest wspierana, użyj IE10+ lub innej przeglądarki',
@@ -417,7 +417,7 @@ export default {
 			onlyImg: 'Chỉ hình ảnh',
 			outOfSize: 'Hình ảnh vượt quá giới hạn cho phép: ',
 			lowestPx: 'Kích thước hình quá nhỏ. Kích thước tối thiểu: '
-     	}
+		}
 	},
 	fa: {
 		hint: 'برای بارگذاری تصویر کلیک کنید یا تصویر را به این ناحیه درگ کنید',
@@ -436,7 +436,7 @@ export default {
 			onlyImg: 'فقط تصویر',
 			outOfSize: 'حجم تصویر بیش از اندازه‌ی مجاز است: ',
 			lowestPx: 'حجم تصویر بسیار پایین است، حداقل سایز تصویر: '
-      }
+		}
 	},
 	da: {
 		hint: 'Klik eller træk en fil herhen for at uploade',

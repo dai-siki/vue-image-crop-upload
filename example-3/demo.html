@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>demo vue3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+	<style media="screen">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			padding: 100px 20%;
+			font-family: '微软雅黑';
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		#app {
+			position: relative;
+			text-align: center;
+		}
+
+		.wrap {
+			margin-bottom: 5px;
+		}
+
+		.btn {
+			display: block;
+			margin: 30px auto 10px auto;
+			width: 120px;
+			height: 40px;
+			font-size: 14px;
+			line-height: 40px;
+			text-align: center;
+			background-color: rgba(0, 0, 0, 0.08);
+			cursor: pointer;
+		}
+
+		.avatar {
+			display: block;
+			width: 200px;
+			margin: 10px auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<div class="item">
+			<a class="btn" @click="toggleShow1">设置头像</a>
+			<img class="avatar" v-if="avatarUrl1" :src="avatarUrl1" v-show="true" style="display: none;">
+			<my-upload url="https://httpbin.org/post" img-format="jpg" img-bgc="#fff"
+				v-model="show1"
+				field="avatar1"
+				ki="0"
+				@crop-success="cropSuccess"
+				@crop-upload-success="cropUploadSuccess"
+				@crop-upload-fail="cropUploadFail"
+				:no-rotate="false"
+				:headers="headers"
+				:params="otherParams"></my-upload>
+		</div>
+
+		<div class="item">
+			<a class="btn" @click="toggleShow2">Set Avatar</a>
+			<img class="avatar" v-if="avatarUrl2" :src="avatarUrl2" v-show="true" style="display: none;">
+			<my-upload url="https://httpbin.org/post"
+				@crop-success="cropSuccess"
+				@crop-upload-success="cropUploadSuccess"
+				@crop-upload-fail="cropUploadFail"
+				:no-square="true"
+				field="avatar2"
+				ki="0"
+				lang-type="en"
+				v-model="show2"
+				:headers="headers"
+				:params="otherParams"></my-upload>
+		</div>
+
+		<div class="item">
+			<a class="btn" @click="toggleShow3">аватара</a>
+			<img class="avatar" v-if="avatarUrl3" :src="avatarUrl3" v-show="true" style="display: none;">
+			<my-upload url="https://httpbin.org/post"
+				@crop-success="cropSuccess"
+				@crop-upload-success="cropUploadSuccess"
+				@crop-upload-fail="cropUploadFail"
+				:no-circle="true"
+				field="avatar3"
+				ki="0"
+				lang-type="ru"
+				v-model="show3"
+				:headers="headers"
+				:params="otherParams"></my-upload>
+		</div>
+	</div>
+
+	<script src="vue3.js"></script>
+	<script src="demo-src.js"></script>
+</body>
+
+</html>

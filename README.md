@@ -14,71 +14,8 @@ A beautiful vue component for image crop and upload. （vue图片剪裁上传组
 ## 中文文档在后面
 
 ## Change log
-#### @2.5.0
-- added http method prop (thanks @sarco3t)
-
-#### @2.4.0
-- Added the **src-file-set** event, emit event when file is selected (thanks @choruru)
-
-#### @2.3.3
-- Added the **Swedish** language pack (thanks @hekin1)
-- Added the **Myanmar** language pack (thanks @tintnaingwinn)
-
-#### @2.3.2
-- Added the **Thai** language pack (thanks @godxavia)
-
-#### @2.3.1
-- Added the **Uygur** language pack (thanks @oyghan)
-
-#### @2.3.0
-- If the exported picture is in jpg format, the background is white by default, and you can customize it with the "imgBgc" attribute. If it is png, the default transparent color
-- Optimized image rotation
-- Added the **Italian** language pack (thanks @phaberest)
-- Added the **Arabic** language pack (thanks @barakat-turki)
-- Added the **Ukrainian** language pack (thanks @dvomaks)
-
-#### @2.2.3
-- Added the **Japanese** language pack (thanks @KangYoosam)
-
-#### @2.2.2
-- Added the **German** language pack (thanks @attx)
-
-#### @2.2.1
-- Added the **Chinese Traditional** language pack (thanks @s950329)
-
-#### @2.1.0
-- Strengthen the function of image rotation and does not display square preview picture
-
-#### @2.0.5
-- Added the **spanish MX** language pack (thanks @vickvasquez)
-
-#### @2.0.4
-- Added the **Turkish** language pack (thanks @smhayhan)
-
-#### @2.0.2
-- Added the **Dutch** language pack (thanks @blyleven)
-
-#### @2.0.1
-- If url prop is empty, the picture will not be uploaded
-
-#### @2.0.0
-- Adjust the import mode for different versions of vue, **The default vue version is vue2**
-- Added the **French** language pack (thanks @valerymelou)
-- Added the **Portuguese (Brazil)** language pack (thanks @abensur)
-
-#### @1.3.5
-- Added the **Romanian** language pack (thanks @doriandrn)
-
-#### @1.3.0
-- Added the **Russian** language pack (thanks @bigperson)
-- Added a new Props: "headers" (Used to set the POST request header)
-
-#### @1.2.0
-- Compatible vue2
-
-#### @1.1.0
-- Adjusted Props naming: "otherParams"=>"params", "langConf"=>“langExt”
-- Optimized language packs
+#### @3.0.0
+- Compatible vue3
 
 
 ## Demo
@@ -133,51 +70,86 @@ $ npm install vue-image-crop-upload
 | cropUploadFail    | upload fail, params( status, field )    |
 
 #### Language package
-| Support language | Shorthand   | Contributors    |
-| ---------------  | ----------- |---------------- |
-| 中文（default）    | zh           | dai-siki        |
-| 繁体中文          | zh-tw          | s950329        |
-| English           | en           | dai-siki / doriandrn    |
-| Russian           | ru           | bigperson       |
-| Romanian          | ro           | doriandrn       |
-| Portuguese (Brazil) | pt-br      | abensur       |
-| French            | fr           | valerymelou       |
-| Dutch             | nl           | blyleven       |
-| Turkish             | tr           | smhayhan        |
-| spanish MX         | es-MX          | vickvasquez    |
-| German         | de          | attx    |
-| Japanese         | ja          | KangYoosam     |
-| Italian         | it          | phaberest     |
-| Arabic         | ar          | barakat-turki      |
-| ukrainian          | ua          | dvomaks     |
-| Uyghur          | ug          | oyghan     |
-| Thai          | th          | godxavia      |
-| Myanmar          | mm          | tintnaingwinn      |
-| Swedish          | se          | hekin1      |
+[view details](../utils/language.js).
 
-```js
-// example
-{
-    en: {
-        hint: 'Click or drag the file here to upload',
-        loading: 'Uploading…',
-        noSupported: 'Browser is not supported, please use IE10+ or other browsers',
-        success: 'Upload success',
-        fail: 'Upload failed',
-        preview: 'Preview',
-        btn: {
-            off: 'Cancel',
-            close: 'Close',
-            back: 'Back',
-            save: 'Save'
-        },
-        error: {
-            onlyImg: 'Image only',
-            outOfSize: 'Image exceeds size limit: ',
-            lowestPx: 'Image\'s size is too low. Expected at least: '
-        }
-    }
-}
+#### Example vue@3
+```html
+<div id="app">
+	<a class="btn" @click="toggleShow">set avatar</a>
+	<my-upload field="img"
+        @crop-success="cropSuccess"
+        @crop-upload-success="cropUploadSuccess"
+        @crop-upload-fail="cropUploadFail"
+        v-model="show"
+		:width="300"
+		:height="300"
+		url="/upload"
+		:params="params"
+		:headers="headers"
+		img-format="png"></my-upload>
+	<img :src="imgDataUrl">
+</div>
+
+<script>
+	import 'babel-polyfill'; // es6 shim
+	import Vue from 'vue';
+	import myUpload from 'vue-image-crop-upload';
+
+	new Vue({
+		el: '#app',
+		data: {
+			show: true,
+			params: {
+				token: '123456798',
+				name: 'avatar'
+			},
+			headers: {
+				smail: '*_~'
+			},
+			imgDataUrl: '' // the datebase64 url of created image
+		},
+		components: {
+			'my-upload': myUpload
+		},
+		methods: {
+			toggleShow() {
+				this.show = !this.show;
+			},
+            /**
+			 * crop success
+			 *
+			 * [param] imgDataUrl
+			 * [param] field
+			 */
+			cropSuccess(imgDataUrl, field){
+				console.log('-------- crop success --------');
+				this.imgDataUrl = imgDataUrl;
+			},
+			/**
+			 * upload success
+			 *
+			 * [param] jsonData  server api return data, already json encode
+			 * [param] field
+			 */
+			cropUploadSuccess(jsonData, field){
+				console.log('-------- upload success --------');
+				console.log(jsonData);
+				console.log('field: ' + field);
+			},
+			/**
+			 * upload fail
+			 *
+			 * [param] status    server api return error status, like 500
+			 * [param] field
+			 */
+			cropUploadFail(status, field){
+				console.log('-------- upload fail --------');
+				console.log(status);
+				console.log('field: ' + field);
+			}
+		}
+	});
+</script>
 ```
 
 #### Example vue@2
@@ -201,7 +173,7 @@ $ npm install vue-image-crop-upload
 <script>
 	import 'babel-polyfill'; // es6 shim
 	import Vue from 'vue';
-	import myUpload from 'vue-image-crop-upload';
+	import myUpload from 'vue-image-crop-upload/upload-2.vue';
 
 	new Vue({
 		el: '#app',
@@ -348,6 +320,9 @@ $ npm install vue-image-crop-upload
 # 中文文档
 
 ## 更新日志
+#### @3.0.0
+- 兼容vue3
+
 #### @2.4.0
 - 增加了“src-file-set”回调事件，在用户选择文件之后触发。
 
@@ -526,6 +501,87 @@ $ npm install vue-image-crop-upload
 ```
 
 #### 使用示例 vue@2
+```html
+<div id="app">
+	<a class="btn" @click="toggleShow">设置头像</a>
+	<my-upload field="img"
+        @crop-success="cropSuccess"
+        @crop-upload-success="cropUploadSuccess"
+        @crop-upload-fail="cropUploadFail"
+        v-model="show"
+		:width="300"
+		:height="300"
+		url="/upload"
+		:params="params"
+		:headers="headers"
+		img-format="png"></my-upload>
+	<img :src="imgDataUrl">
+</div>
+
+<script>
+	import 'babel-polyfill'; // es6 shim
+	import Vue from 'vue';
+	import myUpload from 'vue-image-crop-upload/upload-2.vue';
+
+	new Vue({
+		el: '#app',
+		data: {
+			show: true,
+			params: {
+				token: '123456798',
+				name: 'avatar'
+			},
+			headers: {
+				smail: '*_~'
+			},
+			imgDataUrl: '' // the datebase64 url of created image
+		},
+		components: {
+			'my-upload': myUpload
+		},
+		methods: {
+			toggleShow() {
+				this.show = !this.show;
+			},
+            /**
+			 * crop success
+			 *
+			 * [param] imgDataUrl
+			 * [param] field
+			 */
+			cropSuccess(imgDataUrl, field){
+				console.log('-------- crop success --------');
+				this.imgDataUrl = imgDataUrl;
+			},
+			/**
+			 * upload success
+			 *
+			 * [param] jsonData   服务器返回数据，已进行json转码
+			 * [param] field
+			 */
+			cropUploadSuccess(jsonData, field){
+				console.log('-------- upload success --------');
+				console.log(jsonData);
+				console.log('field: ' + field);
+			},
+			/**
+			 * upload fail
+			 *
+			 * [param] status    server api return error status, like 500
+			 * [param] field
+			 */
+			cropUploadFail(status, field){
+				console.log('-------- upload fail --------');
+				console.log(status);
+				console.log('field: ' + field);
+			}
+		}
+	});
+
+</script>
+```
+
+#### 使用示例 vue@3
 ```html
 <div id="app">
 	<a class="btn" @click="toggleShow">设置头像</a>

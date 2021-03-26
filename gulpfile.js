@@ -23,57 +23,69 @@ gulp.task('css', function() {
 gulp.task('js', function() {
 	var webpack_config = {
 		module: {
-			loaders: [
-				{
-					test: /\.js$/,
-					loader: 'babel',
-					query: {
-						presets: [
-							'es2015', 'stage-3'
-						],
-						plugins: [
-							['transform-runtime', {
-								helpers: false,
-								polyfill: false,
-								regenerator: true
-							}]
-						]
-					}
-				}, {
-					test: /\.css$/,
-					loaders: ['style', 'css']
-				}, {
-					test: /\.json$/,
-					loaders: ['json']
-				}, {
-					test: /\.(scss|sass)$/,
-					loaders: ['style', 'css', 'sass']
-				}, {
-					test: /\.(html|tpl)$/,
-					loaders: ['html']
-				}, {
-					test: /\.vue$/,
-					loaders: ['vue']
+			loaders: [{
+				test: /\.js$/,
+				loader: 'babel',
+				query: {
+					presets: [
+						'es2015', 'stage-3'
+					],
+					plugins: [
+						['transform-runtime', {
+							helpers: false,
+							polyfill: false,
+							regenerator: true
+						}]
+					]
 				}
-			]
+			}, {
+				test: /\.css$/,
+				loaders: ['style', 'css']
+			}, {
+				test: /\.json$/,
+				loaders: ['json']
+			}, {
+				test: /\.(scss|sass)$/,
+				loaders: ['style', 'css', 'sass']
+			}, {
+				test: /\.(html|tpl)$/,
+				loaders: ['html']
+			}, {
+				test: /\.vue$/,
+				loaders: ['vue']
+			}]
 		}
 	};
 
 	gulp.src('./example/demo.js')
-		.pipe($.plumber({errorHandler: _errrHandler}))
+		.pipe($.plumber({
+			errorHandler: _errrHandler
+		}))
 		.pipe(named(function() {
 			return 'demo-src';
 		}))
-		.pipe(webpack(webpack_config))/*.pipe($.uglify())*/
-	    .pipe(gulp.dest('./example'));
+		.pipe(webpack(webpack_config)) /*.pipe($.uglify())*/
+		.pipe(gulp.dest('./example'));
 
 	gulp.src('./example-2/demo.js')
-		.pipe($.plumber({errorHandler: _errrHandler}))
+		.pipe($.plumber({
+			errorHandler: _errrHandler
+		}))
 		.pipe(named(function() {
 			return 'demo-src';
 		}))
-		.pipe(webpack(webpack_config))/*.pipe($.uglify())*/
-	    .pipe(gulp.dest('./example-2'));
+		.pipe(webpack(webpack_config)) /*.pipe($.uglify())*/
+		.pipe(gulp.dest('./example-2'));
+
+	gulp.src('./example-3/demo.js')
+		.pipe($.plumber({
+			errorHandler: _errrHandler
+		}))
+		.pipe(named(function() {
+			return 'demo-src';
+		}))
+		.pipe(webpack(webpack_config)) /*.pipe($.uglify())*/
+		.pipe(gulp.dest('./example-3'));
 });
 
 gulp.task('serve', function() {
@@ -83,11 +95,11 @@ gulp.task('serve', function() {
 		}
 	});
 	gulp.watch([
-		'./example-2/demo.js','./example/demo.js', './*.vue', './*.css'
+		'./example-3/demo.js', './example-2/demo.js', './example/demo.js', './*.vue', './*.css'
 	], ['js']);
 	gulp.watch(['./scss/*.scss'], ['css']);
 	gulp.watch([
-		'./example/**/*.html', './example/demo-src.js', './example-2/**/*.html', './example-2/demo-src.js'
+		'./example/**/*.html', './example/demo-src.js', './example-2/**/*.html', './example-2/demo-src.js', './example-3/**/*.html', './example-3/demo-src.js'
 	], function() {
 		reload();
 	});
