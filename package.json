@@ -1,6 +1,6 @@
 {
-  "name": "vue-image-crop-upload",
-  "version": "2.5.0",
+  "name": "vue-image-crop-upload-ex",
+  "version": "2.5.1",
   "description": "a vue plgin for image upload and crop（vue图片剪裁上传插件）",
   "main": "upload-2.vue",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dai-siki/vue-image-crop-upload.git"
+    "url": "git+https://github.com/xiziliu/vue-image-crop-upload.git"
   },
   "keywords": [
     "vue",

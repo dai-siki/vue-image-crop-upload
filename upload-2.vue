@@ -193,6 +193,11 @@ export default {
 			type: Boolean,
 			'default': false
 		},
+		//裁剪网络图片时是否跨域
+		crossorigin:{
+			type:Boolean,
+			'default':false
+		},
 		method: {
 			type: String,
 			'default': 'POST'
@@ -254,7 +259,6 @@ export default {
 			sourceImg: null,
 			sourceImgUrl: '',
 			createImgUrl: '',
-
 			// 原图片拖动事件初始值
 			sourceImgMouseDown: {
 				on: false,
@@ -399,6 +403,11 @@ export default {
 		}
 	},
 	methods: {
+		//编辑网络图片
+		cropRemoteImg(imgUrl){
+			this.sourceImgUrl = imgUrl;
+			this.startCrop();
+		},
 		// 点击波纹效果
 		ripple(e) {
 			effectRipple(e);
@@ -499,10 +508,14 @@ export default {
 					scale,
 					sourceImgUrl,
 					sourceImgMasking,
-					lang
+					lang,
+					crossorigin
 				} = that,
 				sim = sourceImgMasking,
 				img = new Image();
+			if(crossorigin)
+				img.crossOrigin = "Anonymous";
+		
 			img.src = sourceImgUrl;
 			img.onload = function() {
 				let nWidth = img.naturalWidth,
