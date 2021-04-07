@@ -117,7 +117,8 @@ export default {
 		},
 		// 原名key，类似于id，触发事件会带上（如果一个页面多个图片上传控件，可以做区分
 		ki: {
-			'default': 0
+			type: String,
+			'default': '0'
 		},
 		// 显示该控件与否
 		value: {
