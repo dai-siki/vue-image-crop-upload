@@ -10141,12 +10141,16 @@
 
 			params: {
 				type: Object,
-				'default': null
+				'default': function _default() {
+					return null;
+				}
 			},
 
 			headers: {
 				type: Object,
-				'default': null
+				'default': function _default() {
+					return null;
+				}
 			},
 
 			width: {
@@ -10186,7 +10190,9 @@
 
 			langExt: {
 				type: Object,
-				'default': null
+				'default': function _default() {
+					return null;
+				}
 			},
 
 			imgFormat: {
@@ -10213,7 +10219,9 @@
 			},
 			allowImgFormat: {
 				type: Array,
-				'default': ['gif', 'jpg', 'png']
+				'default': function _default() {
+					return ['gif', 'jpg', 'png'];
+				}
 			}
 		},
 

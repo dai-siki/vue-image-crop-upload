@@ -133,12 +133,12 @@ export default {
 		// 其他要上传文件附带的数据，对象格式
 		params: {
 			type: Object,
-			'default': null
+			'default': ()=>null
 		},
 		//Add custom headers
 		headers: {
 			type: Object,
-			'default': null
+			'default': ()=>null
 		},
 		// 剪裁图片的宽
 		width: {
@@ -178,7 +178,7 @@ export default {
 		// 语言包
 		langExt: {
 			type: Object,
-			'default': null
+			'default': ()=>null
 		},
 		// 图片上传格式
 		imgFormat: {
@@ -205,7 +205,7 @@ export default {
 	    },
 	    allowImgFormat: {
 	    	type: Array,
-	    	'default': [
+	    	'default': ()=>[
 		    	'gif',
 			'jpg',
 			'png'
