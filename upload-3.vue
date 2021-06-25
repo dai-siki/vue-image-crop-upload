@@ -938,5 +938,5 @@ export default {
 </style> -->
 
 <style>
-@import url('upload.css');
+@import url('./upload.css');
 </style>
