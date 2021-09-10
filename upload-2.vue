@@ -455,6 +455,9 @@ export default {
 
 		// 检测选择的文件是否合适
 		checkFile(file) {
+			if (!file) {
+				return false;
+			}
 			let that = this,
 				{
 					lang,
