@@ -476,4 +476,42 @@ export default {
 			lowestPx: '이미지의 크기는 적어도 다음 사이즈보다 커야 합니다: '
 		}
 	},
+	sk: {
+		hint: 'Kliknite pre výber alebo presuňte kurzorom súbor z počítača',
+		loading: 'Nahrávanie…',
+		noSupported: 'Prehliadač nie je podporovaný, prosím použite IE10+ alebo iný prehliadač',
+		success: 'Prenos úspešný',
+		fail: 'Prenos zlyhal',
+		preview: 'Náhľad',
+		btn: {
+			off: 'Zrušiť',
+			close: 'Zatvoriť',
+			back: 'Späť',
+			save: 'Uložiť'
+		},
+		error: {
+			onlyImg: 'Len obrázok',
+			outOfSize: 'Obrázok prekročil limit veľkosti: ',
+			lowestPx: 'Rozlíšenie obrázka je príliš malé. Minimum: '
+		}
+	},
+	cs: {
+		hint: 'Klikněte pro výběr nebo přetáhněte soubor z počítače',
+		loading: 'Nahrávání…',
+		noSupported: 'Prohlížeč není podporován, prosím použijte IE10+ nebo jiný prohlížeč',
+		success: 'Přenos úspěšný',
+		fail: 'Přenos selhal',
+		preview: 'Náhled',
+		btn: {
+			off: 'Zrušit',
+			close: 'Zavřít',
+			back: 'Zpět',
+			save: 'Uložit'
+		},
+		error: {
+			onlyImg: 'Jen obrázek',
+			outOfSize: 'Obrázek překročil limit velikosti: ',
+			lowestPx: 'Rozlišení obrázku je příliš malé. Minimum: '
+		}
+	},
 };
