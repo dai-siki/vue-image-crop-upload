@@ -512,5 +512,6 @@ export default {
 			onlyImg: 'Jen obrázek',
 			outOfSize: 'Obrázek překročil limit velikosti: ',
 			lowestPx: 'Rozlišení obrázku je příliš malé. Minimum: '
+		}
 	},
 };
