@@ -863,7 +863,7 @@ export default {
                 function(resData) {
                     if (that.value) {
                         that.loading = 2;
-                        that.$dispatch('cropUploadSuccess', resData, field, ki);
+                        that.$dispatch('cropUploadSuccess', resData, field, createImgUrl, ki);
                     }
 
                 },
@@ -873,7 +873,7 @@ export default {
                         that.loading = 3;
                         that.hasError = true;
                         that.errorMsg = lang.fail;
-                        that.$dispatch('cropUploadFail', sts, field, ki);
+                        that.$dispatch('cropUploadFail', sts, field, createImgUrl, ki);
                     }
                 }
             );
