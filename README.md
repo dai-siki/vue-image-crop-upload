@@ -148,7 +148,7 @@ $ npm install vue-image-crop-upload
 			 * [param] jsonData  server api return data, already json encode
 			 * [param] field
 			 */
-			cropUploadSuccess(jsonData, field){
+			cropUploadSuccess(jsonData, field, imgDataUrl){
 				console.log('-------- upload success --------');
 				console.log(jsonData);
 				console.log('field: ' + field);
@@ -159,7 +159,7 @@ $ npm install vue-image-crop-upload
 			 * [param] status    server api return error status, like 500
 			 * [param] field
 			 */
-			cropUploadFail(status, field){
+			cropUploadFail(status, field, imgDataUrl){
 				console.log('-------- upload fail --------');
 				console.log(status);
 				console.log('field: ' + field);
@@ -228,7 +228,7 @@ $ npm install vue-image-crop-upload
 			 * [param] jsonData  server api return data, already json encode
 			 * [param] field
 			 */
-			cropUploadSuccess(jsonData, field){
+			cropUploadSuccess(jsonData, field, imgDataUrl){
 				console.log('-------- upload success --------');
 				console.log(jsonData);
 				console.log('field: ' + field);
@@ -239,7 +239,7 @@ $ npm install vue-image-crop-upload
 			 * [param] status    server api return error status, like 500
 			 * [param] field
 			 */
-			cropUploadFail(status, field){
+			cropUploadFail(status, field, imgDataUrl){
 				console.log('-------- upload fail --------');
 				console.log(status);
 				console.log('field: ' + field);
@@ -308,7 +308,7 @@ $ npm install vue-image-crop-upload
 			 * [param] jsonData   server api return data, already json encode
 			 * [param] field
 			 */
-			cropUploadSuccess(jsonData, field){
+			cropUploadSuccess(jsonData, field, imgDataUrl){
 				console.log('-------- upload success --------');
 				console.log(jsonData);
 				console.log('field: ' + field);
@@ -319,7 +319,7 @@ $ npm install vue-image-crop-upload
 			 * [param] status    server api return error status, like 500
 			 * [param] field
 			 */
-			cropUploadFail(status, field){
+			cropUploadFail(status, field, imgDataUrl){
 				console.log('-------- upload fail --------');
 				console.log(status);
 				console.log('field: ' + field);
