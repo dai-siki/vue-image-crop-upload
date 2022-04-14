@@ -896,7 +896,9 @@ export default {
 						return;
 					}
 					if (this.status === 200 || this.status === 201 || this.staus ===202 ) {
-						resolve(JSON.parse(this.responseText));
+						//防止阿里云OSS接口返回为空时报错
+						let responseText = this.responseText || "{}"
+						resolve(JSON.parse(responseText));
 					} else {
 						reject(this.status);
 					}
