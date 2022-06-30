@@ -170,6 +170,10 @@ export default {
 			type: Number,
 			'default': 10240
 		},
+		maxSizeErrorInMegaByte: {
+			type: Boolean,
+			'default': false
+		},
 		// 语言类型
 		langType: {
 			type: String,
@@ -488,7 +492,8 @@ export default {
 			let that = this,
 				{
 					lang,
-					maxSize
+					maxSize,
+					maxSizeErrorInMegaByte
 				} = that;
 			// 仅限图片
 			if (file.type.indexOf('image') === -1) {
@@ -500,7 +505,13 @@ export default {
 			// 超出大小
 			if (file.size / 1024 > maxSize) {
 				that.hasError = true;
-				that.errorMsg = lang.error.outOfSize + maxSize + 'kb';
+				if(maxSizeErrorInMegaByte) {
+					that.errorMsg = lang.error.outOfSize + Math.round((maxSize/1000)*10)/10 + 'mb';
+				}
+				else {
+					that.errorMsg = lang.error.outOfSize + maxSize + 'kb';
+				}
+				
 				return false;
 			}
 			return true;
