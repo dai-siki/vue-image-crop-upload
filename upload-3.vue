@@ -170,6 +170,10 @@ export default {
 			type: Number,
 			'default': 10240
 		},
+		maxSizeErrorInMegaByte: {
+			type: Boolean,
+			'default': false
+		},
 		// 语言类型
 		langType: {
 			type: String,
@@ -500,7 +504,12 @@ export default {
 			// 超出大小
 			if (file.size / 1024 > maxSize) {
 				that.hasError = true;
-				that.errorMsg = lang.error.outOfSize + maxSize + 'kb';
+				if(maxSizeErrorInMegaByte) {
+					that.errorMsg = lang.error.outOfSize + Math.round(maxSize/1000) + 'mb';
+				}
+				else {
+					that.errorMsg = lang.error.outOfSize + maxSize + 'kb';
+				}
 				return false;
 			}
 			return true;
