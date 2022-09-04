@@ -385,8 +385,8 @@ export default {
 		hint: 'Kliknij lub upuść plik tutaj',
 		loading: 'Wgrywanie…',
 		noSupported: 'Twoja przeglądarka nie jest wspierana, użyj IE10+ lub innej przeglądarki',
-		success: 'Błąd',
-		fail: 'Sukces',
+		success: 'Sukces',
+		fail: 'Błąd',
 		preview: 'Podgląd',
 		btn: {
 			off: 'Anuluj',
